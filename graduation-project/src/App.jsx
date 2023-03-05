@@ -3,8 +3,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Login from "./pages/login/Login";
 import Landing from "./pages/landing/Landing";
+import Branch from "./pages/branch/Branch";
 
-// import "./App.css";
+import "./App.css";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/branch",
+    element: <Branch />,
   },
 ]);
 
