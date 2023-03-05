@@ -1,5 +1,5 @@
 import React from "react";
-import "./landing.css";
+// import "./landing.css";
 
 export default function Landing() {
   return (
@@ -38,6 +38,7 @@ export default function Landing() {
       <a href="#contact" className="go-down">
         <i className="fas fa-angle-double-down fa-2x"></i>
       </a>
+      <script src="../app.js"></script>
     </div>
   );
 }

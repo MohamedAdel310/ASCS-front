@@ -8,24 +8,24 @@
   padding: 0;
 }
 
-
 :root {
   --main-color: #243762;
   --socondary-color: #ffaa01;
 }
 
-body {
+.body-login {
+  background-color: #fff;
   display: grid;
   place-items: center;
   font-family: "montserrat", sans-serif;
   height: 100vh;
 }
-h1 {
+.h1-login {
   font-weight: bold;
   margin: 0;
   color: var(--socondary-color);
 }
-p {
+.p-login {
   font-size: 1em;
   font-weight: 100;
   line-height: 1.3em;
@@ -33,10 +33,10 @@ p {
   margin: 20px 0;
   color: white;
 }
-span {
+.span-login {
   font-size: 12px;
 }
-button {
+.button-login {
   border-radius: 2em;
   border: 1px solid #fff;
   background: var(--socondary-color);
@@ -47,18 +47,18 @@ button {
   cursor: pointer;
   color: white;
 }
-button a {
+.button-login .a-login {
   color: white;
 }
-button:active {
+.button-login:active {
   transform: scale(0.95);
 }
 
-button:focus {
+.button-login:focus {
   outline: none;
 }
 
-form {
+.form-login {
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@ form {
   height: 100%;
   text-align: center;
 }
-input {
+.input-login {
   background-color: #eeee;
   border: none;
   font-size: 16px;
@@ -77,18 +77,18 @@ input {
   width: 100%;
 }
 
-a {
+.a-login {
   color: var(--main-color);
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
 }
 
-button.ghost {
+.button-login .ghost {
   background-color: var(--socondary-color);
   border-color: transparent;
 }
-.container {
+.container-login {
   background-color: #fff;
   border-radius: 2em;
   /* box-shadow: 0 14em 28px rgba(0, 0, 0, 0.25); */
@@ -100,7 +100,7 @@ button.ghost {
   min-height: 550px;
 }
 
-.form-container {
+.form-container-login {
   position: absolute;
   top: 0;
   height: 100%;
@@ -119,17 +119,17 @@ button.ghost {
   z-index: 1;
 }
 
-.container.right-panel-action .sign-in {
+.container-login.right-panel-action .sign-in {
   transform: translateX(100%);
 }
 
-.container.right-panel-action .sign-up {
+.container-login.right-panel-action .sign-up {
   transform: translateX(100%);
   opacity: 1;
   z-index: 5;
   animation: show 0.6s;
 }
-input:focus {
+.input-login:focus {
   outline-style: none;
 }
 @keyframes show {
@@ -145,21 +145,21 @@ input:focus {
   }
 }
 
-.container.right-panel-action .overlay-container {
+.container-login.right-panel-action .overlay-container-login {
   transform: translateX(-100%);
 }
 
-.container.right-panel-action .overlay {
+.container-login.right-panel-action .overlay {
   transform: translateX(50%);
 }
-.container.right-panel-action .overlay-left {
+.container-login.right-panel-action .overlay-left {
   transform: translateX(0);
 }
-.container.right-panel-action .overlay-right {
+.container-login.right-panel-action .overlay-right {
   transform: translateX(20%);
 }
 
-.overlay-container {
+.overlay-container-login {
   position: absolute;
   top: 0;
   left: 50%;
@@ -206,10 +206,10 @@ input:focus {
   transform: translateX(0);
 }
 
-.social-container {
+.social-container-login {
   margin: 20px 0;
 }
-.social-container a {
+.social-container-login .a-login {
   border: 1px solid #dddddd;
   border-radius: 50%;
   display: inline-flex;
