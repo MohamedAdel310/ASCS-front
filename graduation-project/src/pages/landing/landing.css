@@ -1,0 +1,221 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --main-color: #243762;
+  --socondary-color: #ffaa01;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.main {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  background-color: var(--main-color);
+  z-index: 1;
+  min-width: 100%;
+}
+
+.box1 {
+  position: absolute;
+  width: 568px;
+  height: 622px;
+  background-image: url(../../assets/image/logo1.png);
+  bottom: -100%;
+  left: 30%;
+  animation: show0 2s forwards, show1 3s forwards 3s;
+}
+.box1::after {
+  content: "";
+  position: absolute;
+  width: 568px;
+  height: 622px;
+  background-image: url(../../assets/image/logo2.png);
+  left: 0;
+  z-index: -1;
+}
+@keyframes show0 {
+  from {
+    bottom: -100%;
+  }
+  to {
+    bottom: 0;
+  }
+}
+@keyframes show1 {
+  from {
+    left: 30%;
+    width: 530px;
+  }
+  to {
+    left: 50%;
+    width: 0;
+  }
+}
+.box2 {
+  height: auto;
+  width: auto;
+  font-family: "Bahnschrift Condensed";
+  color: white;
+  font-size: 5em;
+  font-weight: 500;
+  line-height: 130px;
+  position: absolute;
+  top: 250px;
+  left: 100px;
+  overflow: hidden;
+  letter-spacing: 10px;
+}
+.box2 .text1 {
+  position: relative;
+  left: -100%;
+  animation: show2 2s forwards 3s;
+  color: var(--socondary-color);
+}
+@keyframes show2 {
+  form {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+.box3 {
+  overflow: hidden;
+}
+.box3 .container {
+  width: 100%;
+  position: absolute;
+  top: -100%;
+  animation: show3 2s forwards 2.5s;
+}
+@keyframes show3 {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0;
+  }
+}
+/* .main .circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .circle .text {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 100%;
+  height: 100%;
+}
+.main .circle .text span {
+  position: absolute;
+  left: 50%;
+  transform-origin: 0 100px;
+  font-size: 1.2em;
+} */
+.menu {
+  font-family: "Behnschrift Condensed";
+  font-size: 14px;
+  color: white;
+  letter-spacing: 2px;
+  margin-right: 40px;
+  margin-top: 20px;
+  float: right;
+  width: fit-content;
+}
+.menu ul {
+  list-style: none;
+  display: flex;
+}
+.menu ul li {
+  display: inline-block;
+  margin-left: 40px;
+  cursor: pointer;
+  width: 70px;
+  text-align: center;
+  transition: 0.4s;
+  border-radius: 10px;
+}
+.menu ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  transition: 0.2s;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--socondary-color);
+}
+.menu .login {
+  margin-left: 125px;
+}
+.menu ul li:hover {
+  background-color: var(--socondary-color);
+  border-radius: 10px;
+  transition-delay: 0.1s;
+}
+.menu ul li a:hover {
+  color: white;
+  margin: auto;
+  flex: 1;
+}
+.main .go-down {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: var(--transition);
+  color: var(--main-color);
+  bottom: -100%;
+  animation: show6 2s forwards 2.5s;
+}
+@keyframes show6 {
+  from {
+    bottom: -100%;
+  }
+  to {
+    bottom: 25px;
+  }
+}
+.main .go-down:hover {
+  bottom: 30px;
+}
+.main .go-down i {
+  animation: bouncing 1.5s infinite;
+  padding-bottom: 20px;
+}
+@keyframes bouncing {
+  0%,
+  10%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40%,
+  60% {
+    transform: translateY(-20%);
+  }
+}
+/** @format */
