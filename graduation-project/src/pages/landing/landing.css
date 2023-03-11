@@ -1,24 +1,10 @@
 /** @format */
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-
-* {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-:root {
-  --main-color: #243762;
-  --socondary-color: #ffaa01;
-}
-
 html {
   scroll-behavior: smooth;
 }
-.main {
+.landing {
   position: relative;
   height: 100%;
   width: 100%;
@@ -110,7 +96,7 @@ html {
     top: 0;
   }
 }
-/* .main .circle {
+/* .landing .circle {
   position: relative;
   width: 200px;
   height: 200px;
@@ -119,14 +105,14 @@ html {
   justify-content: center;
   align-items: center;
 }
-.main .circle .text {
+.landing .circle .text {
   position: absolute;
   top: 30px;
   left: 30px;
   width: 100%;
   height: 100%;
 }
-.main .circle .text span {
+.landing .circle .text span {
   position: absolute;
   left: 50%;
   transform-origin: 0 100px;
@@ -179,7 +165,7 @@ html {
   margin: auto;
   flex: 1;
 }
-.main .go-down {
+.landing .go-down {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -196,10 +182,10 @@ html {
     bottom: 25px;
   }
 }
-.main .go-down:hover {
+.landing .go-down:hover {
   bottom: 30px;
 }
-.main .go-down i {
+.landing .go-down i {
   animation: bouncing 1.5s infinite;
   padding-bottom: 20px;
 }
