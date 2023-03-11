@@ -1,5 +1,5 @@
 import React from "react";
-import "./application.css";
+import "./style/application.css";
 
 import Dashboard from "./components/Dashboard";
 import Attendance from "./components/Attendace";
