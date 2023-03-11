@@ -16,6 +16,3 @@ inputs.forEach((input) => {
   input.addEventListener("focus", focusFunc);
   input.addEventListener("blur", blurFunc);
 });
-
-
-// hello sa3dalla
