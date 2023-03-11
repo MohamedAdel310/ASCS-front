@@ -3,7 +3,7 @@ import branchLogo from "./../../assets/image/branch.jpg";
 
 export default function Card(props) {
   return (
-    <a href="./dashboard/Dashboard1.html">
+    <a href="/application">
       <div className="img">
         <div className="info">
           <img src={branchLogo} alt="branch logo" />
