@@ -73,7 +73,7 @@ export default function Login() {
               Forget Your Password?
             </a>
             <button className="button-login">
-              <a className="a-login" href="./brance.html">
+              <a className="a-login" href="/branch">
                 Sign In
               </a>
             </button>

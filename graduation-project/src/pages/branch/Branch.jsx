@@ -15,16 +15,16 @@ export default function Branch() {
         </div>
       </div>
       <div className="container">
+        <Card name="6 Octobar" />
+        <Card name="test1" />
+        <Card name="test2" />
+        {/* <Card />
         <Card />
         <Card />
         <Card />
         <Card />
         <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card /> */}
       </div>
     </div>
   );

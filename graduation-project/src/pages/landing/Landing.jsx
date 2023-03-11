@@ -29,7 +29,7 @@ export default function Landing() {
                 <a href="#contact">Contact Us</a>
               </li>
               <li className="login">
-                <a href="./login.html">Login</a>
+                <a href="/login">Login</a>
               </li>
             </ul>
           </div>
