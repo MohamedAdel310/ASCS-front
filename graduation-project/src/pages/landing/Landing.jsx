@@ -1,9 +1,9 @@
 import React from "react";
-// import styles from "./landing.css";
+import "./landing.css";
 
 export default function Landing() {
   return (
-    <div className="main">
+    <div className="landing">
       <div className="box1"></div>
       <div className="box2">
         <div className="text1">

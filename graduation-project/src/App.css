@@ -7,6 +7,10 @@
 }
 
 :root {
-  --main-color: #243762;
+  --main-color: #0d1b3b;
   --socondary-color: #ffaa01;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
 }
