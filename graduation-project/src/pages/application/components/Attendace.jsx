@@ -2,7 +2,11 @@ import React from "react";
 import "../style/attendance.css";
 
 export default function Attendance() {
-  return <h1>hello from Attendance page</h1>;
+  return (
+    <div className="attendance">
+      <h2>Attendance</h2>
+    </div>
+  );
 }
 
 // sa3dalla
