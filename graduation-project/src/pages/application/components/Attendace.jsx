@@ -1,10 +1,13 @@
 import React from "react";
-import "../style/attendance.css";
 import ChartDonate from "./Chart-donate";
+import "../style/attendance.css";
+
 export default function Attendance() {
   return (
-    <div>
-      <ChartDonate/>
+    <div className="attendance">
+      <ChartDonate />
     </div>
   );
 }
+
+// sa3dalla
