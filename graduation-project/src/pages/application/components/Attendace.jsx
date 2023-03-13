@@ -4,7 +4,7 @@ import TableDay from "./Table-day";
 import "../style/attendance.css";
 export default function Attendance() {
       return (
-        <div className="attendane">
+        <div className="attendance">
           <h3>Attendance</h3>
           <ChartDonate/>
           <TableDay/>
