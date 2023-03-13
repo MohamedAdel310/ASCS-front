@@ -3,6 +3,7 @@
   padding-right: 100px;
   padding-bottom: 50px;
   background: var(--main-color);
+  height: 100vh;
 }
 
 .branch .text {
