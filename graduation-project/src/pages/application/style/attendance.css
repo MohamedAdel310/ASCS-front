@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .attendance {
   padding: 20px;
 }
@@ -66,7 +60,8 @@
 }
 
 #number {
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: 700;
   color: #555;
 }
 
