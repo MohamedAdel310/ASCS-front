@@ -126,6 +126,20 @@ export default function TableDay() {
             <td>08:23</td>
             <td>1230</td>
           </tr>
+          <tr>
+            <td>خالد الشربيني احمد حسن</td>
+            <td>worhshop</td>
+            <td>present</td>
+            <td>08:23</td>
+            <td>1230</td>
+          </tr>
+          <tr>
+            <td>خالد الشربيني احمد حسن</td>
+            <td>worhshop</td>
+            <td>present</td>
+            <td>08:23</td>
+            <td>1230</td>
+          </tr>
         </tbody> 
       </table>
     </div>
