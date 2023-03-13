@@ -1,6 +1,6 @@
 import React from "react";
-import ChartDonate from "./Chart-donate";
-import TableDay from "./Table-day";
+import ChartDonate from "./components/Chart-donate";
+import TableDay from "./components/Table-day";
 import "../style/attendance.css";
 export default function Attendance() {
   return (

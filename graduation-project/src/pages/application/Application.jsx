@@ -1,11 +1,11 @@
 import React from "react";
 import "./style/application.css";
 
-import Dashboard from "./components/Dashboard";
-import Attendance from "./components/Attendace";
-import Stream from "./components/Stream";
-import Employees from "./components/Employees";
-import DailyReport from "./components/Daily-Report";
+import Dashboard from "./dashboard/Dashboard";
+import Attendance from "./attendance/Attendace";
+import Stream from "./stream/Stream";
+import Employees from "./employees/Employees";
+import DailyReport from "./daily-report/Daily-Report";
 
 export default function Application(props) {
   return (
