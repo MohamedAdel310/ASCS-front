@@ -2,3 +2,37 @@
     padding: 20px;
 }
 
+.attendance h3{
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead{
+    position: sticky;
+    top: 0;
+}
+
+table thead tr{
+    text-align: left;
+    background-color: white;
+    height: 40px;
+}
+
+table tbody{
+    background-color: #f3f3f3;
+}
+
+td, th{
+    padding: 10px;
+}
+
+table tbody tr{
+    border: 1px solid black;
+}
