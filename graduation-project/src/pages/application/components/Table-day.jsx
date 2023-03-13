@@ -13,7 +13,7 @@ export default function TableDay() {
             <th>Leave Time</th>
           </tr>
         </thead>
-        <tbody> 
+        <tbody>
           <tr>
             <td>خالد الشربيني احمد حسن</td>
             <td>worhshop</td>
@@ -140,7 +140,7 @@ export default function TableDay() {
             <td>08:23</td>
             <td>1230</td>
           </tr>
-        </tbody> 
+        </tbody>
       </table>
     </div>
   );
