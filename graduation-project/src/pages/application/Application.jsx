@@ -7,13 +7,15 @@ import Stream from "./stream/Stream";
 import Employees from "./employees/Employees";
 import DailyReport from "./daily-report/Daily-Report";
 
+import logo from "./../../../public/logo.svg";
+
 export default function Application(props) {
   return (
     <div className="dashboard">
       <div className="container">
         <div className="links">
-          <div className="logo">
-            <img src="" alt="" />
+          <div className="application--logo">
+            <img src={logo} alt="" className="application--logo--img" />
           </div>
           <ul>
             <li>
