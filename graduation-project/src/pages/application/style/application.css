@@ -1,5 +1,5 @@
-.dashboard{
-  height: 100vh;
+.dashboard .links{
+  min-height: 100vh;
 }
 
 .dashboard .container {
