@@ -3,7 +3,7 @@ export default function ChartDonate(props) {
   return (
     <div className="container">
       {console.log(props.num)}
-      <h4>Absense</h4>
+      <h4>{props.text}</h4>
       <div className="skills">
         <div className="outer">
           <div className="inner">
