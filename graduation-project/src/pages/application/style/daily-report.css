@@ -1,0 +1,153 @@
+.daily-report{
+    padding: 50px;
+  }
+  
+  .daily-report--header {
+    padding: 30px 0;
+  
+    padding: 20px;
+    grid: 20px;
+  }
+
+  .card-voilation {
+    display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-gap: 20px;
+  padding: 11px ;
+}
+  .card-violation--header{
+  display: flex;
+  border: 2px solid #ddd ;
+  box-shadow:2px 2px 2px 0px #ddd;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  padding: 15px ;
+  border-radius: 20px;
+  position: relative;
+
+}
+.card-violation--header #number {
+    font-size: 25px;
+    font-weight: 700;
+    left: auto;
+    color: #000000;
+  }
+  #text{
+    font-size: 15px;
+    font-weight: 700;
+    color: #000000;
+    right: 0;
+
+  }
+.card-violation--header img{
+    background-color: white;
+    size: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+
+}
+.status-box{
+  display: grid;
+  padding: 0px;
+  grid:10px;
+  gap: 20px;
+justify-content: center;
+  align-items: start;
+}
+.status-siola {
+    display: flex;
+    padding: 20px;
+    border: 2px solid #ddd ;
+    box-shadow:2px 2px 2px 0px #ddd;
+    justify-content: ltr;
+    width: 1100px;
+    height: 140px;
+    display: grid;
+    grid-gap: 0;
+    border-radius: 20px;
+    position:relative
+    ;
+}
+#status-violation--header
+{
+    font-size: 15px;
+    font-weight: 700;
+    color: #000000;
+    text-align:start
+    
+}
+#status-violation--info{
+
+  font-size: 12px;
+    font-weight: 100;
+    color: #000000;
+    text-align:start;
+    
+}
+#bold{
+  font-weight: bolder;
+  font-weight: 900;
+}
+.critcal_container{
+  width: 200px;
+  border-radius: .5em;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+  
+}
+.critcal_level1{
+  display: flex;
+  padding: 5px;
+  background-color: #01ff63;
+  width: 25px;
+  height:18px;
+  border-radius: 5px;
+  position:relative;
+
+ 
+}
+.critcal_level2{
+  display: flex;
+  background-color: #f3ecec;
+  width: 25px;
+  height:18px;
+  border-radius: 5px;
+  position:relative;
+ 
+}
+
+.critcal_level3{
+  display: flex;
+ 
+  background-color: #f3ecec;
+  width: 25px;
+  height:18px;
+  border-radius: 5px;
+  position:relative;
+  justify-content: space-between
+}
+.critcal_level4{
+  display: flex;
+  padding: 1px;
+  background-color: #f3ecec;
+  width: 25px;
+  height:18px;
+  border-radius: 5px;
+  position:relative;
+  justify-content: space-between
+}  
+#critcal_header{
+  font-size: 13px;
+    font-weight: 700;
+    color: #000000;
+    text-align:start;
+    justify-content: start;
+    
+
+
+}
