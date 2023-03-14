@@ -1,6 +1,7 @@
 import React from "react";
 import ChartDonate from "./components/Chart-donate";
 import TableDay from "./components/Table-day";
+import Search from "../../../components/Search";
 import "../style/attendance.css";
 export default function Attendance() {
   return (
@@ -12,6 +13,7 @@ export default function Attendance() {
         <ChartDonate num="18" />
         <ChartDonate num="15" />
       </div>
+      <Search/>
       <TableDay />
     </div>
   );
