@@ -2,8 +2,7 @@ import React from "react";
 import "../pages/application/style/Search.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
-import "../pages/application/style/normalize.css";
-export default function search() {
+export default function Search() {
     return (
         <div className="search">
             <div className="container">
@@ -14,6 +13,5 @@ export default function search() {
                     </button>
                 </form>
             </div>
-            
         </div>
     )};
