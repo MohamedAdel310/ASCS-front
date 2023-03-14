@@ -3,9 +3,6 @@ import ChartDonate from "./components/Chart-donate";
 import TableDay from "./components/Table-day";
 import Search from "../../../components/Search";
 import "../style/attendance.css";
-
-import employeeData from "./__delete__employeedata.json";
-
 export default function Attendance() {
   return (
     <div className="attendance">
@@ -21,10 +18,10 @@ export default function Attendance() {
         </div>
       </div>
       <div className="donate">
-        <ChartDonate num="30" text="Absense" />
-        <ChartDonate num="20" text="Late" />
-        <ChartDonate num="18" text="Undertime" />
-        <ChartDonate num="15" text="Overtime" />
+        <ChartDonate num="20" name="mohamed" age="23" />
+        <ChartDonate num="30" />
+        <ChartDonate num="18" />
+        <ChartDonate num="15" />
       </div>
       <TableDay />
     </div>
