@@ -156,6 +156,10 @@
   left: 0;
 }
 
+.search-box{
+  display: flex;
+}
+
 @keyframes circle1 {
   100% {
     stroke-dashoffset: 275;

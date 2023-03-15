@@ -5,14 +5,18 @@
     font-family: 'poppins' , 'sans-serif';
 }
 
-.search .container {
+.searcher{
+    padding-right: 100px;
+}
+
+.searcher .container {
     width: 400px;
     height: 40px;
     position: relative;
     margin-bottom: 25px;
 }
 
-.search button{
+.searcher button{
     background-color: transparent;
     position: absolute;
     border: none;
@@ -21,7 +25,7 @@
     cursor: pointer;
 }
 
-.search input{
+.searcher input{
     height: 40px;
     width: 400px;
     border-radius: 40px;
@@ -30,6 +34,6 @@
 }
 
 
-.search input:focus{
+.searcher input:focus{
     outline-style: none;
 }

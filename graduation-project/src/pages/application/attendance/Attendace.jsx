@@ -5,6 +5,7 @@ import "../style/attendance.css";
 import "../../../components/search"
 import employeeData from "./__delete__employeedata.json";
 import Search from "../../../components/search";
+import Filter from "./components/Filter"
 
 export default function Attendance() {
   return (
@@ -26,7 +27,10 @@ export default function Attendance() {
         <ChartDonate num="18" text="Undertime" />
         <ChartDonate num="15" text="Overtime" />
       </div>
-      <Search/>
+      <div className="search-box">
+        <Search/>
+        <Filter/>
+      </div>
       <table>
         <thead>
           <tr>

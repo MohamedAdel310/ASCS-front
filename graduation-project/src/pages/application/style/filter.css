@@ -1,0 +1,61 @@
+
+:root {
+    --main-color: #0d1b3b;
+    --socondary-color: #ffaa01;
+}
+
+.filter{
+    width: 150px;
+    height: 40px;
+    background-color: rgba(255, 170, 1, .5);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.filter h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.filter span{
+    background-color: black;
+}
+
+.filter .icon span:first-child{
+    height: 1px;
+    width: 35px;
+    position: absolute;
+    right: 20px;
+    top: 12px;
+}
+.filter .icon span:nth-child(2){
+    position: absolute;
+    right: 20px;
+    width: 35px;
+    top: 20px;
+    height: 1px;
+}
+.filter .icon span:last-child{
+    position: absolute;
+    right: 20px;
+    height: 1px;
+    width: 35px;
+    top: 28px;
+}
+
+.filter span::after{
+    content: '';
+    border: 1px solid #333;
+    border-radius: 50%;
+    right: 25px;
+    transform: translateX(-50%);
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    background-color: white;
+    top: -2px;
+} 
