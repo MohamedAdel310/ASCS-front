@@ -3,7 +3,7 @@ import "../style/employees.css";
 import "../../../components/search"
 import Search from "../../../components/search";
 import Filter from "../attendance/components/Filter";
-import TableDay from "../attendance/components/Table-day";
+import EmployeeTable from "../attendance/components/Empolyees-table";
 export default function Employees() {
   return (
     <div className="employee">
@@ -13,7 +13,7 @@ export default function Employees() {
         <Search/>
         <Filter/>
       </div>
-      <TableDay/>
+      <EmployeeTable/>
     </div>
   );
 }
