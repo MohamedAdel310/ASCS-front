@@ -11,7 +11,7 @@
 
   .card-voilation {
     display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 20px;
   padding: 11px ;
 }
@@ -28,15 +28,22 @@
   position: relative;
 
 }
+
+.card-violation--header .mistake{
+  text-align: center;
+  padding: 10px;
+}
+
 .card-violation--header #number {
     font-size: 25px;
     font-weight: 700;
     left: auto;
     color: #000000;
   }
-  #text{
-    font-size: 15px;
+  .card-violation--header #text{
+    font-size: 12px;
     font-weight: 700;
+    padding-bottom: 5px;
     color: #000000;
     right: 0;
 
@@ -52,24 +59,17 @@
 }
 .status-box{
   display: grid;
-  padding: 0px;
-  grid:10px;
   gap: 20px;
-justify-content: center;
-  align-items: start;
+  width: 100%;
 }
 .status-siola {
-    display: flex;
     padding: 20px;
     border: 2px solid #ddd ;
     box-shadow:2px 2px 2px 0px #ddd;
-    justify-content: ltr;
-    width: 1100px;
+    width: 100%;
     height: 140px;
     display: grid;
-    grid-gap: 0;
     border-radius: 20px;
-    position:relative
     ;
 }
 #status-violation--header

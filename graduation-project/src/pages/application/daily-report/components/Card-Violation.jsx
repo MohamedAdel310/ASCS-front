@@ -6,9 +6,10 @@ export default function CardViolation(props) {
     <div className="card-violation">
       <div className="card-violation--header">
         <img id="image" src={branchLogo} alt="branch logo" />
-
-        <h4 id="text">{props.text}</h4>
-        <div id="number">{props.num}</div>
+        <div className="mistake">
+          <h4 id="text">{props.text}</h4>
+          <div id="number">{props.num}</div>
+        </div>
       </div>
     </div>
   );
