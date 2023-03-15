@@ -22,10 +22,10 @@ export default function Attendance() {
         </div>
       </div>
       <div className="donate">
-        <ChartDonate num="30" text="Absense" clName="circle1" />
-        <ChartDonate num="20" text="Late" clName="circle2" />
+        <ChartDonate num="9" text="Absense" clName="circle1" />
+        <ChartDonate num="29" text="Late" clName="circle2" />
         <ChartDonate num="18" text="Undertime" clName="circle3" />
-        <ChartDonate num="15" text="Overtime" clName="circle4" />
+        <ChartDonate num="8" text="Overtime" clName="circle4" />
       </div>
       <div className="search-box">
         <Search />
