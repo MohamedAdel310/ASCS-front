@@ -16,6 +16,7 @@ export default function Application(props) {
         <div className="links">
           <div className="application--logo">
             <img src={logo} alt="" className="application--logo--img" />
+            <h4>Survillance <br /> Camera</h4>
           </div>
           <ul>
             <li>
