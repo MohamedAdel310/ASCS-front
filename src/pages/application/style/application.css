@@ -21,16 +21,21 @@
   display: flex;
 }
 
+.dashboard .container .links li:hover .users {
+  font-size: 30px;
+  transition: .6s;
+
+}
+.dashboard .container .links .users{
+  color: white;
+}
+
 .dashboard .container .links ul{
   position: sticky;
   top: 0;
 }
 
-.dashboard .container .links li {
-  display: flex;
-}
-
-.dashboard .container .links li a:hover {
+.dashboard .container .links li:hover {
   color: white;
   background-color: rgb(0 0 0 / 30%);
   cursor: pointer;
@@ -39,14 +44,19 @@
   border-radius: 10px;
 }
 
-.dashboard .container .links li a {
-  text-decoration: none;
+.dashboard .container .links li a{
   color: rgb(255 255 255 / 50%);
+  text-decoration: none;
+  padding-left: 20px;
+
+}
+
+.dashboard .container .links li {
+  width: 100%;
   transition: 0.6s;
   list-style: none;
   height: 50px;
   text-align: center;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
