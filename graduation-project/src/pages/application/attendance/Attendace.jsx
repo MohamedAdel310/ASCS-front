@@ -2,10 +2,10 @@ import React from "react";
 import ChartDonate from "./components/Chart-donate";
 import TableDay from "./components/Table-day";
 import "../style/attendance.css";
-import "../../../components/search"
+import "../../../components/search";
 import employeeData from "./__delete__employeedata.json";
 import Search from "../../../components/search";
-import Filter from "./components/Filter"
+import Filter from "./components/Filter";
 
 export default function Attendance() {
   return (
@@ -22,14 +22,14 @@ export default function Attendance() {
         </div>
       </div>
       <div className="donate">
-        <ChartDonate num="30" text="Absense" />
-        <ChartDonate num="20" text="Late" />
-        <ChartDonate num="18" text="Undertime" />
-        <ChartDonate num="15" text="Overtime" />
+        <ChartDonate num="30" text="Absense" clName="circle1" />
+        <ChartDonate num="20" text="Late" clName="circle2" />
+        <ChartDonate num="18" text="Undertime" clName="circle3" />
+        <ChartDonate num="15" text="Overtime" clName="circle4" />
       </div>
       <div className="search-box">
-        <Search/>
-        <Filter/>
+        <Search />
+        <Filter />
       </div>
       <table>
         <thead>

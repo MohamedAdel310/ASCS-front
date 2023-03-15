@@ -24,7 +24,7 @@ export default function ChartDonate(props) {
             </linearGradient>
           </defs>
           <circle
-            className="circle1"
+            className={props.clName}
             cx="70"
             cy="70"
             r="60"
