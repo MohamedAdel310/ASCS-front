@@ -3,7 +3,7 @@ import "../style/employees.css";
 import "../../../components/search"
 import Search from "../../../components/search";
 import Filter from "../attendance/components/Filter";
-import EmployeeTable from "../attendance/components/Empolyees-table";
+import EmployeeTable from "./components/Empolyees-table";
 export default function Employees() {
   return (
     <div className="employee">
