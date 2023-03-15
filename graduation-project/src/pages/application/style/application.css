@@ -13,6 +13,11 @@
   display: flex;
 }
 
+.dashboard .container .links ul{
+  position: sticky;
+  top: 0;
+}
+
 .dashboard .container .links li {
   display: flex;
 }
