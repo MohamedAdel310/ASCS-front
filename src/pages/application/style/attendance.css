@@ -1,10 +1,7 @@
-
-
 :root {
   --main-color: #0d1b3b;
   --socondary-color: #ffaa01;
 }
-
 
 * {
   margin: 0;
@@ -22,34 +19,34 @@
   top: 0;
 }
 
-.attendance .title{
+.attendance .title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.attendance .title .ends{
+.attendance .title .ends {
   display: flex;
   align-items: center;
   padding-right: 30px;
 }
 
-.attendance .title .ends select{
+.attendance .title .ends select {
   width: 100px;
   height: 30px;
   border-radius: 15px;
-  padding:5px ;
+  padding: 5px;
   background-color: var(--socondary-color);
   border: none;
   color: white;
   margin-left: 30px;
 }
 
-.attendance .title .ends select:focus{
+.attendance .title .ends select:focus {
   outline-style: none;
 }
 
-.attendance .title .ends .day{
+.attendance .title .ends .day {
   border: 1px solid #ddd;
   width: 150px;
   height: 30px;
@@ -156,7 +153,7 @@
   left: 0;
 }
 
-.search-box{
+.search-box {
   display: flex;
 }
 
