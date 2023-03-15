@@ -1,6 +1,11 @@
 import React from "react";
 import "./style/application.css";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faUsers} from '@fortawesome/free-solid-svg-icons'
+import {faChartLine} from '@fortawesome/free-solid-svg-icons'
+import {faFileArrowUp} from '@fortawesome/free-solid-svg-icons'
+import {faCalendarCheck} from '@fortawesome/free-solid-svg-icons'
+import {faVideo} from '@fortawesome/free-solid-svg-icons'
 import Dashboard from "./dashboard/Dashboard";
 import Attendance from "./attendance/Attendace";
 import Stream from "./stream/Stream";
@@ -20,18 +25,23 @@ export default function Application(props) {
           </div>
           <ul>
             <li>
+              <FontAwesomeIcon className="users" icon={faChartLine}></FontAwesomeIcon>
               <a href="/application/dashboard">Dashboard</a>
             </li>
             <li>
+              <FontAwesomeIcon className="users" icon={faUsers} ></FontAwesomeIcon>
               <a href="/application/employees">Employees</a>
             </li>
             <li>
+              <FontAwesomeIcon className="users" icon={faFileArrowUp}></FontAwesomeIcon>
               <a href="/application/daily-report">Daily Report</a>
             </li>
             <li>
+              <FontAwesomeIcon className="users" icon={faCalendarCheck}></FontAwesomeIcon>
               <a href="/application/attendance">Attendance</a>
             </li>
             <li>
+              <FontAwesomeIcon className="users" icon={faVideo}></FontAwesomeIcon>
               <a href="/application/stream">Stream</a>
             </li>
           </ul>
