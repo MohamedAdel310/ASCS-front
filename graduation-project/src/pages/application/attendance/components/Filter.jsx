@@ -3,7 +3,7 @@ import "../../style/filter.css"
 export default function Filter (){
     return(
         <div className="filter">
-            <h2>Filter</h2>
+            <h2>Filters</h2>
             <div className="icon">
                 <span></span>
                 <span></span>
