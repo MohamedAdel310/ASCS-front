@@ -43,3 +43,7 @@ th {
 table tbody tr {
   border: 1px solid black;
 }
+
+tbody a{
+  color: black;
+}
