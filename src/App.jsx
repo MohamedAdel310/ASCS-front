@@ -34,6 +34,10 @@ const router = createBrowserRouter([
     element: <Application page="employees" />,
   },
   {
+    path: "/application/employees/profile",
+    element: <Application page="employees/profile" />,
+  },
+  {
     path: "/application/attendance",
     element: <Application page="attendance" />,
   },
