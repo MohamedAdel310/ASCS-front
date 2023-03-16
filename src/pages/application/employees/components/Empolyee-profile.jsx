@@ -4,7 +4,7 @@ import "../../style/employee-profile.css"
 export default function EmpProfile(){
     return(
         <div className="emp-profile">
-            <div className="container">
+            <div className="contain">
                 <h1>Employee Details</h1>
                 <div className="info">
                     <div className="image">
@@ -12,7 +12,7 @@ export default function EmpProfile(){
                     </div>
                     <div className="information">
                         <h3>خالد الشربيني احمد حسن</h3>
-                        <input type="number" placeholder="Phone Number" />
+                        <input type="text" placeholder="Phone Number" />
                         <input type="text" placeholder="Job Title" />
                         <input type="text" placeholder="deparment" />
                         <button>Edit Details</button>
