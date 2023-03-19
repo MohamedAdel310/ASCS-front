@@ -4,15 +4,12 @@
   -webkit-box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: Cairo, sans-serif;
 }
 
 :root {
   --main-color: #0d1b3b;
   --socondary-color: #ffaa01;
-}
-
-body {
-  font-family: arial, sans-serif;
 }
 
 table {
@@ -44,6 +41,6 @@ table tbody tr {
   border: 1px solid black;
 }
 
-tbody a{
+tbody a {
   color: black;
 }
