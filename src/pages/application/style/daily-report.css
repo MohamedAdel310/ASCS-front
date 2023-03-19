@@ -1,153 +1,140 @@
-.daily-report{
-    padding: 50px;
-  }
-  
-  .daily-report--header {
-    padding: 30px 0;
-  
-    padding: 20px;
-    grid: 20px;
-  }
-
-  .card-voilation {
-    display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
-  padding: 11px ;
+.daily-report {
+  padding: 50px;
 }
-  .card-violation--header{
+
+.daily-report--header {
+  padding: 30px 0;
+
+  padding: 20px;
+  grid: 20px;
+}
+
+.card-violation-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* grid-gap: 20px; */
+  padding: 11px;
+}
+.card-violation {
   display: flex;
-  border: 2px solid #ddd ;
-  box-shadow:2px 2px 2px 0px #ddd;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 2px 0px #ddd;
   justify-content: center;
   align-items: center;
   width: 200px;
   height: 100px;
-  padding: 15px ;
+  padding: 15px;
   border-radius: 20px;
   position: relative;
-
 }
 
-.card-violation--header .mistake{
+.card-violation .mistake {
   text-align: center;
   padding: 10px;
 }
 
-.card-violation--header #number {
-    font-size: 25px;
-    font-weight: 700;
-    left: auto;
-    color: #000000;
-  }
-  .card-violation--header #text{
-    font-size: 12px;
-    font-weight: 700;
-    padding-bottom: 5px;
-    color: #000000;
-    right: 0;
-
-  }
-.card-violation--header img{
-    background-color: white;
-    size: 10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: flex;
-
+.card-violation--number {
+  font-size: 25px;
+  font-weight: 700;
+  left: auto;
+  color: #000000;
 }
-.status-box{
+.card-violation--text {
+  font-size: 12px;
+  font-weight: 700;
+  padding-bottom: 5px;
+  color: #000000;
+  right: 0;
+}
+.card-violation--img {
+  background-color: white;
+  size: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+}
+.status-box {
   display: grid;
   gap: 20px;
   width: 100%;
 }
 .status-siola {
-    padding: 20px;
-    border: 2px solid #ddd ;
-    box-shadow:2px 2px 2px 0px #ddd;
-    width: 100%;
-    height: 140px;
-    display: grid;
-    border-radius: 20px;
-    ;
+  padding: 20px;
+  border: 2px solid #ddd;
+  box-shadow: 2px 2px 2px 0px #ddd;
+  width: 100%;
+  height: 140px;
+  display: grid;
+  border-radius: 20px;
 }
-#status-violation--header
-{
-    font-size: 15px;
-    font-weight: 700;
-    color: #000000;
-    text-align:start
-    
+.status-violation--header {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+  text-align: start;
 }
-#status-violation--info{
-
+.status-violation--info {
   font-size: 12px;
-    font-weight: 100;
-    color: #000000;
-    text-align:start;
-    
+  font-weight: 100;
+  color: #000000;
+  text-align: start;
 }
-#bold{
+.bold {
   font-weight: bolder;
   font-weight: 900;
 }
-.critcal_container{
+.critcal_container {
   width: 200px;
-  border-radius: .5em;
+  border-radius: 0.5em;
   display: flex;
   justify-content: space-between;
   margin: 0px;
-  
 }
-.critcal_level1{
+.critcal_level1 {
   display: flex;
   padding: 5px;
   background-color: #01ff63;
   width: 25px;
-  height:18px;
+  height: 18px;
   border-radius: 5px;
-  position:relative;
-
- 
+  position: relative;
 }
-.critcal_level2{
+.critcal_level2 {
   display: flex;
   background-color: #f3ecec;
   width: 25px;
-  height:18px;
+  height: 18px;
   border-radius: 5px;
-  position:relative;
- 
+  position: relative;
 }
 
-.critcal_level3{
+.critcal_level3 {
   display: flex;
- 
+
   background-color: #f3ecec;
   width: 25px;
-  height:18px;
+  height: 18px;
   border-radius: 5px;
-  position:relative;
-  justify-content: space-between
+  position: relative;
+  justify-content: space-between;
 }
-.critcal_level4{
+
+.critcal_level4 {
   display: flex;
   padding: 1px;
   background-color: #f3ecec;
   width: 25px;
-  height:18px;
+  height: 18px;
   border-radius: 5px;
-  position:relative;
-  justify-content: space-between
-}  
-#critcal_header{
+  position: relative;
+  justify-content: space-between;
+}
+
+.critcal_header {
   font-size: 13px;
-    font-weight: 700;
-    color: #000000;
-    text-align:start;
-    justify-content: start;
-    
-
-
+  font-weight: 700;
+  color: #000000;
+  text-align: start;
+  justify-content: start;
 }
