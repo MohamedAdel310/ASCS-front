@@ -17,6 +17,8 @@ import DailyReport from "./daily-report/Daily-Report";
 
 import logo from "./../../../public/logo.svg";
 
+const linkStyle = { width: "100%", textAlign: "start" };
+
 export default function Application(props) {
   return (
     <div className="dashboard">
@@ -34,35 +36,45 @@ export default function Application(props) {
                 className="users"
                 icon={faChartLine}
               ></FontAwesomeIcon>
-              <a href="/application/dashboard">Dashboard</a>
+              <a href="/application/dashboard" style={linkStyle}>
+                Dashboard
+              </a>
             </li>
             <li>
               <FontAwesomeIcon
                 className="users"
                 icon={faUsers}
               ></FontAwesomeIcon>
-              <a href="/application/employees">Employees</a>
+              <a href="/application/employees" style={linkStyle}>
+                Employees
+              </a>
             </li>
             <li>
               <FontAwesomeIcon
                 className="users"
                 icon={faFileArrowUp}
               ></FontAwesomeIcon>
-              <a href="/application/daily-report">Daily Report</a>
+              <a href="/application/daily-report" style={linkStyle}>
+                Daily Report
+              </a>
             </li>
             <li>
               <FontAwesomeIcon
                 className="users"
                 icon={faCalendarCheck}
               ></FontAwesomeIcon>
-              <a href="/application/attendance">Attendance</a>
+              <a href="/application/attendance" style={linkStyle}>
+                Attendance
+              </a>
             </li>
             <li>
               <FontAwesomeIcon
                 className="users"
                 icon={faVideo}
               ></FontAwesomeIcon>
-              <a href="/application/stream">Stream</a>
+              <a href="/application/stream" style={linkStyle}>
+                Stream
+              </a>
             </li>
           </ul>
         </div>
