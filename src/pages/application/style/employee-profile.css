@@ -170,3 +170,32 @@
     align-items: center;
     justify-content: center;
 }
+
+.emp-profile .contain .reports .container{
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.emp-profile .contain .reports .container .icon{
+    font-size: 40px;
+}
+
+.emp-profile .contain .reports .container .content{
+    display: flex;
+    border: 1px solid #ccc;
+    height: 100px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 20px;
+}
+
+.emp-profile .contain .reports .container .content .number{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
