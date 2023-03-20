@@ -199,3 +199,27 @@
     font-size: 30px;
     font-weight: bold;
 }
+
+.emp-profile .contain .cont{
+    display: flex;
+}
+
+.emp-profile .contain .cont .day{
+    margin-left: 30px;
+    border: 1px solid #ccc;
+    width: 200px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.emp-profile .contain table td{
+    text-align: center;
+}
+
+.emp-profile .contain table th{
+    background-color: white;
+}
+
+.emp-profile .contain table tr{
+    
+}
