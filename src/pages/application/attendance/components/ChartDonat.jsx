@@ -2,9 +2,10 @@ import React from "react";
 
 const DonutCharts = (props) => {
   const styles = {
-    position: "relative",
+    position: "absolute",
     width: "150px",
     height: "150px",
+    left: "10px"
   };
 
   const strokeWidth = 25;
@@ -43,7 +44,6 @@ const DonutCharts = (props) => {
       <h4>{props.text}</h4>
 
       <div id="number">{props.num}</div>
-
       <div style={styles}>
         <svg width="100%" height="100%" viewBox="0 0 200 200">
           <circle style={circleStyles} cx="100" cy="100" r={radius} />

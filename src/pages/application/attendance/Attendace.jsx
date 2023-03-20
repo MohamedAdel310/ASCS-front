@@ -22,7 +22,7 @@ export default function Attendance() {
           </select>
         </div>
       </div>
-      <div className="donate">
+      <div className="chartDonate">
         <DonutChart
           percent=".25"
           num="10"
