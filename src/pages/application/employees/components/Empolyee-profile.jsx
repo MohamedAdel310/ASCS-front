@@ -1,6 +1,7 @@
 import React from "react";
 import "../../style/employee-profile.css";
 import imployeeImg from "../../../../../src/assets/image/man-profile-cartoon_18591-58482.png";
+import ChartDonate from "../../attendance/components/Chart-donate";
 
 export default function EmpProfile() {
   return (
@@ -13,13 +14,64 @@ export default function EmpProfile() {
           </div>
           <div className="information">
             <h3>خالد الشربيني احمد حسن</h3>
-            <input type="text" placeholder="Phone Number" />
-            <input type="text" placeholder="Job Title" />
-            <input type="text" placeholder="deparment" />
+            <div className="label-container">
+            <input type="text" placeholder="01224247574" readOnly />
+            <label htmlFor="">Phone Number</label>
+            </div>
+            <div className="label-container">
+            <input type="text" placeholder="Worker" readOnly />
+            <label htmlFor="">Job Title</label>
+            </div>
+            <div className="label-container">
+            <input type="text" placeholder="WorkShop" readOnly />
+            <label htmlFor="">Department</label>
+            </div>
+            
             <button>Edit Details</button>
           </div>
-          <div className="mail"></div>
-          <div className="salary"></div>
+          <div className="shift">
+            <div className="label-container">
+            <input type="email" placeholder="Sherbiney@mail.com" readOnly />
+            <label htmlFor="">Email</label>
+            </div>
+            <div className="label-container">
+            <input type="text" placeholder="08:00 " readOnly />
+            <label htmlFor="">Shift Start at</label>
+            </div>
+            <div className="label-container">
+            <input type="text" placeholder="16:00" readOnly />
+            <label htmlFor="">Shift End at</label>
+            </div>
+            
+          </div>
+          <div className="date">
+            <h5>Salary:    <span>5000EGP</span></h5> 
+            <div className="circle">
+              <h5>Status:    <span>Active</span></h5>
+              <div className="active"></div>
+            </div>
+            <h5>Hire Date: <span>2022/12/22</span></h5>
+            <h5>Last Edit: <span>2022/12/22</span></h5>
+          </div>
+        </div>
+        <div className="overview">
+          <div className="title">
+            <h3>Overview</h3>
+            <div className="ends">
+              <div className="day">Feb 9</div>
+                <select name="date" id="date">
+                  <option value="1">Day</option>
+                  <option value="2">Month</option>
+                  <option value="3">Year</option>
+                </select>
+            </div>
+          </div>
+        </div>
+        <div className="donate">
+        <ChartDonate num="9" text="Absense" clName="circle1" />
+        <ChartDonate num="29" text="Late" clName="circle2" />
+        <ChartDonate num="18" text="Undertime" clName="circle3" />
+        <ChartDonate num="8" text="Overtime" clName="circle4" />
         </div>
       </div>
     </div>

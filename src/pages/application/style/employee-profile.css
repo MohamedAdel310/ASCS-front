@@ -1,22 +1,172 @@
+:root {
+    --main-color: #0d1b3b;
+    --socondary-color: #ffaa01;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 .emp-profile{
     padding: 20px;
 }
 
-.emp-profile .info{
-    height: 200px;
-    width: 100%;
-    display: flex;
+.emp-profile .contain h1{
+    font-size: 17px;
+    margin: 10px 0;
 }
 
-.emp-profile .info .image{
-    width: 200px;
-    height: 100%;
+.emp-profile .info{
+    width: 100%;
+    display: flex;
+    gap: 30px;
 }
 
 .emp-profile .info .image img{
-    display: block;
+    width: 200px;
+
 }
 
 .emp-profile .info .information{
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.emp-profile .info .information h3{
+    font-size: 18px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.emp-profile .info  input{
+    height: 40px;
+    width: 300px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    position: relative;
+}
+
+.emp-profile .info .label-container  input::placeholder{
+    color: black;
+    text-align: center;
+}
+
+.emp-profile .info .label-container{
+    position: relative;
+}
+
+.emp-profile .info .label-container label{
+    position: absolute;
+    transform: translateY(-50%);
+    left: 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    background-color: white;
+}
+
+.emp-profile .info input:focus{
+    outline-style: none;
+
+}
+
+.emp-profile .info   button{
+    padding: 10px 0;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--socondary-color);
+    cursor: pointer;
+    color: white;
+    font-size: 9px;
+}
+
+.emp-profile .info .shift{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+
+.emp-profile .info .date{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 10px;
+}
+
+.emp-profile .info .date .circle{
+    display: flex;
+    align-items: center;
+}
+
+.emp-profile .info .date .circle .active{
+    width: 10px;
+    height: 10px;
+    background: #01ff63;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.emp-profile .info .date h5{
+    font-weight: 100;
+}
+
+.emp-profile .info .date h5 span{
+    font-weight: 900;
+}
+
+.overview{
+    padding-top: 20px;
+}
+
+.overview .title h3 {
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+}
+
+.overview .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.overview .title .ends {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.overview .title .ends select {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: var(--socondary-color);
+    border: none;
+    color: white;
+    margin-left: 30px;
+}
+
+.overview .title .ends select:focus {
+    outline-style: none;
+}
+
+.overview .title .ends .day {
+    border: 1px solid #ddd;
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
