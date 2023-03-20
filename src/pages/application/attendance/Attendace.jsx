@@ -1,5 +1,6 @@
-import React from "react";
-import ChartDonate from "./components/Chart-donate";
+import React, { useState } from "react";
+// import ChartDonate from "./components/Chart-donate";
+import DonutChart from "./components/ChartDonat";
 import TableDay from "./components/Table-day";
 import "../style/attendance.css";
 import "../../../components/search";
@@ -10,7 +11,7 @@ import Filter from "./components/Filter";
 export default function Attendance() {
   return (
     <div className="attendance">
-      <div className="title">
+      <div className="attendance--title">
         <h3>Attendance</h3>
         <div className="ends">
           <div className="day">Feb 9</div>
@@ -22,10 +23,38 @@ export default function Attendance() {
         </div>
       </div>
       <div className="donate">
-        <ChartDonate num="9" text="Absense" clName="circle1" />
+        <DonutChart
+          percent=".25"
+          num="10"
+          text="Absense"
+          charColorMain="#d92c8a"
+          charColorSecond="#ffa8d7"
+        />
+        <DonutChart
+          percent=".75"
+          num="9"
+          text="Late"
+          charColorMain="#540375"
+          charColorSecond="#d3a6e5"
+        />
+        <DonutChart
+          percent=".5"
+          num="25"
+          text="Undertime"
+          charColorMain="#ff7000"
+          charColorSecond="#ffcaa0"
+        />
+        <DonutChart
+          percent=".9"
+          num="7"
+          text="Overtime"
+          charColorMain="#ffbf00"
+          charColorSecond="#ffeebc"
+        />
+        {/* <ChartDonate num="9" text="Absense" clName="circle1" />
         <ChartDonate num="29" text="Late" clName="circle2" />
         <ChartDonate num="18" text="Undertime" clName="circle3" />
-        <ChartDonate num="8" text="Overtime" clName="circle4" />
+        <ChartDonate num="8" text="Overtime" clName="circle4" /> */}
       </div>
       <div className="search-box">
         <Search />

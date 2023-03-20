@@ -1,7 +1,7 @@
 import React from "react";
 export default function ChartDonate(props) {
   return (
-    <div className="container">
+    <div className="donat--container">
       {console.log(props.num)}
       <h4>{props.text}</h4>
       <div className="skills">
@@ -10,7 +10,6 @@ export default function ChartDonate(props) {
             <div id="number">{props.num}</div>
           </div>
         </div>
-
         <svg
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
