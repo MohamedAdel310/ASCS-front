@@ -146,6 +146,18 @@
 .search-box {
   display: flex;
 }
+.attendance_week
+  {
+display: flex;
+gap:20px;
+width: 2000px;
+}
+.attendance_month
+  {
+display: flex;
+
+width: 4000px;
+}
 
 @keyframes circle1 {
   100% {
