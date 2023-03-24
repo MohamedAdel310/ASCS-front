@@ -9,6 +9,8 @@ import Employees from "./pages/application/employees/Employees";
 import DailyReport from "./pages/application/daily-report/Daily-Report";
 import Attendance from "./pages/application/attendance/Attendace";
 import Stream from "./pages/application/stream/Stream";
+import EmployeeProfile from "./pages/application/employees/components/Empolyee-profile";
+import PageNotFound from "./components/PageNotFound";
 
 import "./App.css";
 
@@ -20,11 +22,15 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/application" element={<Application />}>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="employees" element={<Employees />} />
+          <Route path="employees">
+            <Route index element={<Employees />} />
+            <Route path=":id" element={<EmployeeProfile />} />
+          </Route>
           <Route path="daily-report" element={<DailyReport />} />
           <Route path="attendance" element={<Attendance />} />
           <Route path="stream" element={<Stream />} />
         </Route>
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </>
   );

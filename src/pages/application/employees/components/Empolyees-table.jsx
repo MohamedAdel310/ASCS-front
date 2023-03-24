@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 export default function EmpoleeTable(props) {
   return (
     <tr>
       <td>
-        <a href="/application/employees/profile">{props.name}</a>
+        <Link to="/application/employees/22">{props.name}</Link>
       </td>
       <td>{props.jobTitle}</td>
       <td>{props.department}</td>
