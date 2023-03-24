@@ -1,5 +1,6 @@
 import React from "react";
 import "./style/application.css";
+import { Outlet } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
@@ -8,27 +9,18 @@ import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 
-import Dashboard from "./dashboard/Dashboard";
-import Attendance from "./attendance/Attendace";
-import Stream from "./stream/Stream";
-import Employees from "./employees/Employees";
-import EmployeeProfile from "./employees/components/Empolyee-profile";
-import DailyReport from "./daily-report/Daily-Report";
-
-import logo from "./../../../public/logo.svg";
+import logo from "./../../../public/myaz.png";
 
 const linkStyle = { width: "100%", textAlign: "start" };
 
-export default function Application(props) {
+export default function Application() {
   return (
     <div className="dashboard">
       <div className="container">
         <div className="links">
           <div className="application--logo">
             <img src={logo} alt="" className="application--logo--img" />
-            <h4>
-              Survillance <br /> Camera
-            </h4>
+            <h1>MYAZ</h1>
           </div>
           <ul>
             <li>
@@ -88,12 +80,7 @@ export default function Application(props) {
             </div>
           </div>
           <div className="main">
-            {props.page === "dashboard" && <Dashboard />}
-            {props.page === "employees" && <Employees />}
-            {props.page === "employees/profile" && <EmployeeProfile />}
-            {props.page === "attendance" && <Attendance />}
-            {props.page === "daily-report" && <DailyReport />}
-            {props.page === "stream" && <Stream />}
+            <Outlet />
           </div>
         </div>
       </div>

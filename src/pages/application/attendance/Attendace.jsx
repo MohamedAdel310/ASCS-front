@@ -4,21 +4,124 @@ import DonutChart from "./components/ChartDonat";
 import TableDay from "./components/Table-day";
 import "../style/attendance.css";
 import "../../../components/search";
-import employeeData from "./__delete__employeedata.json";
+// import employeeDataday from "./__delete__employeedata.json";
+import attendanceData from "../../../../Data/randomAttendanceData.json";
 import Search from "../../../components/search";
-import Filter from "./components/Filter";
+import Filter from "../../../components/Filter";
+import TableWeak from "./components/Table-weak";
+import employeeData from "../../../../Data/attendanceData.json";
+import TableMonth from "./components/Table-month";
+
+const AttendanceDay = () => {
+  return (
+    <div className="attendance_day">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Job Title</th>
+            <th>Deparment</th>
+            <th>Arrival Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {attendanceData.map(
+            ({ name, department, job_title, arrival_time }) => (
+              <TableDay
+                name={name}
+                department={department}
+                jobTitle={job_title}
+                arriveTime={arrival_time}
+              />
+            )
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+const AttendanceWeak = () => {
+  return (
+    <div className="attendance_week">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Deparment</th>
+            {Array(7)
+              .fill()
+              .map((__, index) => (
+                <th>{index + 1}</th>
+              ))}
+          </tr>
+        </thead>
+        <tbody>
+          {employeeData.map(({ name, department, attendance }) => (
+            <TableWeak
+              name={name}
+              department={department}
+              attendanceData={attendance}
+            />
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+const AttendanceMonth = () => {
+  return (
+    <div className="attendance_month">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Deparment</th>
+            {Array(30)
+              .fill()
+              .map((__, index) => (
+                <th>{index + 1}</th>
+              ))}
+          </tr>
+        </thead>
+        <tbody>
+          {employeeData.map(({ name, department, attendance }) => (
+            <TableMonth
+              name={name}
+              department={department}
+              attendanceData={attendance}
+            />
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default function Attendance() {
+  const [selectedOption, setSelectedOption] = useState("1");
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+    console.log(event.target.value);
+  };
+
   return (
     <div className="attendance">
       <div className="attendance--title">
         <h3>Attendance</h3>
         <div className="ends">
-          <div className="day">Feb 9</div>
-          <select name="date" id="date">
+          <div className="day"> 9</div>
+          <select
+            name="date"
+            id="date"
+            value={selectedOption}
+            onChange={handleOptionChange}
+          >
             <option value="1">Day</option>
-            <option value="2">Month</option>
-            <option value="3">Year</option>
+            <option value="2">week</option>
+            <option value="3">Month</option>
           </select>
         </div>
       </div>
@@ -60,30 +163,10 @@ export default function Attendance() {
         <Search />
         <Filter />
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Deparment</th>
-            <th>status</th>
-            <th>Arrival time</th>
-            <th>Leave Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          {employeeData.map(
-            ({ name, department, status, arriveTime, leaveTime }) => (
-              <TableDay
-                name={name}
-                department={department}
-                status={status}
-                arriveTime={arriveTime}
-                leaveTime={leaveTime}
-              />
-            )
-          )}
-        </tbody>
-      </table>
+
+      {selectedOption === "1" && <AttendanceDay />}
+      {selectedOption === "2" && <AttendanceWeak />}
+      {selectedOption === "3" && <AttendanceMonth />}
     </div>
   );
 }

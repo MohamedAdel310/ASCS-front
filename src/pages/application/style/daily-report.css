@@ -54,7 +54,9 @@
 .card-violation--img {
   background-color: white;
   /* size: 10px; */
-  width: 90px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100px;
   /* height: 40px; */
   /* border-radius: 10px; */
   /* display: flex; */

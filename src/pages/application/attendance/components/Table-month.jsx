@@ -1,9 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function TableMonth() {
+export default function TableMonth({ name, department, attendanceData }) {
+  // console.log(attendanceData);
   return (
-    <div>
-      <h1>hello sa3dalla</h1>
-    </div>
+    <tr>
+      <td>
+        <Link to="/application/employees/22">{name}</Link>
+      </td>
+      <td>{department}</td>
+      {attendanceData.map((attend) => (
+        <td>{attend ? "✅" : "❌"}</td>
+      ))}
+    </tr>
   );
 }
