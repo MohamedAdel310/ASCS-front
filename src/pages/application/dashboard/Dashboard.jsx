@@ -10,15 +10,28 @@ import "../style/dashboard.css";
 
 export default function MainContent() {
   return (
-    <div className="dashboard">
+    <div className="dashboard_nomain">
       <DetectedViolations />
       <AttendanceOverview />
       <LateOverview />
       <Card header="Detected Vehicles" detectedNum="47" />
-      <Card header="Unauthorized Personal" detectedNum="23" />
+      <Card header="Unauthtorized Personal" detectedNum="23" />
       <LastEventDetected />
-      <HumanPresent />
-      <WorkersPerformance />
+      <div className="human_present">
+      <HumanPresent 
+      text="Updated every 5 minutes"
+      percentarea=".60"
+      textarea1="Area 1"
+      textarea2="Area 2"
+      textarea3="Area 2"
+      textback="Back"
+      textwarehouse="Warehouse"
+      textoffice="Office"
+      charColorMain="#d92c8a"
+      charColorSecond="#ffa8d7"/>
+      </div>
+      <WorkersPerformance
+       />
     </div>
   );
 }
