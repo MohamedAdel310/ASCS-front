@@ -1,6 +1,6 @@
 import React from "react";
 import "./style/application.css";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
@@ -10,8 +10,6 @@ import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 
 import logo from "./../../../public/myaz.png";
-
-const linkStyle = { width: "100%", textAlign: "start" };
 
 export default function Application() {
   return (
@@ -23,51 +21,55 @@ export default function Application() {
             <h1>MYAZ</h1>
           </div>
           <ul>
-            <li>
-              <FontAwesomeIcon
-                className="users"
-                icon={faChartLine}
-              ></FontAwesomeIcon>
-              <a href="/application/dashboard" style={linkStyle}>
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className="users"
-                icon={faUsers}
-              ></FontAwesomeIcon>
-              <a href="/application/employees" style={linkStyle}>
-                Employees
-              </a>
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className="users"
-                icon={faFileArrowUp}
-              ></FontAwesomeIcon>
-              <a href="/application/daily-report" style={linkStyle}>
-                Daily Report
-              </a>
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className="users"
-                icon={faCalendarCheck}
-              ></FontAwesomeIcon>
-              <a href="/application/attendance" style={linkStyle}>
-                Attendance
-              </a>
-            </li>
-            <li>
-              <FontAwesomeIcon
-                className="users"
-                icon={faVideo}
-              ></FontAwesomeIcon>
-              <a href="/application/stream" style={linkStyle}>
-                Stream
-              </a>
-            </li>
+            <Link to="/application/dashboard" className="link-style">
+              <li>
+                <FontAwesomeIcon
+                  className="users"
+                  icon={faChartLine}
+                ></FontAwesomeIcon>
+                <p>Dashboard</p>
+              </li>
+            </Link>
+
+            <Link to="/application/employees" className="link-style">
+              <li>
+                <FontAwesomeIcon
+                  className="users"
+                  icon={faUsers}
+                ></FontAwesomeIcon>
+                <p>Employees</p>
+              </li>
+            </Link>
+
+            <Link to="/application/daily-report" className="link-style">
+              <li>
+                <FontAwesomeIcon
+                  className="users"
+                  icon={faFileArrowUp}
+                ></FontAwesomeIcon>
+                <p>Daily Report</p>
+              </li>
+            </Link>
+
+            <Link to="/application/attendance" className="link-style">
+              <li>
+                <FontAwesomeIcon
+                  className="users"
+                  icon={faCalendarCheck}
+                ></FontAwesomeIcon>
+                <p>Attendance</p>
+              </li>
+            </Link>
+
+            <Link to="/application/stream" className="link-style">
+              <li>
+                <FontAwesomeIcon
+                  className="users"
+                  icon={faVideo}
+                ></FontAwesomeIcon>
+                <p>Stream</p>
+              </li>
+            </Link>
           </ul>
         </div>
 

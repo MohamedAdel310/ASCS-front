@@ -43,10 +43,13 @@
   border-radius: 10px;
 }
 
-.dashboard .container .links li a {
+.link-style {
   color: rgb(255 255 255 / 50%);
   text-decoration: none;
-  padding-left: 20px;
+  /* padding-left: 20px; */
+}
+.link-style p {
+  padding-left: 10px;
 }
 
 .dashboard .container .links li {
@@ -81,13 +84,12 @@
 }
 
 .dashboard .container .nav .log input {
-  width : auto;
+  width: auto;
   color: white;
   background: linear-gradient(
     to right,
     rgb(255 255 255) 50%,
     var(--socondary-color) 50%
-    
   );
   /* background-color: var(--socondary-color); */
   padding: 7px 20px;
