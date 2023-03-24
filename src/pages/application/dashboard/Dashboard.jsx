@@ -7,27 +7,21 @@ import LastEventDetected from "./components/LastEventDetected";
 import LateOverview from "./components/LateOverview";
 import WorkersPerformance from "./components/WorkersPerformance";
 import "../style/dashboard.css";
-
 export default function MainContent() {
   return (
     <div className="dashboard_nomain">
-      <DetectedViolations />
+      <div className="detected_violaions">
+      <DetectedViolations num="75" />
+
+      
+      </div>
       <AttendanceOverview />
       <Card header="Detected Vehicles" detectedNum="47" />
       
      
       <div className="human_present">
       <HumanPresent 
-      text="Updated every 5 minutes"
-      percentarea=".60"
-      textarea1="Area 1"
-      textarea2="Area 2"
-      textarea3="Area 2"
-      textback="Back"
-      textwarehouse="Warehouse"
-      textoffice="Office"
-      charColorMain="#d92c8a"
-      charColorSecond="#ffa8d7"/>
+      text="Updated every 5 minutes"/>
       </div>
       <Card header="Unauthtorized Personal" detectedNum="23" />
       <LateOverview />
