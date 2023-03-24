@@ -4,11 +4,12 @@ import DonutChart from "./components/ChartDonat";
 import TableDay from "./components/Table-day";
 import "../style/attendance.css";
 import "../../../components/search";
-import employeeDataday from "./__delete__employeedata.json";
+// import employeeDataday from "./__delete__employeedata.json";
+import attendanceData from "../../../../Data/randomAttendanceData.json";
 import Search from "../../../components/search";
 import Filter from "./components/Filter";
 import TableWeak from "./components/Table-weak";
-import employeeData from "./attendanceData.json";
+import employeeData from "../../../../Data/attendanceData.json";
 import TableMonth from "./components/Table-month";
 
 const AttendanceDay = () => {
@@ -18,21 +19,19 @@ const AttendanceDay = () => {
         <thead>
           <tr>
             <th>Name</th>
+            <th>Job Title</th>
             <th>Deparment</th>
-            <th>Status</th>
             <th>Arrival Time</th>
-            <th>Leave Time</th>
           </tr>
         </thead>
         <tbody>
-          {employeeDataday.map(
-            ({ name, department, status, arriveTime, leaveTime }) => (
+          {attendanceData.map(
+            ({ name, department, job_title, arrival_time }) => (
               <TableDay
                 name={name}
                 department={department}
-                status={status}
-                arriveTime={arriveTime}
-                leaveTime={leaveTime}
+                jobTitle={job_title}
+                arriveTime={arrival_time}
               />
             )
           )}
