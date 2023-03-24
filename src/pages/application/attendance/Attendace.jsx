@@ -7,7 +7,7 @@ import "../../../components/search";
 // import employeeDataday from "./__delete__employeedata.json";
 import attendanceData from "../../../../Data/randomAttendanceData.json";
 import Search from "../../../components/search";
-import Filter from "./components/Filter";
+import Filter from "../../../components/Filter";
 import TableWeak from "./components/Table-weak";
 import employeeData from "../../../../Data/attendanceData.json";
 import TableMonth from "./components/Table-month";

@@ -5,7 +5,7 @@ import EmployeeTable from "./components/Empolyees-table";
 import employeesData from "../../../../Data/randomEmployeesData.json";
 
 import Search from "../../../components/search";
-import Filter from "../attendance/components/Filter";
+import Filter from "../../../components/Filter";
 
 export default function Employees() {
   return (
