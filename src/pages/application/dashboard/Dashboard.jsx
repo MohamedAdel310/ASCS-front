@@ -13,10 +13,9 @@ export default function MainContent() {
     <div className="dashboard_nomain">
       <DetectedViolations />
       <AttendanceOverview />
-      <LateOverview />
       <Card header="Detected Vehicles" detectedNum="47" />
-      <Card header="Unauthtorized Personal" detectedNum="23" />
-      <LastEventDetected />
+      
+     
       <div className="human_present">
       <HumanPresent 
       text="Updated every 5 minutes"
@@ -30,6 +29,10 @@ export default function MainContent() {
       charColorMain="#d92c8a"
       charColorSecond="#ffa8d7"/>
       </div>
+      <Card header="Unauthtorized Personal" detectedNum="23" />
+      <LateOverview />
+
+      <LastEventDetected />
       <WorkersPerformance
        />
     </div>
