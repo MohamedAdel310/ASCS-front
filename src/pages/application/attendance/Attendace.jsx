@@ -1,44 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import ChartDonate from "./components/Chart-donate";
 import DonutChart from "./components/ChartDonat";
 import TableDay from "./components/Table-day";
 import "../style/attendance.css";
 import "../../../components/search";
 // import employeeDataday from "./__delete__employeedata.json";
-import attendanceData from "../../../../Data/randomAttendanceData.json";
+// import attendanceData from "../../../../Data/randomAttendanceData.json";
 import Search from "../../../components/search";
 import Filter from "../../../components/Filter";
 import TableWeak from "./components/Table-weak";
 import employeeData from "../../../../Data/attendanceData.json";
 import TableMonth from "./components/Table-month";
 
-const AttendanceDay = () => {
-  return (
-    <div className="attendance_day">
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Job Title</th>
-            <th>Deparment</th>
-            <th>Arrival Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          {attendanceData.map(
-            ({ name, department, job_title, arrival_time }) => (
-              <TableDay
-                name={name}
-                department={department}
-                jobTitle={job_title}
-                arriveTime={arrival_time}
-              />
-            )
-          )}
-        </tbody>
-      </table>
-    </div>
-  );
+const displayTime = (dateString) => {
+  const date = new Date(dateString);
+  const options = {
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: true,
+  };
+  return date.toLocaleTimeString("en-US", options);
 };
 
 const AttendanceWeak = () => {
@@ -100,11 +82,57 @@ const AttendanceMonth = () => {
 };
 
 export default function Attendance() {
+  const [data, setData] = useState();
   const [selectedOption, setSelectedOption] = useState("1");
-
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
     console.log(event.target.value);
+  };
+
+  const storedData = JSON.parse(localStorage.getItem("attendanceData"));
+
+  useEffect(() => {
+    if (storedData) {
+      setData(storedData);
+    } else {
+      const fetchData = async () => {
+        const response = await fetch(
+          "https://myaz.cyclic.app/api/attendance/24-03-2023"
+        );
+        const json = await response.json();
+        setData(json.data);
+        localStorage.setItem("attendanceData", JSON.stringify(json.data));
+      };
+      fetchData();
+    }
+  }, []);
+  const AttendanceDay = () => {
+    return (
+      <div className="attendance_day">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Job Title</th>
+              <th>Deparment</th>
+              <th>Arrival Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data?.map(({ name, department, job, arrive_at }, index) => (
+              <TableDay
+                num={index}
+                name={name}
+                department={department}
+                jobTitle={job}
+                arriveTime={displayTime(arrive_at)}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
   };
 
   return (
