@@ -5,7 +5,7 @@ const DonutCharts = (props) => {
     position: "absolute",
     width: "150px",
     height: "150px",
-    left: "10px"
+    left: "10px",
   };
 
   const strokeWidth = 25;
@@ -40,7 +40,7 @@ const DonutCharts = (props) => {
   };
 
   return (
-    <div className="donat--container">
+    <div className="chartDonate--container">
       <h4>{props.text}</h4>
 
       <div id="number">{props.num}</div>

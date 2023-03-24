@@ -1,19 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function TableDay({
-  name,
-  department,
-  status,
-  arriveTime,
-  leaveTime,
-}) {
+export default function TableDay({ name, department, jobTitle, arriveTime }) {
   return (
     <tr>
-      <td>{name}</td>
+      <td>
+        <Link to="/application/employees/22">{name}</Link>
+      </td>
+      <td>{jobTitle}</td>
       <td>{department}</td>
-      <td>{status}</td>
       <td>{arriveTime}</td>
-      <td>{leaveTime}</td>
     </tr>
   );
 }
