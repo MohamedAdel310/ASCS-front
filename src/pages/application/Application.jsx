@@ -12,8 +12,6 @@ import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import logo from "./../../../public/myaz.png";
 
 export default function Application() {
-  const active = { color: "red", background: "#091229" };
-
   return (
     <div className="dashboard">
       <div className="container">
@@ -33,11 +31,7 @@ export default function Application() {
               </li>
             </NavLink>
 
-            <NavLink
-              style={{ background: "#091229" }}
-              to="/application/employees"
-              className="link-style"
-            >
+            <NavLink to="/application/employees" className="link-style">
               <li>
                 <FontAwesomeIcon
                   className="users"
