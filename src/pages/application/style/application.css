@@ -21,24 +21,45 @@
   display: flex;
 }
 
-.dashboard .container .links li:hover .users {
-  font-size: 30px;
-  transition: 0.6s;
+.navbar-list li:hover .users {
+  font-size: 20px;
+  transition: 0.2s;
 }
-.dashboard .container .links .users {
+
+.navbar-list .users {
   color: white;
 }
 
-.dashboard .container .links ul {
+.navbar-list {
   position: sticky;
   top: 0;
 }
 
-.dashboard .container .links li:hover {
+.navbar-list li:hover {
   color: white;
   background-color: rgb(0 0 0 / 30%);
   cursor: pointer;
   font-weight: bold;
+  border-left: 10px solid white;
+  border-radius: 10px;
+}
+
+.navbar-list li {
+  width: 100%;
+  transition: 0.6s;
+  list-style: none;
+  height: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding-left: 90px;
+}
+
+.navbar-list a.active li {
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  background-color: #091229;
   border-left: 10px solid white;
   border-radius: 10px;
 }
@@ -52,18 +73,7 @@
   padding-left: 10px;
 }
 
-.dashboard .container .links li {
-  width: 100%;
-  transition: 0.6s;
-  list-style: none;
-  height: 50px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  padding-left: 90px;
-}
-
-.dashboard .links {
+.links {
   min-width: 300px;
   background-color: var(--main-color);
   box-shadow: 0 0 10px 8px rgb(0 0 0 / 20%);

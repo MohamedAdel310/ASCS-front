@@ -1,6 +1,6 @@
 import React from "react";
 import "./style/application.css";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +12,8 @@ import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import logo from "./../../../public/myaz.png";
 
 export default function Application() {
+  const active = { color: "red", background: "#091229" };
+
   return (
     <div className="dashboard">
       <div className="container">
@@ -20,8 +22,8 @@ export default function Application() {
             <img src={logo} alt="" className="application--logo--img" />
             <h1>MYAZ</h1>
           </div>
-          <ul>
-            <Link to="/application/dashboard" className="link-style">
+          <ul className="navbar-list">
+            <NavLink to="/application/dashboard" className="link-style">
               <li>
                 <FontAwesomeIcon
                   className="users"
@@ -29,9 +31,13 @@ export default function Application() {
                 ></FontAwesomeIcon>
                 <p>Dashboard</p>
               </li>
-            </Link>
+            </NavLink>
 
-            <Link to="/application/employees" className="link-style">
+            <NavLink
+              style={{ background: "#091229" }}
+              to="/application/employees"
+              className="link-style"
+            >
               <li>
                 <FontAwesomeIcon
                   className="users"
@@ -39,9 +45,9 @@ export default function Application() {
                 ></FontAwesomeIcon>
                 <p>Employees</p>
               </li>
-            </Link>
+            </NavLink>
 
-            <Link to="/application/daily-report" className="link-style">
+            <NavLink to="/application/daily-report" className="link-style">
               <li>
                 <FontAwesomeIcon
                   className="users"
@@ -49,9 +55,9 @@ export default function Application() {
                 ></FontAwesomeIcon>
                 <p>Daily Report</p>
               </li>
-            </Link>
+            </NavLink>
 
-            <Link to="/application/attendance" className="link-style">
+            <NavLink to="/application/attendance" className="link-style">
               <li>
                 <FontAwesomeIcon
                   className="users"
@@ -59,9 +65,9 @@ export default function Application() {
                 ></FontAwesomeIcon>
                 <p>Attendance</p>
               </li>
-            </Link>
+            </NavLink>
 
-            <Link to="/application/stream" className="link-style">
+            <NavLink to="/application/stream" className="link-style">
               <li>
                 <FontAwesomeIcon
                   className="users"
@@ -69,7 +75,7 @@ export default function Application() {
                 ></FontAwesomeIcon>
                 <p>Stream</p>
               </li>
-            </Link>
+            </NavLink>
           </ul>
         </div>
 
