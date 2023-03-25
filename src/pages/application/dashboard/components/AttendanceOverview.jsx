@@ -1,39 +1,89 @@
 import React from "react";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip
+} from "recharts";
+import { curveCardinal } from "d3-shape";
 
-
-import { Chart } from "react-google-charts";
-
-export const data = [
-  ["Months", "value"],
-  ["jan", 0],
-  ["jan", 10],
-  ["jan", 23],
-  ["jan", 17],
-  ["jan", 18],
-  ["jan", 9],
- 
-];
-
-export const options = {
-  
-  series: {
-    1: { curveType: "function" },
+const data = [
+  {
+    name: "JAN",
+    value: 95,
+   
   },
-};
+  {
+    name: "Feb",
+    value: 75,
+    
+  },
+  {
+    name: "Mar",
+    value: 82,
+ 
+  },
+  {
+    name: "Apr",
+    value: 90,
+  
+  },
+  {
+    name: "May",
+    value: 78,
+ 
+  },
+  {
+    name: "Jun",
+    value: 85,
+   
+  },
+  
+];
+const cardinal = curveCardinal.tension();
+
+
+
 export default function AttendanceOverview() {
   return (
     <div className="dashboard--attendance-overview">
       <h3>Attendance Overview</h3>
     
 <div className="attendance_chart">
-    <Chart
-      chartType="LineChart"
-      width="400px"
-      height="300px"
+
+    <AreaChart
+      width={450
+      }
+      height={250}
       data={data}
-      options={options}
-    />
+      margin={{
+        left: 10,
+   
+      }}
+    >
+      
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Area
+        type="monotone"
+        dataKey="value"
+        stroke="#8884d8"
+        strokeWidth={2}
+        fill="#8884d8"
+        fillOpacity={0.5}
+      />
+    </AreaChart>
     </div>
     </div>
   );
 }
+
+
+
+
+
+
+

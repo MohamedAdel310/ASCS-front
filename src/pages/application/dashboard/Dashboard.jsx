@@ -15,7 +15,9 @@ export default function MainContent() {
 
       
       </div>
+      <div className="attendance_overview">
       <AttendanceOverview />
+      </div>
       <Card header="Detected Vehicles" detectedNum="47" />
       
      
