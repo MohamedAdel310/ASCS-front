@@ -30,9 +30,15 @@ export default function MainContent() {
        />
        </div>
        <div className="card">
-    <LastEventDetected/>
-    <Card header="Detected Vehicles" detectedNum="47" /> 
-    <Card header="Unauthtorized Personal" detectedNum="23" />
+        <div className="last_event">
+        <LastEventDetected/>
+        </div>
+        <div className="detected_vehicles">
+        <Card header="Detected Vehicles" detectedNum="47" /> 
+        </div>
+        <div className="unauthtorized_personal">
+        <Card header="Unauthtorized Personal" detectedNum="23" />
+        </div>
     </div>
     </div>
    
