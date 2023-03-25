@@ -12,25 +12,29 @@ export default function MainContent() {
     <div className="dashboard_nomain">
       <div className="detected_violaions">
       <DetectedViolations num="75" />
-
       
       </div>
+      
       <div className="attendance_overview">
       <AttendanceOverview />
       </div>
-      <Card header="Detected Vehicles" detectedNum="47" />
-      
-     
       <div className="human_present">
       <HumanPresent 
       text="Updated every 5 minutes"/>
       </div>
-      <Card header="Unauthtorized Personal" detectedNum="23" />
+      <div className="late_overview">
       <LateOverview />
-
-      <LastEventDetected />
+      </div>
+      <div className="work_performane">
       <WorkersPerformance
        />
+       </div>
+       <div className="card">
+    <LastEventDetected/>
+    <Card header="Detected Vehicles" detectedNum="47" /> 
+    <Card header="Unauthtorized Personal" detectedNum="23" />
     </div>
+    </div>
+   
   );
 }
