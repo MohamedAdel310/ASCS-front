@@ -1,101 +1,116 @@
 .dashboard_nomain{
-    display: flex;
     display: grid;
-    grid-template-columns: repeat(2, 500px);
+    grid-template-columns: repeat(2, 20);
     grid-template-rows: repeat(4,500px);
-    padding: 20px;
-    margin: 10px;
+    padding: 50px;
 }
-.total_days{
+.detected_violaions{
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+}
+        
+.dashboard--detected-violations{
+    grid-template-columns: repeat(2,400px);
+    grid-template-rows: repeat(3,20);
+       display: grid;
+        border: 1px solid #ddd;
+        box-shadow: 2px 2px 2px 0px #ddd;
+        min-width: 550px;
+        height: 450px;
+        border-radius: 20px;
+        position: relative;
+       justify-content: left;
+       align-items: left;
+        padding: 20px;
+}
+.detected_total_days{
     grid-row: 3;
     grid-column: 1;
     font-size: 10pt;
     font-weight: 100;
 
 }
-.dashboard--detected-violations{
-    display: grid;
+.detected_violations_area_chart{
     justify-content: left;
-    align-items:top;
-    text-align: top;
-    grid-template-columns: repeat(2,350px);
-    grid-template-rows: repeat(3,50px);
-
+    align-items: center;
+      font-weight: 1000;
+      grid-column: 1;
+  
+    }
+    #date{
+        border: 0;
+        text-align: center;
+        display: grid;
+        grid-column: 2;
+        width: 80px;
+        border-radius: 20px;
+        color: aliceblue;
+        background-color: rgb(255, 153, 0);
+      }
+      .number{
+        display: grid;
+        grid-row:2;
+        font-size: 26pt;
+        font-weight: 1000;
+    }
     
-   
-    
+  
+.attendance_overview{
+    display: grid;
+    grid-row: 2;
+    grid-column: 1;
 }
 .dashboard--attendance-overview{
-
     display: grid;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 2px 0px #ddd;
-    min-width: 450px;
+    min-width: 550;
     height: 350px;
     border-radius: 20px;
     position: relative;
     justify-content: left;
     align-items: center;
-    grid-template-columns:repeat(1,1fr)l;
+    grid-template-columns:repeat(1,1fr);
     grid-template-rows: repeat(2,200);
-    font-weight: 1000;
-    
+    font-weight: 1000;   
 }
-.dashboard--attendance-overview h3{
-    font-size: 16pt;
-    margin: 20px;
-    justify-content: start;
-}
-.detected_violaions{
-    display: flex;
-        border: 1px solid #ddd;
-        box-shadow: 2px 2px 2px 0px #ddd;
-        min-width: 500px;
-        height: 450px;
-        border-radius: 20px;
-        position: relative;
-        grid-row: 1;
-        grid-column: 1;
-        padding: 20px;
-        
-
-}
-.number{
-    display: flex;
-    grid-row:2;
-    font-size: 26pt;
-    font-weight: 1000;
+.attendance_overview_chart{
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: left;
 }
 .human_present{
-    padding: 20px;
-    margin: 10px;
-     
+    display: grid;
+    grid-row: 2;
+    grid-column: 2;  
 }
-.human--container{
+.dashboard--human--container{
    
-        display: grid;
-        border: 1px solid #ddd;
-        box-shadow: 2px 2px 2px 0px #ddd;
-        justify-content: center;
-        grid-template-rows: repeat(2,150px);
-        align-items: center;
-        text-align:center;
-        min-width: 400px;
-        height: 350px;
-        border-radius: 20px;
-        position: relative;
-        display: grid;
-        
-     
+    display: grid;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 2px 0px #ddd;
+    justify-content: center;
+    grid-template-rows: repeat(2,150px);
+    align-items: center;
+    text-align:center;
+    min-width: 400px;
+    height: 350px;
+    border-radius: 20px;
+    position: relative;
+    display: grid;
+    
+ 
 }
-.headers{
+.human_present_headers{
     display:grid;
     justify-content:left;
     grid-row: 1 ;
     grid-column: 1;
 
 }
-.headers h4{
+.human_present_headers h4{
     display: grid;
 
     justify-self: left;
@@ -104,47 +119,31 @@
     grid-row: 1 
     
 }
-.headers h3{
+.human_present_headers h3{
     display: grid;
     font-weight: 200;
     font-size: 12px;
     
 }
-
-#date{
-    border: 0;
-    text-align: center;
-   
-    
-    display: grid;
-    grid-column: 2;
-    width: 80px;
-    border-radius: 20px;
-    color: aliceblue;
-    background-color: rgb(255, 153, 0);
-  }
-  .area_chart{
-  justify-content: left;
-  align-items: center;
-    font-weight: 1000;
-    grid-column: 1;
-
-  }
-.area{
+.human_area{
     display:grid;
     grid-row: 2;
     font-weight: 1000;
     font-size: 12pt;
 }
-.attendance_chart{
-    display: grid;
-    grid-column: 1;
-    grid-row: 2;
-    justify-content: left;
+
+
+
+.dashboard--attendance-overview h3{
+    font-size: 16pt;
+    margin: 20px;
+    justify-content: start;
 }
-.attendance_overview{
-    display: grid;
-    grid-row: 2;
-    grid-column: 1;
-}
+
+
+
+
+
+
+
 

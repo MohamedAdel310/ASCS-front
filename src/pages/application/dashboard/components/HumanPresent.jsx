@@ -22,15 +22,15 @@ export default function HumanPresent (props) {
   return (
 
     
-<div className="human--container">
+<div className="dashboard--human--container">
   
-  <div className="headers">
+  <div className="human_present_headers">
     <h4>Human Present</h4>
     <h3>{props.text}</h3>
     </div>
     
 
-  <div className="area">
+  <div className="human_area">
       <Chart
       chartType="PieChart"
       width="400px"
