@@ -13,7 +13,7 @@
         
 .dashboard--detected-violations{
     grid-template-columns: repeat(2,550px);
-    grid-template-rows: repeat(4,40px);
+    grid-template-rows: repeat(4,55px);
        display: grid;
         border: 1px solid #ddd;
         box-shadow: 2px 2px 2px 0px #ddd;
@@ -23,18 +23,22 @@
         position: relative;
        justify-content: left;
        align-items: left;
-       padding-top: 30px;
+      
 }
 .dashboard--detected-violations h3{
     display: grid;
-    padding-left: 30px;
+    padding-left: 60px;
+    font-weight: 1500;
+    font-size: 18pt;
+    padding-bottom: 0;
+    padding-top: 20px;
 }
 .detected_total_days{
     grid-row: 3;
     grid-column: 1;
     font-size: 10pt;
     font-weight: 100;
-padding-left: 30px;
+padding-left: 60px;
 
 }
 .detected_violations_area_chart{
@@ -48,21 +52,24 @@ padding-left: 30px;
   
     }
     #date{
+        padding-top: 20px;
         border: 0;
         text-align: center;
+        justify-content: right;
         display: grid;
-        grid-column: 2;
         width: 80px;
         border-radius: 20px;
         color: aliceblue;
         background-color: rgb(255, 153, 0);
+        
       }
       .number{
         display: grid;
         grid-row:2;
-        font-size: 26pt;
+        font-size: 32pt;
         font-weight: 1000;
-        padding-left: 30px;
+        padding-left: 60px;
+      
 
     }
     
@@ -107,7 +114,7 @@ padding-left: 30px;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 2px 0px #ddd;
     justify-content: left;
-    grid-template-rows: repeat(2,100px);
+    grid-template-rows: repeat(2,80px);
    
     width: 600px;
     height: 400px;
@@ -126,15 +133,17 @@ padding-left: 30px;
 .human_present_headers h4{
     display: flex;
     grid-row: 1;
-    padding-left: 20px;
+    padding-left: 40px;
     padding-top: 20px;
+    font-weight: 1500;
+    font-size: 16pt;
 }
 .human_present_headers h3{
     display: flex;
-    font-weight: 200;
-    font-size: 12px;
-    padding-left: 20px;
-    padding-top: 20px;
+    font-weight: 500;
+    font-size: 10pt;
+    padding-left: 40px;
+    
 
     
 }
@@ -179,6 +188,12 @@ padding-left: 30px;
 .dashboard--WorkersPerformance h6{
     font-weight: 200;
     font-size: 12pt;
+}
+.worker_performance_chart{
+    display:grid ;
+    grid: 2;
+    padding-top: 40px;
+    font-weight: 1500;
 }
 
 .late_overview{

@@ -15,6 +15,13 @@ export const data = [
 ];
 
 export const options = {
+  height:"200",
+  position:"top",
+  legend :{ position: 'top',textStyle: {color: 'black', fontSize: 25},alignment: 'start',},
+   
+   
+   
+    colors: ['#034f84','#92a8d1'],
   
     
 };
@@ -30,7 +37,7 @@ export default function WorkersPerformance() {
            <Chart
                 chartType="Bar"
                 width="650px"
-                height="250px"
+                height="200px"
                 data={data}
                 options={options}
 

@@ -15,8 +15,22 @@ export const data = [
 
 export const options = {
   height: 400,
+  
   legend: { position: "left", maxLines: 3 },
   vAxis: { minValue: 0},
+    chart: { backgroundColor: 'red'
+    },
+    colors: ['#FB7A21'],
+    chartArea: {
+      left: 80,
+      right: 0,
+      top: 20,
+      bottom: 100,
+     
+    
+      
+    }
+  
 };
 
 
@@ -40,10 +54,9 @@ export default function DetectedViolations(prpos) {
  <div className="detected_violations_area_chart">
     <Chart
     chartType="AreaChart"
-      width={"800px"}
-      height={"700px"}
-      padding={"left"}
-      c
+      width={"630px"}
+      height={"500px"}
+      
       data={data}
       options={options}
       />
