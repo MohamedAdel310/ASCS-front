@@ -29,7 +29,7 @@ export default function DetectedViolations(prpos) {
       {prpos.num}
     </div>
   
-    <div className="total_days">In the last 29 days</div>
+    <div className="detected_total_days">In the last 29 days</div>
  <div className="option">
  <select id="date">
           <option value="1">ALL</option>
@@ -37,7 +37,7 @@ export default function DetectedViolations(prpos) {
             <option value="3">Month</option>
           </select>
  </div>
- <div className="area_chart">
+ <div className="detected_violations_area_chart">
     <Chart
     chartType="AreaChart"
       width={"500px"}

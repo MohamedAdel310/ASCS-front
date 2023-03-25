@@ -12,17 +12,17 @@ import { curveCardinal } from "d3-shape";
 const data = [
   {
     name: "JAN",
-    value: 95,
+    value: 80,
    
   },
   {
     name: "Feb",
-    value: 75,
+    value: 95,
     
   },
   {
     name: "Mar",
-    value: 82,
+    value: 75,
  
   },
   {
@@ -32,12 +32,12 @@ const data = [
   },
   {
     name: "May",
-    value: 78,
+    value: 70,
  
   },
   {
     name: "Jun",
-    value: 85,
+    value: 90,
    
   },
   
@@ -51,10 +51,10 @@ export default function AttendanceOverview() {
     <div className="dashboard--attendance-overview">
       <h3>Attendance Overview</h3>
     
-<div className="attendance_chart">
+<div className="attendance_overview_chart">
 
     <AreaChart
-      width={450
+      width={500
       }
       height={250}
       data={data}
