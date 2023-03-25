@@ -27,22 +27,24 @@
 }
 .dashboard--attendance-overview{
 
-    display: flex;
+    display: grid;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 2px 0px #ddd;
     min-width: 450px;
     height: 350px;
     border-radius: 20px;
     position: relative;
-    grid-row: 2;
-    grid-column: 1;
-    
+    justify-content: left;
+    align-items: center;
+    grid-template-columns:repeat(1,1fr)l;
+    grid-template-rows: repeat(2,200);
     font-weight: 1000;
     
 }
 .dashboard--attendance-overview h3{
     font-size: 16pt;
     margin: 20px;
+    justify-content: start;
 }
 .detected_violaions{
     display: flex;
@@ -133,5 +135,16 @@
     grid-row: 2;
     font-weight: 1000;
     font-size: 12pt;
+}
+.attendance_chart{
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: left;
+}
+.attendance_overview{
+    display: grid;
+    grid-row: 2;
+    grid-column: 1;
 }
 
