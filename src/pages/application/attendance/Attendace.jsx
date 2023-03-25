@@ -11,6 +11,7 @@ import Filter from "../../../components/Filter";
 import TableWeak from "./components/Table-weak";
 import employeeData from "../../../../Data/attendanceData.json";
 import TableMonth from "./components/Table-month";
+import MainButton from "../../../components/button-main";
 
 const displayTime = (dateString) => {
   const date = new Date(dateString);
@@ -83,7 +84,9 @@ const AttendanceMonth = () => {
 
 export default function Attendance() {
   const [data, setData] = useState();
+  const [fetchDataTrigger, setFetchDataTrigger] = useState();
   const [selectedOption, setSelectedOption] = useState("1");
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
     console.log(event.target.value);
@@ -92,23 +95,49 @@ export default function Attendance() {
   const storedData = JSON.parse(localStorage.getItem("attendanceData"));
 
   useEffect(() => {
+    const fetchData = async () => {
+      console.log("fetch done");
+      const response = await fetch(
+        "https://myaz.cyclic.app/api/attendance/24-03-2023"
+      );
+      const json = await response.json();
+      setData(json.data);
+      localStorage.setItem("attendanceData", JSON.stringify(json.data));
+    };
+
     if (storedData) {
       setData(storedData);
     } else {
-      const fetchData = async () => {
-        const response = await fetch(
-          "https://myaz.cyclic.app/api/attendance/24-03-2023"
-        );
-        const json = await response.json();
-        setData(json.data);
-        localStorage.setItem("attendanceData", JSON.stringify(json.data));
-      };
       fetchData();
     }
-  }, []);
+
+    if (fetchDataTrigger) {
+      fetchData();
+      setFetchDataTrigger(false);
+    }
+  }, [fetchDataTrigger]);
+
+  const FetchAttendanceDay = () => {
+    return (
+      <>
+        {data?.map(({ name, department, job, arrive_at }, index) => (
+          <TableDay
+            num={index}
+            name={name}
+            department={department}
+            jobTitle={job}
+            arriveTime={displayTime(arrive_at)}
+          />
+        ))}
+        {console.log("done")}
+      </>
+    );
+  };
+
   const AttendanceDay = () => {
     return (
       <div className="attendance_day">
+        <MainButton text="refresh" onClick={handleFetchDataClick} />
         <table>
           <thead>
             <tr>
@@ -120,19 +149,16 @@ export default function Attendance() {
             </tr>
           </thead>
           <tbody>
-            {data?.map(({ name, department, job, arrive_at }, index) => (
-              <TableDay
-                num={index}
-                name={name}
-                department={department}
-                jobTitle={job}
-                arriveTime={displayTime(arrive_at)}
-              />
-            ))}
+            <FetchAttendanceDay />
           </tbody>
         </table>
       </div>
     );
+  };
+
+  const handleFetchDataClick = () => {
+    console.log("fethch done mmmm");
+    setFetchDataTrigger(true);
   };
 
   return (

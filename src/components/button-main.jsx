@@ -1,8 +1,9 @@
 import React from "react";
 
-export default function MainButton({ text }) {
+export default function MainButton({ text, onClick }) {
   return (
     <button
+      onClick={onClick}
       className="add"
       style={{
         borderRadius: 10,
