@@ -40,8 +40,8 @@ export default function DetectedViolations(prpos) {
  <div className="detected_violations_area_chart">
     <Chart
     chartType="AreaChart"
-      width={"500px"}
-      height={"600px"}
+      width={"550px"}
+      height={"650px"}
       data={data}
       options={options}
       />

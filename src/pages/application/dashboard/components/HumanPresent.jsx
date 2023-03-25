@@ -33,7 +33,7 @@ export default function HumanPresent (props) {
   <div className="human_area">
       <Chart
       chartType="PieChart"
-      width="400px"
+      width="450px"
       height="200px"
       data={data}
       options={options}
