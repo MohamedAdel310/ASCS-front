@@ -1,7 +1,7 @@
 import React from "react";
 import { Chart } from "react-google-charts";
 export const data = [
-  ["", "week before", "last week"],
+  [ "","week before", "last week"],
   ["NO.1", 55, 65],
   ["NO.2", 58, 36],
   ["NO.3", 77, 72],
@@ -29,7 +29,7 @@ export default function WorkersPerformance() {
 
            <Chart
                 chartType="Bar"
-                width="450px"
+                width="650px"
                 height="250px"
                 data={data}
                 options={options}

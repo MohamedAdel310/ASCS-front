@@ -54,9 +54,9 @@ export default function AttendanceOverview() {
 <div className="attendance_overview_chart">
 
     <AreaChart
-      width={500
+      width={600
       }
-      height={250}
+      height={350}
       data={data}
       margin={{
         left: 10,

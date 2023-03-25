@@ -14,7 +14,7 @@ export const data = [
 
 
 export const options = {
-  height: 300,
+  height: 400,
   legend: { position: "left", maxLines: 3 },
   vAxis: { minValue: 0},
 };
@@ -40,8 +40,10 @@ export default function DetectedViolations(prpos) {
  <div className="detected_violations_area_chart">
     <Chart
     chartType="AreaChart"
-      width={"550px"}
-      height={"650px"}
+      width={"800px"}
+      height={"700px"}
+      padding={"left"}
+      c
       data={data}
       options={options}
       />
