@@ -266,25 +266,42 @@ padding-left: 60px;
     grid-row: 1;
     grid-column: 2;
     font-weight: 1000;
-     font-size: 16pt;
-     grid-template-columns: repeat(2,300px);
-     grid-template-rows: repeat(2,1fr);
+    font-size: 16pt;
+    grid-template-columns: repeat(2,300px);
+    grid-template-rows: repeat(2,1fr);
 }
 
-.detected_vehicale_card{
+.dashboard--card{
 
-     display: grid;
-     border: 1px solid #ddd;
-     box-shadow: 2px 2px 2px 0px #ddd;
-     width: 250px;
-     height: 200px;
-     border-radius: 20px;
-     position: relative;
-    justify-content: top;
-    align-items: left;
-     padding: 30px;
-     
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 2px 0px #ddd;
+    width: 250px;
+    height: 200px;
+    border-radius: 40px;
+    position: relative;
+    padding: 20px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
+
+.detected_vehicle_card{
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+
+.detected_vehicle_card_number{
+    font-size: 40px;
+    text-align: center;
+}
+
+.dashboard--card h6{
+    text-align: center;
+    font-weight: 100;
+}
+
 .dashboard--last-event-detected{
     display: grid;
     border: 1px solid #ddd;
