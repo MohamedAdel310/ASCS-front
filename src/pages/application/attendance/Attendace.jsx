@@ -120,15 +120,18 @@ export default function Attendance() {
   const FetchAttendanceDay = () => {
     return (
       <>
-        {data?.map(({ name, department, job, arrive_at }, index) => (
-          <TableDay
-            num={index}
-            name={name}
-            department={department}
-            jobTitle={job}
-            arriveTime={displayTime(arrive_at)}
-          />
-        ))}
+        {data?.map(
+          ({ employee_id, name, department, job, arrive_at }, index) => (
+            <TableDay
+              employee_id={employee_id}
+              num={index}
+              name={name}
+              department={department}
+              jobTitle={job}
+              arriveTime={displayTime(arrive_at)}
+            />
+          )
+        )}
         {console.log("done")}
       </>
     );

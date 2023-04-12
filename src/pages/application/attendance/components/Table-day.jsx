@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function TableDay({
+  employee_id,
   num,
   name,
   department,
@@ -12,7 +13,7 @@ export default function TableDay({
     <tr>
       <td>{num + 1}</td>
       <td>
-        <Link to="/application/employees/22">{name}</Link>
+        <Link to={`/application/employees/${employee_id}`}>{name}</Link>
       </td>
       <td>{jobTitle}</td>
       <td>{department}</td>
