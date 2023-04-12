@@ -1,3 +1,15 @@
+:root {
+    --main-color: #0d1b3b;
+    --socondary-color: #ffaa01;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
 .dashboard_nomain{
     display: grid;
     grid-template-columns: repeat(2, 700px);
@@ -261,7 +273,7 @@ padding-left: 60px;
 
 .detected_vehicale_card{
 
-    display: grid;
+     display: grid;
      border: 1px solid #ddd;
      box-shadow: 2px 2px 2px 0px #ddd;
      width: 250px;
@@ -273,7 +285,7 @@ padding-left: 60px;
      padding: 30px;
      
 }
-.last_event_card{
+.dashboard--last-event-detected{
     display: grid;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 2px 0px #ddd;
@@ -285,6 +297,50 @@ padding-left: 60px;
    align-items: left;
     padding: 20px;
 }
+
+.dashboard--last-event-detected h3{
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.personal-detect{
+    display: flex;
+    font-size: 15px;
+    position: relative;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.personal-detect .bell{
+    font-size: 25px;
+    padding-left: 20px;
+}
+
+.personal-detect h4{
+    font-size: 15px;
+    padding: 0 50px;
+    font-weight: 300;
+}
+
+.personal-detect p{
+    position: absolute;
+    right: 0;
+    padding-right: 20px;
+}
+
+.dashboard--last-event-detected button{
+    border-radius: 20px;
+    width: 100px;
+    height: 30px;
+    margin-left: 80%;
+    background-color: var(--socondary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 .detected_vehicles{
     display: grid;
     grid-row: 1;
