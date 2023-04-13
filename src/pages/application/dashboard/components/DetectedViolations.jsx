@@ -15,7 +15,7 @@ export const data = [
 
 export const options = {
   height: 400,
-  
+  width: 600,
   legend: { position: "left", maxLines: 3 },
   vAxis: { minValue: 0},
     chart: { backgroundColor: 'red'
