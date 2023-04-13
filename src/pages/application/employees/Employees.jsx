@@ -17,7 +17,7 @@ export default function Employees() {
     const fetchData = async () => {
       console.log("fetch done");
       const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY3OTc1NDU0OCwiZXhwIjoxNjg3NTMwNTQ4fQ.pblQyXpHTH6QdITy1fASGmOtmjCDtVptFnRBNsDs9EM";
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4";
       const headers = {
         "Authorization": `Bearer ${token}`,
       };
