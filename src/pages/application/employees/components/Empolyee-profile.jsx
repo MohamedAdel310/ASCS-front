@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHand } from "@fortawesome/free-solid-svg-icons";
 import { faSmoking } from "@fortawesome/free-solid-svg-icons";
@@ -7,8 +7,41 @@ import { faHelmetSafety } from "@fortawesome/free-solid-svg-icons";
 import "../../style/employee-profile.css";
 import imployeeImg from "../../../../../src/assets/image/man-profile-cartoon_18591-58482.png";
 import ChartDonate from "../../attendance/components/Chart-donate";
+import EmplyeeProfileTable from "./Emplyee-profile-table";
+
+const currentPath = window.location.pathname;
+const employee_id = currentPath.slice(-6);
+console.log("---------------------", employee_id);
 
 export default function EmpProfile() {
+  const [employee, setEmployee] = useState(null);
+
+  useEffect(() => {
+    const fetchEmployee = async () => {
+      try {
+        console.log(employee_id);
+        const response = await fetch(
+          `https://myaz.cyclic.app/api/employees/${employee_id}`
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setEmployee(data?.data.employee);
+          console.log("+_+_+_+_+_+_+_+_+_", employee);
+        } else {
+          // Handle error response
+          console.error(
+            "Failed to fetch employee details:",
+            response.statusText
+          );
+        }
+      } catch (error) {
+        // Handle fetch error
+        console.error("Failed to fetch employee details:", error);
+      }
+    };
+    fetchEmployee();
+  }, []);
+
   return (
     <div className="emp-profile">
       <div className="contain">
@@ -18,17 +51,21 @@ export default function EmpProfile() {
             <img src={imployeeImg} alt="" />
           </div>
           <div className="information">
-            <h3>خالد الشربيني احمد حسن</h3>
+            <h3>{employee?.name}</h3>
             <div className="label-container">
-              <input type="text" placeholder="01224247574" readOnly />
+              <input
+                type="text"
+                placeholder={employee?.phone || "there is no phone"}
+                readOnly
+              />
               <label htmlFor="">Phone Number</label>
             </div>
             <div className="label-container">
-              <input type="text" placeholder="Worker" readOnly />
+              <input type="text" placeholder={employee?.job} readOnly />
               <label htmlFor="">Job Title</label>
             </div>
             <div className="label-container">
-              <input type="text" placeholder="WorkShop" readOnly />
+              <input type="text" placeholder={employee?.department} readOnly />
               <label htmlFor="">Department</label>
             </div>
 
@@ -36,33 +73,45 @@ export default function EmpProfile() {
           </div>
           <div className="shift">
             <div className="label-container">
-              <input type="email" placeholder="Sherbiney@mail.com" readOnly />
+              <input
+                type="email"
+                placeholder={employee?.email || "there is no email"}
+                readOnly
+              />
               <label htmlFor="">Email</label>
             </div>
             <div className="label-container">
-              <input type="text" placeholder="08:00 " readOnly />
+              <input
+                type="text"
+                placeholder={employee?.shiftStart || "00:00 "}
+                readOnly
+              />
               <label htmlFor="">Shift Start at</label>
             </div>
             <div className="label-container">
-              <input type="text" placeholder="16:00" readOnly />
+              <input
+                type="text"
+                placeholder={employee?.shiftEnd || "00:00 "}
+                readOnly
+              />
               <label htmlFor="">Shift End at</label>
             </div>
           </div>
           <div className="date">
             <h5>
-              Salary: <span>5000EGP</span>
+              Salary: <span>{employee?.salary || "0000"}EGP</span>
             </h5>
             <div className="circle">
               <h5>
-                Status: <span>Active</span>
+                Status: <span>{employee?.status || "NULL"}</span>
               </h5>
               <div className="active"></div>
             </div>
             <h5>
-              Hire Date: <span>2022/12/22</span>
+              Hire Date: <span>{employee?.hireData || "0000-00-00"}</span>
             </h5>
             <h5>
-              Last Edit: <span>2022/12/22</span>
+              Last Edit: <span>{employee?.lastEdit || "0000-00-00"}</span>
             </h5>
           </div>
         </div>
@@ -130,276 +179,8 @@ export default function EmpProfile() {
           <h4>Attendance</h4>
           <div className="day">February</div>
         </div>
-        <table>
-          <thead>
-            <th>Day</th>
-            <th>Status</th>
-            <th>Arrival Time</th>
-            <th>Leave Time</th>
-            <th>Working Hour</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-            <tr>
-              <td>Feb</td>
-              <td>Present</td>
-              <td>08:30</td>
-              <td>1230</td>
-              <td>1230</td>
-            </tr>
-          </tbody>
-        </table>
+
+        <EmplyeeProfileTable />
       </div>
     </div>
   );
