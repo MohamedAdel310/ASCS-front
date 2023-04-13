@@ -200,8 +200,9 @@
         font-size: 16pt;
 }
 .dashboard--WorkersPerformance h6{
-    font-weight: 200;
-    font-size: 12pt;
+    font-weight: 100;
+    font-size: 12px;
+    padding-top: 10px;
 }
 .worker_performance_chart{
     display:grid ;
@@ -231,8 +232,12 @@
     justify-content: top;
     align-items: center;
     
-     
 }
+
+.dashboard--Late-overview .container{
+    display: flex;
+}
+
 .months{
     display: grid;
     grid-row: 2;
@@ -245,13 +250,9 @@
 
 }
 .dashboard--Late-overview h4{
-    display: grid;
-    grid-row: 1;
-    grid-column: 1;
     font-weight: 1000;
-     font-size: 16pt;
-     padding-left: 40px;
-     padding-top: 20px;
+    font-size: 16pt;
+    padding-left: 40px;
 }
 
 
@@ -259,7 +260,7 @@
     display: grid;
     padding-left:100px;
     gap: 15px;
-
+    min-width: 80%;
     font-size: 12pt;
 
 }
