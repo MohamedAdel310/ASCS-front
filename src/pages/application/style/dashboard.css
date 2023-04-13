@@ -14,45 +14,51 @@
     display: grid;
     grid-template-columns: repeat(2, 700px);
     grid-template-rows: repeat(3,500px);
-    padding: 50px;
+    padding: 50px 0 0 10px;
     margin: 10px;
 }
-.detected_violaions{
+/* .detected_violaions{
     display: grid;
     grid-row: 1;
     grid-column: 1;
 }
-        
+         */
+
+.violation-title{
+    display: flex;
+    justify-content: space-between;
+}
+
 .dashboard--detected-violations{
-    grid-template-columns: repeat(2,550px);
+    /* grid-template-columns: repeat(2,550px);
     grid-template-rows: repeat(4,55px);
-       display: grid;
-        border: 1px solid #ddd;
-        box-shadow: 2px 2px 2px 0px #ddd;
-        min-width: 550px;
-        height: 550px;
-        border-radius: 20px;
-        position: relative;
-       justify-content: left;
-       align-items: left;
-      
+    display: grid;
+    justify-content: left;
+    align-items: left; */
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 2px 0px #ddd;
+    min-width: 550px;
+    height: 550px;
+    border-radius: 20px;
+    position: relative;
 }
 .dashboard--detected-violations h3{
-    display: grid;
     padding-left: 60px;
-    font-weight: 1500;
-    font-size: 18pt;
-    padding-bottom: 0;
+    font-size: 25px;
     padding-top: 20px;
+    line-height: 1;
 }
 .detected_total_days{
-    grid-row: 3;
-    grid-column: 1;
-    font-size: 10pt;
+    padding-left: 60px;
     font-weight: 100;
-padding-left: 60px;
+    font-size: 13px;
 
 }
+
+.violation-title .option{
+    padding: 20px 60px 0 0;
+}
+
 .detected_violations_area_chart{
    
     display: grid;
@@ -64,16 +70,13 @@ padding-left: 60px;
   
     }
     #date{
-        padding-top: 20px;
+        height: 35px;
         border: 0;
-        text-align: center;
-        justify-content: right;
-        display: grid;
-        width: 80px;
-        border-radius: 20px;
-        color: aliceblue;
+        width: 120px;
+        border-radius: 10px;
+        color: white;
         background-color: rgb(255, 153, 0);
-        
+        padding-left: 20px;
       }
       .number{
         display: grid;

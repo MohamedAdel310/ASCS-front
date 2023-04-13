@@ -38,30 +38,35 @@ export default function DetectedViolations(prpos) {
   return (
     
     <div className="dashboard--detected-violations">
-    <h3>DetectedViolations</h3>
-    <div className="number">
-      {prpos.num}
-    </div>
-  
-    <div className="detected_total_days">In the last 29 days</div>
- <div className="option">
- <select id="date">
-          <option value="1">ALL</option>
-            <option value="2">week</option>
-            <option value="3">Month</option>
-          </select>
- </div>
- <div className="detected_violations_area_chart">
-    <Chart
-    chartType="AreaChart"
-      width={"630px"}
-      height={"500px"}
-      
-      data={data}
-      options={options}
-      />
+      <div className="violation-title">
+
+        <div className="header">
+          <h3>DetectedViolations</h3>
+          <div className="number">
+            {prpos.num}
+          </div>
+          <div className="detected_total_days">In the last 29 days</div>
+        </div>
+        <div className="option">
+          <select id="date">
+              <option value="1">ALL</option>
+                <option value="2">week</option>
+                <option value="3">Month</option>
+              </select>
+        </div>
+
       </div>
-     </div>
+      <div className="detected_violations_area_chart">
+        <Chart
+          chartType="AreaChart"
+            width={"630px"}
+            height={"500px"}
+            
+            data={data}
+            options={options}
+          />
+      </div>
+    </div>
 
      
   );
