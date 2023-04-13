@@ -1,46 +1,64 @@
+:root {
+    --main-color: #0d1b3b;
+    --socondary-color: #ffaa01;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
 .dashboard_nomain{
     display: grid;
-    grid-template-columns: repeat(2, 700px);
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
     grid-template-rows: repeat(3,500px);
-    padding: 50px;
-    margin: 10px;
+    padding: 50px 0 0 10px;
+    /* margin: 10px; */
 }
-.detected_violaions{
+/* .detected_violaions{
     display: grid;
     grid-row: 1;
     grid-column: 1;
 }
-        
+         */
+
+.violation-title{
+    display: flex;
+    justify-content: space-between;
+}
+
 .dashboard--detected-violations{
-    grid-template-columns: repeat(2,550px);
+    /* grid-template-columns: repeat(2,550px);
     grid-template-rows: repeat(4,55px);
-       display: grid;
-        border: 1px solid #ddd;
-        box-shadow: 2px 2px 2px 0px #ddd;
-        min-width: 550px;
-        height: 550px;
-        border-radius: 20px;
-        position: relative;
-       justify-content: left;
-       align-items: left;
-      
+    display: grid;
+    justify-content: left;
+    align-items: left; */
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 2px 0px #ddd;
+    min-width: 550px;
+    height: 550px;
+    border-radius: 20px;
+    position: relative;
 }
 .dashboard--detected-violations h3{
-    display: grid;
     padding-left: 60px;
-    font-weight: 1500;
-    font-size: 18pt;
-    padding-bottom: 0;
+    font-size: 25px;
     padding-top: 20px;
+    line-height: 1;
 }
 .detected_total_days{
-    grid-row: 3;
-    grid-column: 1;
-    font-size: 10pt;
+    padding-left: 60px;
     font-weight: 100;
-padding-left: 60px;
+    font-size: 13px;
 
 }
+
+.violation-title .option{
+    padding: 20px 60px 0 0;
+}
+
 .detected_violations_area_chart{
    
     display: grid;
@@ -52,16 +70,13 @@ padding-left: 60px;
   
     }
     #date{
-        padding-top: 20px;
+        height: 35px;
         border: 0;
-        text-align: center;
-        justify-content: right;
-        display: grid;
-        width: 80px;
-        border-radius: 20px;
-        color: aliceblue;
+        width: 120px;
+        border-radius: 10px;
+        color: white;
         background-color: rgb(255, 153, 0);
-        
+        padding-left: 20px;
       }
       .number{
         display: grid;
@@ -110,13 +125,12 @@ padding-left: 60px;
 }
 .dashboard--human--container{
    
-    display: grid;
+    /* display: grid; */
     border: 1px solid #ddd;
     box-shadow: 2px 2px 2px 0px #ddd;
-    justify-content: left;
-    grid-template-rows: repeat(2,80px);
-   
-    width: 550px;
+    /* justify-content: left;
+    grid-template-rows: repeat(2,80px); */
+    width: 470px;
     height: 400px;
     border-radius: 20px;
     position: relative;
@@ -174,7 +188,7 @@ padding-left: 60px;
        display: grid;
         border: 1px solid #ddd;
         box-shadow: 2px 2px 2px 0px #ddd;
-        width: 550px;
+        width: 470px;
         height: 350px;
         border-radius: 20px;
         position: relative;
@@ -186,8 +200,9 @@ padding-left: 60px;
         font-size: 16pt;
 }
 .dashboard--WorkersPerformance h6{
-    font-weight: 200;
-    font-size: 12pt;
+    font-weight: 100;
+    font-size: 12px;
+    padding-top: 10px;
 }
 .worker_performance_chart{
     display:grid ;
@@ -217,8 +232,12 @@ padding-left: 60px;
     justify-content: top;
     align-items: center;
     
-     
 }
+
+.dashboard--Late-overview .container{
+    display: flex;
+}
+
 .months{
     display: grid;
     grid-row: 2;
@@ -231,13 +250,9 @@ padding-left: 60px;
 
 }
 .dashboard--Late-overview h4{
-    display: grid;
-    grid-row: 1;
-    grid-column: 1;
     font-weight: 1000;
-     font-size: 16pt;
-     padding-left: 40px;
-     padding-top: 20px;
+    font-size: 16pt;
+    padding-left: 40px;
 }
 
 
@@ -245,7 +260,7 @@ padding-left: 60px;
     display: grid;
     padding-left:100px;
     gap: 15px;
-
+    min-width: 80%;
     font-size: 12pt;
 
 }
@@ -253,31 +268,48 @@ padding-left: 60px;
     display: grid;
     grid-row: 1;
     grid-column: 2;
-    font-weight: 1000;
-     font-size: 16pt;
-     grid-template-columns: repeat(2,300px);
-     grid-template-rows: repeat(2,1fr);
+    font-weight: bold;
+    font-size: 16pt;
+    grid-template-columns: repeat(2,290px);
+    grid-template-rows: repeat(2,1fr);
 }
 
-.detected_vehicale_card{
+.dashboard--card{
 
-    display: grid;
-     border: 1px solid #ddd;
-     box-shadow: 2px 2px 2px 0px #ddd;
-     width: 250px;
-     height: 200px;
-     border-radius: 20px;
-     position: relative;
-    justify-content: top;
-    align-items: left;
-     padding: 30px;
-     
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 2px 0px #ddd;
+    width: 230px;
+    height: 200px;
+    border-radius: 40px;
+    position: relative;
+    padding: 20px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
-.last_event_card{
+
+.detected_vehicle_card{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+}
+
+.detected_vehicle_card_number{
+    font-size: 40px;
+    text-align: center;
+}
+
+.dashboard--card h6{
+    text-align: center;
+    font-weight: 100;
+}
+
+.dashboard--last-event-detected{
     display: grid;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 2px 0px #ddd;
-    width: 550px;
+    width: 480px;
     height: 300px;
     border-radius: 20px;
     position: relative;
@@ -285,18 +317,62 @@ padding-left: 60px;
    align-items: left;
     padding: 20px;
 }
+
+.dashboard--last-event-detected h3{
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.personal-detect{
+    display: flex;
+    font-size: 15px;
+    position: relative;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.personal-detect .bell{
+    font-size: 25px;
+    padding-left: 20px;
+}
+
+.personal-detect h4{
+    font-size: 15px;
+    padding: 0 50px;
+    font-weight: 300;
+}
+
+.personal-detect p{
+    position: absolute;
+    right: 0;
+    padding-right: 20px;
+}
+
+.dashboard--last-event-detected button{
+    border-radius: 20px;
+    width: 100px;
+    height: 30px;
+    margin-left: 80%;
+    background-color: var(--socondary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 .detected_vehicles{
-    display: grid;
+    /* display: grid;
     grid-row: 1;
-    grid-column: 1;
+    grid-column: 1; */
     padding-left: 30px;
 }
-.unauthtorized_personal{
+/* .unauthtorized_personal{
     display: grid;
     grid-row: 1;
     grid-column: 2;
     padding-left: 30px;
-}
+} */
 
 .last_event{
     display: grid;
