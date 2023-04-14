@@ -3,6 +3,8 @@ import "../style/employees.css";
 import "../../../components/search";
 import EmployeeTable from "./components/Empolyees-table";
 // import employeesData from "../../../../Data/randomEmployeesData.json";
+import PopupFilter from "./components/PopupFilter";
+import PopupAddEmployee from "./components/PopupAddEmployee";
 
 import Search from "../../../components/search";
 import Filter from "../../../components/Filter";
@@ -13,7 +15,8 @@ const apiURL = "https://myaz.cyclic.app/api/";
 export default function Employees() {
   const [data, setData] = useState();
   const [employeesData, setEmployeesData] = useState();
-  const [openPopup, setOpenPopup] = useState(false);
+  const [openEmployeePopup, setOpenEmployeePopup] = useState(false);
+  const [openFilterPopup, setOpenFilterPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,11 +42,22 @@ export default function Employees() {
     <div className="employee">
       <h2>Employees</h2>
       <div className="add-empolyee">
-        <button className="add" onClick={() => setOpenPopup(true)}>
+        <button
+          className="add"
+          onClick={() => {
+            setOpenEmployeePopup(true);
+            setOpenFilterPopup(false);
+          }}
+        >
           Add Employee
         </button>
         <Search />
-        <Filter />
+        <Filter
+          onClick={() => {
+            setOpenFilterPopup(true);
+            setOpenEmployeePopup(false);
+          }}
+        />
       </div>
       <table>
         <thead>
@@ -67,11 +81,10 @@ export default function Employees() {
         </tbody>
       </table>
 
-      {openPopup && (
-        <div className="addEmployeePopup">
-          <h1>hello from add employee popup</h1>
-          <MainButton text="add" onClick={() => setOpenPopup(false)} />
-          <MainButton text="close" onClick={() => setOpenPopup(false)} />
+      {(openEmployeePopup || openFilterPopup) && (
+        <div className="popup-container">
+          <h1>hello form popup container</h1>
+          {openEmployeePopup ? <PopupAddEmployee /> : <PopupFilter />}
         </div>
       )}
     </div>
