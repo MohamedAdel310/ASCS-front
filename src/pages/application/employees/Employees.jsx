@@ -83,7 +83,6 @@ export default function Employees() {
 
       {(openEmployeePopup || openFilterPopup) && (
         <div className="popup-container">
-          <h1>hello form popup container</h1>
           {openEmployeePopup ? <PopupAddEmployee /> : <PopupFilter />}
         </div>
       )}
