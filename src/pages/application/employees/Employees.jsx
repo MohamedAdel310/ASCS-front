@@ -6,12 +6,14 @@ import EmployeeTable from "./components/Empolyees-table";
 
 import Search from "../../../components/search";
 import Filter from "../../../components/Filter";
+import MainButton from "../../../components/button-main";
 
 const apiURL = "https://myaz.cyclic.app/api/";
 
 export default function Employees() {
   const [data, setData] = useState();
   const [employeesData, setEmployeesData] = useState();
+  const [openPopup, setOpenPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +39,9 @@ export default function Employees() {
     <div className="employee">
       <h2>Employees</h2>
       <div className="add-empolyee">
-        <button className="add">Add Employee</button>
+        <button className="add" onClick={() => setOpenPopup(true)}>
+          Add Employee
+        </button>
         <Search />
         <Filter />
       </div>
@@ -62,6 +66,14 @@ export default function Employees() {
           ))}
         </tbody>
       </table>
+
+      {openPopup && (
+        <div className="addEmployeePopup">
+          <h1>hello from add employee popup</h1>
+          <MainButton text="add" onClick={() => setOpenPopup(false)} />
+          <MainButton text="close" onClick={() => setOpenPopup(false)} />
+        </div>
+      )}
     </div>
   );
 }

@@ -17,3 +17,9 @@
   background-color: var(--socondary-color);
   color: white;
 }
+
+.addEmployeePopup {
+  position: absolute;
+  border: 3px solid black;
+  width: 600px;
+}
