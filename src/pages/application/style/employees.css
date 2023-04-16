@@ -19,6 +19,7 @@
   margin: 30px 0;
 }
 
+
 .add-empolyee .add {
   margin-right: 40px;
   width: 300px;
@@ -36,9 +37,9 @@
   text-align: center;
   border: 1px solid black;
   border-radius: 40px;
-  width: 400px;
+  width: 300px;
   top: 100px;
-  background-color: white;
+  background-color: var(--main-color);
 }
 
 .popup--add-employee{
@@ -51,10 +52,10 @@
 .popup--add-employee h1{
   font-size: 25px;
   margin: 30px 0;
-  font-family: palatino;
+  color: white;
 }
 
-.popup--add-employee input ,select{
+.popup--add-employee input ,.popup--add-employee select{
   width: 200px;
   padding: 5px;
   margin-bottom: 20px;
@@ -62,11 +63,11 @@
   border: 2px solid #ccc;
 }
 
-.popup--add-employee input ,select:focus{
+.popup--add-employee input ,.popup--add-employee select:focus{
   outline-style: none;
 }
 .popup--add-employee Button{
   color: white;
   min-width: 100px;
-  margin: 5px;
+  margin: 0 5px 30px 5px;
 }

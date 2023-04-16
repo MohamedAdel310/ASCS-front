@@ -162,6 +162,12 @@ display: flex;
 width : auto;
 }
 
+.attendance_day .add{
+  width: 100px;
+  height: 30px;
+}
+
+
 @keyframes circle1 {
   100% {
     stroke-dashoffset: 275;

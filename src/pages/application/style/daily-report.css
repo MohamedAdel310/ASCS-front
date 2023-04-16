@@ -36,30 +36,18 @@
 
 .card-violation--number {
   font-size: 38px;
-  font-weight: 700;
-  /* padding-top: 5px; */
-  justify-self: right;
-
-  /* left: auto; */
-  /* color: #000000; */
+  font-weight: 900;
+  text-align: center;
 }
 .card-violation--text {
   font-size: 13px;
   font-weight: 700;
-  /* padding-bottom: 5px; */
-  /* color: #000000; */
-  /* right: 0; */
-  justify-self: center;
+  text-align: center;
 }
 .card-violation--img {
   background-color: white;
-  /* size: 10px; */
   padding-left: 10px;
-  padding-right: 10px;
-  width: 100px;
-  /* height: 40px; */
-  /* border-radius: 10px; */
-  /* display: flex; */
+  width: 70px;
 }
 .status-box {
   display: grid;
@@ -75,17 +63,21 @@
   display: grid;
   border-radius: 20px;
 }
+
+.status-siola .add{
+  height: 40px;
+  width: 100px;
+}
+
 .status-violation--header {
   font-size: 15px;
-  font-weight: 700;
-  /* color: #000000; */
-  /* text-align: start; */
+  line-height: 2;
+  letter-spacing: 1px;
 }
 .status-violation--info {
   font-size: 12px;
   font-weight: 100;
-  /* color: #000000; */
-  /* text-align: start; */
+  letter-spacing: 1px;
 }
 .bold {
   font-weight: bolder;
@@ -102,9 +94,7 @@
 .critcal_header {
   font-size: 13px;
   font-weight: 700;
-  color: #000000;
-  text-align: start;
-  justify-content: start;
+  color:red;
 }
 
 .critcal-level {

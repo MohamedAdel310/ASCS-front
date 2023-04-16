@@ -52,7 +52,7 @@
     padding-left: 60px;
     font-weight: 100;
     font-size: 13px;
-
+    letter-spacing: 1px;
 }
 
 .violation-title .option{
@@ -145,21 +145,17 @@
 
 }
 .human_present_headers h4{
-    display: flex;
-    grid-row: 1;
     padding-left: 40px;
-    padding-top: 20px;
-    font-weight: 1500;
-    font-size: 16pt;
+    padding-top: 10px;
+    font-size: 20px;
+    line-height: 2;
 }
 .human_present_headers h3{
     display: flex;
     font-weight: 500;
     font-size: 10pt;
     padding-left: 40px;
-    
-
-    
+    letter-spacing: 1px;
 }
 .human_area{
     display:grid;
@@ -203,6 +199,7 @@
     font-weight: 100;
     font-size: 12px;
     padding-top: 10px;
+    letter-spacing: 1px;
 }
 .worker_performance_chart{
     display:grid ;
@@ -303,6 +300,7 @@
 .dashboard--card h6{
     text-align: center;
     font-weight: 100;
+    letter-spacing: 1px;
 }
 
 .dashboard--last-event-detected{

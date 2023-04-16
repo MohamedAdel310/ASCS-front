@@ -11,7 +11,7 @@ export default function TableDay({
 }) {
   return (
     <tr>
-      <td>{num + 1}</td>
+      <td className="teble-number">{num + 1}</td>
       <td>
         <Link to={`/application/employees/${employee_id}`}>{name}</Link>
       </td>

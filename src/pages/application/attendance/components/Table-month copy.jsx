@@ -39,7 +39,7 @@ export default function TableMonth({
 }) 
 {
   return (
-    <tr>
+    <tr className="month-table">
       <td>{name}</td>
       <td>{department}</td>
       <td>{day1}</td>

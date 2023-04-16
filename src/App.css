@@ -32,9 +32,17 @@ table tbody {
   background-color: #f3f3f3;
 }
 
+table tbody .teble-number{
+  text-align: center;
+}
+
+th{
+  font-size: 11px;
+}
+
 td,
 th {
-  padding: 10px;
+  padding: 15px 0;
 }
 
 table tbody tr {
@@ -43,4 +51,6 @@ table tbody tr {
 
 tbody a {
   color: black;
+  text-decoration: none;
+  padding-left: 10px;
 }

@@ -10,8 +10,7 @@ export default function MainButton({ text, onClick }) {
         border: "none",
         cursor: "pointer",
         backgroundColor: "#ffaa01",
-        color: "wite",
-        width: "fit-content",
+        color: "white",
         padding: "5px 10px",
       }}
     >
