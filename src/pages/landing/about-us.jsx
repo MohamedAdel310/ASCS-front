@@ -1,7 +1,7 @@
 import React from "react";
-import "./landing.css"
+import "./landing.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faInstagram, faTwitter } from"@fortawesome/free-brands-svg-icons";
 
 export default function About(){
     return(
@@ -28,9 +28,15 @@ export default function About(){
                     </div>
                 </div>
                 <div class="social">
-                    {/* <FontAwesomeIcon icon={}/> */}
-                    <a href=""><i class="fab fa-twitter"></i></a>
-                    <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href="#">
+                            <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
+                        </a>
+                        <a href="#">
+                            <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
+                        </a>
+                        <a href="#">
+                            <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
+                        </a>
                 </div>
                 </div>
                 <div class="image">

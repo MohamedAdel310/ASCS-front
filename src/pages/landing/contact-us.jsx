@@ -1,5 +1,11 @@
 import React from "react";
 import "./contact.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 
 const inputs = document.querySelectorAll(".input");
 
@@ -19,6 +25,9 @@ inputs.forEach((input) => {
     input.addEventListener("focus", focusFunc);
     input.addEventListener("blur", blurFunc);
 });
+
+
+
 export default function Contact(){
     return(
         <div class="contact" id="contact">
@@ -52,16 +61,16 @@ export default function Contact(){
                     <p>Connect with us :</p>
                     <div class="social-icons">
                         <a href="#">
-                        <i class="fab fa-facebook-f"></i>
+                            <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
                         </a>
                         <a href="#">
-                        <i class="fab fa-twitter"></i>
+                            <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
                         </a>
                         <a href="#">
-                        <i class="fab fa-instagram"></i>
+                            <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
                         </a>
                         <a href="#">
-                        <i class="fab fa-linkedin-in"></i>
+                            <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
                         </a>
                     </div>
                     </div>
@@ -99,5 +108,6 @@ export default function Contact(){
                 </div>
             </div>
         </div>
+        
     )
 }

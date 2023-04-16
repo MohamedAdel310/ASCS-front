@@ -299,17 +299,20 @@ html {
   }
 
   .about-content .social{
-    margin: 40px 0  ;
+    margin: 20px 0  ;
+    display: flex;
+    gap: 30px;
   }
-
-  .about-content .social i{
-    color: var(--socondary-color);
-    font-size: 30px;
-    padding: 0px 10px;
-    transition: .6s;
-  }
-
-  .fa-twitter:before {
-    content: "\f099";
+  .about-content .social a{
+    text-decoration: none;
     color: white;
+    gap:20px ;
+    font-size: 25px;
+    transition: .3s;
+  }
+
+
+  .about-content .social a:hover{
+    color: var(--socondary-color);
+    transition: .3s;
   }
