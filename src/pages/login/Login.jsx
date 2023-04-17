@@ -15,7 +15,8 @@ import "./login.css";
 // });
 export default function Login() {
   return (
-    <div class="login-page" id="login-page">
+    <div className="login-home">
+      <div class="login-page" id="login-page">
       <div class="form-container sign-up">
         <form action="#">
           <h1>Create an account</h1>
@@ -73,6 +74,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

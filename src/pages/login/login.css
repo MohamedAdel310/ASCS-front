@@ -16,12 +16,12 @@
   --socondary-color: #ffaa01;
 }
 
-/* body {
+.login-home {
   display: grid;
   place-items: center;
   font-family: "montserrat", sans-serif;
   height: 100vh;
-} */
+}
 .login-page h1 {
   font-weight: bold;
   margin: 0;
