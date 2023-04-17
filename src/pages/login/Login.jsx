@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./login.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export default function Login() {
   const [containerClass, setContainerClass] = useState("login-page");
@@ -20,13 +22,13 @@ export default function Login() {
             <h1>Create an account</h1>
             <div class="social-container">
               <a href="#">
-                <i class="fab fa-facebook"></i>
+              <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
               </a>
               <a href="#">
-                <i class="fab fa-google"></i>
+              <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
               </a>
               <a href="#">
-                <i class="fab fa-github"></i>
+              <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
               </a>
             </div>
             <span>use your email for register</span>
@@ -42,13 +44,13 @@ export default function Login() {
             <h1>Sign in</h1>
             <div class="social-container">
               <a href="#">
-                <i class="fab fa-facebook"></i>
+                <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
               </a>
               <a href="#">
-                <i class="fab fa-google"></i>
+              <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
               </a>
               <a href="#">
-                <i class="fab fa-github"></i>
+              <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
               </a>
             </div>
             <span>login to your account</span>

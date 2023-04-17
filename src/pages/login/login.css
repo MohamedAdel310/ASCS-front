@@ -6,9 +6,11 @@
 }
 
 .login-page h1 {
-  font-weight: bold;
+  font-weight: 900;
   margin: 0;
-  color: var(--socondary-color);
+  color: var(--main-color);
+  line-height: 1;
+  letter-spacing: 1px;
 }
 
 .login-page p {
@@ -200,7 +202,6 @@
 }
 
 .social-container a {
-  border: 1px solid #dddddd;
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;
@@ -208,4 +209,12 @@
   margin: 0 5px;
   height: 40px;
   width: 40px;
+  font-size: 40px;
+  color: var(--main-color);
+  transition: .3s;
+}
+
+.social-container a:hover {
+  font-size: 50px;
+  transition: .3s;
 }
