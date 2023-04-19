@@ -84,11 +84,8 @@
         font-size: 32pt;
         font-weight: 1000;
         padding-left: 60px;
-      
-
     }
-    
-  
+
 .attendance_overview{
     display: grid;
     grid-row: 2;
@@ -124,14 +121,10 @@
     padding-top: 70px;
 }
 .dashboard--human--container{
-   
-    /* display: grid; */
     border: 1px solid #ddd;
     box-shadow: 2px 2px 2px 0px #ddd;
-    /* justify-content: left;
-    grid-template-rows: repeat(2,80px); */
     width: 470px;
-    height: 400px;
+    height: 370px;
     border-radius: 20px;
     position: relative;
    
@@ -169,8 +162,7 @@
 
 .dashboard--attendance-overview h3{
     font-size: 16pt;
-    margin: 20px;
-    justify-content: start;
+    padding-left: 60px;
 }
 .work_performane{
     display: grid;
@@ -304,15 +296,12 @@
 }
 
 .dashboard--last-event-detected{
-    display: grid;
     border: 1px solid #ddd;
     box-shadow: 2px 2px 2px 0px #ddd;
     width: 480px;
     height: 300px;
     border-radius: 20px;
     position: relative;
-   justify-content: top;
-   align-items: left;
     padding: 20px;
 }
 
@@ -328,7 +317,8 @@
     align-items: center;
     border: 1px solid gray;
     border-radius: 50px;
-    margin-bottom: 10px;
+    margin: 10px 0;
+    box-shadow: 5px 5px 10px 2px #eee;
 }
 
 .personal-detect .bell{
@@ -338,7 +328,7 @@
 
 .personal-detect h4{
     font-size: 15px;
-    padding: 0 50px;
+    padding: 10px 50px;
     font-weight: 300;
 }
 
@@ -352,11 +342,12 @@
     border-radius: 20px;
     width: 100px;
     height: 30px;
-    margin-left: 80%;
     background-color: var(--socondary-color);
     color: white;
     border: none;
     cursor: pointer;
+    position: absolute;
+    right: 20px;
 }
 
 .detected_vehicles{

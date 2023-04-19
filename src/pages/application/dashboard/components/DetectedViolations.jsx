@@ -26,9 +26,6 @@ export const options = {
       right: 0,
       top: 20,
       bottom: 100,
-     
-    
-      
     }
   
 };
@@ -49,10 +46,10 @@ export default function DetectedViolations(prpos) {
         </div>
         <div className="option">
           <select id="date">
-              <option value="1">ALL</option>
-                <option value="2">week</option>
-                <option value="3">Month</option>
-              </select>
+            <option value="1">ALL</option>
+            <option value="2">week</option>
+            <option value="3">Month</option>
+          </select>
         </div>
 
       </div>
