@@ -12,6 +12,9 @@ export default function MainButton({ text, onClick }) {
         backgroundColor: "#ffaa01",
         color: "white",
         padding: "5px 10px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       {text}
