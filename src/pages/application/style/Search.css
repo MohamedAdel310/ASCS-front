@@ -21,8 +21,9 @@
     position: absolute;
     border: none;
     right: 20px;
-    top: 11px;
+    top: 50%;
     cursor: pointer;
+    transform: translateY(-50%);
 }
 
 .searcher input{

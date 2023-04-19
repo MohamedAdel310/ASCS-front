@@ -8,9 +8,8 @@
 .login-page h1 {
   font-weight: 900;
   margin: 0;
-  color: var(--main-color);
-  line-height: 1;
-  letter-spacing: 1px;
+  color: black;
+  line-height: .8;
 }
 
 .login-page p {
@@ -24,6 +23,7 @@
 
 .login-page span {
   font-size: 12px;
+  letter-spacing: 1px;
 }
 
 .login-page button {
