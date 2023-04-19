@@ -19,12 +19,7 @@ export const options = {
   width:"470",
   position:"top",
   legend :{ position: 'top',textStyle: {color: 'black', fontSize: 20},alignment: 'start',},
-   
-   
-   
     colors: ['#034f84','#92a8d1'],
-  
-    
 };
 
 export default function WorkersPerformance() {

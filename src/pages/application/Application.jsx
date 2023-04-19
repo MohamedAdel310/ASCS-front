@@ -16,10 +16,12 @@ export default function Application() {
     <div className="dashboard">
       <div className="container">
         <div className="links">
+          <a href="../#Home">
           <div className="application--logo">
             <img src={logo} alt="" className="application--logo--img" />
             <h1>MYAZ</h1>
           </div>
+          </a>
           <ul className="navbar-list">
             <NavLink to="/application/dashboard" className="link-style">
               <li>

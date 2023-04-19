@@ -21,7 +21,7 @@
 .emp-profile .info{
     width: 100%;
     display: flex;
-    gap: 80px;
+    gap: 40px;
 }
 
 .emp-profile .info .image img{
@@ -90,7 +90,6 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding-bottom: 30px;
 }
 
 

@@ -83,6 +83,10 @@
   min-height: 100vh;
 }
 
+.links a{
+  text-decoration: none;
+}
+
 .dashboard .container .nav {
   width: auto;
   height: 70px;

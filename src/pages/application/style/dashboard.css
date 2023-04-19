@@ -77,8 +77,8 @@
         color: white;
         background-color: rgb(255, 153, 0);
         padding-left: 20px;
-      }
-      .number{
+}
+.violation-title .header .number{
         display: grid;
         grid-row:2;
         font-size: 32pt;
