@@ -214,6 +214,10 @@
     position: relative;
     }
 
+    .contact .contact-info .info{
+        padding: 20px 0;
+    }
+
     .contact .contact-info .title {
     color: var(--socondary-color);
     }
@@ -225,9 +229,8 @@
 
     .contact .information {
     color: #555;
-    margin: 0.7rem 0;
-    align-items: center;
     font-size: 0.95rem;
+    line-height: .7;
     }
 
     .contact .icon {

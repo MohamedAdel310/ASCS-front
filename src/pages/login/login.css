@@ -1,3 +1,19 @@
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Cairo, sans-serif;
+}
+
+:root {
+  --main-color: #0d1b3b;
+  --socondary-color: #ffaa01;
+}
+
+
 .login-home {
   display: grid;
   place-items: center;
@@ -7,9 +23,10 @@
 
 .login-page h1 {
   font-weight: 900;
-  margin: 0;
+  margin: 20px;
   color: black;
   line-height: .8;
+  color: var(--socondary-color);
 }
 
 .login-page p {
