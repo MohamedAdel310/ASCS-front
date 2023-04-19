@@ -1,3 +1,14 @@
+:root {
+  --main-color: #0d1b3b;
+  --socondary-color: #ffaa01;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 .daily-report {
   padding: 50px;
 }
@@ -13,7 +24,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
   grid-gap: 15px;
-  /* padding: 11px; */
 }
 .card-violation {
   display: flex;
@@ -45,9 +55,9 @@
   text-align: center;
 }
 .card-violation--img {
-  background-color: white;
-  padding-left: 10px;
-  width: 70px;
+  padding-left: 30px;
+  font-size: 30px;
+  color: var(--main-color);
 }
 .status-box {
   display: grid;
@@ -64,9 +74,27 @@
   border-radius: 20px;
 }
 
+.status-siola .image .icon{
+  font-size: 70px;
+  color: var(--main-color);
+}
+
+.status-siola .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 30px;
+}
+
 .status-siola .add{
   height: 40px;
   width: 100px;
+  color: white;
+  min-width: 100px;
+  background-color: var(--socondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
 }
 
 .status-violation--header {
@@ -106,7 +134,7 @@
   position: relative;
 }
 .critcal-level__active {
-  background-color: #01ff63;
+  background: linear-gradient(to right, orange, red);  
 }
 .critcal-level__inactive {
   background-color: #f3ecec;

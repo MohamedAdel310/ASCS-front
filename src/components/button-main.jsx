@@ -5,17 +5,17 @@ export default function MainButton({ text, onClick }) {
     <button
       onClick={onClick}
       className="add"
-      style={{
-        borderRadius: 10,
-        border: "none",
-        cursor: "pointer",
-        backgroundColor: "#ffaa01",
-        color: "white",
-        padding: "5px 10px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
+      // style={{
+      //   borderRadius: 10,
+      //   border: "none",
+      //   cursor: "pointer",
+      //   backgroundColor: "#ffaa01",
+      //   color: "white",
+      //   padding: "5px 10px",
+      //   display: "flex",
+      //   alignItems: "center",
+      //   justifyContent: "center",
+      // }}
     >
       {text}
     </button>

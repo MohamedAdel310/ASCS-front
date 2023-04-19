@@ -1,3 +1,15 @@
+
+:root {
+  --main-color: #0d1b3b;
+  --socondary-color: #ffaa01;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 .attendance {
   padding: 20px;
 }
@@ -167,6 +179,13 @@ width : auto;
 .attendance_day .add{
   width: 100px;
   height: 30px;
+  color: white;
+  min-width: 100px;
+  margin: 0 5px 30px 5px;
+  background-color: var(--socondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
 }
 
 

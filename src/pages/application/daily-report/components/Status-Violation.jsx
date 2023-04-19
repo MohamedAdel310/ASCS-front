@@ -1,6 +1,8 @@
 import React from "react";
 import MainButton from "../../../../components/button-main";
-import warningIcon from "../../../../assets/image/warning.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function StatusViolation(props) {
   const criticalLevel = (lev) => {
@@ -10,19 +12,17 @@ export default function StatusViolation(props) {
   };
 
   return (
-    <div className="status-siola" style={{ display: "flex" }}>
-      <img src={warningIcon} alt="" style={{ paddingRight: "10px" }} />
+    <div className="status-siola" style={{ 
+      display: "flex" ,
+      alignItems: "center",
+    }}>
+      <div className="image">
+        <FontAwesomeIcon className="icon" icon={faCircleExclamation}></FontAwesomeIcon>
+      </div>
       <div style={{ width: "100%" }}>
         <h2 className="status-violation--header">{props.event}</h2>
         <h3 className="status-violation--info">{props.eventMessage}</h3>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <div>
           <div className="critcal_container">
             <h4 className="critcal_header">Critcal Level</h4>
 
@@ -31,10 +31,9 @@ export default function StatusViolation(props) {
             <div className={criticalLevel(2)}></div>
             <div className={criticalLevel(3)}></div>
           </div>
-
-          <MainButton text="watch event" />
         </div>
       </div>
+      <MainButton text="watch event" />
     </div>
   );
 }

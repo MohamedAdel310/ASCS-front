@@ -35,9 +35,9 @@
   text-align: center;
   border: 1px solid black;
   border-radius: 40px;
-  width: 300px;
-  top: 100px;
-  background-color: var(--main-color);
+  width: 400px;
+  top: 80px;
+  background: linear-gradient(0deg, var(--main-color), #394b71);
 }
 
 .popup--add-employee{
@@ -72,4 +72,8 @@
   color: white;
   min-width: 100px;
   margin: 0 5px 30px 5px;
+  background-color: var(--socondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  /* border: none; */
 }
