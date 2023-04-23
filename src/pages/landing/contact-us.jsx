@@ -1,10 +1,7 @@
 import React from "react";
 import "./contact.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook ,faTwitter ,faInstagram ,faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 
 const inputs = document.querySelectorAll(".input");
