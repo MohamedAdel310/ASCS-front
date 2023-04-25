@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../style/employees.css";
+import "../style/popups.css";
 import "../../../components/search";
 import EmployeeTable from "./components/Empolyees-table";
 // import employeesData from "../../../../Data/randomEmployeesData.json";
@@ -81,11 +82,25 @@ export default function Employees() {
         </tbody>
       </table>
 
-      {(openEmployeePopup || openFilterPopup) && (
+      {/* {(openEmployeePopup || openFilterPopup) && (
         <div className="popup-container popup">
-          {openEmployeePopup ? <PopupAddEmployee /> : <PopupFilter />}
+          {openEmployeePopup ? (
+            <PopupAddEmployee setOpenEmployeePopup={setOpenEmployeePopup} />
+          ) : (
+            <PopupFilter />
+          )}
         </div>
-      )}
+      )} */}
+
+      <PopupAddEmployee
+        value={openEmployeePopup}
+        setOpenEmployeePopup={setOpenEmployeePopup}
+      />
+
+      <PopupFilter
+        value={openFilterPopup}
+        setOpenFilterPopup={setOpenFilterPopup}
+      />
     </div>
   );
 }

@@ -4,8 +4,16 @@ import React from "react";
 import MainButton from "../../../../components/button-main";
 
 export default function PopupAddEmployee(props) {
+  const handelAddEmployee = () => {
+    props.setOpenEmployeePopup(false);
+  };
+
   return (
-    <div className="popup--add-employee">
+    <div
+      className={`popup--add-employee popup ${
+        props.value || "display-popup-false"
+      }`}
+    >
       <h1>Add Employee</h1>
       <label htmlFor="">Full Name</label>
       <input type="text" placeholder="Full Name" />
@@ -53,8 +61,8 @@ export default function PopupAddEmployee(props) {
       <input type="time" placeholder="shift end" />
 
       <div className="close-and-add">
-        <MainButton text="add" onClick={() => props.handelCallback(false)} />
-        <MainButton text="close" onClick={() => props.handelCallback(false)} />
+        <MainButton text="add" onClick={handelAddEmployee} />
+        <MainButton text="close" onClick={handelAddEmployee} />
       </div>
     </div>
   );
