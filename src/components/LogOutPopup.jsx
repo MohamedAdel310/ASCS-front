@@ -4,6 +4,8 @@ import "./componentsStyle.css";
 export default function LogOutPopup(props) {
   const handleLogout = () => {
     props.setOpenLogOutPopup(false);
+
+    localStorage.removeItem("token");
   };
 
   return (

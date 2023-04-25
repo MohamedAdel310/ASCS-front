@@ -15,6 +15,9 @@ import logo from "./../../../public/myaz.png";
 export default function Application() {
   const [openLogOutPopup, setOpenLogOutPopup] = useState(false);
 
+  const token = localStorage.getItem("token");
+  token || (window.location.href = "/login");
+
   return (
     <div className="dashboard">
       <div className="container">
