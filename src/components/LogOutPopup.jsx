@@ -7,7 +7,11 @@ export default function LogOutPopup(props) {
   };
 
   return (
-    <div className={`log-out--popup ${props.active || "display-popup-false"} `}>
+    <div
+      className={`popup log-out--popup ${
+        props.active || "display-popup-false"
+      } `}
+    >
       <p className="log-out--popup--message">
         Are you sure you want to log out?
       </p>

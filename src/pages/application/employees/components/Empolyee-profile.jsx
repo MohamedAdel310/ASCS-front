@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHand, faUserXmark, faSmoking, faHelmetSafety } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHand,
+  faUserXmark,
+  faSmoking,
+  faHelmetSafety,
+} from "@fortawesome/free-solid-svg-icons";
 import "../../style/employee-profile.css";
 import imployeeImg from "../../../../../src/assets/image/man-profile-cartoon_18591-58482.png";
 import ChartDonate from "../../attendance/components/Chart-donate";
 import EmplyeeProfileTable from "./Emplyee-profile-table";
+import PopupEditDetails from "./PopupEditDetails";
 
 const currentPath = window.location.pathname;
 const employee_id = currentPath.slice(-6);
@@ -12,6 +18,7 @@ console.log("---------------------", employee_id);
 
 export default function EmpProfile() {
   const [employee, setEmployee] = useState(null);
+  const [openEditDetailsPopup, setOpenEditDetailsPopup] = useState(false);
 
   useEffect(() => {
     const fetchEmployee = async () => {
@@ -66,7 +73,16 @@ export default function EmpProfile() {
               <label htmlFor="">Department</label>
             </div>
 
-            <button>Edit Details</button>
+            <button
+              className="btn--edit-details"
+              onClick={() => setOpenEditDetailsPopup(true)}
+            >
+              Edit Details
+            </button>
+            <PopupEditDetails
+              active={openEditDetailsPopup}
+              setOpenEditDetailsPopup={setOpenEditDetailsPopup}
+            />
           </div>
           <div className="shift">
             <div className="label-container">
