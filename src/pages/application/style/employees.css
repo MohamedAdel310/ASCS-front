@@ -1,14 +1,3 @@
-
-:root {
-  --main-color: #0d1b3b;
-  --socondary-color: #ffaa01;
-}
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .employee {
   padding: 30px 20px;
 }
@@ -40,24 +29,24 @@
   background: linear-gradient(0deg, var(--main-color), #394b71);
 }
 
-.popup--add-employee{
+.popup--add-employee {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
-.popup--add-employee label{
+.popup--add-employee label {
   color: white;
 }
 
-.popup--add-employee h1{
+.popup--add-employee h1 {
   font-size: 25px;
   margin: 30px 0;
   color: white;
 }
 
-.popup--add-employee input ,.popup--add-employee select{
+.popup--add-employee input,
+.popup--add-employee select {
   width: 200px;
   padding: 5px;
   margin-bottom: 20px;
@@ -65,10 +54,12 @@
   border: 2px solid #ccc;
 }
 
-.popup--add-employee input ,.popup--add-employee select:focus{
+.popup--add-employee input,
+.popup--add-employee select:focus {
   outline-style: none;
 }
-.popup--add-employee Button{
+
+.popup--add-employee Button {
   color: white;
   min-width: 100px;
   margin: 0 5px 30px 5px;

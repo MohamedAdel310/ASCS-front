@@ -82,7 +82,7 @@ export default function Employees() {
       </table>
 
       {(openEmployeePopup || openFilterPopup) && (
-        <div className="popup-container">
+        <div className="popup-container popup">
           {openEmployeePopup ? <PopupAddEmployee /> : <PopupFilter />}
         </div>
       )}
