@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style/application.css";
 import { Outlet, NavLink } from "react-router-dom";
+import LogOutPopup from "../../components/LogOutPopup";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
@@ -12,15 +13,17 @@ import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import logo from "./../../../public/myaz.png";
 
 export default function Application() {
+  const [openLogOutPopup, setOpenLogOutPopup] = useState(false);
+
   return (
     <div className="dashboard">
       <div className="container">
         <div className="links">
           <a href="../#Home">
-          <div className="application--logo">
-            <img src={logo} alt="" className="application--logo--img" />
-            <h1>MYAZ</h1>
-          </div>
+            <div className="application--logo">
+              <img src={logo} alt="" className="application--logo--img" />
+              <h1>MYAZ</h1>
+            </div>
           </a>
           <ul className="navbar-list">
             <NavLink to="/application/dashboard" className="link-style">
@@ -79,7 +82,16 @@ export default function Application() {
           <div className="nav">
             <h3>New Cairo Branch</h3>
             <div className="log">
-              <input type="submit" value="Log out" />
+              <input
+                type="submit"
+                value="Log out"
+                onClick={() => setOpenLogOutPopup(true)}
+              />
+              <LogOutPopup
+                active={openLogOutPopup}
+                setOpenLogOutPopup={setOpenLogOutPopup}
+              />
+
               <img src="" alt="" />
             </div>
           </div>
