@@ -8,6 +8,10 @@ export default function LogOutPopup(props) {
     localStorage.removeItem("token");
   };
 
+  const handleCancelLogOut = () => {
+    props.setOpenLogOutPopup(false);
+  };
+
   return (
     <div
       className={`popup log-out--popup ${
@@ -20,7 +24,7 @@ export default function LogOutPopup(props) {
       <button onClick={handleLogout} className="log-out--popup--confirm">
         Log out
       </button>
-      <button onClick={handleLogout} className="log-out--popup--cancel">
+      <button onClick={handleCancelLogOut} className="log-out--popup--cancel">
         Cancel
       </button>
     </div>
