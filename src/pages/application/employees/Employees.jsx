@@ -73,6 +73,7 @@ export default function Employees() {
           {employeesData?.map((emp) => (
             <EmployeeTable
               key={emp.employee_id}
+              employee_id={emp.employee_id}
               name={emp.name}
               jobTitle={emp.job}
               department={emp.department}

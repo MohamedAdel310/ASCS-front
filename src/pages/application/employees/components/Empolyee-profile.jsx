@@ -11,26 +11,23 @@ import imployeeImg from "../../../../../src/assets/image/man-profile-cartoon_185
 import ChartDonate from "../../attendance/components/Chart-donate";
 import EmplyeeProfileTable from "./Emplyee-profile-table";
 import PopupEditDetails from "./PopupEditDetails";
-
-const currentPath = window.location.pathname;
-const employee_id = currentPath.slice(-6);
-console.log("---------------------", employee_id);
+import { useParams } from "react-router-dom";
 
 export default function EmpProfile() {
+  const { id } = useParams();
   const [employee, setEmployee] = useState(null);
   const [openEditDetailsPopup, setOpenEditDetailsPopup] = useState(false);
 
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        console.log(employee_id);
         const response = await fetch(
-          `https://myaz.cyclic.app/api/employees/${employee_id}`
+          `https://myaz.cyclic.app/api/employees/${id}`
         );
         if (response.ok) {
           const data = await response.json();
           setEmployee(data?.data.employee);
-          console.log("+_+_+_+_+_+_+_+_+_", employee);
+          console.log("API RESPONSE for employee data", data?.data.employee);
         } else {
           // Handle error response
           console.error(
@@ -59,7 +56,7 @@ export default function EmpProfile() {
             <div className="label-container">
               <input
                 type="text"
-                placeholder={employee?.phone || "there is no phone"}
+                placeholder={employee?.phoneNumber || "there is no phone"}
                 readOnly
               />
               <label htmlFor="">Phone Number</label>
@@ -96,7 +93,7 @@ export default function EmpProfile() {
             <div className="label-container">
               <input
                 type="text"
-                placeholder={employee?.shiftStart || "00:00 "}
+                placeholder={employee?.shiftStartAt || "00:00 "}
                 readOnly
               />
               <label htmlFor="">Shift Start at</label>
@@ -104,7 +101,7 @@ export default function EmpProfile() {
             <div className="label-container">
               <input
                 type="text"
-                placeholder={employee?.shiftEnd || "00:00 "}
+                placeholder={employee?.shiftEndAt || "00:00 "}
                 readOnly
               />
               <label htmlFor="">Shift End at</label>
@@ -121,10 +118,12 @@ export default function EmpProfile() {
               <div className="active"></div>
             </div>
             <h5>
-              Hire Date: <span>{employee?.hireData || "0000-00-00"}</span>
+              Hire Date:{" "}
+              <span>{employee?.hireDate.slice(0, 10) || "0000-00-00"}</span>
             </h5>
             <h5>
-              Last Edit: <span>{employee?.lastEdit || "0000-00-00"}</span>
+              Last Edit:{" "}
+              <span>{employee?.lastEdit.slice(0, 10) || "0000-00-00"}</span>
             </h5>
           </div>
         </div>

@@ -1,9 +1,9 @@
 import React from "react";
-import "../../style/chart-donate.css"
+import "../../style/chart-donate.css";
 export default function ChartDonate(props) {
   return (
     <div className="donat--container">
-      {console.log(props.num)}
+      {/* {console.log(props.num)} */}
       <h4>{props.text}</h4>
       <div className="skills">
         <div className="outer">

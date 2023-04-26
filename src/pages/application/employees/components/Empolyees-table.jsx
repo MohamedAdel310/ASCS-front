@@ -4,7 +4,9 @@ export default function EmpoleeTable(props) {
   return (
     <tr>
       <td>
-        <Link to="/application/employees/22">{props.name}</Link>
+        <Link to={`/application/employees/${props.employee_id}`}>
+          {props.name}
+        </Link>
       </td>
       <td>{props.jobTitle}</td>
       <td>{props.department}</td>
