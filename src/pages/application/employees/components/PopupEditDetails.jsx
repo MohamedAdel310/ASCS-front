@@ -7,24 +7,87 @@ export default function PopupEditDetails(props) {
   };
 
   return (
+    <div className="popup-edit-details--popup">
     <div
-      className={`popup edit-details--popup ${
+      className={`popup-edit-details--popup ${
         props.active || "display-popup-false"
       } `}
-    >
-      <p className="edit-details--popup--message">hello from edit details</p>
+      >
+    
+      <div className="edit-details--popup">
+
+        <div className="edit-details--popup--info" >
+        <input
+                type="text"
+                placeholder={props.name}
+              />
+              <label htmlFor="">Name</label>
+              </div>
+            <div className="edit-details--popup--info">
+              <input
+                type="text"
+                placeholder={props.phoneNumber || "there is no phone"}
+              />
+              <label htmlFor="">Phone Number</label>
+            </div>
+            <div className="edit-details--popup--info">
+              <input type="text" placeholder={props.department}  />
+              <label htmlFor="">Department</label>
+              </div>
+
+              <div className="edit-details--popup--info">
+              <input
+                type="email"
+                placeholder={props.email || "there is no email"}
+    
+              />
+              <label htmlFor="">Email</label>
+            </div>
+            <div className="edit-details--popup--info">
+              <input
+                placeholder={props.jobtitle}
+                
+              />
+          
+              <label htmlFor="">Job Title</label>
+              </div>
+  
+            <div className="edit-details--popup--info">
+              <input
+                type="text"
+                placeholder={props.shiftStartAt || "00:00 "}
+              />
+              
+              <label htmlFor="">Shift Start at</label>
+            </div>
+            <div className="edit-details--popup--info">
+              <input
+                type="text"
+                placeholder={props.shiftEndAt || "00:00 "}
+              />
+              <label htmlFor="">Shift End at</label>
+              </div>
+              
+
+    
+      </div>
+      <div className="buttons">
       <button
         onClick={handleEditDetails}
-        className="btn-style edit-details--popup--save"
+        className="btn-style-edit-details--popup--save"
       >
-        Save
+        Save Changes
       </button>
       <button
         onClick={handleEditDetails}
-        className="btn-style edit-details--popup--cancel"
+        className="btn-style-edit-details--popup--cancel"
       >
         Cancel
       </button>
+      </div>
     </div>
+    
+    </div>
+    
   );
 }
