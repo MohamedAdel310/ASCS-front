@@ -7,13 +7,13 @@ export default function PopupEditDetails(props) {
   };
 
   return (
-    <div className="popup-edit-details--popup">
+    
     <div
       className={`popup-edit-details--popup ${
         props.active || "display-popup-false"
       } `}
       >
-    
+    <div className="popup-edit-details--popup">
       <div className="edit-details--popup">
 
         <div className="edit-details--popup--info" >
