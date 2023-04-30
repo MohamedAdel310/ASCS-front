@@ -69,17 +69,8 @@ export default function EmpProfile() {
               <input type="text" placeholder={employee?.department} readOnly />
               <label htmlFor="">Department</label>
             </div>
-
-            <button
-              className="btn--edit-details"
-              onClick={() => setOpenEditDetailsPopup(true)}
-            >
-              Edit Details
-            </button>
-            <PopupEditDetails
-              active={openEditDetailsPopup}
-              setOpenEditDetailsPopup={setOpenEditDetailsPopup}
-            />
+          
+           
           </div>
           <div className="shift">
             <div className="label-container">
@@ -126,7 +117,20 @@ export default function EmpProfile() {
               <span>{employee?.lastEdit.slice(0, 10) || "0000-00-00"}</span>
             </h5>
           </div>
+          
         </div>
+        <div className="btn--edit-details--">
+            <button
+              className="btn--edit-details"
+              onClick={() => setOpenEditDetailsPopup(true)}
+            >
+              Edit Details
+            </button>
+            </div>
+            <PopupEditDetails
+              active={openEditDetailsPopup}
+              setOpenEditDetailsPopup={setOpenEditDetailsPopup}
+            />
         <div className="overview">
           <div className="title">
             <h3>Overview</h3>

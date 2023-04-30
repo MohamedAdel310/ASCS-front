@@ -43,18 +43,18 @@
   background: linear-gradient(0deg, var(--main-color), #394b71);
 }
 /********************* popup Edit Details ****************/
-.popup-edit-details--popup{
 
+.popup-edit-details--popup{
+  justify-content: center;
 display: grid;
-gap: 10px;
-justify-content: center;
 background: #f1eded;
 width:700px;
 height: 350px;
+gap: 10px;
+
 }
 .edit-details--popup {
   padding: 10px;
-  
   grid-template-rows:1fr 1fr 1fr 1fr ;
   grid-template-columns:2fr 1fr ;
   display: grid;

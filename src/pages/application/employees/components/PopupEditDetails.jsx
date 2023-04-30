@@ -13,6 +13,7 @@ export default function PopupEditDetails(props) {
         props.active || "display-popup-false"
       } `}
       >
+     
     <div className="popup-edit-details--popup">
       <div className="edit-details--popup">
 
@@ -71,23 +72,24 @@ export default function PopupEditDetails(props) {
 
     
       </div>
-      <div className="buttons">
-      <button
-        onClick={handleEditDetails}
-        className="btn-style-edit-details--popup--save"
-      >
-        Save Changes
-      </button>
-      <button
-        onClick={handleEditDetails}
-        className="btn-style-edit-details--popup--cancel"
-      >
-        Cancel
-      </button>
+
+         <div className="buttons">
+          <button
+         onClick={handleEditDetails}
+           className="btn-style-edit-details--popup--save"
+           >
+           Save Changes
+          </button>
+          <button
+          onClick={handleEditDetails}
+           className="btn-style-edit-details--popup--cancel"
+            >
+           Cancel
+         </button>
       </div>
     </div>
-    
     </div>
+   
     
   );
 }
