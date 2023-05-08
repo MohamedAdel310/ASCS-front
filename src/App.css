@@ -55,7 +55,7 @@ tbody a {
   padding-left: 10px;
 }
 
-.popup {
+/* .popup {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -65,7 +65,7 @@ tbody a {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   text-align: center;
-}
+} */
 
 .display-popup-false {
   display: none;

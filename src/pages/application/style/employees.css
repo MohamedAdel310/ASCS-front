@@ -1,5 +1,7 @@
 .employee {
   padding: 30px 20px;
+  position: relative;
+  height: 100vh;
 }
 
 .employee .add-empolyee {
