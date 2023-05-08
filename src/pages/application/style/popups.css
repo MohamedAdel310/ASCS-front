@@ -1,8 +1,41 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Cairo, sans-serif;
+}
+
+:root {
+  --main-color: #0d1b3b;
+  --socondary-color: #ffaa01;
+}
+
+
 .popup--add-employee {
   background: linear-gradient(0deg, var(--main-color), #394b71);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 500px;
+  position: absolute;
+  top: 30px;
+  left: 300px;
+  border-radius: 20px;
+}
+
+.BOX{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.BOX1{
+  text-align: center;
+  width: 45%;
 }
 
 .popup--add-employee label {
@@ -11,13 +44,13 @@
 
 .popup--add-employee h1 {
   font-size: 25px;
-  margin: 30px 0;
-  color: white;
+  margin: 15px 0;
+  color: var(--socondary-color);
 }
 
 .popup--add-employee input,
 .popup--add-employee select {
-  width: 200px;
+  width: 90%;
   padding: 5px;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -31,12 +64,19 @@
 
 .popup--add-employee Button {
   color: white;
-  min-width: 100px;
-  margin: 0 5px 30px 5px;
   background-color: var(--socondary-color);
   border-radius: 5px;
   cursor: pointer;
-  /* border: none; */
+  border: none;
+  width: 40%;
+  height: 40px;
+  margin: 0 15px 20px 15px ;
+}
+.close-and-add{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .popup--filter {
