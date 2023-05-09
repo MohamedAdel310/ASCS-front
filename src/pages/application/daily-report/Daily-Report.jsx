@@ -21,6 +21,18 @@ import {
 
 const apiURL = "https://myaz.cyclic.app/api/";
 
+const today = () => {
+  const today = new Date();
+  const date = today
+    .toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+    .replace(/\//g, "-");
+  return date;
+};
+
 const criticalLevelFun = (type) => {
   let num = 1;
   type === "smoke" && (num = 2);
@@ -74,7 +86,10 @@ export default function DailyReport() {
       const headers = {
         "Authorization": `Bearer ${token}`,
       };
-      const response = await fetch(apiURL + "events/09-05-2023", {
+      {
+        today();
+      }
+      const response = await fetch(apiURL + `events/${today()}`, {
         headers,
       });
       const json = await response.json();
