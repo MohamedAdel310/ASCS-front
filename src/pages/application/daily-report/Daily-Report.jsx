@@ -21,50 +21,50 @@ import {
 
 const apiURL = "https://myaz.cyclic.app/api/";
 
+const criticalLevelFun = (type) => {
+  let num = 1;
+  type === "smoke" && (num = 2);
+  type === "ppe" && (num = 3);
+  type === "phone" && (num = 2);
+  type === "unuthourize" && (num = 4);
+  type === "fight" && (num = 4);
+  return num;
+};
+
+const cricicalLevelType = (type) => {
+  let str = type;
+  type === "ppe" && (str = "personal protective equipment");
+
+  return str;
+};
+
+const cricicalLevelMessage = (type, arriveAt, info) => {
+  let str = `A violation (${
+    type === "ppe" ? "personal protective equipment" : type
+  }) detected at ${arriveAt.slice(0, 10)} -Reported camera: ${info.cam}`;
+
+  type === "smoke" &&
+    (str = `Detected employee somke at the factory at ${arriveAt.slice(
+      0,
+      10
+    )} -The employee id is ${info.detected} -Reported camera: ${info.cam}`);
+  type === "phone" &&
+    (str = `Detected employee use phone at the factory at ${arriveAt.slice(
+      0,
+      10
+    )} -The employee id is ${info.detected} -Reported camera: ${info.cam}`);
+  type === "unuthourize" &&
+    (str = `Detected unouthorized person at the factory at ${arriveAt.slice(
+      0,
+      10
+    )} -Reported camera: ${info.cam}`);
+
+  return str;
+};
+
 export default function DailyReport() {
   const [data, setData] = useState();
   const [events, setEvents] = useState();
-
-  const criticalLevelFun = (type) => {
-    let num = 1;
-    type === "smoke" && (num = 2);
-    type === "ppe" && (num = 3);
-    type === "phone" && (num = 2);
-    type === "unuthourize" && (num = 4);
-    type === "fight" && (num = 4);
-    return num;
-  };
-
-  const cricicalLevelType = (type) => {
-    let str = type;
-    type === "ppe" && (str = "personal protective equipment");
-
-    return str;
-  };
-
-  const cricicalLevelMessage = (type, arriveAt, info) => {
-    let str = `A violation (${
-      type === "ppe" ? "personal protective equipment" : type
-    }) detected at ${arriveAt.slice(0, 10)} -Reported camera: ${info.cam}`;
-
-    type === "smoke" &&
-      (str = `Detected employee somke at the factory at ${arriveAt.slice(
-        0,
-        10
-      )} -The employee id is ${info.detected} -Reported camera: ${info.cam}`);
-    type === "phone" &&
-      (str = `Detected employee use phone at the factory at ${arriveAt.slice(
-        0,
-        10
-      )} -The employee id is ${info.detected} -Reported camera: ${info.cam}`);
-    type === "unuthourize" &&
-      (str = `Detected unouthorized person at the factory at ${arriveAt.slice(
-        0,
-        10
-      )} -Reported camera: ${info.cam}`);
-
-    return str;
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,11 +74,12 @@ export default function DailyReport() {
       const headers = {
         "Authorization": `Bearer ${token}`,
       };
-      const response = await fetch(apiURL + "events/05-05-2023", {
+      const response = await fetch(apiURL + "events/09-05-2023", {
         headers,
       });
       const json = await response.json();
-      setData(json.data);
+      setData(json.types);
+      console.log(json.types);
 
       localStorage.setItem("employeesData", JSON.stringify(json.data));
       setEvents(json.data);
@@ -89,76 +90,61 @@ export default function DailyReport() {
   return (
     <div className="daily-report">
       {console.log(events)}
-      <CardViolationComp />
+      <CardViolationComp data={data} />
 
       <div className="daily-report--header">
         <h1>Detected events</h1>
       </div>
 
-      {/* <StatusViolationComp /> */}
-
-      <div className="status-box">
-        {events?.map((event) => {
-          return (
-            <StatusViolation
-              level={criticalLevelFun(event.type)}
-              event={cricicalLevelType(event.type)}
-              eventMessage={cricicalLevelMessage(
-                event.type,
-                event.arriveAt,
-                event.info
-              )}
-            />
-          );
-        })}
-      </div>
+      <StatusViolationComp events={events} />
     </div>
   );
 }
 
-const CardViolationComp = () => {
+const CardViolationComp = ({ data }) => {
   return (
     <div className="card-violation-container">
-      <CardViolation num="8" text="Detected vehicles" icon={faTruck} />
-      <CardViolation num="3" text="unauthorized persons" icon={faUserXmark} />
-      <CardViolation num="5" text="smoking" icon={faSmoking} />
-      <CardViolation num="6" text="safety violation" icon={faHelmetSafety} />
-      <CardViolation num="10" text="restricted area" icon={faHand} />
+      <CardViolation
+        num={data?.vehicles || 0}
+        text="Detected vehicles"
+        icon={faTruck}
+      />
+      <CardViolation
+        num={data?.unauthorized || 0}
+        text="unauthorized persons"
+        icon={faUserXmark}
+      />
+      <CardViolation num={data?.smoke || 0} text="smoking" icon={faSmoking} />
+      <CardViolation
+        num={data?.ppe || 0}
+        text="safety violation"
+        icon={faHelmetSafety}
+      />
+      <CardViolation
+        num={data?.phone || 0}
+        text="restricted area"
+        icon={faHand}
+      />
     </div>
   );
 };
 
-const StatusViolationComp = () => {
+const StatusViolationComp = ({ events }) => {
   return (
     <div className="status-box">
       {events?.map((event) => {
         return (
           <StatusViolation
-            level="1"
-            event={event.type}
-            eventMessage="Detected vehicle entered the factory at 19:50 -The plate number
-      is 442 -Reported camera: A70"
+            level={criticalLevelFun(event.type)}
+            event={cricicalLevelType(event.type)}
+            eventMessage={cricicalLevelMessage(
+              event.type,
+              event.arriveAt,
+              event.info
+            )}
           />
         );
       })}
-      {/* <StatusViolation
-        level="3"
-        event={events.type}
-        eventMessage={`Detected vehicle entered the factory at 19:50 -The plate number
-      is 442 -Reported camera: A70`}
-      />
-      <StatusViolation
-        level="2"
-        event="Restricted Area"
-        eventMessage="Detected vehicle entered the factory at 19:50 -The plate number
-      is 442 -Reported camera: A70"
-      />
-      <StatusViolation
-        level="4"
-        event="Unauthorized Person"
-        eventMessage="Detected vehicle entered the factory at 19:50 -The plate number
-      is 442 -Reported camera: A70"
-      /> */}
     </div>
   );
 };
