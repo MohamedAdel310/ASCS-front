@@ -1,18 +1,3 @@
-* {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: Cairo, sans-serif;
-}
-
-:root {
-  --main-color: #0d1b3b;
-  --socondary-color: #ffaa01;
-}
-
-
 .popup--add-employee {
   background: linear-gradient(0deg, var(--main-color), #394b71);
   display: flex;
@@ -26,14 +11,14 @@
   border-radius: 20px;
 }
 
-.BOX{
+.BOX {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: center;
 }
 
-.BOX1{
+.BOX1 {
   text-align: center;
   width: 45%;
 }
@@ -70,9 +55,9 @@
   border: none;
   width: 40%;
   height: 40px;
-  margin: 0 15px 20px 15px ;
+  margin: 0 15px 20px 15px;
 }
-.close-and-add{
+.close-and-add {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -84,34 +69,30 @@
 }
 /********************* popup Edit Details ****************/
 
-.popup-edit-details--popup{
+.popup-edit-details--popup {
   justify-content: center;
-display: grid;
-background: #f1eded;
-width:700px;
-height: 350px;
-gap: 10px;
-
+  display: grid;
+  background: #f1eded;
+  width: 700px;
+  height: 350px;
+  gap: 10px;
 }
 .edit-details--popup {
   padding: 10px;
-  grid-template-rows:1fr 1fr 1fr 1fr ;
-  grid-template-columns:2fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   display: grid;
   gap: 30px;
-  justify-content: center
-
+  justify-content: center;
 }
 
-.edit-details--popup--info
-{
-  
+.edit-details--popup--info {
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
 }
-.edit-details--popup--info input{
+.edit-details--popup--info input {
   color: black;
   text-align: center;
   display: flex;
@@ -123,57 +104,48 @@ gap: 10px;
   position: relative;
 }
 
-.edit-details--popup--info input::placeholder
-{
+.edit-details--popup--info input::placeholder {
   color: black;
   text-align: center;
   font-weight: 100;
 }
-.edit-details--popup--info
-{
+.edit-details--popup--info {
   position: relative;
 }
-.edit-details--popup--info label{
-position: absolute;
+.edit-details--popup--info label {
+  position: absolute;
   transform: translateY(-100%);
   left: 20px;
   font-size: 10px;
   letter-spacing: 2px;
   outline-style: none;
-
 }
 
-
-.buttons{
-display: flex;
-gap: 10px;
-justify-content: center;
-flex-direction: row;
-
-
-
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-direction: row;
 }
-.btn-style-edit-details--popup--save{
-padding: 10px 0;
-border-radius: 12px;
-width: 150px;
-height: 50px ;
-border: none;
-background-color: var(--socondary-color);
-cursor: pointer;
-color: white;
-font-size: 9px;
-
-}
-.btn-style-edit-details--popup--cancel{
+.btn-style-edit-details--popup--save {
   padding: 10px 0;
-border-radius: 12px;
-width: 150px;
-height: 50px ;
-border: none;
-background-color: var(--socondary-color);
-cursor: pointer;
-color: white;
-font-size: 9px;
-
+  border-radius: 12px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  background-color: var(--socondary-color);
+  cursor: pointer;
+  color: white;
+  font-size: 9px;
+}
+.btn-style-edit-details--popup--cancel {
+  padding: 10px 0;
+  border-radius: 12px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  background-color: var(--socondary-color);
+  cursor: pointer;
+  color: white;
+  font-size: 9px;
 }
