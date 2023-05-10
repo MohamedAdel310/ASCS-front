@@ -21,24 +21,12 @@ import {
 
 const apiURL = "https://myaz.cyclic.app/api/";
 
-const today = () => {
-  const today = new Date();
-  const date = today.toLocaleDateString("en-GB", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
-  const [day, month, year] = date.split("/");
-
-  return `${year}/${month}/${day}`;
-};
-
 const criticalLevelFun = (type) => {
   let num = 1;
   type === "smoke" && (num = 2);
   type === "ppe" && (num = 3);
   type === "phone" && (num = 2);
-  type === "unuthourize" && (num = 4);
+  type === "unauthourize" && (num = 4);
   type === "fight" && (num = 4);
   return num;
 };
@@ -77,28 +65,48 @@ const cricicalLevelMessage = (type, arriveAt, info) => {
 export default function DailyReport() {
   const [data, setData] = useState();
   const [events, setEvents] = useState();
+  const [day, setDay] = useState();
+
+  const today = () => {
+    const today = new Date();
+    const date = today.toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    const [day, month, year] = date.split("/");
+
+    return `${year}/${month}/${day}`;
+  };
+
+  const fetchData = async (date) => {
+    console.log("fetch done");
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4";
+    const headers = {
+      "Authorization": `Bearer ${token}`,
+    };
+
+    const response = await fetch(apiURL + `events/${date || today()}`, {
+      headers,
+    });
+    const json = await response.json();
+    setData(json.types);
+    console.log(json.types);
+
+    setEvents(json.data);
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      console.log("fetch done");
-      const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4";
-      const headers = {
-        "Authorization": `Bearer ${token}`,
-      };
-
-      const response = await fetch(apiURL + `events/${today()}`, {
-        headers,
-      });
-      const json = await response.json();
-      setData(json.types);
-      console.log(json.types);
-
-      localStorage.setItem("employeesData", JSON.stringify(json.data));
-      setEvents(json.data);
-    };
     fetchData();
   }, []);
+
+  const dateChange = (event) => {
+    const date = event.target.value.replaceAll("-", "/");
+
+    console.log("hello ======= date change to: ", date);
+    fetchData(date);
+  };
 
   return (
     <div className="daily-report">
@@ -106,6 +114,7 @@ export default function DailyReport() {
 
       <div className="daily-report--header">
         <h1>Detected events</h1>
+        <input type="date" onChange={dateChange} />
       </div>
 
       <StatusViolationComp events={events} />
