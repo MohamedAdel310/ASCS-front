@@ -20,9 +20,9 @@
   align-items: center;
   justify-content: center;
   width: 500px;
-  position: absolute;
-  top: 30px;
-  left: 300px;
+  position: fixed;
+  top: 5px;
+  left: 50%;
   border-radius: 20px;
 }
 
@@ -79,9 +79,62 @@
   align-items: center;
 }
 
-.popup--filter {
+
+/************************************************************* Popu-Filter******************************************************************** */
+
+.popup--filter{
+
   background: linear-gradient(0deg, var(--main-color), #394b71);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  border-radius: 20px;
+
 }
+
+.popup--filter h1{
+  font-size: 25px;
+  margin: 15px 0;
+  color: var(--socondary-color);
+}
+
+.popup--filter label{
+  color: white;
+}
+
+.popup--filter select{
+  width: 50%;
+  margin-left: 50px;
+}
+
+.popup--filter .department{
+  display: flex;
+  width: 70%; 
+  justify-content: right;
+  margin-bottom: 20px;
+
+}
+
+.popup--filter select:focus{
+  outline-style: none;
+}
+
+.popup--filter Button {
+  color: white;
+  background-color: var(--socondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  width: 40%;
+  height: 40px;
+  margin: 0 15px 20px 15px ;
+}
+
 /********************* popup Edit Details ****************/
 
 .popup-edit-details--popup{
@@ -177,3 +230,5 @@ color: white;
 font-size: 9px;
 
 }
+
+
