@@ -23,14 +23,14 @@ const apiURL = "https://myaz.cyclic.app/api/";
 
 const today = () => {
   const today = new Date();
-  const date = today
-    .toLocaleDateString("en-GB", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    })
-    .replace(/\//g, "-");
-  return date;
+  const date = today.toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+  const [day, month, year] = date.split("/");
+
+  return `${year}/${month}/${day}`;
 };
 
 const criticalLevelFun = (type) => {
@@ -86,9 +86,7 @@ export default function DailyReport() {
       const headers = {
         "Authorization": `Bearer ${token}`,
       };
-      {
-        today();
-      }
+
       const response = await fetch(apiURL + `events/${today()}`, {
         headers,
       });
@@ -104,7 +102,6 @@ export default function DailyReport() {
 
   return (
     <div className="daily-report">
-      {console.log(events)}
       <CardViolationComp data={data} />
 
       <div className="daily-report--header">
@@ -123,22 +120,26 @@ const CardViolationComp = ({ data }) => {
         num={data?.vehicles || 0}
         text="Detected vehicles"
         icon={faTruck}
+        key="1"
       />
       <CardViolation
         num={data?.unauthorized || 0}
         text="unauthorized persons"
         icon={faUserXmark}
+        key="2"
       />
       <CardViolation num={data?.smoke || 0} text="smoking" icon={faSmoking} />
       <CardViolation
         num={data?.ppe || 0}
         text="safety violation"
         icon={faHelmetSafety}
+        key="3"
       />
       <CardViolation
         num={data?.phone || 0}
         text="restricted area"
         icon={faHand}
+        key="4"
       />
     </div>
   );
@@ -157,6 +158,7 @@ const StatusViolationComp = ({ events }) => {
               event.arriveAt,
               event.info
             )}
+            key={event._id}
           />
         );
       })}
