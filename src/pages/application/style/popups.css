@@ -5,9 +5,9 @@
   align-items: center;
   justify-content: center;
   width: 500px;
-  position: absolute;
-  top: 30px;
-  left: 300px;
+  position: fixed;
+  top: 5px;
+  left: 50%;
   border-radius: 20px;
 }
 
@@ -79,7 +79,7 @@
   justify-content: center;
   width: 500px;
   position: fixed;
-  top: 5px;
+  top: 100px;
   left: 50%;
   border-radius: 20px;
 
@@ -98,6 +98,8 @@
 .popup--filter select{
   width: 50%;
   margin-left: 50px;
+  border-radius: 5px;
+  padding-left: 25px;
 }
 
 .popup--filter .department{
