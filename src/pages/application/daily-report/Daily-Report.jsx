@@ -3,11 +3,11 @@ import CardViolation from "./components/Card-Violation";
 import StatusViolation from "./components/Status-Violation";
 import "../style/daily-report.css";
 
-import iconVehicles from "../../../../src/assets/icons/vehicles.svg";
-import iconRestricted from "../../../../src/assets/icons/gloves.svg";
-import iconUnauthorized from "../../../../src/assets/icons/unuothorize.svg";
-import iconSmoking from "../../../../src/assets/icons/smoke.svg";
-import iconSafety from "../../../../src/assets/icons/helmet.svg";
+// import iconVehicles from "../../../../src/assets/icons/vehicles.svg";
+// import iconRestricted from "../../../../src/assets/icons/gloves.svg";
+// import iconUnauthorized from "../../../../src/assets/icons/unuothorize.svg";
+// import iconSmoking from "../../../../src/assets/icons/smoke.svg";
+// import iconSafety from "../../../../src/assets/icons/helmet.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
