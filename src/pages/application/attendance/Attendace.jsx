@@ -140,7 +140,11 @@ export default function Attendance() {
   const AttendanceDay = () => {
     return (
       <div className="attendance_day">
-        <MainButton text="refresh" onClick={handleFetchDataClick} />
+        <MainButton
+          className="add"
+          text="refresh"
+          onClick={handleFetchDataClick}
+        />
         <table>
           <thead>
             <tr>

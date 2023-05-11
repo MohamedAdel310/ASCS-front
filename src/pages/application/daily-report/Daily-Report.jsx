@@ -103,6 +103,7 @@ export default function DailyReport() {
 
   const dateChange = (event) => {
     const date = event.target.value.replaceAll("-", "/");
+    setDay(date);
 
     console.log("hello ======= date change to: ", date);
     fetchData(date);
@@ -114,7 +115,11 @@ export default function DailyReport() {
 
       <div className="daily-report--header">
         <h1>Detected events</h1>
-        <input type="date" onChange={dateChange} />
+        <input
+          type="date"
+          onChange={dateChange}
+          value={day?.replaceAll("/", "-") || today().replaceAll("/", "-")}
+        />
       </div>
 
       <StatusViolationComp events={events} />

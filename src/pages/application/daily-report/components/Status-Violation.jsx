@@ -3,7 +3,6 @@ import MainButton from "../../../../components/button-main";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
-
 export default function StatusViolation(props) {
   const criticalLevel = (lev) => {
     return `critcal-level ${
@@ -12,12 +11,18 @@ export default function StatusViolation(props) {
   };
 
   return (
-    <div className="status-siola" style={{ 
-      display: "flex" ,
-      alignItems: "center",
-    }}>
+    <div
+      className="status-siola"
+      style={{
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
       <div className="image">
-        <FontAwesomeIcon className="icon" icon={faCircleExclamation}></FontAwesomeIcon>
+        <FontAwesomeIcon
+          className="icon"
+          icon={faCircleExclamation}
+        ></FontAwesomeIcon>
       </div>
       <div style={{ width: "100%" }}>
         <h2 className="status-violation--header">{props.event}</h2>
@@ -33,7 +38,7 @@ export default function StatusViolation(props) {
           </div>
         </div>
       </div>
-      <MainButton text="watch event" />
+      <MainButton text="watch event" className="add" />
     </div>
   );
 }
