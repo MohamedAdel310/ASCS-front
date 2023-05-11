@@ -16,6 +16,7 @@
   align-items: center;
   width: 100%;
   justify-content: center;
+  /* flex-direction: column; */
 }
 
 .BOX1 {
@@ -23,6 +24,16 @@
   width: 45%;
 }
 
+.BOX2 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+}
+.BOX3 {
+  width: 45%;
+}
 .popup--add-employee label {
   color: white;
 }
@@ -148,4 +159,9 @@
   cursor: pointer;
   color: white;
   font-size: 9px;
+}
+
+.btn--add_employee:disabled {
+  background-color: rgb(172, 170, 170);
+  cursor: auto;
 }

@@ -1,10 +1,11 @@
 import React from "react";
 
-export default function MainButton({ text, onClick }) {
+export default function MainButton({ className, text, onClick, disabled }) {
   return (
     <button
       onClick={onClick}
-      className="add"
+      disabled={disabled}
+      className={className}
       // style={{
       //   borderRadius: 10,
       //   border: "none",
