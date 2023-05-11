@@ -4,32 +4,6 @@ import MainButton from "../../../../components/button-main";
 const apiURL = "https://myaz.cyclic.app/api/";
 
 export default function PopupAddEmployee(props) {
-  // const [fullName, setFullName] = useState("");
-  // const [gender, setGender] = useState();
-  // const [birthDate, setBirthDate] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phone, setPhone] = useState("");
-  // const [department, setDepartment] = useState("");
-  // const [job, setJob] = useState("");
-  // const [salary, setSalary] = useState("");
-  // const [shiftStart, setShiftStart] = useState("");
-  // const [shiftEnd, setShiftEnd] = useState("");
-  // const [employeeId, setEmployeeId] = useState("");
-
-  // const requestBody = {
-  //   name: fullName,
-  //   gender,
-  //   birthDate,
-  //   email,
-  //   phone,
-  //   department,
-  //   job,
-  //   salary,
-  //   shiftStart,
-  //   shiftEnd,
-  //   employee_id: employeeId,
-  // };
-
   const [isFormFilled, setIsFormFilled] = useState(false);
   const [formInputs, setFormInputs] = useState({
     name: "",
@@ -47,56 +21,15 @@ export default function PopupAddEmployee(props) {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log("name, value: ", name, value);
     setFormInputs({ ...formInputs, [name]: value });
-    // setIsFormFilled(
-    //   Object.values(formInputs).every((val) => {
-    //     console.log("test: ", val, val !== "");
-    //     return val !== "";
-    //   })
-    // );
-
-    console.log(isFormFilled);
   };
 
   useEffect(() => {
-    setIsFormFilled(
-      Object.values(formInputs).every((val) => {
-        console.log("test: ", val, val !== "");
-        return val !== "";
-      })
-    );
+    setIsFormFilled(Object.values(formInputs).every((val) => val !== ""));
   });
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // submit logic goes here
-  // };
 
   const handelAddEmployee = (e) => {
     e.preventDefault();
-
-    setIsFormFilled(
-      Object.values(formInputs).every((val) => {
-        console.log("test: ", val, val !== "");
-        return val !== "";
-      })
-    );
-
-    console.log(isFormFilled);
-    // console.log("fullName: ", fullName);
-    // console.log("gender: ", gender);
-    // console.log("birthDate: ", birthDate);
-    // console.log("email: ", email);
-    // console.log("phone: ", phone);
-    // console.log("department: ", department);
-    // console.log("job: ", job);
-    // console.log("salary: ", salary);
-    // console.log("shiftStart: ", shiftStart);
-    // console.log("shiftEnd: ", shiftEnd);
-    // console.log("employeeId: ", employeeId);
-
-    console.log("formInputs: ", formInputs);
 
     async function postData(url = "", data = {}, token = "") {
       const response = await fetch(url, {
@@ -112,8 +45,6 @@ export default function PopupAddEmployee(props) {
       return response.json();
     }
 
-    // Example usage
-
     const token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4";
     postData(apiURL + "/employees", formInputs, token)
@@ -126,18 +57,6 @@ export default function PopupAddEmployee(props) {
 
     props.setOpenEmployeePopup(false);
   };
-
-  // const handleGenderChange = (event) => {
-  //   setGender(event.target.value);
-  // };
-
-  // const checkIfIsValidForm = () => {
-  //   let res;
-  //   requestBody.map((el) => (el ? (res = true) : (res = false)));
-  //   console.log("res: ", res);
-  //   console.log("requestBody: ", requestBody);
-  //   return !res;
-  // };
 
   return (
     <div
@@ -295,7 +214,6 @@ export default function PopupAddEmployee(props) {
             text="add"
             onClick={handelAddEmployee}
             value="submit"
-            // disabled={checkIfIsValidForm ? true : false}
             disabled={!isFormFilled}
             className="btn--add_employee"
           />
