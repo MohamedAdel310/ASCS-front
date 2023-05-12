@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function PopupFilter(props) {
   const handelPopupFilter = () => {
     props.setOpenFilterPopup(false);
+    props.handleClickSubmit();
   };
 
   return (
@@ -97,11 +98,11 @@ export default function PopupFilter(props) {
           </div>
         </form>
       </div>
-      <MainButton
+      {/* <MainButton
         className="addBtn"
         text="Apply Filters"
         onClick={handelPopupFilter}
-      />
+      /> */}
       <div
         className="closeBtn"
         onClick={handelPopupFilter}

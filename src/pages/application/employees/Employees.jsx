@@ -58,6 +58,10 @@ export default function Employees() {
     console.log("inputNameDepartment: ", inputName);
     console.log("inputStatusDepartment: ", inputStatus);
   };
+
+  const handleClickSubmit = () => {
+    console.log("click submit");
+  };
   //---------------------------------------------------
 
   useEffect(() => {
@@ -139,6 +143,7 @@ export default function Employees() {
         setOpenFilterPopup={setOpenFilterPopup}
         handleClickJob={handleClickJob}
         handleClickDepartment={handleClickDepartment}
+        handleClickSubmit={handleClickSubmit}
       />
     </div>
   );

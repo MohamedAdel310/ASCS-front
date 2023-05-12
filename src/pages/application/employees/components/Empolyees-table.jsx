@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 export default function EmpoleeTable(props) {
   const handleName = () => {
     if (props.handleSearch) {
@@ -11,7 +12,6 @@ export default function EmpoleeTable(props) {
 
   const handleJob = () => {
     const job = props.jobTitle.toLowerCase().replaceAll(" ", "");
-    let count = 0;
     if (props.handleFilterJob) {
       // // props.handleFilterJob?.map((el) => (count = +el));
       const allValuesAreZero = Object.values(props.handleFilterJob).every(

@@ -28,6 +28,11 @@ export default function PopupAddEmployee(props) {
     setIsFormFilled(Object.values(formInputs).every((val) => val !== ""));
   });
 
+  const handelClose = (e) => {
+    e.preventDefault();
+    props.setOpenEmployeePopup(false);
+  };
+
   const handelAddEmployee = (e) => {
     e.preventDefault();
 
@@ -217,7 +222,7 @@ export default function PopupAddEmployee(props) {
             disabled={!isFormFilled}
             className="btn--add_employee"
           />
-          <MainButton text="close" onClick={handelAddEmployee} />
+          <MainButton text="close" className="closeBtn" onClick={handelClose} />
         </div>
       </form>
     </div>
