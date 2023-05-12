@@ -3,7 +3,6 @@ import "../style/employees.css";
 import "../style/popups.css";
 import "../../../components/search";
 import EmployeeTable from "./components/Empolyees-table";
-// import employeesData from "../../../../Data/randomEmployeesData.json";
 import PopupFilter from "./components/PopupFilter";
 import PopupAddEmployee from "./components/PopupAddEmployee";
 
@@ -18,39 +17,18 @@ export default function Employees() {
   const [employeesData, setEmployeesData] = useState();
   const [openEmployeePopup, setOpenEmployeePopup] = useState(false);
   const [openFilterPopup, setOpenFilterPopup] = useState(false);
-  // const [searchName, setSearchName] = useState("hello");
   const [searchRes, setSearchRes] = useState("");
 
-  let test1;
-
-  const handleClickSearch = (e) => {
-    e.preventDefault();
-
-    // console.log("e.target.value: ", e.target.value);
-
-    // setSearchName(e.target.value);
-
+  const handleSearch = (e) => {
     setSearchRes(
       employeesData?.map((emp) => {
-        // if (searchName.length < 2) return 0;
         let result;
-        // emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
-        // console.log("emp: ", emp);
-        console.log("e.target.value: ", e.target.value);
-        console.log("emp: ", emp.name);
-
         emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
           (result = emp.name);
         return result;
       })
     );
-    // console.log("searchName: ", searchName);
   };
-
-  // const handleSearch = () => {
-  //   console.log("test1: ", test1);
-  //   return test1;
-  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -87,7 +65,7 @@ export default function Employees() {
         >
           Add Employee
         </button>
-        <Search onChange={handleClickSearch} />
+        <Search onChange={handleSearch} />
         <Filter
           onClick={() => {
             setOpenFilterPopup(true);
