@@ -18,6 +18,39 @@ export default function Employees() {
   const [employeesData, setEmployeesData] = useState();
   const [openEmployeePopup, setOpenEmployeePopup] = useState(false);
   const [openFilterPopup, setOpenFilterPopup] = useState(false);
+  // const [searchName, setSearchName] = useState("hello");
+  const [searchRes, setSearchRes] = useState("");
+
+  let test1;
+
+  const handleClickSearch = (e) => {
+    e.preventDefault();
+
+    // console.log("e.target.value: ", e.target.value);
+
+    // setSearchName(e.target.value);
+
+    setSearchRes(
+      employeesData?.map((emp) => {
+        // if (searchName.length < 2) return 0;
+        let result;
+        // emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
+        // console.log("emp: ", emp);
+        console.log("e.target.value: ", e.target.value);
+        console.log("emp: ", emp.name);
+
+        emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
+          (result = emp.name);
+        return result;
+      })
+    );
+    // console.log("searchName: ", searchName);
+  };
+
+  // const handleSearch = () => {
+  //   console.log("test1: ", test1);
+  //   return test1;
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +68,8 @@ export default function Employees() {
 
       localStorage.setItem("employeesData", JSON.stringify(json.data));
       setEmployeesData(json.data?.employees);
+
+      console.log("employeeData: ", employeesData);
     };
     fetchData();
   }, []);
@@ -52,7 +87,7 @@ export default function Employees() {
         >
           Add Employee
         </button>
-        <Search />
+        <Search onChange={handleClickSearch} />
         <Filter
           onClick={() => {
             setOpenFilterPopup(true);
@@ -78,20 +113,11 @@ export default function Employees() {
               jobTitle={emp.job}
               department={emp.department}
               jobStatus={emp.status ? "Active" : "pending"}
+              handleSearch={searchRes}
             />
           ))}
         </tbody>
       </table>
-
-      {/* {(openEmployeePopup || openFilterPopup) && (
-        <div className="popup-container popup">
-          {openEmployeePopup ? (
-            <PopupAddEmployee setOpenEmployeePopup={setOpenEmployeePopup} />
-          ) : (
-            <PopupFilter />
-          )}
-        </div>
-      )} */}
 
       <PopupAddEmployee
         value={openEmployeePopup}

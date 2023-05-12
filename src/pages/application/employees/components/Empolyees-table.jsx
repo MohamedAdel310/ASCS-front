@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 export default function EmpoleeTable(props) {
+  const handleName = () =>
+    props.handleSearch && props.handleSearch.includes(props.name);
+
   return (
     <tr>
       <td>
         <Link to={`/application/employees/${props.employee_id}`}>
-          {props.name}
+          <span style={{ background: handleName() && "yellow" }}>
+            {props.name}
+          </span>
         </Link>
       </td>
       <td>{props.jobTitle}</td>
@@ -13,19 +18,4 @@ export default function EmpoleeTable(props) {
       <td>{props.jobStatus}</td>
     </tr>
   );
-}
-
-{
-  /* 
-<tr>
-  <td>
-    <a href="/application/employees/profile">
-      خالد الشربيني احمد حسن
-    </a>
-  </td>
-  <td>Worker</td>
-  <td>WorkShop</td>
-  <td>Active</td>
-</tr> 
-*/
 }
