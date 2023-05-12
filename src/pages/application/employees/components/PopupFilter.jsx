@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import MainButton from "../../../../components/button-main";
+import "../../style/popups.css";
 
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import fa from "fontawesome";
 
 export default function PopupFilter(props) {
   const handelPopupFilter = () => {
@@ -11,38 +11,109 @@ export default function PopupFilter(props) {
   };
 
   return (
-    <div className={`popup--filter popup ${props.value || "display-popup-false"}`}>
+    <div
+      className={`popup--filter popup ${props.value || "display-popup-false"}`}
+    >
       <div className="container">
-        <h1>Filter</h1>
-        {/************************ jop Title *************************** */}
-        <div className="department">
-            <label htmlFor="">jop Title</label>
-            <select name="title" id="">
-              <option value="">Worker</option>
-              <option value="">Engineering</option>
-              <option value="">Acountant</option>
-              <option value="">Doctor</option>
-            </select>
-        </div>
-        {/* ****************************department **************************/}
-        <div className="department">
-            <label htmlFor="">Department Title</label>
-            <select name="Department" id="">
-              <option value="">Office</option>
-              <option value="">Area 1</option>
-              <option value="">Area 2</option>
-              <option value="">Area 3</option>
-              <option value="">Area 4</option>
-            </select>
-        </div>
-        {/**************************** Buttons ****************************/}
-          <MainButton className="addBtn" text="Search" onClick={handelPopupFilter} />
-          <div className="closeBtn" onClick={handelPopupFilter}>
-            <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
+        <form className="filter-form">
+          <div className="checkbox-group">
+            <h3>Jobs:</h3>
+            <label>
+              <input
+                type="checkbox"
+                name="engineer"
+                value="engineer"
+                onClick={props.handleClickJob}
+              />
+              Engineer
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="job2"
+                value="job2"
+                onClick={props.handleClickJob}
+              />
+              Job 2
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="job3"
+                value="job3"
+                onClick={props.handleClickJob}
+              />
+              Job 3
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="job4"
+                value="job4"
+                onClick={props.handleClickJob}
+              />
+              Job 4
+            </label>
           </div>
+
+          <div className="checkbox-group">
+            <h3>Departments:</h3>
+            <label>
+              <input
+                type="checkbox"
+                name="dept1"
+                value="dept1"
+                onClick={props.handleClickDepartment}
+              />
+              Department 1
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="dept2"
+                value="dept2"
+                onClick={props.handleClickDepartment}
+              />
+              Department 2
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="dept3"
+                value="dept3"
+                onClick={props.handleClickDepartment}
+              />
+              Department 3
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="dept4"
+                value="dept4"
+                onClick={props.handleClickDepartment}
+              />
+              Department 4
+            </label>
+          </div>
+        </form>
+      </div>
+      <MainButton
+        className="addBtn"
+        text="Apply Filters"
+        onClick={handelPopupFilter}
+      />
+      <div
+        className="closeBtn"
+        onClick={handelPopupFilter}
+        style={{ backgroundColor: "#d32f2f" }}
+      >
+        <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
       </div>
     </div>
+    // </div>
   );
 }
 
-{/* <MainButton text="" onClick={handelPopupFilter} /> */}
+{
+  /* <MainButton text="" onClick={handelPopupFilter} /> */
+}

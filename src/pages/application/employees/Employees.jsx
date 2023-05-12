@@ -30,6 +30,36 @@ export default function Employees() {
     );
   };
 
+  //* filter functiolity
+  const [jobSelected, setJobSelected] = useState({
+    engineer: 0,
+    job2: 0,
+    job3: 0,
+    job4: 0,
+  });
+
+  const handleClickJob = (e) => {
+    const inputName = e.target.value;
+    const inputStatus = e.target.checked;
+
+    inputStatus
+      ? setJobSelected({ ...jobSelected, [inputName]: 1 })
+      : setJobSelected({ ...jobSelected, [inputName]: 0 });
+
+    console.log("jobSelected: ", jobSelected);
+    console.log("inputNameJob: ", inputName);
+    console.log("inputStatusJob: ", inputStatus);
+  };
+
+  const handleClickDepartment = (e) => {
+    const inputName = e.target.value;
+    const inputStatus = e.target.checked;
+
+    console.log("inputNameDepartment: ", inputName);
+    console.log("inputStatusDepartment: ", inputStatus);
+  };
+  //---------------------------------------------------
+
   useEffect(() => {
     const fetchData = async () => {
       console.log("fetch done");
@@ -92,6 +122,8 @@ export default function Employees() {
               department={emp.department}
               jobStatus={emp.status ? "Active" : "pending"}
               handleSearch={searchRes}
+              handleFilterJob={jobSelected}
+              // handleFilterDepartment={}
             />
           ))}
         </tbody>
@@ -105,6 +137,8 @@ export default function Employees() {
       <PopupFilter
         value={openFilterPopup}
         setOpenFilterPopup={setOpenFilterPopup}
+        handleClickJob={handleClickJob}
+        handleClickDepartment={handleClickDepartment}
       />
     </div>
   );
