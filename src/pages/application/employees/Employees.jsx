@@ -22,7 +22,6 @@ export default function Employees() {
   const handleSearch = (e) => {
     setSearchRes(
       employeesData?.map((emp) => {
-        if (e.target.value < 2) return 0;
         let result;
         emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
           (result = emp.name);
