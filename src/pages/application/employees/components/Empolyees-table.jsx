@@ -6,7 +6,7 @@ export default function EmpoleeTable(props) {
       console.log("props.haddleSearch: ", props.handleSearch);
       if (!props.handleSearch.length) return true;
       return props.handleSearch.includes(props.name);
-    }
+    } else return true;
   };
 
   return (
