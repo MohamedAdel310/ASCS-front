@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import MainButton from "../../../../components/button-main";
-import "../../style/popups.css";
+import MainButton from "./button-main";
+import "./../pages/application/style/popups.css";
 
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +9,10 @@ export default function PopupFilter(props) {
   const handelPopupFilter = () => {
     props.setOpenFilterPopup(false);
     props.handleClickSubmit();
+  };
+
+  const handelPopupFilterClose = () => {
+    props.setOpenFilterPopup(false);
   };
 
   return (
@@ -25,6 +29,7 @@ export default function PopupFilter(props) {
                 name="engineer"
                 value="engineer"
                 onClick={props.handleClickJob}
+                // onChange={props.setFilterValJob()}
               />
               Engineer
             </label>
@@ -34,6 +39,7 @@ export default function PopupFilter(props) {
                 name="job2"
                 value="job2"
                 onClick={props.handleClickJob}
+                // onChange={props.setFilterValJob()}
               />
               Job 2
             </label>
@@ -43,6 +49,7 @@ export default function PopupFilter(props) {
                 name="job3"
                 value="job3"
                 onClick={props.handleClickJob}
+                // onChange={props.setFilterValJob()}
               />
               Job 3
             </label>
@@ -52,6 +59,7 @@ export default function PopupFilter(props) {
                 name="job4"
                 value="job4"
                 onClick={props.handleClickJob}
+                // onChange={props.setFilterValJob()}
               />
               Job 4
             </label>
@@ -105,7 +113,7 @@ export default function PopupFilter(props) {
       /> */}
       <div
         className="closeBtn"
-        onClick={handelPopupFilter}
+        onClick={handelPopupFilterClose}
         style={{ backgroundColor: "#d32f2f" }}
       >
         <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>

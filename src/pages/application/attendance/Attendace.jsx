@@ -12,6 +12,7 @@ import TableWeak from "./components/Table-weak";
 import employeeData from "../../../../Data/attendanceData.json";
 import TableMonth from "./components/Table-month";
 import MainButton from "../../../components/button-main";
+import PopupFilter from "../../../components/PopupFilter";
 
 const displayTime = (dateString) => {
   const date = new Date(dateString);
@@ -86,6 +87,27 @@ export default function Attendance() {
   const [data, setData] = useState();
   const [fetchDataTrigger, setFetchDataTrigger] = useState();
   const [selectedOption, setSelectedOption] = useState("1");
+  const [searchRes, setSearchRes] = useState("");
+  const [openFilterPopup, setOpenFilterPopup] = useState(false);
+  const [filterValJob, setFilterValJob] = useState({
+    engineer: 0,
+    worker: 0,
+    job3: 0,
+    job4: 0,
+  });
+
+  console.log("data: ", data);
+
+  const handleSearch = (e) => {
+    setSearchRes(
+      data?.map((emp) => {
+        let result;
+        emp?.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
+          (result = emp.name);
+        return result;
+      })
+    );
+  };
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -93,6 +115,21 @@ export default function Attendance() {
   };
 
   const storedData = JSON.parse(localStorage.getItem("attendanceData"));
+
+  const handleClickJob = (e) => {
+    const inputName = e.target.value;
+    const inputStatus = e.target.checked;
+
+    inputStatus
+      ? setFilterValJob({ ...filterValJob, [inputName]: 1 })
+      : setFilterValJob({ ...filterValJob, [inputName]: 0 });
+    // setFilterValJob(...filterValJob,)
+  };
+
+  const handleClickSubmitAtend = (e) => {
+    console.log("click submit");
+    console.log("e.target: ", e);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -117,20 +154,41 @@ export default function Attendance() {
     }
   }, [fetchDataTrigger]);
 
+  const test = (jobs) => {
+    const job = jobs.toLowerCase().replaceAll(" ", "");
+    if (filterValJob) {
+      // // handleFilterJob?.map((el) => (count = +el));
+      const allValuesAreZero = Object.values(filterValJob).every(
+        (value) => value === 0
+      );
+
+      console.log("allValuesAreZero :", allValuesAreZero);
+      if (allValuesAreZero) return 1;
+    }
+    if (job in filterValJob) {
+      console.log("filterValJob[job]: ", filterValJob[job]);
+      return filterValJob[job];
+    }
+    console.log("filterValJob: ", filterValJob);
+    console.log("job: ", job);
+  };
+
   const FetchAttendanceDay = () => {
     return (
       <>
         {data?.map(
-          ({ employee_id, name, department, job, arrive_at }, index) => (
-            <TableDay
-              employee_id={employee_id}
-              num={index}
-              name={name}
-              department={department}
-              jobTitle={job}
-              arriveTime={displayTime(arrive_at)}
-            />
-          )
+          ({ employee_id, name, department, job, arrive_at }, index) =>
+            (test(job) || "") && (
+              <TableDay
+                employee_id={employee_id}
+                num={index}
+                name={name}
+                department={department}
+                jobTitle={job}
+                arriveTime={displayTime(arrive_at)}
+                searchRes={searchRes}
+              />
+            )
         )}
         {console.log("done")}
       </>
@@ -148,7 +206,7 @@ export default function Attendance() {
         <table>
           <thead>
             <tr>
-              <th></th>
+              {/* <th></th> */}
               <th>Name</th>
               <th>Job Title</th>
               <th>Deparment</th>
@@ -221,13 +279,26 @@ export default function Attendance() {
         <ChartDonate num="8" text="Overtime" clName="circle4" /> */}
       </div>
       <div className="search-box">
-        <Search />
-        <Filter />
+        <Search onChange={handleSearch} />
+        <Filter
+          onClick={() => {
+            setOpenFilterPopup(true);
+          }}
+        />
       </div>
 
       {selectedOption === "1" && <AttendanceDay />}
       {selectedOption === "2" && <AttendanceWeak />}
       {selectedOption === "3" && <AttendanceMonth />}
+
+      <PopupFilter
+        value={openFilterPopup}
+        setOpenFilterPopup={setOpenFilterPopup}
+        handleClickJob={handleClickJob}
+        // handleClickDepartment={handleClickDepartment}
+        handleClickSubmit={handleClickSubmitAtend}
+        setFilterValJob={setFilterValJob}
+      />
     </div>
   );
 }

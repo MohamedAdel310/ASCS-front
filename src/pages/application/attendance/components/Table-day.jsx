@@ -8,10 +8,18 @@ export default function TableDay({
   department,
   jobTitle,
   arriveTime,
+  searchRes,
 }) {
+  const handleDisplay = () => {
+    // console.log(searchRes);
+    if (!searchRes.length) return true;
+
+    if (searchRes) return searchRes.includes(name);
+  };
+
   return (
-    <tr>
-      <td className="teble-number">{num + 1}</td>
+    <tr style={{ display: handleDisplay() || "none" }}>
+      {/* <td className="teble-number">{num + 1}</td> */}
       <td>
         <Link to={`/application/employees/${employee_id}`}>{name}</Link>
       </td>

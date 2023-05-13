@@ -3,7 +3,7 @@ import "../style/employees.css";
 import "../style/popups.css";
 import "../../../components/search";
 import EmployeeTable from "./components/Empolyees-table";
-import PopupFilter from "./components/PopupFilter";
+import PopupFilter from "../../../components/PopupFilter";
 import PopupAddEmployee from "./components/PopupAddEmployee";
 
 import Search from "../../../components/search";
