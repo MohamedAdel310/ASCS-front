@@ -14,6 +14,8 @@ import TableMonth from "./components/Table-month";
 import MainButton from "../../../components/button-main";
 import PopupFilter from "../../../components/PopupFilter";
 
+import handleDisable from "../../../components/handleDisable.js";
+
 const displayTime = (dateString) => {
   const date = new Date(dateString);
   const options = {
@@ -89,12 +91,30 @@ export default function Attendance() {
   const [selectedOption, setSelectedOption] = useState("1");
   const [searchRes, setSearchRes] = useState("");
   const [openFilterPopup, setOpenFilterPopup] = useState(false);
-  const [filterValJob, setFilterValJob] = useState({
-    engineer: 0,
-    worker: 0,
-    job3: 0,
-    job4: 0,
-  });
+  const [filterValJob, setFilterValJob] = useState({});
+  const [filterValDepartment, setFilterValDepartment] = useState({});
+  // const [listJob, setListJob] = useState([]);
+  // const [listDepartment, setListDepartment] = useState([]);
+
+  // useEffect(() => {
+  const listFilter = () => {
+    let listJob = [];
+    let listDepartment = [];
+
+    data?.map(({ job, department }) => {
+      listJob.includes(job) ? "" : listJob.push(job);
+      listDepartment.includes(department)
+        ? ""
+        : listDepartment.push(department);
+    });
+
+    console.log("listJob: ", listJob);
+    console.log("listDepartment: ", listDepartment);
+
+    return { listJob, listDepartment };
+  };
+  //   listFilter();
+  // });
 
   console.log("data: ", data);
 
@@ -123,6 +143,20 @@ export default function Attendance() {
     inputStatus
       ? setFilterValJob({ ...filterValJob, [inputName]: 1 })
       : setFilterValJob({ ...filterValJob, [inputName]: 0 });
+    // setFilterValJob(...filterValJob,)
+
+    console.log("inputName: ", inputName);
+    console.log("inputStatus: ", inputStatus);
+    console.log("filterValJob: ", filterValJob);
+  };
+
+  const handleClickDepartment = (e) => {
+    const inputName = e.target.value;
+    const inputStatus = e.target.checked;
+
+    inputStatus
+      ? setFilterValDepartment({ ...filterValDepartment, [inputName]: 1 })
+      : setFilterValDepartment({ ...filterValDepartment, [inputName]: 0 });
     // setFilterValJob(...filterValJob,)
   };
 
@@ -154,31 +188,18 @@ export default function Attendance() {
     }
   }, [fetchDataTrigger]);
 
-  const test = (jobs) => {
-    const job = jobs.toLowerCase().replaceAll(" ", "");
-    if (filterValJob) {
-      // // handleFilterJob?.map((el) => (count = +el));
-      const allValuesAreZero = Object.values(filterValJob).every(
-        (value) => value === 0
-      );
-
-      console.log("allValuesAreZero :", allValuesAreZero);
-      if (allValuesAreZero) return 1;
-    }
-    if (job in filterValJob) {
-      console.log("filterValJob[job]: ", filterValJob[job]);
-      return filterValJob[job];
-    }
-    console.log("filterValJob: ", filterValJob);
-    console.log("job: ", job);
-  };
-
   const FetchAttendanceDay = () => {
     return (
       <>
         {data?.map(
           ({ employee_id, name, department, job, arrive_at }, index) =>
-            (test(job) || "") && (
+            (handleDisable(
+              job,
+              department,
+              filterValJob,
+              filterValDepartment
+            ) ||
+              "") && (
               <TableDay
                 employee_id={employee_id}
                 num={index}
@@ -295,9 +316,10 @@ export default function Attendance() {
         value={openFilterPopup}
         setOpenFilterPopup={setOpenFilterPopup}
         handleClickJob={handleClickJob}
-        // handleClickDepartment={handleClickDepartment}
+        handleClickDepartment={handleClickDepartment}
         handleClickSubmit={handleClickSubmitAtend}
         setFilterValJob={setFilterValJob}
+        listFilter={listFilter()}
       />
     </div>
   );

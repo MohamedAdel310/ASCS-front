@@ -8,7 +8,9 @@ import PopupAddEmployee from "./components/PopupAddEmployee";
 
 import Search from "../../../components/search";
 import Filter from "../../../components/Filter";
-import MainButton from "../../../components/button-main";
+// import MainButton from "../../../components/button-main";
+
+import handleDisable from "../../../components/handleDisable";
 
 const apiURL = "https://myaz.cyclic.app/api/";
 
@@ -18,6 +20,23 @@ export default function Employees() {
   const [openEmployeePopup, setOpenEmployeePopup] = useState(false);
   const [openFilterPopup, setOpenFilterPopup] = useState(false);
   const [searchRes, setSearchRes] = useState("");
+
+  const listFilter = () => {
+    let listJob = [];
+    let listDepartment = [];
+
+    employeesData?.map(({ job, department }) => {
+      listJob.includes(job) ? "" : listJob.push(job);
+      listDepartment.includes(department)
+        ? ""
+        : listDepartment.push(department);
+    });
+
+    console.log("listJob: ", listJob);
+    console.log("listDepartment: ", listDepartment);
+
+    return { listJob, listDepartment };
+  };
 
   const handleSearch = (e) => {
     setSearchRes(
@@ -38,6 +57,8 @@ export default function Employees() {
     job4: 0,
   });
 
+  const [departmentSelected, setDepartmentSelected] = useState({});
+
   const handleClickJob = (e) => {
     const inputName = e.target.value;
     const inputStatus = e.target.checked;
@@ -45,18 +66,15 @@ export default function Employees() {
     inputStatus
       ? setJobSelected({ ...jobSelected, [inputName]: 1 })
       : setJobSelected({ ...jobSelected, [inputName]: 0 });
-
-    console.log("jobSelected: ", jobSelected);
-    console.log("inputNameJob: ", inputName);
-    console.log("inputStatusJob: ", inputStatus);
   };
 
   const handleClickDepartment = (e) => {
     const inputName = e.target.value;
     const inputStatus = e.target.checked;
 
-    console.log("inputNameDepartment: ", inputName);
-    console.log("inputStatusDepartment: ", inputStatus);
+    inputStatus
+      ? setDepartmentSelected({ ...departmentSelected, [inputName]: 1 })
+      : setDepartmentSelected({ ...departmentSelected, [inputName]: 0 });
   };
 
   const handleClickSubmit = () => {
@@ -117,19 +135,28 @@ export default function Employees() {
           </tr>
         </thead>
         <tbody>
-          {employeesData?.map((emp) => (
-            <EmployeeTable
-              key={emp.employee_id}
-              employee_id={emp.employee_id}
-              name={emp.name}
-              jobTitle={emp.job}
-              department={emp.department}
-              jobStatus={emp.status ? "Active" : "pending"}
-              handleSearch={searchRes}
-              handleFilterJob={jobSelected}
-              // handleFilterDepartment={}
-            />
-          ))}
+          {employeesData?.map(
+            (emp) =>
+              (handleDisable(
+                emp.job,
+                emp.department,
+                jobSelected,
+                departmentSelected
+              ) ||
+                "") && (
+                <EmployeeTable
+                  key={emp.employee_id}
+                  employee_id={emp.employee_id}
+                  name={emp.name}
+                  jobTitle={emp.job}
+                  department={emp.department}
+                  jobStatus={emp.status ? "Active" : "pending"}
+                  handleSearch={searchRes}
+                  handleFilterJob={jobSelected}
+                  // handleFilterDepartment={}
+                />
+              )
+          )}
         </tbody>
       </table>
 
@@ -144,6 +171,7 @@ export default function Employees() {
         handleClickJob={handleClickJob}
         handleClickDepartment={handleClickDepartment}
         handleClickSubmit={handleClickSubmit}
+        listFilter={listFilter()}
       />
     </div>
   );
