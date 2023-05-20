@@ -1,16 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
-export const data = [
-  ["date", "value"],
-  ["1/1", 18],
-  ["5/1", 45],
-  ["9/1", 30],
-  ["17/1", 48],
-  ["25/1", 65],
-  ["21/1", 62],
-  ["13/1", 65],
-  // ["29/1", 100],
-];
 
 export const options = {
   height: 400,
@@ -32,15 +21,18 @@ export default function DetectedViolations(prpos) {
   const [month, setMonth] = useState();
 
   const fetchData = async (date) => {
+    // console.log("fetchData date: ", date);
+    date || (date = dateNow().replace("-", "/"));
+
     try {
       const response = await fetch(
         `https://myaz.cyclic.app/api/events/${date.replace("-", "/")}`
       );
       const data = await response.json();
       setEvents(data?.data);
-      console.log("fetch done===========");
+      // console.log("fetch done===========", data?.data);
     } catch (error) {
-      console.log("Error fetching data:", error);
+      // console.log("Error fetching data:", error);
     }
   };
 
@@ -60,7 +52,7 @@ export default function DetectedViolations(prpos) {
 
   const changeDate = (e) => {
     setMonth(e.target.value);
-    fetchData(month);
+    fetchData(e.target.value);
   };
 
   const chartData = (events) => {
@@ -76,19 +68,19 @@ export default function DetectedViolations(prpos) {
     const countsArray = Object.entries(counts);
     countsArray.unshift(["date", "value"]);
 
-    console.log("countsArray: ", countsArray);
+    // console.log("countsArray: ", countsArray);
     return countsArray;
   };
 
-  console.log(events);
-  console.log("month: ", month);
+  // console.log(events);
+  // console.log("month: ", month);
 
   return (
     <div className="dashboard--detected-violations">
       <div className="violation-title">
         <div className="header">
           <h3>Detected Violations</h3>
-          <div className="number">{prpos.num}</div>
+          <div className="number">{events.length}</div>
           <div className="detected_total_days">In the last 29 days</div>
         </div>
         <div className="option">
