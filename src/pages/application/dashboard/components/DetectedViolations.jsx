@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 export const data = [
   ["date", "value"],
   ["1/1", 18],
   ["5/1", 45],
   ["9/1", 30],
-  ["13/1", 65],
   ["17/1", 48],
-  ["21/1", 62],
   ["25/1", 65],
-  ["29/1", 62],
+  ["21/1", 62],
+  ["13/1", 65],
+  // ["29/1", 100],
 ];
 
 export const options = {
@@ -28,6 +28,61 @@ export const options = {
 };
 
 export default function DetectedViolations(prpos) {
+  const [events, setEvents] = useState([]);
+  const [month, setMonth] = useState();
+
+  const fetchData = async (date) => {
+    try {
+      const response = await fetch(
+        `https://myaz.cyclic.app/api/events/${date.replace("-", "/")}`
+      );
+      const data = await response.json();
+      setEvents(data?.data);
+      console.log("fetch done===========");
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData(dateNow().slice(0, 7));
+  }, []);
+
+  const dateNow = () => {
+    const date = new Date();
+
+    const day = String(date.getDay()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+
+    return `${year}-${month}-${day}`;
+  };
+
+  const changeDate = (e) => {
+    setMonth(e.target.value);
+    fetchData(month);
+  };
+
+  const chartData = (events) => {
+    const counts = {};
+
+    events.forEach((event) => {
+      const eventDate = new Date(event.arriveAt);
+      const day = eventDate.getDate();
+      const month = eventDate.getMonth();
+      counts[`${day}/${month + 1}`] = (counts[`${day}/${month + 1}`] || 0) + 1;
+    });
+
+    const countsArray = Object.entries(counts);
+    countsArray.unshift(["date", "value"]);
+
+    console.log("countsArray: ", countsArray);
+    return countsArray;
+  };
+
+  console.log(events);
+  console.log("month: ", month);
+
   return (
     <div className="dashboard--detected-violations">
       <div className="violation-title">
@@ -37,11 +92,11 @@ export default function DetectedViolations(prpos) {
           <div className="detected_total_days">In the last 29 days</div>
         </div>
         <div className="option">
-          <select id="date">
-            <option value="1">ALL</option>
-            <option value="2">week</option>
-            <option value="3">Month</option>
-          </select>
+          <input
+            type="month"
+            onChange={changeDate}
+            value={month || dateNow().slice(0, 7)}
+          />
         </div>
       </div>
       <div className="detected_violations_area_chart">
@@ -49,7 +104,7 @@ export default function DetectedViolations(prpos) {
           chartType="AreaChart"
           width={"630px"}
           height={"500px"}
-          data={data}
+          data={chartData(events)}
           options={options}
         />
       </div>
