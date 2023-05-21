@@ -32,7 +32,7 @@ export default function DetectedViolations(prpos) {
       setEvents(data?.data);
       // console.log("fetch done===========", data?.data);
     } catch (error) {
-      // console.log("Error fetching data:", error);
+      console.log("Error fetching data:", error);
     }
   };
 

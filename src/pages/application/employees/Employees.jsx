@@ -50,13 +50,7 @@ export default function Employees() {
   };
 
   //* filter functiolity
-  const [jobSelected, setJobSelected] = useState({
-    engineer: 0,
-    job2: 0,
-    job3: 0,
-    job4: 0,
-  });
-
+  const [jobSelected, setJobSelected] = useState({});
   const [departmentSelected, setDepartmentSelected] = useState({});
 
   const handleClickJob = (e) => {
