@@ -5,10 +5,7 @@ export default function Card(props) {
     <div className="dashboard--card">
       <div className="detected_vehicle_card">{props.header} </div>
       <div className="detected_vehicle_card_number">{props.detectedNum}</div>
-      <h6>In the last 7 days</h6>
-
-     
-     
+      <h6>In this month</h6>
     </div>
   );
 }

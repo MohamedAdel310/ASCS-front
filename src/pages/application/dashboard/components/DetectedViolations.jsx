@@ -16,7 +16,7 @@ export const options = {
   },
 };
 
-export default function DetectedViolations(prpos) {
+export default function DetectedViolations() {
   const [events, setEvents] = useState([]);
   const [month, setMonth] = useState();
 
@@ -81,7 +81,7 @@ export default function DetectedViolations(prpos) {
         <div className="header">
           <h3>Detected Violations</h3>
           <div className="number">{events.length}</div>
-          <div className="detected_total_days">In the last 29 days</div>
+          <div className="detected_total_days">In this month</div>
         </div>
         <div className="option">
           <input

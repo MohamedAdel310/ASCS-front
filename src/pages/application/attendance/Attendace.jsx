@@ -247,12 +247,26 @@ export default function Attendance() {
     setFetchDataTrigger(true);
   };
 
+  const today = () => {
+    const today = new Date();
+    const date = today.toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    const [day, month, year] = date.split("/");
+
+    return `${year}-${month}-${day}`;
+  };
+
   return (
     <div className="attendance">
       <div className="attendance--title">
         <h3>Attendance</h3>
         <div className="ends">
-          <div className="day"> 9</div>
+          {/* {console.log("today(): ", today())} */}
+          {/* <div className="day"> 9</div> */}
+          <input type="date" value={today()} />
           <select
             name="date"
             id="date"

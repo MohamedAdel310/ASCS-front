@@ -1,27 +1,27 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faBell} from "@fortawesome/free-solid-svg-icons";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
+import jsonText from "../../../../assets/text.json";
+import { Link } from "react-router-dom";
 
-export default function LastEventDetected() {
+export default function LastEventDetected(props) {
   return (
     <div className="dashboard--last-event-detected">
       <h3>Last Event Detected</h3>
-      <div className="personal-detect">
-        <FontAwesomeIcon className="bell" icon={faBell}></FontAwesomeIcon>
-        <h4>Unauthorized Personal was detected at ar..</h4>
-        <p>17:40</p>
-      </div>
-      <div className="personal-detect">
-        <FontAwesomeIcon className="bell" icon={faBell}></FontAwesomeIcon>
-        <h4>A Vehicle leaves the factory</h4>
-        <p>16:22</p>
-      </div>
-      <div className="personal-detect">
-        <FontAwesomeIcon className="bell" icon={faBell}></FontAwesomeIcon>
-        <h4>A vehicle enters the factory</h4>
-        <p>16:03</p>
-      </div>
-      <button>View More...</button>
+      {console.log("jsonText: ", jsonText)}
+
+      {Array(2)
+        .fill()
+        .map((__, index) => (
+          <div className="personal-detect">
+            <FontAwesomeIcon className="bell" icon={faBell}></FontAwesomeIcon>
+            <h4>{props.text && props.text[index]}</h4>
+          </div>
+        ))}
+
+      <Link to="/application/daily-report">
+        <button>View More...</button>
+      </Link>
     </div>
   );
 }

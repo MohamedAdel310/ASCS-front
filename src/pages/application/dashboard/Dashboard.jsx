@@ -7,11 +7,54 @@ import LastEventDetected from "./components/LastEventDetected";
 import LateOverview from "./components/LateOverview";
 import WorkersPerformance from "./components/WorkersPerformance";
 import "../style/dashboard.css";
+import getEventsByDay from "../../../api/getEventsByDay";
+import getEventsByMonth from "../../../api/getEventsByMonth";
+import { useState } from "react";
+import { useEffect } from "react";
+import jsonText from "../../../assets/text.json";
+
 export default function MainContent() {
+  const [eventTypesCount, setEventTypesCount] = useState();
+  const [events, setEvents] = useState();
+
+  const fetchDataDay = async () => {
+    const res = await getEventsByDay();
+
+    console.log(res);
+
+    setEvents(res.data);
+  };
+
+  const fetchDataMonth = async () => {
+    const res = await getEventsByMonth();
+
+    console.log(res);
+    setEventTypesCount(res.types);
+  };
+
+  useEffect(() => {
+    fetchDataDay();
+    fetchDataMonth();
+  }, []);
+
+  const eventDetails = (type, time, cam) => {
+    type === "ppe" && (type = jsonText.ppe);
+    time = time.slice(11, 19);
+
+    return jsonText.voilationDetails
+      .replace("__vioName__", type)
+      .replace("__vioTime__", time)
+      .replace("__vioCam__", cam || 1);
+  };
+
+  const text = events?.map((event) =>
+    eventDetails(event.type, event.arriveAt, event.info.cam)
+  );
+
   return (
     <div className="dashboard_nomain">
       <div className="detected_violaions">
-        <DetectedViolations num="75" />
+        <DetectedViolations />
       </div>
 
       <div className="attendance_overview">
@@ -29,13 +72,17 @@ export default function MainContent() {
       </div>
       <div className="card">
         <div className="last_event">
-          <LastEventDetected />
+          <LastEventDetected text={text} />
         </div>
+
         <div className="detected_vehicles">
-          <Card header="Detected Vehicles" detectedNum="47" />
+          <Card header="Fight" detectedNum={eventTypesCount?.fight || 0} />
         </div>
         <div className="unauthtorized_personal">
-          <Card header="Unauthtorized Personal" detectedNum="23" />
+          <Card
+            header="Personal Protective Equipment"
+            detectedNum={eventTypesCount?.ppe || 0}
+          />
         </div>
       </div>
     </div>
