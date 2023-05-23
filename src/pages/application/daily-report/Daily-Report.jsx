@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CardViolation from "./components/Card-Violation";
 import StatusViolation from "./components/Status-Violation";
+import fetchData from "../../../api/getEventsByDay";
 import "../style/daily-report.css";
 
 // import iconVehicles from "../../../../src/assets/icons/vehicles.svg";
@@ -16,8 +17,9 @@ import {
   faSmoking,
   faTruck,
   faUserXmark,
+  faUser,
+  faWarning,
 } from "@fortawesome/free-solid-svg-icons";
-// import { faCircleExclamation } from "@fortawesome/free-brands-svg-icons";
 
 const apiURL = "https://myaz.cyclic.app/api/";
 
@@ -79,26 +81,14 @@ export default function DailyReport() {
     return `${year}/${month}/${day}`;
   };
 
-  const fetchData = async (date) => {
-    console.log("fetch done");
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4";
-    const headers = {
-      "Authorization": `Bearer ${token}`,
-    };
-
-    const response = await fetch(apiURL + `events/${date || today()}`, {
-      headers,
-    });
-    const json = await response.json();
-    setData(json.types);
-    console.log(json.types);
-
-    setEvents(json.data);
+  const getData = async (date) => {
+    const res = date ? await fetchData(date) : await fetchData();
+    setData(res?.types);
+    setEvents(res?.data);
   };
 
   useEffect(() => {
-    fetchData();
+    getData();
   }, []);
 
   const dateChange = (event) => {
@@ -106,7 +96,7 @@ export default function DailyReport() {
     setDay(date);
 
     console.log("hello ======= date change to: ", date);
-    fetchData(date);
+    getData(date);
   };
 
   return (
@@ -126,35 +116,30 @@ export default function DailyReport() {
     </div>
   );
 }
+const handleIcon = (event) => {
+  let res = faWarning;
+  event === "smoke" && (res = faSmoking);
+  event === "unauthorize" && (res = faUserXmark);
+  event === "ppe" && (res = faHelmetSafety);
+  event === "truck" && (res = faTruck);
+  event === "hand" && (res = faHand);
+  event === "fight" && (res = faUser);
+
+  return res;
+};
 
 const CardViolationComp = ({ data }) => {
   return (
     <div className="card-violation-container">
-      <CardViolation
-        num={data?.vehicles || 0}
-        text="Detected vehicles"
-        icon={faTruck}
-        key="1"
-      />
-      <CardViolation
-        num={data?.unauthorized || 0}
-        text="unauthorized persons"
-        icon={faUserXmark}
-        key="2"
-      />
-      <CardViolation num={data?.smoke || 0} text="smoking" icon={faSmoking} />
-      <CardViolation
-        num={data?.ppe || 0}
-        text="safety violation"
-        icon={faHelmetSafety}
-        key="3"
-      />
-      <CardViolation
-        num={data?.phone || 0}
-        text="restricted area"
-        icon={faHand}
-        key="4"
-      />
+      {data &&
+        Object.keys(data)?.map((el, index) => (
+          <CardViolation
+            num={data[el]}
+            text={el}
+            icon={handleIcon(el)}
+            key={index}
+          />
+        ))}
     </div>
   );
 };
