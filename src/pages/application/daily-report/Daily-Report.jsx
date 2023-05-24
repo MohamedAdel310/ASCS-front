@@ -3,6 +3,8 @@ import CardViolation from "./components/Card-Violation";
 import StatusViolation from "./components/Status-Violation";
 import fetchData from "../../../api/getEventsByDay";
 import "../style/daily-report.css";
+import eventDetails from "../../../Functions/eventDetails";
+import jsonText from "../../../assets/text.json";
 
 // import iconVehicles from "../../../../src/assets/icons/vehicles.svg";
 // import iconRestricted from "../../../../src/assets/icons/gloves.svg";
@@ -21,8 +23,6 @@ import {
   faWarning,
 } from "@fortawesome/free-solid-svg-icons";
 
-const apiURL = "https://myaz.cyclic.app/api/";
-
 const criticalLevelFun = (type) => {
   let num = 1;
   type === "smoke" && (num = 2);
@@ -35,31 +35,7 @@ const criticalLevelFun = (type) => {
 
 const cricicalLevelType = (type) => {
   let str = type;
-  type === "ppe" && (str = "personal protective equipment");
-
-  return str;
-};
-
-const cricicalLevelMessage = (type, arriveAt, info) => {
-  let str = `A violation (${
-    type === "ppe" ? "personal protective equipment" : type
-  }) detected at ${arriveAt.slice(0, 10)} -Reported camera: ${info.cam}`;
-
-  type === "smoke" &&
-    (str = `Detected employee somke at the factory at ${arriveAt.slice(
-      0,
-      10
-    )} -The employee id is ${info.detected} -Reported camera: ${info.cam}`);
-  type === "phone" &&
-    (str = `Detected employee use phone at the factory at ${arriveAt.slice(
-      0,
-      10
-    )} -The employee id is ${info.detected} -Reported camera: ${info.cam}`);
-  type === "unuthourize" &&
-    (str = `Detected unouthorized person at the factory at ${arriveAt.slice(
-      0,
-      10
-    )} -Reported camera: ${info.cam}`);
+  type === "ppe" && (str = jsonText.ppe);
 
   return str;
 };
@@ -152,10 +128,10 @@ const StatusViolationComp = ({ events }) => {
           <StatusViolation
             level={criticalLevelFun(event.type)}
             event={cricicalLevelType(event.type)}
-            eventMessage={cricicalLevelMessage(
+            eventMessage={eventDetails(
               event.type,
               event.arriveAt,
-              event.info
+              event.info.cam
             )}
             key={event._id}
           />

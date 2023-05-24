@@ -10,12 +10,10 @@ import Search from "../../../components/search";
 import Filter from "../../../components/Filter";
 // import MainButton from "../../../components/button-main";
 
-import handleDisable from "../../../components/handleDisable";
-
-const apiURL = "https://myaz.cyclic.app/api/";
+import handleDisable from "../../../Functions/handleDisable";
+import getAllEmployees from "../../../api/getAllEmployees";
 
 export default function Employees() {
-  const [data, setData] = useState();
   const [employeesData, setEmployeesData] = useState();
   const [openEmployeePopup, setOpenEmployeePopup] = useState(false);
   const [openFilterPopup, setOpenFilterPopup] = useState(false);
@@ -76,26 +74,14 @@ export default function Employees() {
   };
   //---------------------------------------------------
 
+  // get employee data
+  const fetchEmployee = async () => {
+    const res = await getAllEmployees();
+    setEmployeesData(res.data?.employees);
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      console.log("fetch done");
-      const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4";
-      const headers = {
-        "Authorization": `Bearer ${token}`,
-      };
-      const response = await fetch(apiURL + "employees", {
-        headers,
-      });
-      const json = await response.json();
-      setData(json.data);
-
-      localStorage.setItem("employeesData", JSON.stringify(json.data));
-      setEmployeesData(json.data?.employees);
-
-      console.log("employeeData: ", employeesData);
-    };
-    fetchData();
+    fetchEmployee();
   }, []);
 
   return (

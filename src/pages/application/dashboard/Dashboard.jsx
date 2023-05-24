@@ -12,6 +12,7 @@ import getEventsByMonth from "../../../api/getEventsByMonth";
 import { useState } from "react";
 import { useEffect } from "react";
 import jsonText from "../../../assets/text.json";
+import eventDetails from "../../../Functions/eventDetails";
 
 export default function MainContent() {
   const [eventTypesCount, setEventTypesCount] = useState();
@@ -37,16 +38,6 @@ export default function MainContent() {
     fetchDataMonth();
   }, []);
 
-  const eventDetails = (type, time, cam) => {
-    type === "ppe" && (type = jsonText.ppe);
-    time = time.slice(11, 19);
-
-    return jsonText.voilationDetails
-      .replace("__vioName__", type)
-      .replace("__vioTime__", time)
-      .replace("__vioCam__", cam || 1);
-  };
-
   const text = events?.map((event) =>
     eventDetails(event.type, event.arriveAt, event.info.cam)
   );
@@ -61,8 +52,7 @@ export default function MainContent() {
         <AttendanceOverview />
       </div>
       <div className="human_present">
-        {/* <HumanPresent 
-      text="Updated every 5 minutes"/> */}
+        <HumanPresent text="Updated every 5 minutes" />
       </div>
       <div className="late_overview">
         <LateOverview />

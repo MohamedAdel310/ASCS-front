@@ -14,7 +14,8 @@ import TableMonth from "./components/Table-month";
 import MainButton from "../../../components/button-main";
 import PopupFilter from "../../../components/PopupFilter";
 
-import handleDisable from "../../../components/handleDisable.js";
+import handleDisable from "../../../Functions/handleDisable.js";
+import getAttendanceByDay from "../../../api/getAttendanceByDay";
 
 const displayTime = (dateString) => {
   const date = new Date(dateString);
@@ -87,21 +88,19 @@ const AttendanceMonth = () => {
 
 export default function Attendance() {
   const [data, setData] = useState();
-  const [fetchDataTrigger, setFetchDataTrigger] = useState();
   const [selectedOption, setSelectedOption] = useState("1");
   const [searchRes, setSearchRes] = useState("");
   const [openFilterPopup, setOpenFilterPopup] = useState(false);
   const [filterValJob, setFilterValJob] = useState({});
   const [filterValDepartment, setFilterValDepartment] = useState({});
-  // const [listJob, setListJob] = useState([]);
-  // const [listDepartment, setListDepartment] = useState([]);
+  const [selectDate, setSelectDate] = useState();
 
   // useEffect(() => {
   const listFilter = () => {
     let listJob = [];
     let listDepartment = [];
 
-    data?.map(({ job, department }) => {
+    data?.employees?.map(({ job, department }) => {
       listJob.includes(job) ? "" : listJob.push(job);
       listDepartment.includes(department)
         ? ""
@@ -120,7 +119,7 @@ export default function Attendance() {
 
   const handleSearch = (e) => {
     setSearchRes(
-      data?.map((emp) => {
+      data?.employees?.map((emp) => {
         let result;
         emp?.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
           (result = emp.name);
@@ -133,8 +132,6 @@ export default function Attendance() {
     setSelectedOption(event.target.value);
     console.log(event.target.value);
   };
-
-  const storedData = JSON.parse(localStorage.getItem("attendanceData"));
 
   const handleClickJob = (e) => {
     const inputName = e.target.value;
@@ -165,33 +162,20 @@ export default function Attendance() {
     console.log("e.target: ", e);
   };
 
+  const fetchAttendance = async (date) => {
+    console.log("fetchAttendance done");
+    const res = await getAttendanceByDay(date);
+    setData(res);
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      console.log("fetch done");
-      const response = await fetch(
-        "https://myaz.cyclic.app/api/attendance/24-03-2023"
-      );
-      const json = await response.json();
-      setData(json.data);
-      localStorage.setItem("attendanceData", JSON.stringify(json.data));
-    };
-
-    if (storedData) {
-      setData(storedData);
-    } else {
-      fetchData();
-    }
-
-    if (fetchDataTrigger) {
-      fetchData();
-      setFetchDataTrigger(false);
-    }
-  }, [fetchDataTrigger]);
+    fetchAttendance();
+  }, []);
 
   const FetchAttendanceDay = () => {
     return (
       <>
-        {data?.map(
+        {data?.employees?.map(
           ({ employee_id, name, department, job, arrive_at }, index) =>
             (handleDisable(
               job,
@@ -219,11 +203,11 @@ export default function Attendance() {
   const AttendanceDay = () => {
     return (
       <div className="attendance_day">
-        <MainButton
+        {/* <MainButton
           className="add"
           text="refresh"
           onClick={handleFetchDataClick}
-        />
+        /> */}
         <table>
           <thead>
             <tr>
@@ -242,10 +226,10 @@ export default function Attendance() {
     );
   };
 
-  const handleFetchDataClick = () => {
-    console.log("fethch done mmmm");
-    setFetchDataTrigger(true);
-  };
+  // const handleFetchDataClick = () => {
+  //   console.log("fethch done mmmm");
+  //   setFetchDataTrigger(true);
+  // };
 
   const today = () => {
     const today = new Date();
@@ -259,6 +243,14 @@ export default function Attendance() {
     return `${year}-${month}-${day}`;
   };
 
+  const handleChangeDate = (e) => {
+    const date = e.target.value.replaceAll("-", "/");
+
+    console.log("e.target.value: ", date);
+    setSelectDate(e.target.value);
+    fetchAttendance(date);
+  };
+
   return (
     <div className="attendance">
       <div className="attendance--title">
@@ -266,7 +258,11 @@ export default function Attendance() {
         <div className="ends">
           {/* {console.log("today(): ", today())} */}
           {/* <div className="day"> 9</div> */}
-          <input type="date" value={today()} />
+          <input
+            type="date"
+            onChange={handleChangeDate}
+            value={selectDate || today()}
+          />
           <select
             name="date"
             id="date"
