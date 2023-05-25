@@ -1,4 +1,4 @@
 {
   "ppe": "Personal Protective Equipment",
-  "voilationDetails": "A violation __vioName__ detected at __vioTime__ -Reported camera: __vioCam__"
+  "voilationDetails": "A violation __vioName__ detected at __vioTime__, Reported camera: __vioCam__"
 }

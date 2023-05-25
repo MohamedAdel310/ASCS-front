@@ -21,7 +21,7 @@ export default function MainContent() {
   const fetchDataDay = async () => {
     const res = await getEventsByDay();
 
-    console.log(res);
+    // console.log(res);
 
     setEvents(res.data);
   };
@@ -29,7 +29,7 @@ export default function MainContent() {
   const fetchDataMonth = async () => {
     const res = await getEventsByMonth();
 
-    console.log(res);
+    // console.log(res);
     setEventTypesCount(res.types);
   };
 
@@ -52,7 +52,7 @@ export default function MainContent() {
         <AttendanceOverview />
       </div>
       <div className="human_present">
-        <HumanPresent text="Updated every 5 minutes" />
+        <HumanPresent />
       </div>
       <div className="late_overview">
         <LateOverview />
