@@ -42,6 +42,19 @@
     border-radius: 20px;
     position: relative;
 }
+#input-deteceddate{
+    width: 150px;
+  height: 35px;
+  font-weight: 300;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 15px;
+  padding: 0 5px;
+  background-color: var(--socondary-color);
+  border: none;
+  color: white;
+  margin-left: 30px;
+}
 .dashboard--detected-violations h3{
     padding-left: 60px;
     font-size: 25px;
@@ -99,18 +112,39 @@
     min-width: 550;
     height: 500px;
     border-radius: 20px;
-    position: relative;
-    justify-content: left;
     align-items: center;
-    grid-template-columns:repeat(1,1fr);
-    grid-template-rows: repeat(2,200);
     font-weight: 1000;   
+}
+
+.inputdate{
+display: grid;
+grid-row: 1;
+align-items: center;
+justify-content: left;
+}
+.header{
+    display: grid;
+grid-row: 1;
+padding-right: 20px;
+}
+#input-date-Attendance{
+    width: 150px;
+  height: 35px;
+  padding-right: 20px;
+  font-weight: 300;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: var(--socondary-color);
+  border: none;
+  color: white;
+ 
 }
 .attendance_overview_chart{
     display: grid;
     grid-column: 1;
     grid-row: 2;
-    justify-content: left;
+    justify-content: center;
 
 }
 .human_present{

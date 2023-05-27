@@ -81,7 +81,7 @@ export default function DailyReport() {
 
       <div className="daily-report--header">
         <h1>Detected events</h1>
-        <input
+        <input id="inputdate_dailyreport"
           type="date"
           onChange={dateChange}
           value={day?.replaceAll("/", "-") || today().replaceAll("/", "-")}
