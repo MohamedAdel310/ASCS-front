@@ -15,8 +15,7 @@ import MainButton from "../../../components/button-main";
 import PopupFilter from "../../../components/PopupFilter";
 
 import handleDisable from "../../../Functions/handleDisable.js";
-import getAttendanceByDay from "../../../api/getAttendanceByDay";
-
+import getAttendanceByDay from "../../../api/getAttendanceByDay"; 
 const displayTime = (dateString) => {
   const date = new Date(dateString);
   const options = {
@@ -258,11 +257,11 @@ export default function Attendance() {
         <div className="ends">
           {/* {console.log("today(): ", today())} */}
           {/* <div className="day"> 9</div> */}
-          <input
+         <input id="input-datepopup"
             type="date"
             onChange={handleChangeDate}
             value={selectDate || today()}
-          />
+  />
           <select
             name="date"
             id="date"

@@ -84,11 +84,16 @@ export default function DailyReport() {
       <CardViolationComp data={data} />
 
       <div className="daily-report--header">
+<<<<<<< HEAD
         <div className="title">
           <FontAwesomeIcon icon={faBell} ></FontAwesomeIcon>
           <h1>Detected events</h1>
         </div>
         <input
+=======
+        <h1>Detected events</h1>
+        <input id="inputdate_dailyreport"
+>>>>>>> master
           type="date"
           onChange={dateChange}
           value={day?.replaceAll("/", "-") || today().replaceAll("/", "-")}

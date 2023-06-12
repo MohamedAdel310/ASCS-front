@@ -84,7 +84,7 @@ export default function DetectedViolations() {
           <div className="detected_total_days">In this month</div>
         </div>
         <div className="option">
-          <input
+          <input id="input-deteceddate"
             type="month"
             onChange={changeDate}
             value={month || dateNow().slice(0, 7)}
