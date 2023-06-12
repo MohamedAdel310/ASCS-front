@@ -20,6 +20,15 @@
   grid: 20px;
 }
 
+.daily-report--header .title{
+  display: flex; 
+  gap: 10px;
+  align-items: center;
+  font-size: 20px;
+  height: 100px;
+}
+
+
 .card-violation-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
@@ -29,7 +38,7 @@
   display: flex;
   border: 1px solid #ddd;
   box-shadow: 2px 2px 2px 0px #ddd;
-  /* justify-content: center; */
+  position: relative;
   align-items: center;
   width: 240px;
   height: 120px;
@@ -40,8 +49,7 @@
 
 .card-violation .mistake {
   width: 100%;
-  /* text-align: center; */
-  padding: 10px;
+  padding-left: 30px;
 }
 
 .card-violation--number {
@@ -50,14 +58,16 @@
   text-align: center;
 }
 .card-violation--text {
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 700;
   text-align: center;
+  letter-spacing: 1px;
 }
 .card-violation--img {
   padding-left: 30px;
-  font-size: 30px;
-  color: var(--main-color);
+  font-size: 40px;
+  position: absolute;
+  bottom: 25px;
 }
 .status-box {
   display: grid;
@@ -76,7 +86,6 @@
 
 .status-siola .image .icon{
   font-size: 70px;
-  color: var(--main-color);
 }
 
 .status-siola .image {

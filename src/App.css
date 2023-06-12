@@ -37,7 +37,8 @@ table tbody .teble-number {
 }
 
 th {
-  font-size: 11px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 td,

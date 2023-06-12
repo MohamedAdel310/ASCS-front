@@ -21,6 +21,10 @@ import {
   faUserXmark,
   faUser,
   faWarning,
+  faBell,
+  faBellConcierge,
+  faBellSlash,
+  faDumbbell,
 } from "@fortawesome/free-solid-svg-icons";
 
 const criticalLevelFun = (type) => {
@@ -80,7 +84,10 @@ export default function DailyReport() {
       <CardViolationComp data={data} />
 
       <div className="daily-report--header">
-        <h1>Detected events</h1>
+        <div className="title">
+          <FontAwesomeIcon icon={faBell} ></FontAwesomeIcon>
+          <h1>Detected events</h1>
+        </div>
         <input
           type="date"
           onChange={dateChange}
