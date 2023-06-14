@@ -83,7 +83,7 @@
   min-height: 100vh;
 }
 
-.links a{
+.links a {
   text-decoration: none;
 }
 
@@ -124,4 +124,16 @@
 
 .dasbaord_container {
   width: 100%;
+}
+
+/*  make blur to background */
+.blur-background {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  z-index: 10;
 }

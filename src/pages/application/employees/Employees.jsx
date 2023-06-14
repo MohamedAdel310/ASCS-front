@@ -153,6 +153,9 @@ export default function Employees() {
         handleClickSubmit={handleClickSubmit}
         listFilter={listFilter()}
       />
+
+      <div className={openEmployeePopup ? `blur-background` : ""}></div>
+      <div className={openFilterPopup ? `blur-background` : ""}></div>
     </div>
   );
 }

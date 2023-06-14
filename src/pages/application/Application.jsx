@@ -103,6 +103,7 @@ export default function Application() {
           </div>
         </div>
       </div>
+      <div className={openLogOutPopup ? `blur-background` : ""}></div>
     </div>
   );
 }
