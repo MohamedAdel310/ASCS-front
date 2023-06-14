@@ -42,8 +42,8 @@
   background-color: rgb(0 0 0 / 30%);
   cursor: pointer;
   font-weight: bold;
-  border-left: 10px solid white;
-  border-radius: 10px;
+
+  position: relative;
 }
 
 .navbar-list li {
@@ -62,14 +62,23 @@
   font-size: 17px;
   font-weight: 700;
   background-color: #091229;
-  border-left: 10px solid white;
-  border-radius: 10px;
+  position: relative;
+}
+
+/* make white selector in menu nav */
+.navbar-list a.active li::before {
+  content: "";
+  width: 34px;
+  height: 94%;
+  background-color: white;
+  border-radius: 22%;
+  position: absolute;
+  left: -25.5px;
 }
 
 .link-style {
   color: rgb(255 255 255 / 50%);
   text-decoration: none;
-  /* padding-left: 20px; */
 }
 .link-style p {
   padding-left: 10px;
