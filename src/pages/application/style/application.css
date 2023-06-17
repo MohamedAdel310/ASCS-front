@@ -63,10 +63,15 @@
   font-weight: 700;
   background-color: #091229;
   position: relative;
+
+  transition-duration: 1s;
+  transition-delay: 1s;
+  transition-property: display;
 }
 
 /* make white selector in menu nav */
 .navbar-list a.active li::before {
+  display: block;
   content: "";
   width: 34px;
   height: 94%;
