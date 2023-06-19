@@ -10,7 +10,7 @@
 .emp-profile .info {
   width: 100%;
   display: flex;
-  gap: 40px;
+  gap: 90px;
 }
 
 .emp-profile .info .image img {
@@ -63,7 +63,7 @@
 .btn--edit-details-- {
   display: flex;
   padding-top: 10px;
-  padding-left: 240px;
+  padding-left: 290px;
 }
 .btn--edit-details {
   padding: 10px 0;

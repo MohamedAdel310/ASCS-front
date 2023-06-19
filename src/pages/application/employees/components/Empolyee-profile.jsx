@@ -95,7 +95,8 @@ export default function EmpProfile() {
                 onChange={(e) => handleChangeInput(e, "name")}
               />
               <label htmlFor="">Name</label>
-              <div className="label-container"></div>
+            </div>
+            <div className="label-container">
               <input
                 type="text"
                 value={
