@@ -22,13 +22,13 @@ export default function Application() {
     <div className="dashboard">
       <div className="container">
         <div className="links">
-          <a href="../#Home">
-            <div className="application--logo">
-              <img src={logo} alt="" className="application--logo--img" />
-              <h1>MYAZ</h1>
-            </div>
-          </a>
           <ul className="navbar-list">
+            <a href="../#Home">
+              <div className="application--logo">
+                <img src={logo} alt="" className="application--logo--img" />
+                <h1>MYAZ</h1>
+              </div>
+            </a>
             <NavLink to="/application/dashboard" className="link-style">
               <li>
                 <FontAwesomeIcon
@@ -94,8 +94,6 @@ export default function Application() {
                 active={openLogOutPopup}
                 setOpenLogOutPopup={setOpenLogOutPopup}
               />
-
-              <img src="" alt="" />
             </div>
           </div>
           <div className="main">
@@ -103,6 +101,7 @@ export default function Application() {
           </div>
         </div>
       </div>
+      <div className={openLogOutPopup ? `blur-background` : ""}></div>
     </div>
   );
 }
