@@ -1,8 +1,8 @@
 .filter {
   width: 150px;
-  height: 40px;
+  height: 60px;
   background-color: rgba(255, 170, 1, 0.5);
-  border-radius: 20px;
+  border-radius: 35px;
   display: flex;
   align-items: center;
   position: relative;
@@ -26,13 +26,13 @@
   width: 35px;
   position: absolute;
   right: 20px;
-  top: 12px;
+  top: 20px;
 }
 .filter .icon span:nth-child(2) {
   position: absolute;
   right: 20px;
   width: 35px;
-  top: 20px;
+  top: 30px;
   height: 1px;
 }
 .filter .icon span:last-child {
@@ -40,7 +40,7 @@
   right: 20px;
   height: 1px;
   width: 35px;
-  top: 29px;
+  top: 40px;
 }
 
 .filter span:first-child::after {
