@@ -1,5 +1,5 @@
 .popup--add-employee {
-  background: linear-gradient(0deg, var(--main-color), #394b71);
+  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,12 +16,16 @@
   align-items: center;
   width: 100%;
   justify-content: center;
-  /* flex-direction: column; */
+  gap: 5%;
 }
 
 .BOX1 {
   text-align: center;
   width: 45%;
+}
+
+.last-BOX{
+  margin-bottom: 30px;
 }
 
 .popup--add-employee label {
@@ -32,6 +36,7 @@
   font-size: 25px;
   margin: 15px 0;
   color: var(--socondary-color);
+  letter-spacing: 1px;
 }
 
 .popup--add-employee input,
@@ -41,52 +46,61 @@
   margin-bottom: 20px;
   border-radius: 5px;
   border: 2px solid #ccc;
+  min-height: 40px;
 }
 
-.popup--add-employee input,
+/* .popup--add-employee input,
 .popup--add-employee select:focus {
   outline-style: none;
-}
+} */
 
 .popup--add-employee Button {
   color: white;
-  background-color: var(--socondary-color);
+  background-color: rgb(172, 170, 170);
   border-radius: 5px;
   cursor: pointer;
   border: none;
   width: 40%;
   height: 40px;
-  margin: 0 15px 20px 15px;
+  /* margin: 0 15px 20px 15px; */
 }
 .close-and-add {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.popup--filter {
-  background: linear-gradient(0deg, var(--main-color), #394b71);
+  margin-bottom: 10px;
+  gap: 10%;
 }
 
 /************************************************************* Popu-Filter******************************************************************** */
 
 .popup--filter {
-  background: linear-gradient(0deg, var(--main-color), #394b71);
+  background-color: white;
   width: 500px;
   position: fixed;
   top: 100px;
   left: 50%;
   border-radius: 20px;
+  width: fit-content;
+  color: black;
 }
 
-.popup--filter .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.popup--filter .container{
+
 }
+
+.popup--filter .checkbox-group{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  }
+
+.popup--filter .checkbox-group label{
+  /* display: flex;
+  flex-direction: column;
+  padding: 0 10px; */
+}
+
 
 .popup--filter h1 {
   font-size: 25px;
@@ -95,7 +109,7 @@
 }
 
 .popup--filter label {
-  color: white;
+  color: black;
 }
 
 .popup--filter select {
@@ -117,7 +131,7 @@
 }
 
 .popup--filter Button {
-  color: white;
+  color: black;
   background-color: var(--socondary-color);
   border-radius: 5px;
   cursor: pointer;
@@ -223,7 +237,7 @@
 }
 
 .btn--add_employee:disabled {
-  background-color: rgb(172, 170, 170);
+  background-color: var(--socondary-color);
   cursor: auto;
 }
 

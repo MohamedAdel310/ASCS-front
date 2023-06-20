@@ -281,10 +281,10 @@ html {
   }
   .about .about-content .content .button a{
     background: linear-gradient(to right, rgb(255 255 255)50%, var(--socondary-color)50%);
+    background-position: right bottom;
     cursor: pointer;
     border: none;
     background-size: 200% 100%;
-    background-position: right bottom;
     transition: .6s;
     padding: 12px 20px;
     text-decoration: none;

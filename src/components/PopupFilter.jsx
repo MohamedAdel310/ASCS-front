@@ -19,10 +19,11 @@ export default function PopupFilter(props) {
     <div
       className={`popup--filter popup ${props.value || "display-popup-false"}`}
     >
+        <h3>Filter</h3>
       <div className="container">
         <form className="filter-form">
-          <div className="checkbox-group">
             <h3>Jobs</h3>
+          <div className="checkbox-group">
             {props.listFilter?.listJob?.map((el) => (
               <label>
                 <input
@@ -37,8 +38,8 @@ export default function PopupFilter(props) {
             ))}
           </div>
 
-          <div className="checkbox-group">
             <h3>Departments</h3>
+          <div className="checkbox-group">
             {props.listFilter?.listDepartment?.map((el) => (
               <label>
                 <input

@@ -21,12 +21,14 @@ export default function LogOutPopup(props) {
       <p className="log-out--popup--message">
         Are you sure you want to log out?
       </p>
-      <button onClick={handleLogout} className="log-out--popup--confirm">
-        Log out
-      </button>
-      <button onClick={handleCancelLogOut} className="log-out--popup--cancel">
-        Cancel
-      </button>
+      <div className="container">
+        <button onClick={handleCancelLogOut} className="log-out--popup--cancel">
+          Cancel
+        </button>
+        <button onClick={handleLogout} className="log-out--popup--confirm">
+          Log out
+        </button>
+      </div>
     </div>
   );
 }

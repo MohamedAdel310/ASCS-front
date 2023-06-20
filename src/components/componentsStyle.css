@@ -3,16 +3,24 @@
   border: 1px solid #ccc;
 }
 
+.log-out--popup .container{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+
 .log-out--popup--message {
   margin: 0;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 300;
   margin-bottom: 20px;
-  color: var(--socondary-color);
+  color: black;
+  letter-spacing: 1px;
 }
 
 .log-out--popup--confirm {
-  background-color: #f44336;
+  background-color: var(--socondary-color);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -20,10 +28,16 @@
   margin: 5px;
   font-size: 16px;
   cursor: pointer;
+  /* background: linear-gradient(to right, rgb(255 255 255)50%, var(--socondary-color)50%);
+  background-position: right bottom; */
+  transition: .6s;
+  background-size: 200% 100%;
 }
 
 .log-out--popup--confirm:hover {
-  background-color: #d32f2f;
+  background-color: var(--main-color);
+  color: white;
+  /* background-position: left bottom; */
 }
 
 .log-out--popup--cancel {
