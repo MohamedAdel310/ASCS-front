@@ -7,11 +7,14 @@ import { Link } from "react-router-dom";
 export default function LastEventDetected({ text }) {
   return (
     <div className="dashboard--last-event-detected">
+      <Link to="/application/daily-report">
+        <button>{text?.length ? "View More..." : "Events page..."}</button>
+      </Link>
       <h3>Last Event Detected</h3>
       {console.log("jsonText: ", jsonText)}
 
       {text?.length ? (
-        Array(3)
+        Array(5)
           .fill()
           .map(
             (__, index) =>
@@ -28,10 +31,6 @@ export default function LastEventDetected({ text }) {
       ) : (
         <h4>there is no Events yet</h4>
       )}
-
-      <Link to="/application/daily-report">
-        <button>{text?.length ? "View More..." : "Events page..."}</button>
-      </Link>
     </div>
   );
 }

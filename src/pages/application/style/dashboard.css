@@ -300,6 +300,7 @@
   border-radius: 20px;
   position: relative;
   padding: 20px;
+  overflow: auto;
 }
 
 .dashboard--last-event-detected h3 {
@@ -323,18 +324,10 @@
   padding-left: 20px;
 }
 
-<<<<<<< HEAD
 .personal-detect h4 {
   font-size: 15px;
   padding: 10px 50px;
   font-weight: 300;
-=======
-.personal-detect h4{
-    font-size: 15px;
-    padding: 10px 10px 10px 40px;
-    font-weight: 300;
-    line-height: 1;
->>>>>>> sa3dalla
 }
 
 .personal-detect p {
