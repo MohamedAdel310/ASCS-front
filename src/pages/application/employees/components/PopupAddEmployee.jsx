@@ -191,7 +191,7 @@ export default function PopupAddEmployee(props) {
           </div>
         </div>
 
-        <div className="BOX">
+        <div className="BOX last-BOX">
           <div className="BOX1">
             <label htmlFor="">Shift Start</label>
             <input
