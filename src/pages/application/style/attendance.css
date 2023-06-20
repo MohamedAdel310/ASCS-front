@@ -1,15 +1,3 @@
-
-:root {
-  --main-color: #0d1b3b;
-  --socondary-color: #ffaa01;
-}
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
 .attendance {
   padding: 20px;
 }
@@ -31,6 +19,7 @@
   align-items: center;
   padding-right: 30px;
 }
+
 #input-datepopup {
   width: 150px;
   height: 35px;
@@ -45,15 +34,8 @@
   margin-left: 30px;
 }
 
-.attendance--title .ends select {
-  width: 100px;
-  height: 30px;
-  border-radius: 15px;
-  padding: 0 5px;
-  background-color: var(--socondary-color);
-  border: none;
-  color: white;
-  margin-left: 30px;
+#input-datepopup:focus {
+  outline-style: none;
 }
 
 .attendance--title .ends select:focus {
@@ -135,7 +117,6 @@
   right: 80px;
   transform: translateX(50%);
   top: 50px;
-  
 }
 
 .circle1 {
@@ -179,22 +160,19 @@
 
 .search-box {
   display: flex;
- 
 }
-.attendance_week
-  {
-display: flex;
-background-color: #d12f2f;
-width: auto;
+.attendance_week {
+  display: flex;
+  background-color: #d12f2f;
+  width: auto;
 }
-.attendance_month
-  {
-display: flex;
+.attendance_month {
+  display: flex;
 
-width : auto;
+  width: auto;
 }
 
-.attendance_day .add{
+.attendance_day .add {
   width: 100px;
   height: 30px;
   color: white;
@@ -205,7 +183,6 @@ width : auto;
   cursor: pointer;
   border: none;
 }
-
 
 @keyframes circle1 {
   100% {
@@ -226,4 +203,20 @@ width : auto;
   100% {
     stroke-dashoffset: 262;
   }
+}
+
+.select-container {
+  padding: 0 15px 0 5px;
+  border-radius: 25px;
+  background-color: #ffaa01;
+  margin-left: 16px;
+}
+
+.select-date {
+  height: 35px;
+  border: 0;
+  border-radius: 25px;
+  color: white;
+  padding-left: 9px;
+  background-color: #ffaa01;
 }

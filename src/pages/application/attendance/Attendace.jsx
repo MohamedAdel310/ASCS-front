@@ -263,16 +263,19 @@ export default function Attendance() {
             onChange={handleChangeDate}
             value={selectDate || today()}
           />
-          <select
-            name="date"
-            id="date"
-            value={selectedOption}
-            onChange={handleOptionChange}
-          >
-            <option value="1">Day</option>
-            <option value="2">week</option>
-            <option value="3">Month</option>
-          </select>
+          <span className="select-container">
+            <select
+              className="select-date"
+              name="date"
+              id="select-date"
+              value={selectedOption}
+              onChange={handleOptionChange}
+            >
+              <option value="1">Day</option>
+              <option value="2">week</option>
+              <option value="3">Month</option>
+            </select>
+          </span>
         </div>
       </div>
       <div className="chartDonate">
