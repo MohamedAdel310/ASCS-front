@@ -90,10 +90,6 @@ export default function Application() {
                 value="Log out"
                 onClick={() => setOpenLogOutPopup(true)}
               />
-              <LogOutPopup
-                active={openLogOutPopup}
-                setOpenLogOutPopup={setOpenLogOutPopup}
-              />
             </div>
           </div>
           <div className="main">
@@ -101,6 +97,10 @@ export default function Application() {
           </div>
         </div>
       </div>
+      <LogOutPopup
+        active={openLogOutPopup}
+        setOpenLogOutPopup={setOpenLogOutPopup}
+      />
       <div className={openLogOutPopup ? `blur-background` : ""}></div>
     </div>
   );
