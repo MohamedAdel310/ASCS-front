@@ -3,7 +3,7 @@ import { Chart } from "react-google-charts";
 
 export const options = {
   height: 350,
-  width: 720,
+  width: 700,
   legend: { position: "left", maxLines: 3 },
   vAxis: { minValue: 0 },
   chart: { backgroundColor: "red" },

@@ -68,7 +68,7 @@ export default function HumanPresent() {
       <div className="human_area">
         <Chart
           chartType="PieChart"
-          width="470px"
+          width="500px"
           height="250px"
           data={eventTypes}
           options={options}
