@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 
 export const options = {
-  height: 400,
-  width: 600,
+  height: 350,
+  width: 720,
   legend: { position: "left", maxLines: 3 },
   vAxis: { minValue: 0 },
   chart: { backgroundColor: "red" },
-  colors: ["#FB7A21"],
+  colors: ['#de4548'],
   chartArea: {
-    left: 80,
+    left: 20,
     right: 0,
     top: 20,
     bottom: 100,
@@ -94,8 +94,8 @@ export default function DetectedViolations() {
       <div className="detected_violations_area_chart">
         <Chart
           chartType="AreaChart"
-          width={"630px"}
-          height={"500px"}
+          width={"700px"}
+          height={"400px"}
           data={chartData(events)}
           options={options}
         />

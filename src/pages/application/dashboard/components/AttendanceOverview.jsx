@@ -56,20 +56,20 @@ export default function AttendanceOverview() {
   return (
     <div className="dashboard--attendance-overview">
       <div className="header">
-      <h3 >Attendance Overview</h3>
-      </div>
-      <div className="inputdate">
-      <input id="input-date-Attendance"
-        type="month"
-        onChange={changeDate}
-        value={month || dateNow().slice(0, 7)}
-      />
+        <h3 >Attendance Overview</h3>
+        <div className="inputdate">
+          <input id="input-date-Attendance"
+            type="month"
+            onChange={changeDate}
+            value={month || dateNow().slice(0, 7)}
+          />
+        </div>
       </div>
     
 
       <div className="attendance_overview_chart">
         <AreaChart
-          width={600}
+          width={720}
           height={350}
           data={chartData}
           margin={{

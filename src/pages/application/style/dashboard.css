@@ -37,6 +37,11 @@
   color: white;
   margin-left: 30px;
 }
+
+#input-deteceddate:focus {
+  outline-style: none;
+}
+
 .dashboard--detected-violations h3 {
   padding-left: 60px;
   font-size: 25px;
@@ -55,10 +60,9 @@
 }
 
 .detected_violations_area_chart {
-  display: grid;
-  font-weight: 1000;
-  grid-column: 1;
-  grid-row: 4;
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
 }
 
 #date {
@@ -96,15 +100,11 @@
 }
 
 .inputdate {
-  display: grid;
-  grid-row: 1;
-  align-items: center;
-  justify-content: left;
+  padding-right: 60px;
 }
-.header {
-  display: grid;
-  grid-row: 1;
-  padding-right: 20px;
+.dashboard--attendance-overview .header {
+  display: flex;
+  justify-content: space-between;
 }
 #input-date-Attendance {
   width: 150px;
@@ -118,6 +118,11 @@
   border: none;
   color: white;
 }
+
+#input-date-Attendance:focus {
+  outline-style: none;
+}
+
 .attendance_overview_chart {
   display: grid;
   grid-column: 1;
