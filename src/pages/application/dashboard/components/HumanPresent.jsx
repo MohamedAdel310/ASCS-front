@@ -13,13 +13,13 @@ export const data = [
 ];
 
 export const options = {
-  pieHole: 0.7,
+  pieHole: 0.6,
   is3D: false,
   pieSliceText: "none",
   legend: {
-    position: "",
+    position: "right",
     textStyle: { color: "black", fontSize: 15 },
-    alignment: "start",
+    alignment: "center",
   },
   slices: {
     0: { color: "#6b5b95" },
@@ -68,7 +68,7 @@ export default function HumanPresent() {
       <div className="human_area">
         <Chart
           chartType="PieChart"
-          width="500px"
+          width="450px"
           height="250px"
           data={eventTypes}
           options={options}

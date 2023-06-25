@@ -1,7 +1,7 @@
 import React from "react";
 import { Chart } from "react-google-charts";
 export const data = [
-  [ "","week before", "last week"],
+  ["", "week before", "last week"],
   ["NO.1", 55, 65],
   ["NO.2", 58, 36],
   ["NO.3", 77, 72],
@@ -15,30 +15,34 @@ export const data = [
 ];
 
 export const options = {
-  height:"200",
-  width:"550",
-  position:"top",
-  legend :{ position: 'top',textStyle: {color: 'black', fontSize: 20},alignment: 'start',},
-    colors: ['#034f84','#92a8d1'],
+  // height:"200",
+  // width:"550",
+  position: "top",
+  legend: {
+    position: "none",
+    textStyle: { color: "black", fontSize: 20 },
+    alignment: "center",
+  },
+  colors: ["#034f84", "#92a8d1"],
+  // bar: { groupWidth: "95%" },
+  // bars: "horizontal", // Required for Material Bar Charts.
 };
 
 export default function WorkersPerformance() {
   return (
     <div className="dashboard--WorkersPerformance">
       <h4>Workers Performance overview</h4>
-       <h6>in last two weeks</h6>
+      <h6>in last two weeks</h6>
 
-       <div className="worker_performance_chart">
-
-           <Chart
-                chartType="Bar"
-                width="550px"
-                height="200px"
-                data={data}
-                options={options}
-
-      />
-       </div>
+      <div className="worker_performance_chart">
+        <Chart
+          chartType="Bar"
+          width="480px"
+          height="200px"
+          data={data}
+          options={options}
+        />
+      </div>
     </div>
   );
 }

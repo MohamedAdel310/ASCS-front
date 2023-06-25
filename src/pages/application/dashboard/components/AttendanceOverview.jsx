@@ -56,16 +56,16 @@ export default function AttendanceOverview() {
   return (
     <div className="dashboard--attendance-overview">
       <div className="header">
-        <h3 >Attendance Overview</h3>
+        <h3>Attendance Overview</h3>
         <div className="inputdate">
-          <input id="input-date-Attendance"
+          <input
+            id="input-date-Attendance"
             type="month"
             onChange={changeDate}
             value={month || dateNow().slice(0, 7)}
           />
         </div>
       </div>
-    
 
       <div className="attendance_overview_chart">
         <AreaChart
@@ -80,8 +80,8 @@ export default function AttendanceOverview() {
           <YAxis />
           <Tooltip />
           <Area
-            type="monotone"
-            dataKey="value"
+            type="basis"
+            dataKey="attendance"
             stroke="#8884d8"
             strokeWidth={2}
             fill="#8884d8"
