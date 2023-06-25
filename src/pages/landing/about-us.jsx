@@ -41,7 +41,7 @@ export default function About(){
                 </div>
                 <div class="image">
                 <img src="../../../public/myaz.png" alt="" />
-                <h1>surveillance Camera</h1>
+                <h1>surveillance <hr /> Camera</h1>
                 </div>
             </div>
     </div>
