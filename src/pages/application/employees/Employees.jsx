@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Skeleton } from "@mui/material";
 import "../style/employees.css";
 import "../style/popups.css";
 import "../../../components/search";
@@ -18,6 +19,7 @@ export default function Employees() {
   const [openEmployeePopup, setOpenEmployeePopup] = useState(false);
   const [openFilterPopup, setOpenFilterPopup] = useState(false);
   const [searchRes, setSearchRes] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const listFilter = () => {
     let listJob = [];
@@ -77,12 +79,66 @@ export default function Employees() {
   // get employee data
   const fetchEmployee = async () => {
     const res = await getAllEmployees();
+    setIsLoaded(true);
     setEmployeesData(res.data?.employees);
   };
 
   useEffect(() => {
     fetchEmployee();
   }, []);
+
+  const EmployeesDataTable = () => {
+    return employeesData.map(
+      (emp) =>
+        (handleDisable(
+          emp.job,
+          emp.department,
+          jobSelected,
+          departmentSelected
+        ) ||
+          "") && (
+          <EmployeeTable
+            key={emp.employee_id}
+            employee_id={emp.employee_id}
+            name={emp.name}
+            jobTitle={emp.job}
+            department={emp.department}
+            jobStatus={emp.status ? "Active" : "pending"}
+            handleSearch={searchRes}
+            handleFilterJob={jobSelected}
+            // handleFilterDepartment={}
+          />
+        )
+    );
+  };
+
+  const EmployeesTable = () => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Job Title</th>
+            <th>Deparment</th>
+            <th>Job Status</th>
+          </tr>
+        </thead>
+        <tbody>{employeesData && <EmployeesDataTable />}</tbody>
+      </table>
+    );
+  };
+
+  const TableSkeleton = () => {
+    return (
+      <>
+        {Array(10)
+          .fill()
+          .map(() => (
+            <Skeleton animation="wave" width={"100%"} height={90} />
+          ))}
+      </>
+    );
+  };
 
   return (
     <div className="employee">
@@ -105,40 +161,8 @@ export default function Employees() {
           }}
         />
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Job Title</th>
-            <th>Deparment</th>
-            <th>Job Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {employeesData?.map(
-            (emp) =>
-              (handleDisable(
-                emp.job,
-                emp.department,
-                jobSelected,
-                departmentSelected
-              ) ||
-                "") && (
-                <EmployeeTable
-                  key={emp.employee_id}
-                  employee_id={emp.employee_id}
-                  name={emp.name}
-                  jobTitle={emp.job}
-                  department={emp.department}
-                  jobStatus={emp.status ? "Active" : "pending"}
-                  handleSearch={searchRes}
-                  handleFilterJob={jobSelected}
-                  // handleFilterDepartment={}
-                />
-              )
-          )}
-        </tbody>
-      </table>
+
+      {isLoaded ? <EmployeesTable /> : <TableSkeleton />}
 
       <PopupAddEmployee
         value={openEmployeePopup}
@@ -159,3 +183,17 @@ export default function Employees() {
     </div>
   );
 }
+
+// {
+//   item ? (
+//     <img
+//       style={{
+//         width: 210,
+//         height: 118,
+//       }}
+//       alt={item.title}
+//       src={item.src}
+//     />
+//   ) : (
+//   );
+// }
