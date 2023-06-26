@@ -18,6 +18,9 @@ export default function Landing() {
           </div>
         </div>
         <div className="box3">
+            <div className="logo--image">
+              <img src="/public/myaz.png" alt="" />
+            </div>
           <div className="container">
             <div className="menu">
               <ul>
