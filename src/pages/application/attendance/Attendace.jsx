@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Skeleton } from "@mui/material";
 // import ChartDonate from "./components/Chart-donate";
 import DonutChart from "./components/ChartDonat";
 import TableDay from "./components/Table-day";
+import noResponse from "./../../../assets/image/noResponse.jpg";
 import "../style/attendance.css";
 import "../../../components/search";
 // import employeeDataday from "./__delete__employeedata.json";
@@ -16,6 +18,7 @@ import PopupFilter from "../../../components/PopupFilter";
 
 import handleDisable from "../../../Functions/handleDisable.js";
 import getAttendanceByDay from "../../../api/getAttendanceByDay";
+import { h1 } from "fontawesome";
 const displayTime = (dateString) => {
   const date = new Date(dateString);
   const options = {
@@ -85,6 +88,23 @@ const AttendanceMonth = () => {
   );
 };
 
+const AttendanceTableSkeleton = () => {
+  return (
+    <div style={{ marginTop: "40px" }}>
+      {Array(10)
+        .fill()
+        .map(() => (
+          <Skeleton
+            animation="wave"
+            width={"100%"}
+            height={110}
+            sx={{ mb: -5 }}
+          />
+        ))}
+    </div>
+  );
+};
+
 export default function Attendance() {
   const [data, setData] = useState();
   const [selectedOption, setSelectedOption] = useState("1");
@@ -93,6 +113,7 @@ export default function Attendance() {
   const [filterValJob, setFilterValJob] = useState({});
   const [filterValDepartment, setFilterValDepartment] = useState({});
   const [selectDate, setSelectDate] = useState();
+  const [isAttendanceLoaded, setIsAttendanceLoaded] = useState(false);
 
   // useEffect(() => {
   const listFilter = () => {
@@ -165,6 +186,7 @@ export default function Attendance() {
     console.log("fetchAttendance done");
     const res = await getAttendanceByDay(date);
     setData(res);
+    res && setIsAttendanceLoaded(true);
   };
 
   useEffect(() => {
@@ -200,13 +222,8 @@ export default function Attendance() {
   };
 
   const AttendanceDay = () => {
-    return (
+    return data && Object.keys(data).length ? (
       <div className="attendance_day">
-        {/* <MainButton
-          className="add"
-          text="refresh"
-          onClick={handleFetchDataClick}
-        /> */}
         <table>
           <thead>
             <tr>
@@ -222,6 +239,13 @@ export default function Attendance() {
           </tbody>
         </table>
       </div>
+    ) : (
+      <img
+        src={noResponse}
+        alt="no violations in this day"
+        className="no-vilations-img"
+        style={{ display: "block" }}
+      />
     );
   };
 
@@ -243,6 +267,7 @@ export default function Attendance() {
   };
 
   const handleChangeDate = (e) => {
+    setIsAttendanceLoaded(false);
     const date = e.target.value.replaceAll("-", "/");
 
     console.log("e.target.value: ", date);
@@ -321,7 +346,11 @@ export default function Attendance() {
         />
       </div>
 
-      {selectedOption === "1" && <AttendanceDay />}
+      {selectedOption === "1" && isAttendanceLoaded ? (
+        <AttendanceDay />
+      ) : (
+        <AttendanceTableSkeleton />
+      )}
       {selectedOption === "2" && <AttendanceWeak />}
       {selectedOption === "3" && <AttendanceMonth />}
 
