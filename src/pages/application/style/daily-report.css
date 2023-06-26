@@ -2,12 +2,11 @@
   --main-color: #0d1b3b;
   --socondary-color: #ffaa01;
 }
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 
 .daily-report {
   padding: 50px;
@@ -74,7 +73,7 @@
   border-radius: 20px;
 }
 
-.status-siola .image .icon{
+.status-siola .image .icon {
   font-size: 70px;
   color: var(--main-color);
 }
@@ -86,7 +85,7 @@
   padding-right: 30px;
 }
 
-.status-siola .add{
+.status-siola .add {
   height: 40px;
   width: 100px;
   color: white;
@@ -122,7 +121,7 @@
 .critcal_header {
   font-size: 13px;
   font-weight: 700;
-  color:red;
+  color: red;
 }
 
 .critcal-level {
@@ -134,12 +133,12 @@
   position: relative;
 }
 .critcal-level__active {
-  background: linear-gradient(to right, orange, red);  
+  background: linear-gradient(to right, orange, red);
 }
 .critcal-level__inactive {
   background-color: #f3ecec;
 }
-#inputdate_dailyreport{
+#inputdate_dailyreport {
   width: 150px;
   height: 35px;
   font-weight: 300;
@@ -153,6 +152,11 @@
   margin-left: 30px;
 }
 
-  #inputdate_dailyreport:focus{
-    outline-style: none;
-  }
+#inputdate_dailyreport:focus {
+  outline-style: none;
+}
+
+.no-vilations-img {
+  width: 700px;
+  margin: 0 auto;
+}

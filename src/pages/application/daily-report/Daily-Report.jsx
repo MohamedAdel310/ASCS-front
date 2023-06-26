@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Alert, AlertTitle, Skeleton } from "@mui/material";
+import noResponse from "../../../assets/image/noResponse.jpg";
+
 import CardViolation from "./components/Card-Violation";
 import StatusViolation from "./components/Status-Violation";
 import fetchData from "../../../api/getEventsByDay";
@@ -11,8 +14,8 @@ import jsonText from "../../../assets/text.json";
 // import iconUnauthorized from "../../../../src/assets/icons/unuothorize.svg";
 // import iconSmoking from "../../../../src/assets/icons/smoke.svg";
 // import iconSafety from "../../../../src/assets/icons/helmet.svg";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHand,
   faHelmetSafety,
@@ -40,10 +43,107 @@ const cricicalLevelType = (type) => {
   return str;
 };
 
+const EmptyViolationCards = () => {
+  return (
+    <>
+      <CardViolation
+        num={0}
+        text={"fight"}
+        icon={handleIcon("fight")}
+        key={1}
+      />
+      <CardViolation
+        num={0}
+        text={"phone"}
+        icon={handleIcon("phone")}
+        key={2}
+      />
+      <CardViolation
+        num={0}
+        text={"unathorized"}
+        icon={handleIcon("unathorized")}
+        key={3}
+      />
+      <CardViolation
+        num={0}
+        text={"smoke"}
+        icon={handleIcon("smoke")}
+        key={4}
+      />
+    </>
+  );
+};
+
+const RealVoilationCards = ({ data }) => {
+  console.log("-----------------: ");
+  return Object.keys(data)?.map((el, index) => (
+    <CardViolation num={data[el]} text={el} icon={handleIcon(el)} key={index} />
+  ));
+};
+
+const StatusViolationCards = ({ events, isViolationsLoaded }) => {
+  if (events.length) {
+    return (
+      isViolationsLoaded &&
+      events.map((event) => (
+        <StatusViolation
+          level={criticalLevelFun(event.type)}
+          event={cricicalLevelType(event.type)}
+          eventMessage={eventDetails(
+            event.type,
+            event.arriveAt,
+            event.info.cam
+          )}
+          key={event._id}
+        />
+      ))
+    );
+  } else {
+    // return <h1>There is no Violations today</h1>;
+    return (
+      isViolationsLoaded && (
+        // <Alert
+        //   severity="info"
+        //   variant="outlined"
+        //   style={{ width: "700px" }}
+        //   sx={{ fontSize: 20 }}
+        // >
+        //   <AlertTitle>Message</AlertTitle>
+        //   There is no Violations today
+        // </Alert>
+
+        <img
+          src={noResponse}
+          alt="no violations in this day"
+          className="no-vilations-img"
+        />
+      )
+    );
+  }
+};
+
+const StatusViolationSkeleton = () => {
+  return (
+    <>
+      {Array(6)
+        .fill()
+        .map(() => (
+          <Skeleton
+            variant="rounded"
+            animation="wave"
+            width={"100%"}
+            height={100}
+          />
+        ))}
+    </>
+  );
+};
+
 export default function DailyReport() {
   const [data, setData] = useState();
   const [events, setEvents] = useState();
   const [day, setDay] = useState();
+  const [isViolationsLoaded, setIsViolationsLoaded] = useState(false);
 
   const today = () => {
     const today = new Date();
@@ -59,6 +159,8 @@ export default function DailyReport() {
 
   const getData = async (date) => {
     const res = date ? await fetchData(date) : await fetchData();
+    console.log("-----------------res: ", res.results);
+    res && setIsViolationsLoaded(true);
     setData(res?.types);
     setEvents(res?.data);
   };
@@ -68,6 +170,7 @@ export default function DailyReport() {
   }, []);
 
   const dateChange = (event) => {
+    setIsViolationsLoaded(false);
     const date = event.target.value.replaceAll("-", "/");
     setDay(date);
 
@@ -81,14 +184,18 @@ export default function DailyReport() {
 
       <div className="daily-report--header">
         <h1>Detected events</h1>
-        <input id="inputdate_dailyreport"
+        <input
+          id="inputdate_dailyreport"
           type="date"
           onChange={dateChange}
           value={day?.replaceAll("/", "-") || today().replaceAll("/", "-")}
         />
       </div>
 
-      <StatusViolationComp events={events} />
+      <StatusViolationComp
+        events={events}
+        isViolationsLoaded={isViolationsLoaded}
+      />
     </div>
   );
 }
@@ -107,36 +214,27 @@ const handleIcon = (event) => {
 const CardViolationComp = ({ data }) => {
   return (
     <div className="card-violation-container">
-      {data &&
-        Object.keys(data)?.map((el, index) => (
-          <CardViolation
-            num={data[el]}
-            text={el}
-            icon={handleIcon(el)}
-            key={index}
-          />
-        ))}
+      {data && Object.keys(data).length ? (
+        <RealVoilationCards data={data} />
+      ) : (
+        <EmptyViolationCards />
+      )}
     </div>
   );
 };
 
-const StatusViolationComp = ({ events }) => {
+const StatusViolationComp = ({ events, isViolationsLoaded }) => {
   return (
     <div className="status-box">
-      {events?.map((event) => {
-        return (
-          <StatusViolation
-            level={criticalLevelFun(event.type)}
-            event={cricicalLevelType(event.type)}
-            eventMessage={eventDetails(
-              event.type,
-              event.arriveAt,
-              event.info.cam
-            )}
-            key={event._id}
-          />
-        );
-      })}
+      {events ? (
+        <StatusViolationCards
+          events={events}
+          isViolationsLoaded={isViolationsLoaded}
+        />
+      ) : (
+        <StatusViolationSkeleton />
+      )}
+      {isViolationsLoaded || <StatusViolationSkeleton />}
     </div>
   );
 };
