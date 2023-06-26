@@ -1,24 +1,41 @@
 import React, { useState, useEffect } from "react";
+import { CircularProgress } from "@mui/material";
 import { Chart } from "react-google-charts";
 
 export const options = {
   height: 350,
-  width: 700,
-  legend: { position: "left", maxLines: 3 },
-  vAxis: { minValue: 0 },
+  width: 750,
+  legend: { position: "right", maxLines: 5 },
+  vAxis: { minValue: 10 },
   chart: { backgroundColor: "red" },
-  colors: ['#de4548'],
+  colors: ["#de4548"],
   chartArea: {
     left: 20,
     right: 0,
     top: 20,
-    bottom: 100,
+    bottom: 50,
   },
+};
+
+const AddCircularProgress = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "550px",
+      }}
+    >
+      <CircularProgress />
+    </div>
+  );
 };
 
 export default function DetectedViolations() {
   const [events, setEvents] = useState([]);
   const [month, setMonth] = useState();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const fetchData = async (date) => {
     // console.log("fetchData date: ", date);
@@ -30,6 +47,7 @@ export default function DetectedViolations() {
       );
       const data = await response.json();
       setEvents(data?.data);
+      data && setIsLoaded(true);
       // console.log("fetch done===========", data?.data);
     } catch (error) {
       console.log("Error fetching data:", error);
@@ -51,32 +69,63 @@ export default function DetectedViolations() {
   };
 
   const changeDate = (e) => {
+    setIsLoaded(false);
     setMonth(e.target.value);
     fetchData(e.target.value);
   };
 
   const chartData = (events) => {
-    const counts = {};
+    const counts = {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "18": 0,
+      "19": 0,
+      "20": 0,
+      "21": 0,
+      "22": 0,
+      "23": 0,
+      "24": 0,
+      "25": 0,
+      "26": 0,
+      "27": 0,
+      "28": 0,
+      "29": 0,
+      "30": 0,
+      "31": 0,
+    };
 
     events.forEach((event) => {
       const eventDate = new Date(event.arriveAt);
       const day = eventDate.getDate();
-      const month = eventDate.getMonth();
-      counts[`${day}/${month + 1}`] = (counts[`${day}/${month + 1}`] || 0) + 1;
+      counts[`${day}`] = (counts[`${day}`] || 0) + 1;
     });
 
     const countsArray = Object.entries(counts);
     countsArray.unshift(["date", "value"]);
 
     // console.log("countsArray: ", countsArray);
+    // console.log("counts: ", counts);
+    // console.log("countsArray: ", countsArray);
     return countsArray;
   };
 
-  // console.log(events);
-  // console.log("month: ", month);
-
-  return (
-    <div className="dashboard--detected-violations">
+  const DetectedViolations = () => (
+    <>
       <div className="violation-title">
         <div className="header">
           <h3>Detected Violations</h3>
@@ -84,7 +133,8 @@ export default function DetectedViolations() {
           <div className="detected_total_days">In this month</div>
         </div>
         <div className="option">
-          <input id="input-deteceddate"
+          <input
+            id="input-deteceddate"
             type="month"
             onChange={changeDate}
             value={month || dateNow().slice(0, 7)}
@@ -100,6 +150,12 @@ export default function DetectedViolations() {
           options={options}
         />
       </div>
+    </>
+  );
+
+  return (
+    <div className="dashboard--detected-violations">
+      {isLoaded ? <DetectedViolations /> : <AddCircularProgress />}
     </div>
   );
 }

@@ -1,10 +1,27 @@
 import React, { useState, useEffect } from "react";
+import { CircularProgress } from "@mui/material";
 import { AreaChart, Area, XAxis, YAxis, Tooltip } from "recharts";
+
+const AddCircularProgress = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "500px",
+      }}
+    >
+      <CircularProgress />
+    </div>
+  );
+};
 
 export default function AttendanceOverview() {
   const [events, setEvents] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [month, setMonth] = useState();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const dateNow = () => {
     const date = new Date();
@@ -17,6 +34,8 @@ export default function AttendanceOverview() {
   };
 
   const changeDate = (e) => {
+    setIsLoaded(false);
+
     setMonth(e.target.value);
     fetchData(e.target.value);
   };
@@ -32,6 +51,8 @@ export default function AttendanceOverview() {
         )}`
       );
       const data = await response.json();
+      data && setIsLoaded(true);
+
       setEvents(data?.data);
       console.log("fetch done===========", data?.data);
       setChartData(
@@ -53,42 +74,50 @@ export default function AttendanceOverview() {
     fetchData();
   }, []);
 
+  const AttendanceOverviewComponent = () => {
+    return (
+      <>
+        <div className="header">
+          <h3>Attendance Overview</h3>
+          <div className="inputdate">
+            <input
+              id="input-date-Attendance"
+              type="month"
+              onChange={changeDate}
+              value={month || dateNow().slice(0, 7)}
+            />
+          </div>
+        </div>
+
+        <div className="attendance_overview_chart">
+          <AreaChart
+            width={720}
+            height={350}
+            data={chartData}
+            margin={{
+              left: 10,
+            }}
+          >
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Area
+              type="basis"
+              dataKey="attendance"
+              stroke="#8884d8"
+              strokeWidth={2}
+              fill="#8884d8"
+              fillOpacity={0.5}
+            />
+          </AreaChart>
+        </div>
+      </>
+    );
+  };
+
   return (
     <div className="dashboard--attendance-overview">
-      <div className="header">
-        <h3>Attendance Overview</h3>
-        <div className="inputdate">
-          <input
-            id="input-date-Attendance"
-            type="month"
-            onChange={changeDate}
-            value={month || dateNow().slice(0, 7)}
-          />
-        </div>
-      </div>
-
-      <div className="attendance_overview_chart">
-        <AreaChart
-          width={720}
-          height={350}
-          data={chartData}
-          margin={{
-            left: 10,
-          }}
-        >
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Area
-            type="basis"
-            dataKey="attendance"
-            stroke="#8884d8"
-            strokeWidth={2}
-            fill="#8884d8"
-            fillOpacity={0.5}
-          />
-        </AreaChart>
-      </div>
+      {isLoaded ? <AttendanceOverviewComponent /> : <AddCircularProgress />}
     </div>
   );
 }
