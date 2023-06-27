@@ -1,31 +1,35 @@
-.allcams{
-    padding: 20px;
-
+.allcams {
+  padding: 20px;
 }
 
-.header{
-display: grid;
-grid-template-columns: repeat(2,700px);
-grid-template-rows: repeat(9,100px);
+.select-scale--container {
+  padding-top: 20px;
+  padding-left: 600px;
 }
-.selectscale{
-    padding-top: 20px;
-    padding-left: 600px;
+.select-scale {
+  background-color: var(--socondary-color);
+  border: 1px solid #ddd;
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  text-align: center;
+  display: grid;
 }
-#scale{
-    background-color: var(--socondary-color);
-    border: 1px solid #ddd;
-    width: 100px;
-    height: 30px;
-    border-radius: 20px;
-    text-align: center;
-    display: grid;
-    
+
+.stream--videos-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
 }
-.cams{
-    display:grid;
-    grid-template-columns:repeat(4,340px);
-    row-gap: 10px;
-    column-gap: 13px;
-    padding-top: 10px;
+
+.stream--video {
+  width: 250px;
+  height: 150px;
+}
+
+.stream--video-main {
+  grid-column: 1 / span 4;
+  width: 1000px;
+  height: 600px;
+  margin: 0 auto;
 }
