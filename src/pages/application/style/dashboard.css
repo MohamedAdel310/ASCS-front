@@ -117,6 +117,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.dashboard--attendance-overview .header h3 {
+  font-size: 25px;
+}
+
 #input-date-Attendance {
   width: 150px;
   height: 35px;
@@ -139,6 +144,7 @@
   grid-column: 1;
   grid-row: 2;
   justify-content: center;
+  /* position: relative; */
 }
 .human_present {
   display: grid;
@@ -170,7 +176,7 @@
 .human_present_headers h3 {
   display: flex;
   font-weight: 500;
-  font-size: 10pt;
+  font-size: 18px;
   padding-left: 40px;
   letter-spacing: 1px;
 }
@@ -388,4 +394,16 @@
   grid-row: 2;
   padding-left: 30px;
   padding-top: 30px;
+}
+
+.attendance-overview--chart--container {
+  /* width: 800px ; */
+  /* height: 360px; */
+  margin-bottom: 12px;
+}
+
+canvas {
+  width: 800px;
+  /* height: 360px; */
+  /* margin-bottom: 12px; */
 }
