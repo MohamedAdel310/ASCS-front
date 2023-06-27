@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
-// import { AreaChart, Area, XAxis, YAxis, Tooltip } from "recharts";
 
 import {
   Chart as ChartJS,
@@ -78,7 +77,7 @@ export default function AttendanceOverview() {
       data &&
         setTimeout(() => {
           setIsLoaded(true);
-        }, 3000);
+        }, 2000);
 
       setEvents(data?.data);
       console.log("fetch done===========", data?.data);
@@ -101,40 +100,7 @@ export default function AttendanceOverview() {
     fetchData();
   }, []);
 
-  const labels = [
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
-    "18",
-    "19",
-    "20",
-    "21",
-    "22",
-    "23",
-    "24",
-    "25",
-    "26",
-    "27",
-    "28",
-    "29",
-    "30",
-    "31",
-  ];
+  const labels = [];
 
   const counts = {
     "0": 0,
@@ -220,6 +186,13 @@ export default function AttendanceOverview() {
             return value;
           },
         },
+      },
+    },
+    elements: {
+      line: {
+        tension: 0, // Set tension to 0 for straight lines
+        borderWidth: 2,
+        borderCapStyle: "round", // Change the shape of line endings
       },
     },
   };

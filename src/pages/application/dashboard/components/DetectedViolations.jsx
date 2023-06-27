@@ -2,20 +2,29 @@ import React, { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
 import { Chart } from "react-google-charts";
 
-export const options = {
-  height: 350,
-  width: 750,
-  legend: { position: "right", maxLines: 5 },
-  vAxis: { minValue: 10 },
-  chart: { backgroundColor: "red" },
-  colors: ["#de4548"],
-  chartArea: {
-    left: 20,
-    right: 0,
-    top: 20,
-    bottom: 50,
-  },
-};
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip as ChartTooltip,
+  Filler,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  ChartTooltip,
+  Filler,
+  Legend
+);
 
 const AddCircularProgress = () => {
   return (
@@ -31,6 +40,7 @@ const AddCircularProgress = () => {
     </div>
   );
 };
+const labels = [];
 
 export default function DetectedViolations() {
   const [events, setEvents] = useState([]);
@@ -47,7 +57,10 @@ export default function DetectedViolations() {
       );
       const data = await response.json();
       setEvents(data?.data);
-      data && setIsLoaded(true);
+      data &&
+        setTimeout(() => {
+          setIsLoaded(true);
+        }, 2000);
       // console.log("fetch done===========", data?.data);
     } catch (error) {
       console.log("Error fetching data:", error);
@@ -73,55 +86,110 @@ export default function DetectedViolations() {
     setMonth(e.target.value);
     fetchData(e.target.value);
   };
+  const counts = {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0,
+    "11": 0,
+    "12": 0,
+    "13": 0,
+    "14": 0,
+    "15": 0,
+    "16": 0,
+    "17": 0,
+    "18": 0,
+    "19": 0,
+    "20": 0,
+    "21": 0,
+    "22": 0,
+    "23": 0,
+    "24": 0,
+    "25": 0,
+    "26": 0,
+    "27": 0,
+    "28": 0,
+    "29": 0,
+    "30": 0,
+    "31": 0,
+  };
 
-  const chartData = (events) => {
-    const counts = {
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-    };
-
-    events.forEach((event) => {
+  const test = () => {
+    const res = events.map((event) => {
       const eventDate = new Date(event.arriveAt);
       const day = eventDate.getDate();
-      counts[`${day}`] = (counts[`${day}`] || 0) + 1;
+
+      // counts[`${day}`] = (counts[`${day}`] || 0) + 1;
+      return (counts[`${day}`] = (counts[`${day}`] || 0) + 1);
     });
 
-    const countsArray = Object.entries(counts);
-    countsArray.unshift(["date", "value"]);
+    console.log("test: ", res);
+    console.log("events: ", events);
+  };
 
-    // console.log("countsArray: ", countsArray);
-    // console.log("counts: ", counts);
-    // console.log("countsArray: ", countsArray);
-    return countsArray;
+  const data = {
+    labels,
+    datasets: [
+      {
+        fill: true,
+        label: "violation",
+        data: counts,
+        borderColor: "rgb(255, 0, 0)",
+        backgroundColor: "rgba(255, 0, 0,.5)",
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "none",
+      },
+      title: {
+        display: false,
+        text: "Chart.js Line Chart",
+      },
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 80,
+      },
+
+      x: {
+        grid: {
+          display: false, // Hide the horizontal grid lines
+        },
+        min: 0,
+        max: 31,
+        ticks: {
+          callback: function (value, index, values) {
+            if (value % 2 === 0) {
+              return "";
+            }
+            return value;
+          },
+        },
+      },
+    },
+    elements: {
+      line: {
+        tension: 0.1, // Adjust the line tension to change the shape
+        borderWidth: 1, // Adjust the line width as needed
+      },
+      point: {
+        radius: 3, // Adjust the point radius to change the shape
+        borderWidth: 1, // Adjust the point border width as needed
+      },
+    },
   };
 
   const DetectedViolations = () => (
@@ -141,20 +209,21 @@ export default function DetectedViolations() {
           />
         </div>
       </div>
-      <div className="detected_violations_area_chart">
-        <Chart
-          chartType="AreaChart"
-          width={"700px"}
-          height={"400px"}
-          data={chartData(events)}
-          options={options}
-        />
+      <div className="detected-violations--chart--container">
+        <div
+          className="attendance-overview--chart--container"
+          style={{ width: "800px", height: "360px" }}
+        >
+          <Line options={options} data={data} />
+        </div>
       </div>
     </>
   );
 
   return (
     <div className="dashboard--detected-violations">
+      {test()}
+      {console.log("counts: ", counts)}
       {isLoaded ? <DetectedViolations /> : <AddCircularProgress />}
     </div>
   );

@@ -73,7 +73,7 @@
 .detected_violations_area_chart {
   display: flex;
   justify-content: center;
-  margin-top: 45px;
+  /* margin-top: 45px; */
 }
 
 #date {
@@ -396,14 +396,14 @@
   padding-top: 30px;
 }
 
+.detected-violations--chart--container {
+  width: 800px;
+  height: 375px;
+  margin: 0 auto;
+  /* margin-bottom: 12px; */
+}
 .attendance-overview--chart--container {
   /* width: 800px ; */
   /* height: 360px; */
   margin-bottom: 12px;
-}
-
-canvas {
-  width: 800px;
-  /* height: 360px; */
-  /* margin-bottom: 12px; */
 }
