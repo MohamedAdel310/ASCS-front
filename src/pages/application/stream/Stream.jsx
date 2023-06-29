@@ -5,13 +5,14 @@ export default function Stream() {
   return (
     <div className="allcams">
       <div className="stream--header">
-        <h1>All Cams</h1>
+        <h1 className="Stream--header-text">All Cams</h1>
         <div className="select-scale--container">
           <select name="Scale" className="select-scale">
             <option value="1">3 * 3</option>
             <option value="2">5 * 5</option>
             <option value="3">6 * 6</option>
           </select>
+        </div>
         </div>
         <div className="stream--videos-container">
           <video
@@ -60,7 +61,7 @@ export default function Stream() {
             className="stream--video stream--video-8"
           ></video>
         </div>
-      </div>
+     
     </div>
   );
 }

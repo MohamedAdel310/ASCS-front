@@ -1,10 +1,19 @@
 .allcams {
-  padding: 20px;
+    padding-left: 10px;
+    margin: auto;
+    display: grid;
+    justify-items: start;
 }
-
+.stream--header{
+    padding-top: 20px;
+    grid-template-columns: repeat(2,495px);
+    display: grid;
+    justify-content: center;
+}
 .select-scale--container {
-  padding-top: 20px;
-  padding-left: 600px;
+ padding: 15px;
+ padding-left: 395px;
+ justify-content:right
 }
 .select-scale {
   background-color: var(--socondary-color);
@@ -13,24 +22,28 @@
   height: 30px;
   border-radius: 20px;
   text-align: center;
-  display: grid;
+  
+
+ 
 }
 
 .stream--videos-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 250px);
+  
   justify-content: center;
   
 }
-
 .stream--video {
   width: 250px;
   height: 150px;
+  padding: 5px 5px 5px 5px;
+ 
 }
 
 .stream--video-main {
   grid-column: 1 / span 4;
   width: 1000px;
   height: 600px;
-  margin: 0 auto;
+  
 }
