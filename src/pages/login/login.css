@@ -19,6 +19,13 @@
   place-items: center;
   font-family: "montserrat", sans-serif;
   height: 100vh;
+  background-color: rgb(13 27 59 / .8);
+}
+
+.login-image{
+  height: 100vh;
+  width: 100%;
+  background-image: url(../../../public/vecteezy_fingerprint-identity-sensor-data-protection-system-podium_7164537.jpg);
 }
 
 .login-page h1 {
@@ -99,8 +106,6 @@
 .login-page {
   background-color: #fff;
   border-radius: 2em;
-  /* box-shadow: 0 14em 28px rgba(0, 0, 0, 0.25); */
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
   width: 650px;
