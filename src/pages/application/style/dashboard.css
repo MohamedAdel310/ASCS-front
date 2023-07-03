@@ -359,13 +359,13 @@
   right: 20px;
 }
 
-.detected_vehicles {
-  /* display: grid;
+/* .detected_vehicles {
+   display: grid;
     grid-row: 1;
-    grid-column: 1; */
-  /* padding-left: 30px; */
+    grid-column: 1;
+  padding-left: 30px;
 }
-/* .unauthtorized_personal{
+.unauthtorized_personal{
     display: grid;
     grid-row: 1;
     grid-column: 2;
