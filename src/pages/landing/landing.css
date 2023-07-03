@@ -94,6 +94,8 @@ html {
   font-weight: 900;
   font-size: 60px;
   color: white;
+  text-transform: uppercase;
+  line-height: 2
 }
 @keyframes show2 {
   form {

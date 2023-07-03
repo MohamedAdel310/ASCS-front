@@ -10,8 +10,8 @@ export default function Landing() {
     <div>
       <div className="landing-image">
       <div className="landing">
-          <div className="box1"></div>
-            <div className="box2">
+        <div className="box1"></div>
+          <div className="box2">
               <div className="text1">
                 AI surveillance
                 <br />
@@ -21,7 +21,7 @@ export default function Landing() {
             <div className="box3">
               <div className="logo--image">
                 <img src="/public/myaz.png" alt="" />
-                <span>MYAZ</span>
+                <span> <hr /> MYAZ <hr /> </span>
               </div>
               <div className="container">
                 <div className="menu">
