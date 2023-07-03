@@ -204,7 +204,7 @@ export default function AttendanceOverview() {
           <h3>Attendance Overview</h3>
           <div className="inputdate">
             <input
-              id="input-date-Attendance"
+              className="date-input--month"
               type="month"
               onChange={changeDate}
               value={month || dateNow().slice(0, 7)}

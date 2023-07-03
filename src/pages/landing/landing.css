@@ -109,7 +109,6 @@ html {
 }
 
 .landing .box3 .logo--image{
-  width: 100%;
   position: absolute;
   left: -100%;
   animation: logo 2s forwards 3s;
