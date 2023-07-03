@@ -21,21 +21,19 @@ export default function Landing() {
             <div className="box3">
               <div className="logo--image">
                 <img src="/public/myaz.png" alt="" />
+                <span>MYAZ</span>
               </div>
               <div className="container">
                 <div className="menu">
                   <ul>
                     <li>
-                      <a href="#">Home</a>
-                    </li>
-                    <li>
-                      <a href="#">Service</a>
+                      <a href="#contact">Contact Us</a>
                     </li>
                     <li>
                       <a href="#about-us">About Us</a>
                     </li>
                     <li>
-                      <a href="#contact">Contact Us</a>
+                      <a href="#">Service</a>
                     </li>
                     <li className="login">
                       <a href="/login">Login</a>
