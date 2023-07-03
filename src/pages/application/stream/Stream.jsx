@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../style/stream.css";
 import VideoJS from "./components/StreamConfig";
+import GetStreamURLs from "./components/getStreamURLs";
 
 export default function Stream() {
+  // const [reqData, setReqData] = useState();
+
+  const [data, setData] = useState(null);
+  // const [streamsURLs, setStreamsURLs] = useState(null);
+  // const [mainStreamURL, setMainStreamURL] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://myaz.cyclic.app/api/stream/649ec6a2a4f5b35e98aa1438"
+        );
+        if (response.ok) {
+          const jsonData = await response.json();
+          console.log("jsonData: ", jsonData);
+          const data = jsonData.data;
+          setData(data);
+        } else {
+          console.log("Error:", response.status);
+        }
+      } catch (error) {
+        console.log("Error:", error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const playerRef = React.useRef(null);
 
   const videoJsOptions = {
@@ -58,14 +87,20 @@ export default function Stream() {
         </div>
       </div>
       <div className="stream--videos-container">
+        {/* < /> */}
+        {/* {console.log("GetStreamURLs(): ", GetStreamURLs())} */}
+        {console.log("reqData: ", data)}
         <div className="stream--video stream--video-main">
           <VideoJS options={videoJsOptionsMain} onReady={handlePlayerReady} />
         </div>
 
-        <div className="stream--video stream--video-1">
-          <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-        </div>
-        <div className="stream--video stream--video-2">
+        {data &&
+          data.streamsURL.map((url, index) => (
+            <div className={`stream--video stream--video-${index + 1}`}>
+              <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
+            </div>
+          ))}
+        {/* <div className="stream--video stream--video-2">
           <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
         </div>
         <div className="stream--video stream--video-3">
@@ -85,7 +120,7 @@ export default function Stream() {
         </div>
         <div className="stream--video stream--video-8">
           <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-        </div>
+        </div> */}
       </div>
     </div>
   );
