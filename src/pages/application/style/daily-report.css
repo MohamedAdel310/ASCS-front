@@ -138,7 +138,7 @@
 .critcal-level__inactive {
   background-color: #f3ecec;
 }
-#inputdate_dailyreport {
+/* #inputdate_dailyreport {
   width: 150px;
   height: 35px;
   font-weight: 300;
@@ -154,7 +154,7 @@
 
 #inputdate_dailyreport:focus {
   outline-style: none;
-}
+} */
 
 .no-vilations-img {
   width: 700px;

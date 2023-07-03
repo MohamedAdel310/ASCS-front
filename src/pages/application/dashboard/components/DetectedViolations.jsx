@@ -202,7 +202,7 @@ export default function DetectedViolations() {
         </div>
         <div className="option">
           <input
-            id="input-deteceddate"
+            className="date-input--month"
             type="month"
             onChange={changeDate}
             value={month || dateNow().slice(0, 7)}

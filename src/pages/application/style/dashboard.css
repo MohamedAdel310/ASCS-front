@@ -35,23 +35,6 @@
   border-radius: 20px;
   position: relative;
 }
-#input-deteceddate {
-  width: 150px;
-  height: 35px;
-  font-weight: 300;
-  font-size: 14px;
-  text-align: center;
-  border-radius: 15px;
-  padding: 0 5px;
-  background-color: var(--socondary-color);
-  border: none;
-  color: white;
-  margin-left: 30px;
-}
-
-#input-deteceddate:focus {
-  outline-style: none;
-}
 
 .dashboard--detected-violations h3 {
   padding-left: 60px;
@@ -122,7 +105,7 @@
   font-size: 25px;
 }
 
-#input-date-Attendance {
+.date-input--month {
   width: 150px;
   height: 35px;
   padding-right: 20px;
@@ -135,7 +118,7 @@
   color: white;
 }
 
-#input-date-Attendance:focus {
+.date-input--month:focus {
   outline-style: none;
 }
 
@@ -376,13 +359,13 @@
   right: 20px;
 }
 
-.detected_vehicles {
-  /* display: grid;
+/* .detected_vehicles {
+   display: grid;
     grid-row: 1;
-    grid-column: 1; */
-  /* padding-left: 30px; */
+    grid-column: 1;
+  padding-left: 30px;
 }
-/* .unauthtorized_personal{
+.unauthtorized_personal{
     display: grid;
     grid-row: 1;
     grid-column: 2;
