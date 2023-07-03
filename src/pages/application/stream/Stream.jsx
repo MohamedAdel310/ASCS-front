@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../style/stream.css";
 import VideoJS from "./components/StreamConfig";
-import GetStreamURLs from "./components/getStreamURLs";
+// import GetStreamURLs from "./components/getStreamURLs";
 
 export default function Stream() {
   // const [reqData, setReqData] = useState();

@@ -9,13 +9,6 @@ import "../style/daily-report.css";
 import eventDetails from "../../../Functions/eventDetails";
 import jsonText from "../../../assets/text.json";
 
-// import iconVehicles from "../../../../src/assets/icons/vehicles.svg";
-// import iconRestricted from "../../../../src/assets/icons/gloves.svg";
-// import iconUnauthorized from "../../../../src/assets/icons/unuothorize.svg";
-// import iconSmoking from "../../../../src/assets/icons/smoke.svg";
-// import iconSafety from "../../../../src/assets/icons/helmet.svg";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import {
   faHand,
   faHelmetSafety,
@@ -24,6 +17,10 @@ import {
   faUserXmark,
   faUser,
   faWarning,
+  faVest,
+  faPhone,
+  faMobileAndroid,
+  faPersonCircleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
 
 const criticalLevelFun = (type) => {
@@ -31,8 +28,11 @@ const criticalLevelFun = (type) => {
   type === "smoke" && (num = 2);
   type === "ppe" && (num = 3);
   type === "phone" && (num = 2);
-  type === "unauthourize" && (num = 4);
+  type === "unauthorized" && (num = 4);
   type === "fight" && (num = 4);
+  type === "vest" && (num = 2);
+  type === "helmet" && (num = 2);
+  type === ("phone" || "answer phone" || "look at phone") && (num = 2);
   return num;
 };
 
@@ -60,8 +60,8 @@ const EmptyViolationCards = () => {
       />
       <CardViolation
         num={0}
-        text={"unathorized"}
-        icon={handleIcon("unathorized")}
+        text={"unauthorized"}
+        icon={handleIcon("unauthorized")}
         key={3}
       />
       <CardViolation
@@ -186,6 +186,7 @@ export default function DailyReport() {
         <h1>Detected events</h1>
         <input
           id="inputdate_dailyreport"
+          className="date-input--month"
           type="date"
           onChange={dateChange}
           value={day?.replaceAll("/", "-") || today().replaceAll("/", "-")}
@@ -202,11 +203,15 @@ export default function DailyReport() {
 const handleIcon = (event) => {
   let res = faWarning;
   event === "smoke" && (res = faSmoking);
-  event === "unauthorize" && (res = faUserXmark);
+  event === "unauthorized" && (res = faPersonCircleExclamation);
   event === "ppe" && (res = faHelmetSafety);
   event === "truck" && (res = faTruck);
   event === "hand" && (res = faHand);
   event === "fight" && (res = faUser);
+  event === "vest" && (res = faVest);
+  event === "helmet" && (res = faHelmetSafety);
+  event === ("phone" || "answer phone" || "look at phone") &&
+    (res = faMobileAndroid);
 
   return res;
 };
