@@ -49,7 +49,8 @@ export default function Login() {
   };
 
   return (
-    <div className="login-home">
+    <div className="login-image">
+      <div className="login-home">
       <div className={containerclass} id="login-page">
         <div className="form-container sign-up">
           <form action="#">
@@ -126,6 +127,7 @@ export default function Login() {
         </div>
       </div>
       {token && (window.location.href = "/application")}
+    </div>
     </div>
   );
 }
