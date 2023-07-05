@@ -18,9 +18,9 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/application" element={<Application />}>
+        <Route path="vite-deploy/" element={<Landing />} />
+        <Route path="vite-deploy/login" element={<Login />} />
+        <Route path="vite-deploy/application" element={<Application />}>
           <Route path="" element={<Dashboard />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="employees">
