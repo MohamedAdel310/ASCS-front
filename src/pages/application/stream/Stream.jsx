@@ -2,33 +2,36 @@ import React, { useState, useEffect } from "react";
 import "../style/stream.css";
 import VideoJS from "./components/StreamConfig";
 // import GetStreamURLs from "./components/getStreamURLs";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import MainButton from "../../../components/button-main";
 
 export default function Stream() {
-  // const [reqData, setReqData] = useState();
-
   const [data, setData] = useState(null);
-  // const [streamsURLs, setStreamsURLs] = useState(null);
-  // const [mainStreamURL, setMainStreamURL] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://myaz.cyclic.app/api/stream/649ec6a2a4f5b35e98aa1438"
-        );
-        if (response.ok) {
-          const jsonData = await response.json();
-          console.log("jsonData: ", jsonData);
-          const data = jsonData.data;
-          setData(data);
-        } else {
-          console.log("Error:", response.status);
-        }
-      } catch (error) {
-        console.log("Error:", error.message);
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://myaz.cyclic.app/api/eventImages/today"
+      );
+      if (response.ok) {
+        const jsonData = await response.json();
+        console.log("jsonData: ", jsonData);
+        const data = jsonData.images;
+        setData(data.reverse());
+      } else {
+        console.log("Error:", response.status);
       }
-    };
+    } catch (error) {
+      console.log("Error:", error.message);
+    }
+  };
 
+  const handelClickRefresh = () => {
+    fetchData();
+  };
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -78,49 +81,29 @@ export default function Stream() {
     <div className="allcams">
       <div className="stream--header">
         <h1 className="Stream--header-text">All Cams</h1>
-        <div className="select-scale--container">
-          <select name="Scale" className="select-scale">
-            <option value="1">3 * 3</option>
-            <option value="2">5 * 5</option>
-            <option value="3">6 * 6</option>
-          </select>
-        </div>
+        <div className="select-scale--container"></div>
       </div>
       <div className="stream--videos-container">
-        {/* < /> */}
-        {/* {console.log("GetStreamURLs(): ", GetStreamURLs())} */}
         {console.log("reqData: ", data)}
         <div className="stream--video stream--video-main">
           <VideoJS options={videoJsOptionsMain} onReady={handlePlayerReady} />
+          <button className="btn-refresh" onClick={handelClickRefresh}>
+            Refresh
+          </button>
         </div>
-
-        {data &&
-          data.streamsURL.map((url, index) => (
-            <div className={`stream--video stream--video-${index + 1}`}>
-              <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-            </div>
-          ))}
-        {/* <div className="stream--video stream--video-2">
-          <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-        </div>
-        <div className="stream--video stream--video-3">
-          <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-        </div>
-        <div className="stream--video stream--video-4">
-          <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-        </div>
-        <div className="stream--video stream--video-5">
-          <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-        </div>
-        <div className="stream--video stream--video-6">
-          <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-        </div>
-        <div className="stream--video stream--video-7">
-          <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-        </div>
-        <div className="stream--video stream--video-8">
-          <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-        </div> */}
+        {data?.map((img) => (
+          <Card sx={{ maxWidth: 3380, m: 2 }}>
+            <CardMedia component="img" alt={img.imgName} image={img.url} />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {img.imageTitle}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {img.imageDescription}
+              </Typography>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   );

@@ -1,19 +1,19 @@
 .allcams {
-    padding-left: 10px;
-    margin: auto;
-    display: grid;
-    justify-items: start;
+  padding-left: 10px;
+  margin: auto;
+  display: grid;
+  justify-items: start;
 }
-.stream--header{
-    padding-top: 20px;
-    grid-template-columns: repeat(2,495px);
-    display: grid;
-    justify-content: center;
+.stream--header {
+  padding-top: 20px;
+  grid-template-columns: repeat(2, 495px);
+  display: grid;
+  justify-content: center;
 }
 .select-scale--container {
- padding: 15px;
- padding-left: 395px;
- justify-content:right
+  padding: 15px;
+  padding-left: 395px;
+  justify-content: right;
 }
 .select-scale {
   background-color: var(--socondary-color);
@@ -22,28 +22,40 @@
   height: 30px;
   border-radius: 20px;
   text-align: center;
-  
-
- 
 }
 
 .stream--videos-container {
   display: grid;
-  grid-template-columns: repeat(4, 250px);
-  
+  grid-template-columns: repeat(3, 400px);
+
   justify-content: center;
-  
+  margin-left: 40px;
 }
 .stream--video {
-  width: 250px;
-  height: 150px;
-  padding: 5px 5px 5px 5px;
- 
+  /* border-radius: 40px; */
+  width: 300px;
+  /* height: 150px; */
+  /* margin: 5px; */
 }
 
 .stream--video-main {
-  grid-column: 1 / span 4;
-  width: 1000px;
-  height: 600px;
-  
+  grid-column: 1 / span 3;
+  width: 1200px;
+}
+
+.btn-refresh {
+  background-color: var(--socondary-color);
+  color: #fff;
+  margin-top: 15px;
+  margin-left: 15px;
+  padding: 10px 20px;
+  border: 1px solid var(--socondary-color);
+  border-radius: 15px;
+  font-weight: bold;
+}
+.btn-refresh:hover {
+  color: var(--socondary-color);
+  background-color: #fff;
+  border: 1px solid var(--socondary-color);
+  cursor: pointer;
 }
