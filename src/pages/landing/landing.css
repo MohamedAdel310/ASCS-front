@@ -324,15 +324,14 @@ html {
 
 .about .about-content .content h3{
   margin-top: 20px;;
-  font-size: 24px;
+  font-size: 26px;
   color: white;
 }
 .about .about-content .content p{
     margin-top: 10px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     color: #DDD;
-    letter-spacing: 1.5px;
     line-height: 1.7;
     
   }

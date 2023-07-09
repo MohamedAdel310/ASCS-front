@@ -32,7 +32,7 @@
 
     .contact .form {
     width: 100%;
-    max-width: 820px;
+    max-width: 1100px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
@@ -279,7 +279,7 @@
     opacity: 0.85;
     }
 
-    .contact .big-circle {
+    /* .contact .big-circle {
     position: absolute;
     width: 500px;
     height: 500px;
@@ -288,8 +288,8 @@
     bottom: 50%;
     right: 50%;
     transform: translate(-40%, 38%);
-    }
-
+    } */
+/* 
     .contact .big-circle:after {
     content: "";
     position: absolute;
@@ -299,7 +299,7 @@
     border-radius: 50%;
     top: calc(50% - 180px);
     left: calc(50% - 180px);
-    }
+    } */
 
     .contact .square {
     position: absolute;
