@@ -39,6 +39,7 @@ export default function Stream() {
       setAlertSuccess(false);
     }, 3000);
   };
+
   useEffect(() => {
     fetchData();
   }, []);

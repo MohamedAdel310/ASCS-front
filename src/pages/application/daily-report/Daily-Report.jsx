@@ -83,12 +83,16 @@ const RealVoilationCards = ({ data }) => {
 
 const StatusViolationCards = ({ events, isViolationsLoaded }) => {
   if (events.length) {
+    {
+      console.log("events: ", events);
+    }
     return (
       isViolationsLoaded &&
       events.map((event) => (
         <StatusViolation
           level={criticalLevelFun(event.type)}
           event={cricicalLevelType(event.type)}
+          imageUrls={event.info.imageUrls}
           eventMessage={eventDetails(
             event.type,
             event.arriveAt,
