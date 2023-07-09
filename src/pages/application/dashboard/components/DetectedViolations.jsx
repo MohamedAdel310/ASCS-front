@@ -60,7 +60,7 @@ export default function DetectedViolations() {
       data &&
         setTimeout(() => {
           setIsLoaded(true);
-        }, 2000);
+        }, 3000);
       // console.log("fetch done===========", data?.data);
     } catch (error) {
       console.log("Error fetching data:", error);
@@ -162,7 +162,7 @@ export default function DetectedViolations() {
     scales: {
       y: {
         min: 0,
-        max: 80,
+        max: 140,
       },
 
       x: {

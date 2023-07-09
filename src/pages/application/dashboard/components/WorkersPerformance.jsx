@@ -32,7 +32,7 @@ export default function WorkersPerformance() {
   return (
     <div className="dashboard--WorkersPerformance">
       <h4>Workers Performance overview</h4>
-      <h6>in last two weeks</h6>
+      <h6>in last 10 days</h6>
 
       <div className="worker_performance_chart">
         <Chart

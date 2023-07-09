@@ -63,18 +63,21 @@ export default function MainContent() {
       <div className="card-container">
         <div className="card">
           <div className="detected_vehicles">
-            <Card header="Fight" detectedNum={eventTypesCount?.fight || 0} />
+            <Card
+              header="Employees Fight"
+              detectedNum={eventTypesCount?.fight || 0}
+            />
           </div>
           <div className="unauthtorized_personal">
             <Card
-              header="Personal Protective Equipment"
-              detectedNum={eventTypesCount?.ppe || 0}
+              header="Not Ware Helmet"
+              detectedNum={eventTypesCount?.helmet || 0}
             />
           </div>
         </div>
         <div className="last_event">
-            <LastEventDetected text={text} />
-          </div>
+          <LastEventDetected text={text} />
+        </div>
       </div>
     </div>
   );
