@@ -34,22 +34,22 @@ export default function Contact() {
           <div class="contact-info">
             <h3 class="title">Let's get in touch</h3>
             <p class="text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-              dolorum adipisci recusandae praesentium dicta!
+              We would love to hear from you! If you have any questions, feedback, or inquiries,
+              please don't hesitate to get in touch with us. Our dedicated team is here to assist you and provide the information you need.
             </p>
 
             <div class="info">
               <div class="information">
                 <img src="img/location.png" class="icon" alt="" />
-                <p>92 Cherry Drive Uniondale, NY 11553</p>
+                <p>Ismailia-Fayed</p>
               </div>
               <div class="information">
                 <img src="img/email.png" class="icon" alt="" />
-                <p>lorem@ipsum.com</p>
+                <p>mohammed.sa3dalla@gmail.com</p>
               </div>
               <div class="information">
                 <img src="img/phone.png" class="icon" alt="" />
-                <p>123-456-789</p>
+                <p>01224247574</p>
               </div>
             </div>
 
