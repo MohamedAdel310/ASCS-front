@@ -6,10 +6,14 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import MainButton from "../../../components/button-main";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import Snackbar from "@mui/material/Snackbar";
 
 export default function Stream() {
   const [data, setData] = useState(null);
+  const [alertSuccess, setAlertSuccess] = useState(false);
+
   const fetchData = async () => {
     try {
       const response = await fetch(
@@ -30,6 +34,10 @@ export default function Stream() {
 
   const handelClickRefresh = () => {
     fetchData();
+    setAlertSuccess(true);
+    setTimeout(() => {
+      setAlertSuccess(false);
+    }, 3000);
   };
   useEffect(() => {
     fetchData();
@@ -45,7 +53,7 @@ export default function Stream() {
     poster: "imgURL",
     sources: [
       {
-        src: "http://20.111.28.107:8088/hls/myaz.m3u8",
+        src: "http://20.111.28.107:8088/hls/Myaz.m3u8",
         type: "application/x-mpegURL",
       },
     ],
@@ -58,7 +66,7 @@ export default function Stream() {
     fluid: true,
     sources: [
       {
-        src: "http://20.111.28.107:8088/hls/myaz.m3u8",
+        src: "http://20.111.28.107:8088/hls/Myaz.m3u8",
         type: "application/x-mpegURL",
       },
     ],
@@ -93,8 +101,13 @@ export default function Stream() {
         </div>
         {data?.map((img) => (
           <Card sx={{ maxWidth: 3380, m: 2 }}>
-            <CardMedia component="img" alt={img.imgName} image={img.url} />
-            <CardContent>
+            <CardMedia
+              component="img"
+              alt={img.imgName}
+              image={img.url}
+              sx={{ width: "100%", height: "60%", objectFit: "fill" }}
+            />
+            <CardContent sx={{ direction: "ltr" }}>
               <Typography gutterBottom variant="h5" component="div">
                 {img.imageTitle}
               </Typography>
@@ -105,6 +118,12 @@ export default function Stream() {
           </Card>
         ))}
       </div>
+      <Snackbar open={alertSuccess} autoHideDuration={1000}>
+        <Alert sx={{ width: "400px" }} variant="filled" severity="info">
+          <AlertTitle>Success</AlertTitle>
+          number of images is <strong>{data?.length}</strong>
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
