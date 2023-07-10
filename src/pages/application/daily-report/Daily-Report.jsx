@@ -166,7 +166,7 @@ export default function DailyReport() {
     console.log("-----------------res: ", res.results);
     res && setIsViolationsLoaded(true);
     setData(res?.types);
-    setEvents(res?.data);
+    setEvents(res?.data.reverse());
   };
 
   useEffect(() => {
