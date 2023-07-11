@@ -31,7 +31,7 @@ const criticalLevelFun = (type) => {
   type === "unauthorized" && (num = 4);
   type === "fight" && (num = 4);
   type === "vest" && (num = 2);
-  type === "helmet" && (num = 2);
+  type === "helmet" && (num = 3);
   type === ("phone" || "answer phone" || "look at phone") && (num = 2);
   return num;
 };
