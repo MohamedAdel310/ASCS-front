@@ -1,20 +1,16 @@
 const apiURL = "https://myaz.cyclic.app/api/";
+const token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZThmMGRhZDhiYzYwMDAxY2U3MzllZCIsImlhdCI6MTY5Mjk4NzcxNSwiZXhwIjoxNzAwNzYzNzE1fQ.FAAA5CW4VMS-5gwO9uvoB-_WmNqx_LQMmSLZYE65-T8";
 
 export default async function fetchData() {
   console.log("fetch all employees done");
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4";
   const headers = {
     "Authorization": `Bearer ${token}`,
   };
   const response = await fetch(apiURL + "employees", {
     headers,
   });
-  return await response.json();
-  // setData(json.data);
 
-  // localStorage.setItem("employeesData", JSON.stringify(json.data));
-  setEmployeesData(json.data?.employees);
-
-  // console.log("employeeData: ", employeesData);
+  const res = await response.json();
+  return res.data;
 }

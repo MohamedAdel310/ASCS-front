@@ -78,9 +78,9 @@ export default function Employees() {
 
   // get employee data
   const fetchEmployee = async () => {
-    const res = await getAllEmployees();
+    const data = await getAllEmployees();
     setIsLoaded(true);
-    setEmployeesData(res.data?.employees);
+    setEmployeesData(data.employees);
   };
 
   useEffect(() => {
