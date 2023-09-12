@@ -1,48 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function EmpoleeTable(props) {
+export default function EmpoleeTable({
+  employee,
+  handleFilterJob,
+  handleSearch,
+}) {
   const handleName = () => {
-    if (props.handleSearch) {
-      if (!props.handleSearch.length) return true;
-      return props.handleSearch.includes(props.name);
+    if (handleSearch) {
+      if (!handleSearch.length) return true;
+      return handleSearch.includes(employee.name);
     } else return true;
   };
-
-  // const handleJob = () => {
-  //   const job = props.jobTitle.toLowerCase().replaceAll(" ", "");
-  //   if (props.handleFilterJob) {
-  //     // // props.handleFilterJob?.map((el) => (count = +el));
-  //     const allValuesAreZero = Object.values(props.handleFilterJob).every(
-  //       (value) => value === 0
-  //     );
-
-  //     console.log("allValuesAreZero :", allValuesAreZero);
-  //     if (allValuesAreZero) return 1;
-  //   }
-  //   if (job in props.handleFilterJob) {
-  //     console.log("props.handleFilterJob[job]: ", props.handleFilterJob[job]);
-  //     return props.handleFilterJob[job];
-  //   }
-  //   console.log("props.handleFilterJob: ", props.handleFilterJob);
-  //   console.log("job: ", job);
-  // };
-
-  // const handleDisplay = () => {
-  //   if (handleName() && handleJob()) return true;
-  //   else return false;
-  // };
 
   return (
     <tr style={{ display: handleName() || "none" }}>
       <td>
-        <Link to={`/application/employees/${props.employee_id}`}>
-          {props.name}
+        <Link to={`/application/employees/${employee.employee_id}`}>
+          {employee.name}
         </Link>
       </td>
-      <td>{props.jobTitle}</td>
-      <td>{props.department}</td>
-      <td>{props.jobStatus}</td>
+      <td>{employee.job}</td>
+      <td>{employee.department}</td>
+      <td>{employee.jobStatus}</td>
     </tr>
   );
 }

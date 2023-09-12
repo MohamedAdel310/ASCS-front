@@ -99,20 +99,15 @@ export default function Employees() {
           "") && (
           <EmployeeTable
             key={emp.employee_id}
-            employee_id={emp.employee_id}
-            name={emp.name}
-            jobTitle={emp.job}
-            department={emp.department}
-            jobStatus={emp.status ? "Active" : "pending"}
+            employee={emp}
             handleSearch={searchRes}
             handleFilterJob={jobSelected}
-            // handleFilterDepartment={}
           />
         )
     );
   };
 
-  const EmployeesTable = () => {
+  const EmployeesTable = ({ children }) => {
     return (
       <table>
         <thead>
@@ -123,7 +118,7 @@ export default function Employees() {
             <th>Job Status</th>
           </tr>
         </thead>
-        <tbody>{employeesData && <EmployeesDataTable />}</tbody>
+        <tbody>{employeesData && children}</tbody>
       </table>
     );
   };
@@ -167,7 +162,13 @@ export default function Employees() {
         />
       </div>
 
-      {isLoaded ? <EmployeesTable /> : <TableSkeleton />}
+      {isLoaded ? (
+        <EmployeesTable>
+          <EmployeesDataTable />
+        </EmployeesTable>
+      ) : (
+        <TableSkeleton />
+      )}
 
       <PopupAddEmployee
         value={openEmployeePopup}
@@ -188,17 +189,3 @@ export default function Employees() {
     </div>
   );
 }
-
-// {
-//   item ? (
-//     <img
-//       style={{
-//         width: 210,
-//         height: 118,
-//       }}
-//       alt={item.title}
-//       src={item.src}
-//     />
-//   ) : (
-//   );
-// }
