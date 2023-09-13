@@ -225,10 +225,12 @@ export default function AttendanceOverview() {
   };
 
   return (
-    <div className="dashboard--attendance-overview">
-      {test()}
-      {console.log("counts: ", counts)}
-      {isLoaded ? <AttendanceOverviewComponent /> : <AddCircularProgress />}
+    <div className="attendance_overview">
+      <div className="dashboard--attendance-overview">
+        {test()}
+        {console.log("counts: ", counts)}
+        {isLoaded ? <AttendanceOverviewComponent /> : <AddCircularProgress />}
+      </div>
     </div>
   );
 }

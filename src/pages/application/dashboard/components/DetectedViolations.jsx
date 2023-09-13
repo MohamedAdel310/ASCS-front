@@ -222,10 +222,12 @@ export default function DetectedViolations() {
   );
 
   return (
-    <div className="dashboard--detected-violations">
-      {test()}
-      {console.log("counts: ", counts)}
-      {isLoaded ? <DetectedViolations /> : <AddCircularProgress />}
+    <div className="detected_violaions">
+      <div className="dashboard--detected-violations">
+        {test()}
+        {console.log("counts: ", counts)}
+        {isLoaded ? <DetectedViolations /> : <AddCircularProgress />}
+      </div>
     </div>
   );
 }

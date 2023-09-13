@@ -7,7 +7,6 @@ function AttendanceDay({ data, searchRes, filterValJob, filterValDepartment }) {
       <table>
         <thead>
           <tr>
-            {/* <th></th> */}
             <th>Name</th>
             <th>Job Title</th>
             <th>Deparment</th>

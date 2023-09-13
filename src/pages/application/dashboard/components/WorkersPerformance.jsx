@@ -30,18 +30,20 @@ export const options = {
 
 export default function WorkersPerformance() {
   return (
-    <div className="dashboard--WorkersPerformance">
-      <h4>Workers Performance overview</h4>
-      <h6>in last 10 days</h6>
+    <div className="work_performane">
+      <div className="dashboard--WorkersPerformance">
+        <h4>Workers Performance overview</h4>
+        <h6>in last 10 days</h6>
 
-      <div className="worker_performance_chart">
-        <Chart
-          chartType="Bar"
-          width="480px"
-          height="200px"
-          data={data}
-          options={options}
-        />
+        <div className="worker_performance_chart">
+          <Chart
+            chartType="Bar"
+            width="480px"
+            height="200px"
+            data={data}
+            options={options}
+          />
+        </div>
       </div>
     </div>
   );

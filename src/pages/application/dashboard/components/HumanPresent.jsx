@@ -59,20 +59,22 @@ export default function HumanPresent() {
   // console.log("eventTypes(): ", eventTypes);
 
   return (
-    <div className="dashboard--human--container">
-      <div className="human_present_headers">
-        <h4>Events Persent</h4>
-        <h3>for this month</h3>
-      </div>
+    <div className="human_present">
+      <div className="dashboard--human--container">
+        <div className="human_present_headers">
+          <h4>Events Persent</h4>
+          <h3>for this month</h3>
+        </div>
 
-      <div className="human_area">
-        <Chart
-          chartType="PieChart"
-          width="450px"
-          height="250px"
-          data={eventTypes}
-          options={options}
-        />
+        <div className="human_area">
+          <Chart
+            chartType="PieChart"
+            width="450px"
+            height="250px"
+            data={eventTypes}
+            options={options}
+          />
+        </div>
       </div>
     </div>
   );
