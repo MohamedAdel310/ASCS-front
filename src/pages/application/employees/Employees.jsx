@@ -15,7 +15,8 @@ import Filter from "../../../components/Filter";
 import handleDisable from "../../../Functions/handleDisable";
 import getAllEmployees from "../../../api/getAllEmployees";
 import EmployeeControl from "./components/EmployeeControl";
-import listFilter from "./components/listFilter";
+import listFilter from "../../../Functions/listFilter";
+import handleSearch from "../../../Functions/handleSearch";
 
 export default function Employees() {
   const [employeesData, setEmployeesData] = useState();
@@ -24,16 +25,16 @@ export default function Employees() {
   const [searchRes, setSearchRes] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const handleSearch = (e) => {
-    const res = employeesData?.map((emp) => {
-      let result;
-      emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
-        (result = emp.name);
-      return result;
-    });
+  // const handleSearch = (e) => {
+  //   const res = employeesData?.map((emp) => {
+  //     let result;
+  //     emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
+  //       (result = emp.name);
+  //     return result;
+  //   });
 
-    setSearchRes(res);
-  };
+  //   setSearchRes(res);
+  // };
 
   //* filter functiolity
   const [jobSelected, setJobSelected] = useState({});
@@ -105,7 +106,9 @@ export default function Employees() {
         >
           Add Employee
         </button>
-        <Search onChange={handleSearch} />
+        <Search
+          onChange={(e) => handleSearch(e, employeesData, setSearchRes)}
+        />
         <Filter
           onClick={() => {
             setOpenFilterPopup(true);

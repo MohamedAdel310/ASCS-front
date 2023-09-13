@@ -6,7 +6,7 @@ import CardViolationComp from "./components/CardViolationComp";
 import StatusViolationComp from "./components/StatusViolationComp";
 import DateInput from "./components/DateInput";
 
-import today from "./components/today";
+import today from "../../../Functions/today";
 import fetchData from "../../../api/getEventsByDay";
 
 export default function DailyReport() {
