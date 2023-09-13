@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Skeleton } from "@mui/material";
 import "../style/employees.css";
 import "../style/popups.css";
 import "../../../components/search";
 import EmployeeTable from "./components/Empolyees-table";
 import PopupFilter from "../../../components/PopupFilter";
 import PopupAddEmployee from "./components/PopupAddEmployee";
+import TableSkeleton from "./components/TableSkeleton";
+import EmployeesTable from "./components/EmployeesTable";
 
 import Search from "../../../components/search";
 import Filter from "../../../components/Filter";
@@ -13,6 +14,8 @@ import Filter from "../../../components/Filter";
 
 import handleDisable from "../../../Functions/handleDisable";
 import getAllEmployees from "../../../api/getAllEmployees";
+import EmployeeControl from "./components/EmployeeControl";
+import listFilter from "./components/listFilter";
 
 export default function Employees() {
   const [employeesData, setEmployeesData] = useState();
@@ -21,32 +24,15 @@ export default function Employees() {
   const [searchRes, setSearchRes] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const listFilter = () => {
-    let listJob = [];
-    let listDepartment = [];
-
-    employeesData?.map(({ job, department }) => {
-      listJob.includes(job) ? "" : listJob.push(job);
-      listDepartment.includes(department)
-        ? ""
-        : listDepartment.push(department);
+  const handleSearch = (e) => {
+    const res = employeesData?.map((emp) => {
+      let result;
+      emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
+        (result = emp.name);
+      return result;
     });
 
-    console.log("listJob: ", listJob);
-    console.log("listDepartment: ", listDepartment);
-
-    return { listJob, listDepartment };
-  };
-
-  const handleSearch = (e) => {
-    setSearchRes(
-      employeesData?.map((emp) => {
-        let result;
-        emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
-          (result = emp.name);
-        return result;
-      })
-    );
+    setSearchRes(res);
   };
 
   //* filter functiolity
@@ -107,43 +93,9 @@ export default function Employees() {
     );
   };
 
-  const EmployeesTable = ({ children }) => {
-    return (
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Job Title</th>
-            <th>Deparment</th>
-            <th>Job Status</th>
-          </tr>
-        </thead>
-        <tbody>{employeesData && children}</tbody>
-      </table>
-    );
-  };
-
-  const TableSkeleton = () => {
-    return (
-      <div style={{ marginTop: "55px" }}>
-        {Array(10)
-          .fill()
-          .map(() => (
-            <Skeleton
-              animation="wave"
-              width={"100%"}
-              height={120}
-              sx={{ mb: -5 }}
-            />
-          ))}
-      </div>
-    );
-  };
-
   return (
     <div className="employee">
-      <h2>Employees</h2>
-      <div className="add-empolyee">
+      <EmployeeControl>
         <button
           className="add"
           onClick={() => {
@@ -160,14 +112,13 @@ export default function Employees() {
             setOpenEmployeePopup(false);
           }}
         />
-      </div>
+      </EmployeeControl>
 
-      {isLoaded ? (
-        <EmployeesTable>
+      {!isLoaded && <TableSkeleton />}
+      {isLoaded && (
+        <EmployeesTable employeesData={employeesData}>
           <EmployeesDataTable />
         </EmployeesTable>
-      ) : (
-        <TableSkeleton />
       )}
 
       <PopupAddEmployee
@@ -181,11 +132,14 @@ export default function Employees() {
         handleClickJob={handleClickJob}
         handleClickDepartment={handleClickDepartment}
         handleClickSubmit={handleClickSubmit}
-        listFilter={listFilter()}
+        listFilter={listFilter(employeesData)}
       />
 
-      <div className={openEmployeePopup ? `blur-background` : ""}></div>
-      <div className={openFilterPopup ? `blur-background` : ""}></div>
+      <div
+        className={
+          openEmployeePopup || openFilterPopup ? `blur-background` : ""
+        }
+      ></div>
     </div>
   );
 }
