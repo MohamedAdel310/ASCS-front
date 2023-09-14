@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import "../style/employees.css";
 import "../style/popups.css";
 import "../../../components/search";
@@ -17,6 +17,13 @@ import getAllEmployees from "../../../api/getAllEmployees";
 import EmployeeControl from "./components/EmployeeControl";
 import listFilter from "../../../Functions/listFilter";
 import handleSearch from "../../../Functions/handleSearch";
+import handleFilter from "../../../Functions/handleFilter";
+import reducer from "../../../Functions/reducerFilter";
+
+const initialState = {
+  filterJob: {},
+  filterDepartment: {},
+};
 
 export default function Employees() {
   const [employeesData, setEmployeesData] = useState();
@@ -25,38 +32,7 @@ export default function Employees() {
   const [searchRes, setSearchRes] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // const handleSearch = (e) => {
-  //   const res = employeesData?.map((emp) => {
-  //     let result;
-  //     emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
-  //       (result = emp.name);
-  //     return result;
-  //   });
-
-  //   setSearchRes(res);
-  // };
-
-  //* filter functiolity
-  const [jobSelected, setJobSelected] = useState({});
-  const [departmentSelected, setDepartmentSelected] = useState({});
-
-  const handleClickJob = (e) => {
-    const inputName = e.target.value;
-    const inputStatus = e.target.checked;
-
-    inputStatus
-      ? setJobSelected({ ...jobSelected, [inputName]: 1 })
-      : setJobSelected({ ...jobSelected, [inputName]: 0 });
-  };
-
-  const handleClickDepartment = (e) => {
-    const inputName = e.target.value;
-    const inputStatus = e.target.checked;
-
-    inputStatus
-      ? setDepartmentSelected({ ...departmentSelected, [inputName]: 1 })
-      : setDepartmentSelected({ ...departmentSelected, [inputName]: 0 });
-  };
+  const [filter, dispatch] = useReducer(reducer, initialState);
 
   const handleClickSubmit = () => {
     console.log("click submit");
@@ -80,15 +56,15 @@ export default function Employees() {
         (handleDisable(
           emp.job,
           emp.department,
-          jobSelected,
-          departmentSelected
+          filter.filterJob,
+          filter.filterDepartment
         ) ||
           "") && (
           <EmployeeTable
             key={emp.employee_id}
             employee={emp}
             handleSearch={searchRes}
-            handleFilterJob={jobSelected}
+            handleFilterJob={filter.filterJob}
           />
         )
     );
@@ -132,8 +108,8 @@ export default function Employees() {
       <PopupFilter
         value={openFilterPopup}
         setOpenFilterPopup={setOpenFilterPopup}
-        handleClickJob={handleClickJob}
-        handleClickDepartment={handleClickDepartment}
+        handleClickJob={(e) => handleFilter(e, "job", dispatch)}
+        handleClickDepartment={(e) => handleFilter(e, "department", dispatch)}
         handleClickSubmit={handleClickSubmit}
         listFilter={listFilter(employeesData)}
       />

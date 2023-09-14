@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import "../style/attendance.css";
 import "../../../components/search";
 
@@ -11,48 +11,33 @@ import AttendanceWeek from "./components/AttendanceWeek";
 import AttendanceMonth from "./components/AttendanceMonth";
 import AttendanceTableSkeleton from "./components/AttendanceTableSkeleton";
 import PopupFilter from "../../../components/PopupFilter";
+import SearchFilterBox from "./components/SearchFilterBox";
 
 import listFilter from "../../../Functions/listFilter";
 import handleSearch from "../../../Functions/handleSearch";
 import today from "../../../Functions/today";
 import getAttendanceByDay from "../../../api/getAttendanceByDay";
-import SearchFilterBox from "./components/SearchFilterBox";
+import reducer from "../../../Functions/reducerFilter";
+import handleFilter from "../../../Functions/handleFilter";
+
+const initialState = {
+  filterJob: {},
+  filterDepartment: {},
+};
 
 export default function Attendance() {
   const [data, setData] = useState();
   const [selectedOption, setSelectedOption] = useState("1");
   const [searchRes, setSearchRes] = useState("");
   const [openFilterPopup, setOpenFilterPopup] = useState(false);
-  const [filterValJob, setFilterValJob] = useState({});
-  const [filterValDepartment, setFilterValDepartment] = useState({});
   const [selectDate, setSelectDate] = useState(today().replaceAll("/", "-"));
   const [isAttendanceLoaded, setIsAttendanceLoaded] = useState(false);
+
+  const [filter, dispatch] = useReducer(reducer, initialState);
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
     console.log(event.target.value);
-  };
-
-  const handleClickJob = (e) => {
-    const inputName = e.target.value;
-    const inputStatus = e.target.checked;
-
-    inputStatus
-      ? setFilterValJob({ ...filterValJob, [inputName]: 1 })
-      : setFilterValJob({ ...filterValJob, [inputName]: 0 });
-
-    // console.log("inputName: ", inputName);
-    // console.log("inputStatus: ", inputStatus);
-    // console.log("filterValJob: ", filterValJob);
-  };
-
-  const handleClickDepartment = (e) => {
-    const inputName = e.target.value;
-    const inputStatus = e.target.checked;
-
-    inputStatus
-      ? setFilterValDepartment({ ...filterValDepartment, [inputName]: 1 })
-      : setFilterValDepartment({ ...filterValDepartment, [inputName]: 0 });
   };
 
   const handleClickSubmitAtend = (e) => {
@@ -98,8 +83,8 @@ export default function Attendance() {
         <AttendanceDay
           data={data}
           searchRes={searchRes}
-          filterValJob={filterValJob}
-          filterValDepartment={filterValDepartment}
+          filterValJob={filter.filterJob}
+          filterValDepartment={filter.filterDepartment}
         />
       ) : (
         <AttendanceTableSkeleton />
@@ -110,10 +95,9 @@ export default function Attendance() {
       <PopupFilter
         value={openFilterPopup}
         setOpenFilterPopup={setOpenFilterPopup}
-        handleClickJob={handleClickJob}
-        handleClickDepartment={handleClickDepartment}
+        handleClickJob={(e) => handleFilter(e, "job", dispatch)}
+        handleClickDepartment={(e) => handleFilter(e, "department", dispatch)}
         handleClickSubmit={handleClickSubmitAtend}
-        setFilterValJob={setFilterValJob}
         listFilter={listFilter(data?.employees)}
       />
 
