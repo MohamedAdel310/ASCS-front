@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import "../style/employees.css";
 import "../style/popups.css";
 import "../../../components/search";
@@ -16,13 +16,8 @@ import handleDisable from "../../../Functions/handleDisable";
 import getAllEmployees from "../../../api/getAllEmployees";
 import listFilter from "../../../Functions/listFilter";
 import handleSearch from "../../../Functions/handleSearch";
-import handleFilter from "../../../Functions/handleFilter";
-import reducer from "../../../Functions/reducerFilter";
 
-const initialState = {
-  filterJob: {},
-  filterDepartment: {},
-};
+import useReducerFilter from "../../../Hooks/useReducerFilter";
 
 export default function Employees() {
   const [employeesData, setEmployeesData] = useState();
@@ -31,7 +26,7 @@ export default function Employees() {
   const [searchRes, setSearchRes] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const [filter, dispatch] = useReducer(reducer, initialState);
+  const [filter, dispatch] = useReducerFilter();
 
   // get employee data
   useEffect(() => {
@@ -93,9 +88,9 @@ export default function Employees() {
         className={"popup--filter"}
       >
         <PopupFilter
-          handleClickJob={(e) => handleFilter(e, "job", dispatch)}
-          handleClickDepartment={(e) => handleFilter(e, "department", dispatch)}
+          dispatch={dispatch}
           listFilter={listFilter(employeesData)}
+          filter={filter}
         />
       </Popup>
     </div>

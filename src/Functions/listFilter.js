@@ -7,8 +7,8 @@ export default function listFilter(employeesData) {
     listDepartment.includes(department) ? "" : listDepartment.push(department);
   });
 
-  console.log("listJob: ", listJob);
-  console.log("listDepartment: ", listDepartment);
+  // console.log("listJob: ", listJob);
+  // console.log("listDepartment: ", listDepartment);
 
   return { listJob, listDepartment };
 }

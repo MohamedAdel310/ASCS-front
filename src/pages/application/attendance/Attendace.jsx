@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import "../style/attendance.css";
 import "../../../components/search";
 
@@ -10,22 +10,16 @@ import AttendanceDay from "./components/AttendanceDay";
 import AttendanceWeek from "./components/AttendanceWeek";
 import AttendanceMonth from "./components/AttendanceMonth";
 import AttendanceTableSkeleton from "./components/AttendanceTableSkeleton";
-// import PopupFilter from "../../../components/PopupFilter";
 import SearchFilterBox from "./components/SearchFilterBox";
+import Popup from "../../../components/Popup";
+import PopupFilter from "../../../components/PopupFilter";
 
 import listFilter from "../../../Functions/listFilter";
 import handleSearch from "../../../Functions/handleSearch";
 import today from "../../../Functions/today";
 import getAttendanceByDay from "../../../api/getAttendanceByDay";
-import reducer from "../../../Functions/reducerFilter";
-import handleFilter from "../../../Functions/handleFilter";
-import Popup from "../../../components/Popup";
-import PopupFilter from "../../../components/PopupFilter";
 
-const initialState = {
-  filterJob: {},
-  filterDepartment: {},
-};
+import useReducerFilter from "../../../Hooks/useReducerFilter";
 
 export default function Attendance() {
   const [data, setData] = useState();
@@ -35,7 +29,7 @@ export default function Attendance() {
   const [selectDate, setSelectDate] = useState(today().replaceAll("/", "-"));
   const [isAttendanceLoaded, setIsAttendanceLoaded] = useState(false);
 
-  const [filter, dispatch] = useReducer(reducer, initialState);
+  const [filter, dispatch] = useReducerFilter();
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -90,9 +84,9 @@ export default function Attendance() {
         className={"popup--filter"}
       >
         <PopupFilter
-          handleClickJob={(e) => handleFilter(e, "job", dispatch)}
-          handleClickDepartment={(e) => handleFilter(e, "department", dispatch)}
+          dispatch={dispatch}
           listFilter={listFilter(data?.employees)}
+          filter={filter}
         />
       </Popup>
     </div>

@@ -1,12 +1,9 @@
 import React from "react";
 import "./../pages/application/style/popups.css";
 import PopupFilterCheckbox from "./PopupFilterCheckbox";
+import handleFilter from "../Functions/handleFilter";
 
-export default function PopupFilter({
-  handleClickJob,
-  handleClickDepartment,
-  listFilter,
-}) {
+export default function PopupFilter({ dispatch, listFilter, filter }) {
   return (
     <>
       <h3 className="popup--header">Filter</h3>
@@ -15,23 +12,23 @@ export default function PopupFilter({
           <h3>Jobs</h3>
           <div className="checkbox-group">
             <PopupFilterCheckbox
-              filter={listFilter?.listJob}
-              onChange={handleClickJob}
+              listCheckBoxes={listFilter?.listJob}
+              onChange={(e) => handleFilter(e, "job", dispatch)}
+              filter={filter.filterJob}
             />
           </div>
 
           <h3>Departments</h3>
           <div className="checkbox-group">
             <PopupFilterCheckbox
-              filter={listFilter?.listDepartment}
-              onChange={handleClickDepartment}
+              listCheckBoxes={listFilter?.listDepartment}
+              onChange={(e) => handleFilter(e, "department", dispatch)}
+              filter={filter.filterDepartment}
             />
           </div>
         </form>
+        <button onClick={() => dispatch({ type: "reset" })}>RESET</button>
       </div>
     </>
   );
-}
-
-{
 }

@@ -1,5 +1,11 @@
-//! not used
-export default function reducer(state, action) {
+import { useReducer } from "react";
+
+const initialState = {
+  filterJob: {},
+  filterDepartment: {},
+};
+
+function reducer(state, action) {
   switch (action.type) {
     case "job": {
       const { inputStatus, inputName } = action.payload;
@@ -19,7 +25,16 @@ export default function reducer(state, action) {
           : { ...state.filterDepartment, [inputName]: false },
       };
     }
+    case "reset": {
+      return initialState;
+    }
     default:
       throw new Error("Action unkonwn");
   }
+}
+
+export default function useReducerFilter() {
+  const [filter, dispatch] = useReducer(reducer, initialState);
+
+  return [filter, dispatch];
 }
