@@ -1,19 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import displayTime from "../../../../Functions/displayTime";
 
-export default function TableDay({
-  employee_id,
-  num,
-  name,
-  department,
-  jobTitle,
-  arriveTime,
-  searchRes,
-}) {
+export default function TableDay({ employee, searchRes }) {
+  const { employee_id, name, department, job, arrive_at } = employee;
+  const arriveTime = displayTime(arrive_at);
+
   const handleDisplay = () => {
-    // console.log(searchRes);
     if (!searchRes.length) return true;
-
     if (searchRes) return searchRes.includes(name);
   };
 
@@ -23,7 +17,7 @@ export default function TableDay({
       <td>
         <Link to={`/application/employees/${employee_id}`}>{name}</Link>
       </td>
-      <td>{jobTitle}</td>
+      <td>{job}</td>
       <td>{department}</td>
       <td>{arriveTime}</td>
     </tr>

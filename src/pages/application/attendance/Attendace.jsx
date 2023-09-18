@@ -77,12 +77,7 @@ export default function Attendance() {
       </SearchFilterBox>
 
       {selectedOption === "1" && isAttendanceLoaded ? (
-        <AttendanceDay
-          data={data}
-          searchRes={searchRes}
-          filterValJob={filter.filterJob}
-          filterValDepartment={filter.filterDepartment}
-        />
+        <AttendanceDay data={data} searchRes={searchRes} filter={filter} />
       ) : (
         <AttendanceTableSkeleton />
       )}
@@ -100,8 +95,6 @@ export default function Attendance() {
           listFilter={listFilter(data?.employees)}
         />
       </Popup>
-
-      <div className={openFilterPopup ? `blur-background` : ""}></div>
     </div>
   );
 }

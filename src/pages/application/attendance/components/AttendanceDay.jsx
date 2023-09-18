@@ -1,8 +1,22 @@
 import DisplayAttendanceDay from "./DisplayAttendanceDay";
 import noResponse from "../../../../assets/image/noResponse.jpg";
 
-function AttendanceDay({ data, searchRes, filterValJob, filterValDepartment }) {
-  return data && Object.keys(data).length ? (
+function AttendanceDay({ data, searchRes, filter }) {
+  if (data && Object.keys(data).length)
+    return (
+      <AttendanceDayComp>
+        <DisplayAttendanceDay
+          employees={data?.employees}
+          searchRes={searchRes}
+          filter={filter}
+        />
+      </AttendanceDayComp>
+    );
+  return <NoResponseComp />;
+}
+
+function AttendanceDayComp({ children }) {
+  return (
     <div className="attendance_day">
       <table>
         <thead>
@@ -13,17 +27,14 @@ function AttendanceDay({ data, searchRes, filterValJob, filterValDepartment }) {
             <th>Arrival Time</th>
           </tr>
         </thead>
-        <tbody>
-          <DisplayAttendanceDay
-            employees={data?.employees}
-            searchRes={searchRes}
-            filterValJob={filterValJob}
-            filterValDepartment={filterValDepartment}
-          />
-        </tbody>
+        <tbody>{children}</tbody>
       </table>
     </div>
-  ) : (
+  );
+}
+
+function NoResponseComp() {
+  return (
     <img
       src={noResponse}
       alt="no violations in this day"
