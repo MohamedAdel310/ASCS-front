@@ -5,8 +5,8 @@ export default function reducer(state, action) {
       return {
         ...state,
         filterJob: inputStatus
-          ? { ...state.filterJob, [inputName]: 1 }
-          : { ...state.filterJob, [inputName]: 0 },
+          ? { ...state.filterJob, [inputName]: true }
+          : { ...state.filterJob, [inputName]: false },
       };
     }
     case "department": {
@@ -14,8 +14,8 @@ export default function reducer(state, action) {
       return {
         ...state,
         filterDepartment: inputStatus
-          ? { ...state.filterDepartment, [inputName]: 1 }
-          : { ...state.filterDepartment, [inputName]: 0 },
+          ? { ...state.filterDepartment, [inputName]: true }
+          : { ...state.filterDepartment, [inputName]: false },
       };
     }
     default:

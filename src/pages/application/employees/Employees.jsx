@@ -4,17 +4,16 @@ import "../style/popups.css";
 import "../../../components/search";
 import EmployeeTable from "./components/Empolyees-table";
 import PopupFilter from "../../../components/PopupFilter";
+import Popup from "../../../components/Popup";
 import PopupAddEmployee from "./components/PopupAddEmployee";
 import TableSkeleton from "./components/TableSkeleton";
 import EmployeesTable from "./components/EmployeesTable";
-
+import EmployeeControl from "./components/EmployeeControl";
 import Search from "../../../components/search";
 import Filter from "../../../components/Filter";
-// import MainButton from "../../../components/button-main";
 
 import handleDisable from "../../../Functions/handleDisable";
 import getAllEmployees from "../../../api/getAllEmployees";
-import EmployeeControl from "./components/EmployeeControl";
 import listFilter from "../../../Functions/listFilter";
 import handleSearch from "../../../Functions/handleSearch";
 import handleFilter from "../../../Functions/handleFilter";
@@ -34,32 +33,15 @@ export default function Employees() {
 
   const [filter, dispatch] = useReducer(reducer, initialState);
 
-  const handleClickSubmit = () => {
-    console.log("click submit");
-  };
-  //---------------------------------------------------
-
   // get employee data
-  const fetchEmployee = async () => {
-    const data = await getAllEmployees();
-    setIsLoaded(true);
-    setEmployeesData(data.employees);
-  };
-
   useEffect(() => {
-    fetchEmployee();
+    getAllEmployees(setEmployeesData, setIsLoaded);
   }, []);
 
   const EmployeesDataTable = () => {
     return employeesData.map(
       (emp) =>
-        (handleDisable(
-          emp.job,
-          emp.department,
-          filter.filterJob,
-          filter.filterDepartment
-        ) ||
-          "") && (
+        handleDisable(emp, filter) && (
           <EmployeeTable
             key={emp.employee_id}
             employee={emp}
@@ -105,20 +87,17 @@ export default function Employees() {
         setOpenEmployeePopup={setOpenEmployeePopup}
       />
 
-      <PopupFilter
-        value={openFilterPopup}
-        setOpenFilterPopup={setOpenFilterPopup}
-        handleClickJob={(e) => handleFilter(e, "job", dispatch)}
-        handleClickDepartment={(e) => handleFilter(e, "department", dispatch)}
-        handleClickSubmit={handleClickSubmit}
-        listFilter={listFilter(employeesData)}
-      />
-
-      <div
-        className={
-          openEmployeePopup || openFilterPopup ? `blur-background` : ""
-        }
-      ></div>
+      <Popup
+        isOpen={openFilterPopup}
+        setIsOpen={setOpenFilterPopup}
+        className={"popup--filter"}
+      >
+        <PopupFilter
+          handleClickJob={(e) => handleFilter(e, "job", dispatch)}
+          handleClickDepartment={(e) => handleFilter(e, "department", dispatch)}
+          listFilter={listFilter(employeesData)}
+        />
+      </Popup>
     </div>
   );
 }

@@ -8,24 +8,27 @@ function DisplayAttendanceDay({
   filterValJob,
   filterValDepartment,
 }) {
+  const filter = {
+    filterJob: filterValJob,
+    filterDepartment: filterValDepartment,
+  };
+
   return (
     <>
       {employees?.map(
-        ({ employee_id, name, department, job, arrive_at }, index) =>
-          (handleDisable(job, department, filterValJob, filterValDepartment) ||
-            "") && (
+        (emp, index) =>
+          handleDisable(emp, filter) && (
             <TableDay
-              employee_id={employee_id}
+              employee_id={emp.employee_id}
               num={index}
-              name={name}
-              department={department}
-              jobTitle={job}
-              arriveTime={displayTime(arrive_at)}
+              name={emp.name}
+              department={emp.department}
+              jobTitle={emp.job}
+              arriveTime={displayTime(emp.arrive_at)}
               searchRes={searchRes}
             />
           )
       )}
-      {console.log("done")}
     </>
   );
 }

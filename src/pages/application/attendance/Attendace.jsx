@@ -10,7 +10,7 @@ import AttendanceDay from "./components/AttendanceDay";
 import AttendanceWeek from "./components/AttendanceWeek";
 import AttendanceMonth from "./components/AttendanceMonth";
 import AttendanceTableSkeleton from "./components/AttendanceTableSkeleton";
-import PopupFilter from "../../../components/PopupFilter";
+// import PopupFilter from "../../../components/PopupFilter";
 import SearchFilterBox from "./components/SearchFilterBox";
 
 import listFilter from "../../../Functions/listFilter";
@@ -19,6 +19,8 @@ import today from "../../../Functions/today";
 import getAttendanceByDay from "../../../api/getAttendanceByDay";
 import reducer from "../../../Functions/reducerFilter";
 import handleFilter from "../../../Functions/handleFilter";
+import Popup from "../../../components/Popup";
+import PopupFilter from "../../../components/PopupFilter";
 
 const initialState = {
   filterJob: {},
@@ -38,11 +40,6 @@ export default function Attendance() {
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
     console.log(event.target.value);
-  };
-
-  const handleClickSubmitAtend = (e) => {
-    console.log("click submit");
-    console.log("e.target: ", e);
   };
 
   useEffect(() => {
@@ -92,14 +89,17 @@ export default function Attendance() {
       {selectedOption === "2" && <AttendanceWeek />}
       {selectedOption === "3" && <AttendanceMonth />}
 
-      <PopupFilter
-        value={openFilterPopup}
-        setOpenFilterPopup={setOpenFilterPopup}
-        handleClickJob={(e) => handleFilter(e, "job", dispatch)}
-        handleClickDepartment={(e) => handleFilter(e, "department", dispatch)}
-        handleClickSubmit={handleClickSubmitAtend}
-        listFilter={listFilter(data?.employees)}
-      />
+      <Popup
+        isOpen={openFilterPopup}
+        setIsOpen={setOpenFilterPopup}
+        className={"popup--filter"}
+      >
+        <PopupFilter
+          handleClickJob={(e) => handleFilter(e, "job", dispatch)}
+          handleClickDepartment={(e) => handleFilter(e, "department", dispatch)}
+          listFilter={listFilter(data?.employees)}
+        />
+      </Popup>
 
       <div className={openFilterPopup ? `blur-background` : ""}></div>
     </div>
