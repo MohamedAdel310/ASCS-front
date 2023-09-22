@@ -1,6 +1,9 @@
+import NoResponseImg from "../../../../components/NoResponseImg";
+
 function EmployeesTable({ children, employeesData }) {
   console.log("employeesData:", employeesData);
   console.log("children: ", children);
+  if (!employeesData) return <NoResponseImg />;
   return (
     <table>
       <thead>
@@ -11,7 +14,7 @@ function EmployeesTable({ children, employeesData }) {
           <th>Job Status</th>
         </tr>
       </thead>
-      <tbody>{employeesData && children}</tbody>
+      <tbody>{children}</tbody>
     </table>
   );
 }

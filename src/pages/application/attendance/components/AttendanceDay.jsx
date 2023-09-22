@@ -1,5 +1,5 @@
 import DisplayAttendanceDay from "./DisplayAttendanceDay";
-import noResponse from "../../../../assets/image/noResponse.jpg";
+import NoResponseImg from "../../../../components/NoResponseImg";
 
 function AttendanceDay({ data, searchRes, filter }) {
   if (data && Object.keys(data).length)
@@ -12,7 +12,7 @@ function AttendanceDay({ data, searchRes, filter }) {
         />
       </AttendanceDayComp>
     );
-  return <NoResponseComp />;
+  return <NoResponseImg />;
 }
 
 function AttendanceDayComp({ children }) {
@@ -30,17 +30,6 @@ function AttendanceDayComp({ children }) {
         <tbody>{children}</tbody>
       </table>
     </div>
-  );
-}
-
-function NoResponseComp() {
-  return (
-    <img
-      src={noResponse}
-      alt="no violations in this day"
-      className="no-vilations-img"
-      style={{ display: "block" }}
-    />
   );
 }
 

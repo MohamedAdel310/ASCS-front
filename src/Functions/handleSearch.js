@@ -1,9 +1,8 @@
 export default function handleSearch(e, employeesData, setSearchRes) {
-  let result;
-
   const res = employeesData?.map((emp) => {
-    emp.name.toLowerCase().includes(e.target.value.toLowerCase()) &&
-      (result = emp.name);
+    const result = emp.name.toLowerCase().includes(e.target.value.toLowerCase())
+      ? emp.name
+      : false;
     return result;
   });
 

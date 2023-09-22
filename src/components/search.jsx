@@ -1,8 +1,8 @@
 import React from "react";
 import "../pages/application/style/Search.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-export default function Search(props) {
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+export default function Search({ onChange }) {
   return (
     <div className="searcher">
       <div className="container">
@@ -11,11 +11,11 @@ export default function Search(props) {
             type="text"
             placeholder="Search..."
             className="searchBar"
-            onChange={props.onChange}
+            onChange={onChange}
           />
-          <button type="submit" onClick={props.onClick}>
+          {/* <button type="submit" onClick={props.onClick}>
             <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
-          </button>
+          </button> */}
         </form>
       </div>
     </div>

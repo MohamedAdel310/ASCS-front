@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../style/employees.css";
 import "../style/popups.css";
 import "../../../components/search";
-import EmployeeTable from "./components/Empolyees-table";
 import PopupFilter from "../../../components/PopupFilter";
 import Popup from "../../../components/Popup";
 import PopupAddEmployee from "./components/PopupAddEmployee";
@@ -11,6 +10,7 @@ import EmployeesTable from "./components/EmployeesTable";
 import EmployeeControl from "./components/EmployeeControl";
 import Search from "../../../components/search";
 import Filter from "../../../components/Filter";
+import EmployeesRows from "./components/EmployeesRows";
 
 import handleDisable from "../../../Functions/handleDisable";
 import getAllEmployees from "../../../api/getAllEmployees";
@@ -32,20 +32,6 @@ export default function Employees() {
   useEffect(() => {
     getAllEmployees(setEmployeesData, setIsLoaded);
   }, []);
-
-  const EmployeesDataTable = () => {
-    return employeesData.map(
-      (emp) =>
-        handleDisable(emp, filter) && (
-          <EmployeeTable
-            key={emp.employee_id}
-            employee={emp}
-            handleSearch={searchRes}
-            handleFilterJob={filter.filterJob}
-          />
-        )
-    );
-  };
 
   return (
     <div className="employee">
@@ -73,7 +59,12 @@ export default function Employees() {
       {!isLoaded && <TableSkeleton />}
       {isLoaded && (
         <EmployeesTable employeesData={employeesData}>
-          <EmployeesDataTable />
+          <EmployeesRows
+            employeesData={employeesData}
+            searchRes={searchRes}
+            handleDisable={handleDisable}
+            filter={filter}
+          />
         </EmployeesTable>
       )}
 
