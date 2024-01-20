@@ -1,22 +1,20 @@
-import React, { useState } from "react";
-import "./style/application.css";
-import { Outlet, NavLink } from "react-router-dom";
-import LogOutPopup from "../../components/LogOutPopup";
+import React, { useState } from 'react';
+import './style/application.css';
+import { Outlet, NavLink } from 'react-router-dom';
+import LogOutPopup from '../../components/LogOutPopup';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
-import { faChartLine } from "@fortawesome/free-solid-svg-icons";
-import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
-import { faVideo } from "@fortawesome/free-solid-svg-icons";
-
-import logo from "./../../../public/myaz.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { faFileArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
+import { faVideo } from '@fortawesome/free-solid-svg-icons';
 
 export default function Application() {
   const [openLogOutPopup, setOpenLogOutPopup] = useState(false);
 
-  const token = localStorage.getItem("token");
-  token || (window.location.href = "/login");
+  const token = localStorage.getItem('token');
+  token || (window.location.href = '/login');
 
   return (
     <div className="dashboard">
@@ -25,7 +23,11 @@ export default function Application() {
           <ul className="navbar-list">
             <a href="../#Home">
               <div className="application--logo">
-                <img src={logo} alt="" className="application--logo--img" />
+                <img
+                  src="/myaz.png"
+                  alt=""
+                  className="application--logo--img"
+                />
                 <h1>MYAZ</h1>
               </div>
             </a>
@@ -101,7 +103,7 @@ export default function Application() {
         active={openLogOutPopup}
         setOpenLogOutPopup={setOpenLogOutPopup}
       />
-      <div className={openLogOutPopup ? `blur-background` : ""}></div>
+      <div className={openLogOutPopup ? `blur-background` : ''}></div>
     </div>
   );
 }

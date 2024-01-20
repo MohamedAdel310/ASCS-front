@@ -1,4 +1,4 @@
-import { Alert, AlertTitle, Skeleton } from "@mui/material";
+import { Skeleton } from '@mui/material';
 
 function StatusViolationSkeleton() {
   return (
@@ -9,7 +9,7 @@ function StatusViolationSkeleton() {
           <Skeleton
             variant="rounded"
             animation="wave"
-            width={"100%"}
+            width={'100%'}
             height={100}
           />
         ))}

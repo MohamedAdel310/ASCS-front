@@ -1,5 +1,4 @@
-import React from "react";
-import "../../style/chart-donate.css";
+import '../../style/chart-donate.css';
 export default function ChartDonate(props) {
   return (
     <div className="donat--container">

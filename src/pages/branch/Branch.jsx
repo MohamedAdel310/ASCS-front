@@ -1,6 +1,5 @@
-import React from "react";
-import Card from "./Card";
-import "./branch.css";
+import Card from './Card';
+import './branch.css';
 
 export default function Branch() {
   return (

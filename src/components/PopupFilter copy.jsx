@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import "./../pages/application/style/popups.css";
+import './../pages/application/style/popups.css';
 
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function PopupFilter({
   value,
@@ -16,7 +15,7 @@ export default function PopupFilter({
   };
 
   return (
-    <div className={`popup--filter popup ${value || "display-popup-false"}`}>
+    <div className={`popup--filter popup ${value || 'display-popup-false'}`}>
       <h3 className="popup--header">Filter</h3>
       <div className="container">
         <form className="filter-form">
@@ -26,8 +25,8 @@ export default function PopupFilter({
               <label>
                 <input
                   type="checkbox"
-                  name={el.toLowerCase().replaceAll(" ", "")}
-                  value={el.toLowerCase().replaceAll(" ", "")}
+                  name={el.toLowerCase().replaceAll(' ', '')}
+                  value={el.toLowerCase().replaceAll(' ', '')}
                   onChange={handleClickJob}
                   // onChange={setFilterValJob()}
                 />
@@ -42,8 +41,8 @@ export default function PopupFilter({
               <label>
                 <input
                   type="checkbox"
-                  name={el.toLowerCase().replaceAll(" ", "")}
-                  value={el.toLowerCase().replaceAll(" ", "")}
+                  name={el.toLowerCase().replaceAll(' ', '')}
+                  value={el.toLowerCase().replaceAll(' ', '')}
                   onChange={handleClickDepartment}
                 />
                 {el}
@@ -56,7 +55,7 @@ export default function PopupFilter({
       <div
         className="closeBtn"
         onClick={handelPopupFilterClose}
-        style={{ backgroundColor: "#d32f2f" }}
+        style={{ backgroundColor: '#d32f2f' }}
       >
         <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
       </div>

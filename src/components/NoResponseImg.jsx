@@ -1,12 +1,10 @@
-import noResponse from "../assets/image/noResponse.jpg";
-
 export default function NoResponseComp() {
   return (
     <img
-      src={noResponse}
+      src="/image/noResponse.jpg"
       alt="no violations in this day"
       className="no-vilations-img"
-      style={{ display: "block" }}
+      style={{ display: 'block' }}
     />
   );
 }

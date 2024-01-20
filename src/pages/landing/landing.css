@@ -14,7 +14,6 @@
   --socondary-color: #ffaa01;
 }
 
-
 html {
   scroll-behavior: smooth;
 }
@@ -24,14 +23,14 @@ html {
   width: 100%;
   overflow: hidden;
   min-height: 100vh;
-  background-color: rgb(13 27 59 / .8);
+  background-color: rgb(13 27 59 / 0.8);
   z-index: 1;
   min-width: 100%;
 }
 
-.landing-image{
+.landing-image {
   z-index: -5;
-  background-image: url(../../../public/wallpaperflare.com_wallpaper\ 3\ .jpg);
+  background-image: url(./wallpaperflare.com_wallpaper\ 3\ .jpg);
   height: 100vh;
   width: 100%;
 }
@@ -40,17 +39,17 @@ html {
   position: absolute;
   width: 568px;
   height: 622px;
-  background-image: url(../../assets/image/logo1.png);
+  background-image: url(./image/logo1.png);
   bottom: -100%;
   left: 30%;
   animation: show0 2s forwards, show1 3s forwards 3s;
 }
 .box1::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 568px;
   height: 622px;
-  background-image: url(../../assets/image/logo2.png);
+  background-image: url(/image/logo2.png);
   left: 0;
   z-index: -1;
 }
@@ -75,7 +74,7 @@ html {
 .box2 {
   height: auto;
   width: auto;
-  font-family: "Bahnschrift Condensed";
+  font-family: 'Bahnschrift Condensed';
   color: white;
   font-size: 5em;
   font-weight: 500;
@@ -95,7 +94,7 @@ html {
   font-size: 60px;
   color: white;
   text-transform: uppercase;
-  line-height: 2
+  line-height: 2;
 }
 @keyframes show2 {
   form {
@@ -109,7 +108,7 @@ html {
   overflow: hidden;
 }
 
-.landing .box3 .logo--image{
+.landing .box3 .logo--image {
   position: absolute;
   left: -100%;
   animation: logo 2s forwards 3s;
@@ -118,7 +117,7 @@ html {
   gap: 20px;
 }
 
-.landing .box3 .logo--image span{
+.landing .box3 .logo--image span {
   font-size: 25px;
   font-weight: 1000;
   color: white;
@@ -126,15 +125,13 @@ html {
   margin-top: 20px;
 }
 
-.landing .box3 .logo--image img{
-  
+.landing .box3 .logo--image img {
   max-width: 80px;
   margin-left: 25px;
   margin-top: 20px;
-
 }
 
-.box3 .container{
+.box3 .container {
   width: 100%;
   position: absolute;
   top: -100%;
@@ -159,7 +156,7 @@ html {
 }
 
 .menu {
-  font-family: "Behnschrift Condensed";
+  font-family: 'Behnschrift Condensed';
   font-size: 14px;
   color: white;
   margin-top: 40px;
@@ -198,10 +195,10 @@ html {
   margin-left: 125px;
 }
 
-.menu .login a{
- color: white;
- background-color: var(--socondary-color);
- border-radius: 10px;
+.menu .login a {
+  color: white;
+  background-color: var(--socondary-color);
+  border-radius: 10px;
 }
 
 .menu ul li:hover {
@@ -218,7 +215,7 @@ html {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  transition: .3s;
+  transition: 0.3s;
   color: var(--socondary-color);
   bottom: -100%;
   animation: show6 2s forwards 2.5s;
@@ -270,43 +267,43 @@ html {
   --socondary-color: #ffaa01;
 }
 
-.about-image{
+.about-image {
   z-index: -5;
-  background-image: url(../../../public/wallpaperflare.com_wallpaper\ 2.jpg);
+  background-image: url(./wallpaperflare.com_wallpaper\ 2.jpg);
   height: 100vh;
   width: 100%;
 }
 
-.about{
+.about {
   width: 100%;
   min-height: 100vh;
-  background-color: rgb(13 27 59 / .9);
+  background-color: rgb(13 27 59 / 0.9);
 }
 
-.about .container{
+.about .container {
   width: 80%;
   display: block;
   margin: auto;
   padding-top: 100px;
 }
 
-.about .about-content{
+.about .about-content {
   float: left;
   width: 55%;
 }
 
-.about .image{
+.about .image {
   float: right;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.about .image img{
+.about .image img {
   width: 150px;
   height: auto;
 }
-.about .image h1{
+.about .image h1 {
   color: white;
   text-align: center;
   margin: auto;
@@ -315,65 +312,66 @@ html {
   font-weight: 900;
 }
 
-
-.about .about-content .title{
+.about .about-content .title {
   text-transform: uppercase;
   font-size: 28px;
   color: var(--socondary-color);
 }
 
-.about .about-content .content h3{
-  margin-top: 20px;;
+.about .about-content .content h3 {
+  margin-top: 20px;
   font-size: 26px;
   color: white;
 }
-.about .about-content .content p{
-    margin-top: 10px;
-    font-family: sans-serif;
-    font-size: 20px;
-    color: #DDD;
-    line-height: 1.7;
-    
-  }
-  .about .about-content .content .button{
-    padding-top: 20px;
-  }
-  .about .about-content .content .button a{
-    background: linear-gradient(to right, rgb(255 255 255)50%, var(--socondary-color)50%);
-    background-position: right bottom;
-    cursor: pointer;
-    border: none;
-    background-size: 200% 100%;
-    transition: .6s;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: white;
-    font-size: 25px;
-    letter-spacing: 1.5px;
-    border-radius: 10px;
-  }
-  .about .about-content .content .button a:hover{
-    background-position: left bottom;
-    color: var(--socondary-color);
-  }
+.about .about-content .content p {
+  margin-top: 10px;
+  font-family: sans-serif;
+  font-size: 20px;
+  color: #ddd;
+  line-height: 1.7;
+}
+.about .about-content .content .button {
+  padding-top: 20px;
+}
+.about .about-content .content .button a {
+  background: linear-gradient(
+    to right,
+    rgb(255 255 255) 50%,
+    var(--socondary-color) 50%
+  );
+  background-position: right bottom;
+  cursor: pointer;
+  border: none;
+  background-size: 200% 100%;
+  transition: 0.6s;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  border-radius: 10px;
+}
+.about .about-content .content .button a:hover {
+  background-position: left bottom;
+  color: var(--socondary-color);
+}
 
-  .about-content .social{
-    margin: 20px 0  ;
-    display: flex;
-    /* gap: 30px; */
-    width: 170px;
-    justify-content: space-between;
-  }
-  .about-content .social a{
-    text-decoration: none;
-    color: white;
-    gap:20px ;
-    font-size: 25px;
-    transition: .3s;
-  }
+.about-content .social {
+  margin: 20px 0;
+  display: flex;
+  /* gap: 30px; */
+  width: 170px;
+  justify-content: space-between;
+}
+.about-content .social a {
+  text-decoration: none;
+  color: white;
+  gap: 20px;
+  font-size: 25px;
+  transition: 0.3s;
+}
 
-
-  .about-content .social a:hover{
-    color: var(--socondary-color);
-    transition: .3s;
-  }
+.about-content .social a:hover {
+  color: var(--socondary-color);
+  transition: 0.3s;
+}

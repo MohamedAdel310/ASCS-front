@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHand,
   faUserXmark,
   faSmoking,
   faHelmetSafety,
-} from "@fortawesome/free-solid-svg-icons";
-import "../../style/employee-profile.css";
-import imployeeImg from "../../../../../src/assets/image/man-profile-cartoon_18591-58482.png";
-import ChartDonate from "../../attendance/components/Chart-donate";
-import EmplyeeProfileTable from "./Emplyee-profile-table";
-import PopupEditDetails from "./PopupEditDetails";
-import { useParams } from "react-router-dom";
+} from '@fortawesome/free-solid-svg-icons';
+import '../../style/employee-profile.css';
+import ChartDonate from '../../attendance/components/Chart-donate';
+import EmplyeeProfileTable from './Emplyee-profile-table';
+import PopupEditDetails from './PopupEditDetails';
+import { useParams } from 'react-router-dom';
 
 export default function EmpProfile() {
   const { id } = useParams();
@@ -55,17 +54,17 @@ export default function EmpProfile() {
         if (response.ok) {
           const data = await response.json();
           setEmployee(data?.data.employee);
-          console.log("API RESPONSE for employee data", data?.data.employee);
+          console.log('API RESPONSE for employee data', data?.data.employee);
         } else {
           // Handle error response
           console.error(
-            "Failed to fetch employee details:",
+            'Failed to fetch employee details:',
             response.statusText
           );
         }
       } catch (error) {
         // Handle fetch error
-        console.error("Failed to fetch employee details:", error);
+        console.error('Failed to fetch employee details:', error);
       }
     };
     fetchEmployee();
@@ -77,7 +76,7 @@ export default function EmpProfile() {
         <h1>Employee Details</h1>
         <div className="info">
           <div className="image">
-            <img src={imployeeImg} alt="" />
+            <img src="/image/man-profile-cartoon_18591-58482.png" alt="" />
           </div>
           <div className="information">
             {/* <h3>{employee?.name}</h3> */}
@@ -86,13 +85,13 @@ export default function EmpProfile() {
                 type="text"
                 value={
                   // if user delete all name condition add name so I do this so if there is no name it will apear no name
-                  inputField?.name === ""
-                    ? ""
-                    : inputField?.name || employee?.name || "there is no Name"
+                  inputField?.name === ''
+                    ? ''
+                    : inputField?.name || employee?.name || 'there is no Name'
                   // if (name) is false and no empty, type employee name
                 }
                 readOnly={!canEdit}
-                onChange={(e) => handleChangeInput(e, "name")}
+                onChange={(e) => handleChangeInput(e, 'name')}
               />
               <label htmlFor="">Name</label>
             </div>
@@ -100,14 +99,14 @@ export default function EmpProfile() {
               <input
                 type="text"
                 value={
-                  inputField?.phoneNumber === ""
-                    ? ""
+                  inputField?.phoneNumber === ''
+                    ? ''
                     : inputField?.phoneNumber ||
                       employee?.phoneNumber ||
-                      "there is no phone"
+                      'there is no phone'
                 }
                 readOnly={!canEdit}
-                onChange={(e) => handleChangeInput(e, "phoneNumber")}
+                onChange={(e) => handleChangeInput(e, 'phoneNumber')}
               />
               <label htmlFor="">Phone Number</label>
             </div>
@@ -115,10 +114,10 @@ export default function EmpProfile() {
               <input
                 type="text"
                 value={
-                  inputField?.job === "" ? "" : inputField?.job || employee?.job
+                  inputField?.job === '' ? '' : inputField?.job || employee?.job
                 }
                 readOnly={!canEdit}
-                onChange={(e) => handleChangeInput(e, "job")}
+                onChange={(e) => handleChangeInput(e, 'job')}
               />
               <label htmlFor="">Job Title</label>
             </div>
@@ -126,12 +125,12 @@ export default function EmpProfile() {
               <input
                 type="text"
                 value={
-                  inputField?.department === ""
-                    ? ""
+                  inputField?.department === ''
+                    ? ''
                     : inputField?.department || employee?.department
                 }
                 readOnly={!canEdit}
-                onChange={(e) => handleChangeInput(e, "department")}
+                onChange={(e) => handleChangeInput(e, 'department')}
               />
               <label htmlFor="">Department</label>
             </div>
@@ -141,14 +140,14 @@ export default function EmpProfile() {
               <input
                 type="email"
                 value={
-                  inputField?.email === ""
-                    ? ""
+                  inputField?.email === ''
+                    ? ''
                     : inputField?.email ||
                       employee?.email ||
-                      "there is no email"
+                      'there is no email'
                 }
                 readOnly={!canEdit}
-                onChange={(e) => handleChangeInput(e, "email")}
+                onChange={(e) => handleChangeInput(e, 'email')}
               />
               <label htmlFor="">Email</label>
             </div>
@@ -156,14 +155,14 @@ export default function EmpProfile() {
               <input
                 type="text"
                 value={
-                  inputField?.shiftStartAt === ""
-                    ? ""
+                  inputField?.shiftStartAt === ''
+                    ? ''
                     : inputField?.shiftStartAt ||
                       employee?.shiftStartAt ||
-                      "00:00 "
+                      '00:00 '
                 }
                 readOnly={!canEdit}
-                onChange={(e) => handleChangeInput(e, "shiftStartAt")}
+                onChange={(e) => handleChangeInput(e, 'shiftStartAt')}
               />
               <label htmlFor="">Shift Start at</label>
             </div>
@@ -171,12 +170,12 @@ export default function EmpProfile() {
               <input
                 type="text"
                 value={
-                  inputField?.shiftEndAt === ""
-                    ? ""
-                    : inputField?.shiftEndAt || employee?.shiftEndAt || "00:00 "
+                  inputField?.shiftEndAt === ''
+                    ? ''
+                    : inputField?.shiftEndAt || employee?.shiftEndAt || '00:00 '
                 }
                 readOnly={!canEdit}
-                onChange={(e) => handleChangeInput(e, "shiftEndAt")}
+                onChange={(e) => handleChangeInput(e, 'shiftEndAt')}
               />
               <label htmlFor="">Shift End at</label>
             </div>
@@ -184,12 +183,12 @@ export default function EmpProfile() {
               <input
                 type="number"
                 value={
-                  inputField?.salary === ""
-                    ? ""
-                    : inputField?.salary || employee?.salary || "00:00 "
+                  inputField?.salary === ''
+                    ? ''
+                    : inputField?.salary || employee?.salary || '00:00 '
                 }
                 readOnly={!canEdit}
-                onChange={(e) => handleChangeInput(e, "salary")}
+                onChange={(e) => handleChangeInput(e, 'salary')}
               />
               <label htmlFor="">Salary</label>
             </div>
@@ -200,17 +199,17 @@ export default function EmpProfile() {
             </h5> */}
             <div className="circle">
               <h5>
-                Status: <span>{employee?.status || "NULL"}</span>
+                Status: <span>{employee?.status || 'NULL'}</span>
               </h5>
               <div className="active"></div>
             </div>
             <h5>
-              Hire Date:{" "}
-              <span>{employee?.hireDate.slice(0, 10) || "0000-00-00"}</span>
+              Hire Date:{' '}
+              <span>{employee?.hireDate.slice(0, 10) || '0000-00-00'}</span>
             </h5>
             <h5>
-              Last Edit:{" "}
-              <span>{employee?.lastEdit.slice(0, 10) || "0000-00-00"}</span>
+              Last Edit:{' '}
+              <span>{employee?.lastEdit.slice(0, 10) || '0000-00-00'}</span>
             </h5>
           </div>
         </div>
@@ -218,7 +217,7 @@ export default function EmpProfile() {
           <button
             className="btn--edit-details"
             onClick={handleClickEdit}
-            style={{ fontSize: "14px" }}
+            style={{ fontSize: '14px' }}
             hidden={!btnHidden}
           >
             Edit Details
@@ -234,7 +233,7 @@ export default function EmpProfile() {
             className="btn--edit-details"
             onClick={handleClickCancel}
             hidden={btnHidden}
-            style={{ background: "red" }}
+            style={{ background: 'red' }}
           >
             Cancel
           </button>

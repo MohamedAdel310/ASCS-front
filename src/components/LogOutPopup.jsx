@@ -1,11 +1,10 @@
-import React from "react";
-import "./componentsStyle.css";
+import './componentsStyle.css';
 
 export default function LogOutPopup(props) {
   const handleLogout = () => {
     props.setOpenLogOutPopup(false);
 
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
   };
 
   const handleCancelLogOut = () => {
@@ -15,7 +14,7 @@ export default function LogOutPopup(props) {
   return (
     <div
       className={`popup log-out--popup ${
-        props.active || "display-popup-false"
+        props.active || 'display-popup-false'
       } `}
     >
       <p className="log-out--popup--message">

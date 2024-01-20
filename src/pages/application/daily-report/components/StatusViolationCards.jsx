@@ -1,12 +1,11 @@
-import noResponse from "../../../../assets/image/noResponse.jpg";
-import jsonText from "../../../../assets/text.json";
-import criticalLevelFun from "./criticalLevelFun";
-import StatusViolation from "./Status-Violation";
-import eventDetails from "../../../../Functions/eventDetails";
+import jsonText from '../../../../assets/text.json';
+import criticalLevelFun from './criticalLevelFun';
+import StatusViolation from './Status-Violation';
+import eventDetails from '../../../../Functions/eventDetails';
 
 const cricicalLevelType = (type) => {
   let str = type;
-  type === "ppe" && (str = jsonText.ppe);
+  type === 'ppe' && (str = jsonText.ppe);
 
   return str;
 };
@@ -33,7 +32,7 @@ function StatusViolationCards({ events, isViolationsLoaded }) {
   return (
     isViolationsLoaded && (
       <img
-        src={noResponse}
+        src="/image/noResponse.jpg"
         alt="no violations in this day"
         className="no-vilations-img"
       />

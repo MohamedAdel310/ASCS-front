@@ -1,5 +1,4 @@
-import React from "react";
-import "./filter.css";
+import './filter.css';
 export default function Filter(props) {
   return (
     <button className="filter" onClick={props.onClick}>

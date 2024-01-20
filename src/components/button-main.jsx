@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function MainButton({ className, text, onClick, disabled }) {
   return (
     <button

@@ -1,11 +1,9 @@
-import React from "react";
-
 const DonutCharts = (props) => {
   const styles = {
-    position: "absolute",
-    width: "150px",
-    height: "150px",
-    left: "10px",
+    position: 'absolute',
+    width: '150px',
+    height: '150px',
+    left: '10px',
   };
 
   const strokeWidth = 25;
@@ -14,29 +12,29 @@ const DonutCharts = (props) => {
   const offset = circumference * (1 - props.percent);
 
   const circleStyles = {
-    stroke: props.charColorSecond || "#bbb",
+    stroke: props.charColorSecond || '#bbb',
     strokeWidth: strokeWidth,
-    fill: "none",
+    fill: 'none',
     strokeDasharray: circumference,
     strokeDashoffset: 0,
   };
 
   const circleStylesFilled = {
-    stroke: props.charColorMain || "#ffbf00",
+    stroke: props.charColorMain || '#ffbf00',
     strokeWidth: strokeWidth,
-    fill: "none",
+    fill: 'none',
     strokeDasharray: circumference,
     strokeDashoffset: offset,
   };
 
   const textStyles = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    fontSize: "24px",
-    fontWeight: "bold",
-    color: "#0c9",
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    fontSize: '24px',
+    fontWeight: 'bold',
+    color: '#0c9',
   };
 
   return (

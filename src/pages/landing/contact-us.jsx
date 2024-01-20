@@ -1,54 +1,64 @@
-import React from "react";
-import "./contact.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook ,faTwitter ,faInstagram ,faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import React from 'react';
+import './contact.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons';
 
-
-let inputs = document.querySelectorAll(".input");
+let inputs = document.querySelectorAll('.input');
 
 function focusFunc() {
   let parent = this.parentNode;
-  parent.classList.add("focus");
+  parent.classList.add('focus');
 }
 
 function blurFunc() {
   let parent = this.parentNode;
-  if (this.value == "") {
-    parent.classList.remove("focus");
+  if (this.value == '') {
+    parent.classList.remove('focus');
   }
 }
 
 inputs.forEach((input) => {
-  input.addEventListener("focus", focusFunc);
-  input.addEventListener("blur", blurFunc);
+  input.addEventListener('focus', focusFunc);
+  input.addEventListener('blur', blurFunc);
 });
 
+const contactStyle = {
+  display: 'flex',
+  gap: '3px',
+  alignItems: 'center',
+};
 
 export default function Contact() {
   return (
     <div class="contact" id="contact">
       <div class="container">
         <span class="big-circle"></span>
-        <img src="img/shape.png" class="square" alt="" />
         <div class="form">
           <div class="contact-info">
             <h3 class="title">Let's get in touch</h3>
             <p class="text">
-              We would love to hear from you! If you have any questions, feedback, or inquiries,
-              please don't hesitate to get in touch with us. Our dedicated team is here to assist you and provide the information you need.
+              We would love to hear from you! If you have any questions,
+              feedback, or inquiries, please don't hesitate to get in touch with
+              us. Our dedicated team is here to assist you and provide the
+              information you need.
             </p>
 
             <div class="info">
-              <div class="information">
-                <img src="img/location.png" class="icon" alt="" />
+              <div class="information" style={contactStyle}>
+                <img src="/image/location.png" class="icon" alt="" />
                 <p>Ismailia-Fayed</p>
               </div>
-              <div class="information">
-                <img src="img/email.png" class="icon" alt="" />
+              <div class="information" style={contactStyle}>
+                <img src="/image/email.png" class="icon" alt="" />
                 <p>mohammed.sa3dalla@gmail.com</p>
               </div>
-              <div class="information">
-                <img src="img/phone.png" class="icon" alt="" />
+              <div class="information" style={contactStyle}>
+                <img src="/image/phone.png" class="icon" alt="" />
                 <p>01224247574</p>
               </div>
             </div>
