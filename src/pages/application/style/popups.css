@@ -29,7 +29,7 @@
 }
 
 .popup--add-employee label {
-  color: white;
+  color: black;
 }
 
 .popup--add-employee h1 {
@@ -146,7 +146,7 @@
   margin: 0 15px 20px 15px;
 }
 
-.popup--filter .closeBtn {
+.popup .closeBtn {
   background-color: var(--socondary-color);
   text-align: center;
   position: absolute;

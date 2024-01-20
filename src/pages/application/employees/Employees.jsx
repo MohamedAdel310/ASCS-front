@@ -68,10 +68,13 @@ export default function Employees() {
         </EmployeesTable>
       )}
 
-      <PopupAddEmployee
-        value={openEmployeePopup}
-        setOpenEmployeePopup={setOpenEmployeePopup}
-      />
+      <Popup
+        isOpen={openEmployeePopup}
+        setIsOpen={setOpenEmployeePopup}
+        className={"popup--add-employee"}
+      >
+        <PopupAddEmployee setOpenEmployeePopup={setOpenEmployeePopup} />
+      </Popup>
 
       <Popup
         isOpen={openFilterPopup}
