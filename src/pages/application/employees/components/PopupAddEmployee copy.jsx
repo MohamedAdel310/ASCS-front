@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import MainButton from "../../../../components/button-main";
+import React, { useState, useEffect } from 'react';
+import MainButton from '../../../../components/button-main';
 
-const apiURL = "https://myaz.cyclic.app/api/";
+const apiURL = 'https://myaz.cyclic.app/api/';
 
 export default function PopupAddEmployee(props) {
   const [isFormFilled, setIsFormFilled] = useState(false);
   const [formInputs, setFormInputs] = useState({
-    name: "",
-    gender: "",
-    birthDate: "",
-    email: "",
-    phoneNumber: "",
-    department: "",
-    job: "",
-    salary: "",
-    shiftStartAt: "",
-    shiftEndAt: "",
-    employee_id: "",
+    name: '',
+    gender: '',
+    birthDate: '',
+    email: '',
+    phoneNumber: '',
+    department: '',
+    job: '',
+    salary: '',
+    shiftStartAt: '',
+    shiftEndAt: '',
+    employee_id: '',
   });
 
   const handleChange = (event) => {
@@ -25,7 +25,7 @@ export default function PopupAddEmployee(props) {
   };
 
   useEffect(() => {
-    setIsFormFilled(Object.values(formInputs).every((val) => val !== ""));
+    setIsFormFilled(Object.values(formInputs).every((val) => val !== ''));
   });
 
   const handelClose = (e) => {
@@ -36,14 +36,14 @@ export default function PopupAddEmployee(props) {
   const handelAddEmployee = (e) => {
     e.preventDefault();
 
-    async function postData(url = "", data = {}, token = "") {
+    async function postData(url = '', data = {}, token = '') {
       const response = await fetch(url, {
-        method: "POST",
-        mode: "cors",
-        cache: "no-cache",
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify(data),
       });
@@ -51,8 +51,8 @@ export default function PopupAddEmployee(props) {
     }
 
     const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4";
-    postData(apiURL + "/employees", formInputs, token)
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4';
+    postData(apiURL + '/employees', formInputs, token)
       .then((data) => {
         console.log(data);
       })
@@ -64,11 +64,7 @@ export default function PopupAddEmployee(props) {
   };
 
   return (
-    <div
-      className={`popup--add-employee popup ${
-        props.value || "display-popup-false"
-      }`}
-    >
+    <div className={`popup--add-employee popup ${props.value || 'dis-none'}`}>
       <h1>Add Employee</h1>
       <form action="">
         <label htmlFor="">Full Name</label>

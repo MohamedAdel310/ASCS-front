@@ -1,17 +1,11 @@
-import React from 'react';
-import '../pages/application/style/Search.css';
+import styles from './Search.module.css';
 
 export default function Search({ onChange }) {
   return (
-    <div className="searcher">
-      <div className="container">
-        <form action="" className="form">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="searchBar"
-            onChange={onChange}
-          />
+    <div className={styles.search}>
+      <div className={styles.container}>
+        <form action="">
+          <input type="text" placeholder="Search..." onChange={onChange} />
           {/* <button type="submit" onClick={props.onClick}>
             <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
           </button> */}

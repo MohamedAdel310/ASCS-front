@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import "../style/daily-report.css";
+import React, { useState, useEffect } from 'react';
+import '../style/daily-report.css';
 
-import Header from "./components/Header";
-import CardViolationComp from "./components/CardViolationComp";
-import StatusViolationComp from "./components/StatusViolationComp";
-import DateInput from "./components/DateInput";
+import Header from './components/Header';
+import CardViolationComp from './components/CardViolationComp';
+import StatusViolationComp from './components/StatusViolationComp';
+import DateInput from './components/DateInput';
 
-import today from "../../../Functions/today";
-import fetchData from "../../../api/getEventsByDay";
+import today from '../../../Functions/today';
+import fetchData from '../../../api/getEventsByDay';
 
 export default function DailyReport() {
   const [data, setData] = useState();
@@ -21,7 +21,7 @@ export default function DailyReport() {
   }, [day]);
 
   const handleChangeDate = (event) => {
-    const date = event.target.value.replaceAll("-", "/");
+    const date = event.target.value.replaceAll('-', '/');
     setIsViolationsLoaded(false);
     setDay(date);
   };
@@ -32,7 +32,7 @@ export default function DailyReport() {
       <Header>
         <DateInput
           onChange={handleChangeDate}
-          value={day?.replaceAll("/", "-") || today().replaceAll("/", "-")}
+          value={day?.replaceAll('/', '-') || today().replaceAll('/', '-')}
         />
       </Header>
       <StatusViolationComp

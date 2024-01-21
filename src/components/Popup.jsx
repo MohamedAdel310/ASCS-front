@@ -11,7 +11,7 @@ export default function PopupFilter({
 }) {
   return (
     <>
-      <div className={`popup ${className} ${isOpen || 'display-popup-false'}`}>
+      <div className={`popup ${className} ${isOpen || 'dis-none'}`}>
         {children}
         <div
           className="closeBtn"

@@ -1,0 +1,31 @@
+.search {
+  padding-right: 50px;
+}
+
+.container {
+  width: 400px;
+  height: 60px;
+  position: relative;
+}
+
+.container button {
+  background-color: transparent;
+  position: absolute;
+  border: none;
+  right: 25px;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.container input {
+  height: 60px;
+  width: 400px;
+  border-radius: 40px;
+  padding-left: 20px;
+  border: 1px solid #ddd;
+}
+
+.container input:focus {
+  outline-style: none;
+}

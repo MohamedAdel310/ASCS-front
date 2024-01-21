@@ -15,7 +15,7 @@ export default function PopupFilter({
   };
 
   return (
-    <div className={`popup--filter popup ${value || 'display-popup-false'}`}>
+    <div className={`popup--filter popup ${value || 'dis-none'}`}>
       <h3 className="popup--header">Filter</h3>
       <div className="container">
         <form className="filter-form">

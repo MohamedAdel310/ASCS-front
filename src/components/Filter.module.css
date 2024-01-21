@@ -17,25 +17,25 @@
   padding-left: 30px;
 }
 
-.filter span {
+.icon span {
   background-color: black;
 }
 
-.filter .icon span:first-child {
+.icon span:first-child {
   height: 1px;
   width: 35px;
   position: absolute;
   right: 20px;
   top: 20px;
 }
-.filter .icon span:nth-child(2) {
+.icon span:nth-child(2) {
   position: absolute;
   right: 20px;
   width: 35px;
   top: 30px;
   height: 1px;
 }
-.filter .icon span:last-child {
+.icon span:last-child {
   position: absolute;
   right: 20px;
   height: 1px;
@@ -43,8 +43,8 @@
   top: 40px;
 }
 
-.filter span:first-child::after {
-  content: "";
+.icon span:first-child::after {
+  content: '';
   border: 1px solid #333;
   border-radius: 50%;
   right: 20px;
@@ -55,8 +55,8 @@
   background-color: #ffd47f;
   top: -3px;
 }
-.filter span:nth-child(2)::after {
-  content: "";
+.icon span:nth-child(2)::after {
+  content: '';
   border: 1px solid #333;
   border-radius: 50%;
   right: 4px;
@@ -68,8 +68,8 @@
   top: -3px;
 }
 
-.filter span:last-child::after {
-  content: "";
+.icon span:last-child::after {
+  content: '';
   border: 1px solid #333;
   border-radius: 50%;
   right: 13px;

@@ -1,9 +1,10 @@
-import './filter.css';
+import styles from './Filter.module.css';
+
 export default function Filter(props) {
   return (
-    <button className="filter" onClick={props.onClick}>
+    <button className={styles.filter} onClick={props.onClick}>
       <h2>Filters</h2>
-      <div className="icon">
+      <div className={styles.icon}>
         <span></span>
         <span></span>
         <span></span>

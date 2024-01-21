@@ -2,6 +2,7 @@ import jsonText from '../../../../assets/text.json';
 import criticalLevelFun from './criticalLevelFun';
 import StatusViolation from './Status-Violation';
 import eventDetails from '../../../../Functions/eventDetails';
+import NoResponseComp from '../../../../components/NoResponseImg';
 
 const cricicalLevelType = (type) => {
   let str = type;
@@ -29,15 +30,7 @@ function StatusViolationCards({ events, isViolationsLoaded }) {
       ))
     );
   }
-  return (
-    isViolationsLoaded && (
-      <img
-        src="/image/noResponse.jpg"
-        alt="no violations in this day"
-        className="no-vilations-img"
-      />
-    )
-  );
+  return isViolationsLoaded && <NoResponseComp />;
 }
 
 export default StatusViolationCards;

@@ -1,0 +1,50 @@
+.container {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.message {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  color: black;
+  letter-spacing: 1px;
+}
+
+.cancel {
+  color: var(--main-color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cancel:hover {
+  background-color: #dad6d6;
+}
+
+.confirm {
+  background-color: var(--socondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.6s;
+  background-size: 200% 100%;
+}
+
+.confirm:hover {
+  background-color: var(--main-color);
+  color: white;
+}

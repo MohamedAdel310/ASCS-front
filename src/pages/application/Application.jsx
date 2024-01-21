@@ -19,7 +19,7 @@ export default function Application() {
   return (
     <div className="dashboard">
       <div className="container">
-        <div className="links">
+        <nav className="links">
           <ul className="navbar-list">
             <a href="../#Home">
               <div className="application--logo">
@@ -81,7 +81,7 @@ export default function Application() {
               </li>
             </NavLink>
           </ul>
-        </div>
+        </nav>
 
         <div className="dasbaord_container">
           <div className="nav">

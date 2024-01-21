@@ -1,13 +1,3 @@
-:root {
-  --main-color: #0d1b3b;
-  --socondary-color: #ffaa01;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .daily-report {
   padding: 50px;
 }
@@ -21,7 +11,8 @@
 
 .card-violation-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  margin: auto;
+  grid-template-columns: repeat(auto-fill, 250px);
   grid-gap: 15px;
 }
 .card-violation {
@@ -30,11 +21,11 @@
   box-shadow: 2px 2px 2px 0px #ddd;
   /* justify-content: center; */
   align-items: center;
-  width: 240px;
+  max-width: 260px;
   height: 120px;
   /* margin: 15px; */
   border-radius: 25px;
-  position: relative;
+  /* position: relative; */
 }
 
 .card-violation .mistake {
@@ -137,26 +128,4 @@
 }
 .critcal-level__inactive {
   background-color: #f3ecec;
-}
-/* #inputdate_dailyreport {
-  width: 150px;
-  height: 35px;
-  font-weight: 300;
-  font-size: 14px;
-  text-align: center;
-  border-radius: 15px;
-  padding: 0 5px;
-  background-color: var(--socondary-color);
-  border: none;
-  color: white;
-  margin-left: 30px;
-}
-
-#inputdate_dailyreport:focus {
-  outline-style: none;
-} */
-
-.no-vilations-img {
-  width: 700px;
-  margin: 0 auto;
 }
