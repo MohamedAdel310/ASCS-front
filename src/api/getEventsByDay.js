@@ -7,23 +7,28 @@ const headers = {
   'Authorization': `Bearer ${token}`,
 };
 
-export default async function fetchData(setData, setEvents, date) {
+export default async function fetchData(
+  setData,
+  setEvents,
+  date,
+  setIsLoading
+) {
   const dateRes = date || today();
-  console.log('dateRes: ', dateRes);
 
   try {
+    setIsLoading(true);
     const response = await fetch(apiURL + `events/${dateRes}`, {
       headers,
     });
-
     const res = await response.json();
-    // res && setIsViolationsLoaded(true);
 
     setData(res?.types);
     setEvents(res?.data.reverse());
   } catch {
+    setData([]);
+    setEvents([]);
     alert('there is an error happened');
   } finally {
-    console.log('finally :)');
+    setIsLoading(false);
   }
 }

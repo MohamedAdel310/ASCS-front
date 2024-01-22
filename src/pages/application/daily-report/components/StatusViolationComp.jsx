@@ -1,18 +1,11 @@
-import StatusViolationCards from "./StatusViolationCards";
-import StatusViolationSkeleton from "./StatusViolationSkeleton";
+import StatusViolationCards from './StatusViolationCards';
+import StatusViolationSkeleton from './StatusViolationSkeleton';
 
-function StatusViolationComp({ events, isViolationsLoaded }) {
+function StatusViolationComp({ events, isLoading }) {
   return (
     <div className="status-box">
-      {events ? (
-        <StatusViolationCards
-          events={events}
-          isViolationsLoaded={isViolationsLoaded}
-        />
-      ) : (
-        <StatusViolationSkeleton />
-      )}
-      {isViolationsLoaded || <StatusViolationSkeleton />}
+      {isLoading && <StatusViolationSkeleton />}
+      {!isLoading && <StatusViolationCards events={events} />}
     </div>
   );
 }

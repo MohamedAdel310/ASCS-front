@@ -11,26 +11,19 @@ const cricicalLevelType = (type) => {
   return str;
 };
 
-function StatusViolationCards({ events, isViolationsLoaded }) {
-  if (events.length) {
-    return (
-      isViolationsLoaded &&
-      events.map((event) => (
-        <StatusViolation
-          level={criticalLevelFun(event.type)}
-          event={cricicalLevelType(event.type)}
-          imageUrls={event.info.imageUrls}
-          eventMessage={eventDetails(
-            event.type,
-            event.arriveAt,
-            event.info.cam
-          )}
-          key={event._id}
-        />
-      ))
-    );
+function StatusViolationCards({ events }) {
+  if (events?.length) {
+    return events.map((event) => (
+      <StatusViolation
+        level={criticalLevelFun(event.type)}
+        event={cricicalLevelType(event.type)}
+        imageUrls={event.info.imageUrls}
+        eventMessage={eventDetails(event.type, event.arriveAt, event.info.cam)}
+        key={event._id}
+      />
+    ));
   }
-  return isViolationsLoaded && <NoResponseComp />;
+  return <NoResponseComp />;
 }
 
 export default StatusViolationCards;

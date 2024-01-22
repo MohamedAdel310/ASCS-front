@@ -1,3 +1,4 @@
+// there is diagram for this page (dailyReport.dio)
 import React, { useState, useEffect } from 'react';
 import '../style/daily-report.css';
 
@@ -13,27 +14,22 @@ import { useSearchParams } from 'react-router-dom';
 export default function DailyReport() {
   const [data, setData] = useState();
   const [events, setEvents] = useState();
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     // if there is no params set params to today date
     if (!searchParams.get('day')) {
       setDate(setSearchParams, today().split('/'));
-
       // when send false in fetchData function it take today date
-      fetchData(setData, setEvents, false);
-      setIsDataLoaded(true);
+      fetchData(setData, setEvents, false, setIsLoading);
     } else {
-      fetchData(setData, setEvents, getDate(searchParams));
-      setIsDataLoaded(true);
+      fetchData(setData, setEvents, getDate(searchParams), setIsLoading);
     }
   }, [searchParams, setSearchParams]);
 
   const handleChangeDate = (event) => {
     const date = event.target.value.replaceAll('-', '/');
-    setIsDataLoaded(false);
-
     setDate(setSearchParams, date.split('/'));
   };
 
@@ -46,7 +42,7 @@ export default function DailyReport() {
           value={inputDate(searchParams)}
         />
       </Header>
-      <StatusViolationComp events={events} isViolationsLoaded={isDataLoaded} />
+      <StatusViolationComp events={events} isLoading={isLoading} />
     </div>
   );
 }
