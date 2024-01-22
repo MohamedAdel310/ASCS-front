@@ -86,9 +86,6 @@
   color: black;
 }
 
-.popup--filter .container {
-}
-
 .popup--filter .checkbox-group {
   display: grid;
   grid-template-columns: repeat(3, minmax(250px, 1fr));

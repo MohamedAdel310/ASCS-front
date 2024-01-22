@@ -3,8 +3,9 @@ export default function listFilter(employeesData) {
   let listDepartment = [];
 
   employeesData?.map(({ job, department }) => {
-    listJob.includes(job) ? "" : listJob.push(job);
-    listDepartment.includes(department) ? "" : listDepartment.push(department);
+    // listJob.includes(job) ? '' : listJob.push(job);
+    // listDepartment.includes(department) ? '' : listDepartment.push(department);
+    return true;
   });
 
   // console.log("listJob: ", listJob);

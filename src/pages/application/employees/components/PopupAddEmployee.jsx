@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import MainButton from "../../../../components/button-main";
-import postEmployee from "../../../../api/postEmployee";
+import React, { useState, useEffect } from 'react';
+import MainButton from '../../../../components/button-main';
+import postEmployee from '../../../../api/postEmployee';
 
 function isObjValuesTrue(obj) {
   if (Object.keys(obj).length < 11) return false;
-  return Object.values(obj).every((val) => val !== "");
+  return Object.values(obj).every((val) => val !== '');
 }
-let test = "name";
+
 export default function PopupAddEmployee({ setOpenEmployeePopup }) {
   const [isFormFilled, setIsFormFilled] = useState(false);
   const [formInputs, setFormInputs] = useState({});
 
   useEffect(() => {
-    console.log("formInputs: ", formInputs);
+    console.log('formInputs: ', formInputs);
     setIsFormFilled(isObjValuesTrue(formInputs));
     // setIsFormFilled(Object.values(formInputs).every((val) => val !== false));
   }, [formInputs]);
@@ -35,9 +35,9 @@ export default function PopupAddEmployee({ setOpenEmployeePopup }) {
   };
 
   function InputComp({ type, text, handleChange, formInputs }) {
-    const name = text.toLowerCase().replaceAll(" ", "-");
-    console.log("name: ", name);
-    console.log("text: ", text);
+    const name = text.toLowerCase().replaceAll(' ', '-');
+    console.log('name: ', name);
+    console.log('text: ', text);
 
     return (
       <>
@@ -63,8 +63,8 @@ export default function PopupAddEmployee({ setOpenEmployeePopup }) {
           key={1}
           formInputs={formInputs}
           handleChange={handleChange}
-          type={"text"}
-          text={"Full Name"}
+          type={'text'}
+          text={'Full Name'}
         />
         {/* <label htmlFor="">'text'</label>
         <input
@@ -96,8 +96,8 @@ export default function PopupAddEmployee({ setOpenEmployeePopup }) {
               key={2}
               formInputs={formInputs}
               handleChange={handleChange}
-              type={"date"}
-              text={"Birth Date"}
+              type={'date'}
+              text={'Birth Date'}
             />
           </div>
         </div>
@@ -108,8 +108,8 @@ export default function PopupAddEmployee({ setOpenEmployeePopup }) {
               key={3}
               formInputs={formInputs}
               handleChange={handleChange}
-              type={"email"}
-              text={"Email"}
+              type={'email'}
+              text={'Email'}
             />
           </div>
           <div className="BOX1">
@@ -117,8 +117,8 @@ export default function PopupAddEmployee({ setOpenEmployeePopup }) {
               key={4}
               formInputs={formInputs}
               handleChange={handleChange}
-              type={"tel"}
-              text={"Phone Number"}
+              type={'tel'}
+              text={'Phone Number'}
             />
           </div>
         </div>
@@ -165,8 +165,8 @@ export default function PopupAddEmployee({ setOpenEmployeePopup }) {
               key={5}
               formInputs={formInputs}
               handleChange={handleChange}
-              type={"number"}
-              text={"Employee ID"}
+              type={'number'}
+              text={'Employee ID'}
             />
           </div>
 
@@ -175,8 +175,8 @@ export default function PopupAddEmployee({ setOpenEmployeePopup }) {
               key={6}
               formInputs={formInputs}
               handleChange={handleChange}
-              type={"number"}
-              text={"Salary"}
+              type={'number'}
+              text={'Salary'}
             />
           </div>
         </div>
@@ -187,8 +187,8 @@ export default function PopupAddEmployee({ setOpenEmployeePopup }) {
               key={7}
               formInputs={formInputs}
               handleChange={handleChange}
-              type={"time"}
-              text={"Shift Start At"}
+              type={'time'}
+              text={'Shift Start At'}
             />
           </div>
           <div className="BOX1">
@@ -196,8 +196,8 @@ export default function PopupAddEmployee({ setOpenEmployeePopup }) {
               key={8}
               formInputs={formInputs}
               handleChange={handleChange}
-              type={"time"}
-              text={"Shift End At"}
+              type={'time'}
+              text={'Shift End At'}
             />
           </div>
         </div>
