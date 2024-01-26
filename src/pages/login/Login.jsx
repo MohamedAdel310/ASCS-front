@@ -7,39 +7,18 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { Navigate } from 'react-router-dom';
+import loginRequest from '../../api/postLogin';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userLogin, setUserLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [isBoxRight, setIsBoxRight] = useState(false);
+  const [isBoxRight, setIsBoxRight] = useState(true);
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    try {
-      setIsLoading(true);
-      const response = await fetch('https://myaz.cyclic.app/api/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      const res = await response.json();
-
-      if (res.status === 'fail') {
-        return alert(res.message);
-      }
-      console.log(res);
-
-      localStorage.setItem('token', res.token); // save token to local storage
-      setUserLogin(true);
-    } catch {
-      alert('There is an error happened');
-    } finally {
-      setIsLoading(false);
-    }
+    loginRequest({ email, password }, setUserLogin, setIsLoading);
   }
 
   return (
@@ -54,7 +33,7 @@ export default function Login() {
             <Social />
             <span>use your email for register</span>
             <input type="text" placeholder="Name" required />
-            <input type="email" placeholder="ُEmail" required />
+            <input type="email" placeholder="Email" required />
             <input type="password" placeholder="Password" required />
             <br />
             <button>Sign Up</button>
