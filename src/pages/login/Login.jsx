@@ -9,20 +9,11 @@ import {
 import { Navigate } from 'react-router-dom';
 
 export default function Login() {
-  const [containerclass, setContainerclass] = useState('login-page');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userLogin, setUserLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  // const [overlayPosition, setOverlayPosition] = useState('left');
-
-  const handleAddclass = () => {
-    setContainerclass('login-page right-panel-action');
-  };
-
-  const handleRemoveclass = () => {
-    setContainerclass('login-page');
-  };
+  const [isBoxRight, setIsBoxRight] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -53,7 +44,10 @@ export default function Login() {
 
   return (
     <div className="login-home">
-      <div className={containerclass} id="login-page">
+      <div
+        className={`login-page ${isBoxRight ? '' : 'right-panel-action'}`}
+        id="login-page"
+      >
         <div className="form-container sign-up">
           <form action="#">
             <h1>Create an account</h1>
@@ -92,10 +86,7 @@ export default function Login() {
           </form>
         </div>
         {userLogin && <Navigate to={'/application/dashboard'} />}
-        <OverLayContainer
-          handleAddclass={handleAddclass}
-          handleRemoveclass={handleRemoveclass}
-        />
+        <MovingBox setIsBoxRight={setIsBoxRight} />
       </div>
     </div>
   );
@@ -117,26 +108,44 @@ function Social() {
   );
 }
 
-function OverLayContainer({ handleAddclass, handleRemoveclass }) {
+function MovingBox({ setIsBoxRight }) {
   return (
     <div className="login-overlay-container">
       <div className="login-overlay">
-        <div className="login-overlay-panel left">
-          <h1>Have already account?</h1>
-          <p>To Keep connect with us please login with your account</p>
-          <button id="signIn" className="ghost" onClick={handleRemoveclass}>
-            Sign In
-          </button>
-        </div>
-
-        <div className="login-overlay-panel right">
-          <h1>Create Account</h1>
-          <p>Enter your personal detail and start journey with us</p>
-          <button id="signUp" className="ghost" onClick={handleAddclass}>
-            Sign Up
-          </button>
-        </div>
+        <LeftBox setIsBoxRight={setIsBoxRight} />
+        <RightBox setIsBoxRight={setIsBoxRight} />
       </div>
+    </div>
+  );
+}
+
+function LeftBox({ setIsBoxRight }) {
+  return (
+    <div className="login-overlay-panel left">
+      <h1>Have already account?</h1>
+      <p>To Keep connect with us please login with your account</p>
+      <button
+        id="signIn"
+        className="ghost"
+        onClick={() => setIsBoxRight((val) => !val)}
+      >
+        Sign In
+      </button>
+    </div>
+  );
+}
+function RightBox({ setIsBoxRight }) {
+  return (
+    <div className="login-overlay-panel right">
+      <h1>Create Account</h1>
+      <p>Enter your personal detail and start journey with us</p>
+      <button
+        id="signUp"
+        className="ghost"
+        onClick={() => setIsBoxRight((val) => !val)}
+      >
+        Sign Up
+      </button>
     </div>
   );
 }
