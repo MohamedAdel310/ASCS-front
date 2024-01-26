@@ -1,38 +1,20 @@
-
-* {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: Cairo, sans-serif;
-}
-
-:root {
-  --main-color: #0d1b3b;
-  --socondary-color: #ffaa01;
-}
-
-
 .login-home {
   display: grid;
   place-items: center;
-  font-family: "montserrat", sans-serif;
+  font-family: 'montserrat', sans-serif;
   height: 100vh;
-  background-color: rgb(13 27 59 / .8);
+  background-color: rgb(13 27 59 / 0.8);
 }
 
-.login-image{
-  height: 100vh;
-  width: 100%;
-  background-image: url(../../../public/vecteezy_fingerprint-identity-sensor-data-protection-system-podium_7164537.jpg);
+button:disabled {
+  background-color: red !important;
+  cursor: default !important;
 }
 
 .login-page h1 {
   font-weight: 900;
   margin: 20px;
-  color: black;
-  line-height: .8;
+  line-height: 0.8;
   color: var(--socondary-color);
 }
 
@@ -183,13 +165,7 @@
   z-index: 100;
 }
 .login-overlay {
-  background: var(--main-color);
-  background: -webkit-linear-gradient(20deg, var(--main-color));
-  background: linear-gradient(0deg, var(--main-color), #394b71);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0 0;
-  background-color: #ffffff;
+  background-color: var(--main-color);
   position: relative;
   left: -100%;
   height: 100%;
@@ -211,10 +187,10 @@
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
 }
-.login-overlay-left {
+.left {
   transform: translateX(-20%);
 }
-.login-overlay-right {
+.right {
   right: 0;
   transform: translateX(0);
 }
@@ -233,10 +209,10 @@
   width: 40px;
   font-size: 40px;
   color: var(--main-color);
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .social-container a:hover {
   font-size: 50px;
-  transition: .3s;
+  transition: 0.3s;
 }
