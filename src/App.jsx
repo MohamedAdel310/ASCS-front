@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 
 import Login from './pages/login/Login';
 import Landing from './pages/landing/Landing';
@@ -21,7 +21,7 @@ export default function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/application" element={<Application />}>
-          <Route index element={<Dashboard />} />
+          <Route index element={<Navigate replace to="dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="employees">
             <Route index element={<Employees />} />

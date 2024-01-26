@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
-import "../style/employees.css";
-import "../style/popups.css";
-import "../../../components/search";
-import PopupFilter from "../../../components/PopupFilter";
-import Popup from "../../../components/Popup";
-import PopupAddEmployee from "./components/PopupAddEmployee";
-import TableSkeleton from "./components/TableSkeleton";
-import EmployeesTable from "./components/EmployeesTable";
-import EmployeeControl from "./components/EmployeeControl";
-import Search from "../../../components/search";
-import Filter from "../../../components/Filter";
-import EmployeesRows from "./components/EmployeesRows";
+import React, { useState, useEffect } from 'react';
+import '../style/employees.css';
+import '../style/popups.css';
+import '../../../components/search';
+import PopupFilter from '../../../components/PopupFilter';
+import Popup from '../../../components/Popup';
+import PopupAddEmployee from './components/PopupAddEmployee';
+import TableSkeleton from './components/TableSkeleton';
+import EmployeesTable from './components/EmployeesTable';
+import EmployeeControl from './components/EmployeeControl';
+import Search from '../../../components/search';
+import Filter from '../../../components/Filter';
+import EmployeesRows from './components/EmployeesRows';
 
-import handleDisable from "../../../Functions/handleDisable";
-import getAllEmployees from "../../../api/getAllEmployees";
-import listFilter from "../../../Functions/listFilter";
-import handleSearch from "../../../Functions/handleSearch";
+import handleDisable from '../../../Functions/handleDisable';
+import getAllEmployees from '../../../api/getAllEmployees';
+import listFilter from '../../../Functions/listFilter';
+import handleSearch from '../../../Functions/handleSearch';
 
-import useReducerFilter from "../../../Hooks/useReducerFilter";
+import useReducerFilter from '../../../Hooks/useReducerFilter';
 
 export default function Employees() {
   const [employeesData, setEmployeesData] = useState();
   const [openEmployeePopup, setOpenEmployeePopup] = useState(false);
   const [openFilterPopup, setOpenFilterPopup] = useState(false);
-  const [searchRes, setSearchRes] = useState("");
+  const [searchRes, setSearchRes] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
 
   const [filter, dispatch] = useReducerFilter();
@@ -32,6 +32,11 @@ export default function Employees() {
   useEffect(() => {
     getAllEmployees(setEmployeesData, setIsLoaded);
   }, []);
+
+  function handleClickFilter() {
+    setOpenFilterPopup(true);
+    setOpenEmployeePopup(false);
+  }
 
   return (
     <div className="employee">
@@ -48,12 +53,20 @@ export default function Employees() {
         <Search
           onChange={(e) => handleSearch(e, employeesData, setSearchRes)}
         />
-        <Filter
-          onClick={() => {
-            setOpenFilterPopup(true);
-            setOpenEmployeePopup(false);
-          }}
-        />
+
+        <Filter onClick={handleClickFilter}>
+          <Popup
+            isOpen={openFilterPopup}
+            setIsOpen={setOpenFilterPopup}
+            className={'popup--filter'}
+          >
+            <PopupFilter
+              dispatch={dispatch}
+              listFilter={listFilter(employeesData)}
+              filter={filter}
+            />
+          </Popup>
+        </Filter>
       </EmployeeControl>
 
       {!isLoaded && <TableSkeleton />}
@@ -71,21 +84,9 @@ export default function Employees() {
       <Popup
         isOpen={openEmployeePopup}
         setIsOpen={setOpenEmployeePopup}
-        className={"popup--add-employee"}
+        className={'popup--add-employee'}
       >
         <PopupAddEmployee setOpenEmployeePopup={setOpenEmployeePopup} />
-      </Popup>
-
-      <Popup
-        isOpen={openFilterPopup}
-        setIsOpen={setOpenFilterPopup}
-        className={"popup--filter"}
-      >
-        <PopupFilter
-          dispatch={dispatch}
-          listFilter={listFilter(employeesData)}
-          filter={filter}
-        />
       </Popup>
     </div>
   );
