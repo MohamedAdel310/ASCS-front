@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './login.css';
+import styles from './login.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { Navigate } from 'react-router-dom';
 import loginRequest from '../../api/postLogin';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -22,12 +23,12 @@ export default function Login() {
   }
 
   return (
-    <div className="login-home">
+    <div className={styles.page}>
       <div
-        className={`login-page ${isBoxRight ? '' : 'right-panel-action'}`}
+        className={`${styles.container} ${isBoxRight ? '' : styles.rightPanel}`}
         id="login-page"
       >
-        <div className="form-container sign-up">
+        <div className={`${styles.form} ${styles.signUp} signUp`}>
           <form action="#">
             <h1>Create an account</h1>
             <Social />
@@ -39,7 +40,7 @@ export default function Login() {
             <button>Sign Up</button>
           </form>
         </div>
-        <div className="form-container sign-in">
+        <div className={`${styles.form} ${styles.signIn} signIn`}>
           <form onSubmit={handleSubmit}>
             <h1>Sign in</h1>
             <Social />
@@ -60,7 +61,7 @@ export default function Login() {
             />
             <a href="#">Forget Your Password?</a>
             <button type="submit" disabled={isLoading}>
-              Sign In
+              {isLoading ? <LoadingSpinner /> : 'Sign In'}
             </button>
           </form>
         </div>
@@ -73,7 +74,7 @@ export default function Login() {
 
 function Social() {
   return (
-    <div className="social-container">
+    <div className={styles.social}>
       <a href="#">
         <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
       </a>
@@ -89,8 +90,8 @@ function Social() {
 
 function MovingBox({ setIsBoxRight }) {
   return (
-    <div className="login-overlay-container">
-      <div className="login-overlay">
+    <div className={styles.loginOverlayContainer}>
+      <div className={styles.loginOverlay}>
         <LeftBox setIsBoxRight={setIsBoxRight} />
         <RightBox setIsBoxRight={setIsBoxRight} />
       </div>
@@ -100,12 +101,12 @@ function MovingBox({ setIsBoxRight }) {
 
 function LeftBox({ setIsBoxRight }) {
   return (
-    <div className="login-overlay-panel left">
+    <div className={`${styles.panel} left`}>
       <h1>Have already account?</h1>
       <p>To Keep connect with us please login with your account</p>
       <button
         id="signIn"
-        className="ghost"
+        className={styles.ghost}
         onClick={() => setIsBoxRight((val) => !val)}
       >
         Sign In
@@ -115,12 +116,12 @@ function LeftBox({ setIsBoxRight }) {
 }
 function RightBox({ setIsBoxRight }) {
   return (
-    <div className="login-overlay-panel right">
+    <div className={`${styles.panel} right`}>
       <h1>Create Account</h1>
       <p>Enter your personal detail and start journey with us</p>
       <button
         id="signUp"
-        className="ghost"
+        className={styles.ghost}
         onClick={() => setIsBoxRight((val) => !val)}
       >
         Sign Up

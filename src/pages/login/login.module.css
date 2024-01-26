@@ -1,4 +1,4 @@
-.login-home {
+.page {
   display: grid;
   place-items: center;
   font-family: 'montserrat', sans-serif;
@@ -6,19 +6,14 @@
   background-color: rgb(13 27 59 / 0.8);
 }
 
-button:disabled {
-  background-color: red !important;
-  cursor: default !important;
-}
-
-.login-page h1 {
+.page h1 {
   font-weight: 900;
   margin: 20px;
   line-height: 0.8;
   color: var(--socondary-color);
 }
 
-.login-page p {
+.page p {
   font-size: 1em;
   font-weight: 100;
   line-height: 1.3em;
@@ -27,35 +22,39 @@ button:disabled {
   color: white;
 }
 
-.login-page span {
+.page span {
   font-size: 12px;
   letter-spacing: 1px;
 }
 
-.login-page button {
+.page button {
   border-radius: 2em;
   border: 1px solid #fff;
   background: var(--socondary-color);
   font-weight: bold;
-  padding: 1em 5em;
+  padding: 0 5em;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   cursor: pointer;
   color: white;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.login-page button a {
+.page button a {
   color: white;
 }
-.login-page button:active {
+.page button:active {
   transform: scale(0.95);
 }
 
-.login-page button:focus {
+.page button:focus {
   outline: none;
 }
 
-.login-page form {
+.page form {
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -65,7 +64,7 @@ button:disabled {
   height: 100%;
   text-align: center;
 }
-.login-page input {
+.page input {
   background-color: #eeee;
   border: none;
   font-size: 16px;
@@ -74,18 +73,18 @@ button:disabled {
   width: 100%;
 }
 
-.login-page a {
+.page a {
   color: var(--main-color);
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
 }
 
-.login-page button.ghost {
+.ghost {
   background-color: var(--socondary-color);
   border-color: transparent;
 }
-.login-page {
+.container {
   background-color: #fff;
   border-radius: 2em;
   position: relative;
@@ -95,36 +94,36 @@ button:disabled {
   min-height: 550px;
 }
 
-.form-container {
+.form {
   position: absolute;
   top: 0;
   height: 100%;
   transition: all 0.06 ease-in-out;
 }
-.login-page .sign-in {
-  left: 0;
-  width: 50%;
-  z-index: 2;
-}
 
-.login-page .sign-up {
+.signUp {
   left: 0;
   width: 50%;
   opacity: 0;
   z-index: 1;
 }
+.signIn {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
 
-.right-panel-action .sign-in {
+.rightPanel :global(.signIn) {
   transform: translateX(100%);
 }
 
-.right-panel-action .sign-up {
+.rightPanel :global(.signUp) {
   transform: translateX(100%);
   opacity: 1;
   z-index: 5;
   animation: show 0.6s;
 }
-.login-page input:focus {
+.container input:focus {
   outline-style: none;
 }
 @keyframes show {
@@ -140,21 +139,21 @@ button:disabled {
   }
 }
 
-.right-panel-action .login-overlay-container {
+.rightPanel .loginOverlayContainer {
   transform: translateX(-100%);
 }
 
-.right-panel-action .login-overlay {
+.rightPanel .loginOverlay {
   transform: translateX(50%);
 }
-.right-panel-action .login-overlay-left {
+.rightPanel .left {
   transform: translateX(0);
 }
-.right-panel-action .login-overlay-right {
+.rightPanel .right {
   transform: translateX(20%);
 }
 
-.login-overlay-container {
+.loginOverlayContainer {
   position: absolute;
   top: 0;
   left: 50%;
@@ -164,7 +163,7 @@ button:disabled {
   transition: transform 0.6s ease-in-out;
   z-index: 100;
 }
-.login-overlay {
+.loginOverlay {
   background-color: var(--main-color);
   position: relative;
   left: -100%;
@@ -173,7 +172,7 @@ button:disabled {
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
 }
-.login-overlay-panel {
+.panel {
   position: absolute;
   display: flex;
   align-items: center;
@@ -187,19 +186,20 @@ button:disabled {
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
 }
-.left {
+
+:global(.left) {
   transform: translateX(-20%);
 }
-.right {
+:global(.right) {
   right: 0;
   transform: translateX(0);
 }
 
-.social-container {
+.social {
   margin: 20px 0;
 }
 
-.social-container a {
+.social a {
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;
@@ -212,7 +212,12 @@ button:disabled {
   transition: 0.3s;
 }
 
-.social-container a:hover {
+.social a:hover {
   font-size: 50px;
   transition: 0.3s;
+}
+
+.page button:disabled {
+  background-color: transparent;
+  cursor: default;
 }
