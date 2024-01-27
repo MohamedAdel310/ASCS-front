@@ -11,15 +11,15 @@ import loginRequest from '../../api/postLogin';
 import LoadingSpinner from '../../components/LoadingSpinner';
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [userLogin, setUserLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isBoxRight, setIsBoxRight] = useState(true);
 
   function handleSubmit(event) {
     event.preventDefault();
-    loginRequest({ email, password }, setUserLogin, setIsLoading);
+    const formData = new FormData(event.target);
+    const payload = Object.fromEntries(formData);
+    loginRequest(payload, setUserLogin, setIsLoading);
   }
 
   return (
@@ -45,19 +45,12 @@ export default function Login() {
             <h1>Sign in</h1>
             <Social />
             <span>login to your account</span>
+            <input name="email" type="email" placeholder="Email" required />
             <input
-              type="email"
-              placeholder="Email"
-              required
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <input
+              name="password"
               type="password"
               placeholder="Password"
               required
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
             />
             <a href="#">Forget Your Password?</a>
             <button type="submit" disabled={isLoading}>
