@@ -1,11 +1,18 @@
 import todayDate from '../Functions/todayDate';
 // const token = localStorage.getItem('token');
-const api = import.meta.env.VITE_API;
+import api from './api';
 
 export default async function fetchData(date, setData) {
   const dateVal = date ? date : todayDate();
-  const response = await fetch(`${api}/attendance/${dateVal}`);
-  const res = await response.json();
-  console.log('res.data: ', res.data);
-  setData(res.data);
+  try {
+    const { data } = await api.get(`/attendance/${dateVal}`);
+    setData(data.data);
+  } catch (error) {
+    console.log(
+      `There is an error happened in getAttendanceByDay request ${error}`
+    );
+    alert('There is an ERROR happened');
+  } finally {
+    console.log('finally');
+  }
 }

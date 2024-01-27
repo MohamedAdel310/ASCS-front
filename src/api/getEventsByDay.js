@@ -1,6 +1,6 @@
 import today from '../Functions/today';
 // const token = localStorage.getItem('token');
-const api = import.meta.env.VITE_API;
+import api from './api';
 
 export default async function fetchData(
   setData,
@@ -12,12 +12,11 @@ export default async function fetchData(
 
   try {
     setIsLoading(true);
-    const response = await fetch(`${api}/events/${dateRes}`);
-    const res = await response.json();
-
-    setData(res?.types);
-    setEvents(res?.data.reverse());
-  } catch {
+    const { data } = await api.get(`/events/${dateRes}`);
+    setData(data.types);
+    setEvents(data.data.reverse());
+  } catch (error) {
+    console.log(error);
     setData([]);
     setEvents([]);
     alert('there is an error happened');

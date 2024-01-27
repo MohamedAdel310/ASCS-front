@@ -1,17 +1,10 @@
+import today from '../Functions/today';
+import api from './api';
 const token = localStorage.getItem('token');
-const api = import.meta.env.VITE_API;
 
-const today = () => {
-  const today = new Date();
-  const date = today.toLocaleDateString('en-GB', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  });
-  const [day, month, year] = date.split('/');
-
-  return `${year}/${month}`;
-};
+// get year/month only from today() (it return year/month/day)
+let Today = today().split('/');
+Today = Today[0] + '/' + Today[1];
 
 export default async function fetchData(date) {
   console.log('fetch done');
@@ -19,9 +12,14 @@ export default async function fetchData(date) {
     'Authorization': `Bearer ${token}`,
   };
 
-  const response = await fetch(`${api}/events/${date || today()}`, {
-    headers,
-  });
-
-  return await response.json();
+  try {
+    const response = await api.get(`/events/${date || Today}`, {
+      headers,
+    });
+    console.log('res: ', response);
+  } catch (error) {
+    console.log('an error happened' + error);
+  } finally {
+    console.log('finally');
+  }
 }

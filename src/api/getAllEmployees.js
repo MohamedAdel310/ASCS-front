@@ -1,26 +1,20 @@
+import api from './api';
 const token = localStorage.getItem('token');
-const api = import.meta.env.VITE_API;
 
-const headers = {
-  'Authorization': `Bearer ${token}`,
+const config = {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
 };
 
 export default async function fetchData(setEmployeesData, setIsLoaded) {
   try {
     setIsLoaded(false);
-    const response = await fetch(api + '/employees', {
-      headers,
-    });
-    console.log(response);
-
-    if (!response.ok) {
-      throw new Error('');
-    }
-
-    const res = await response.json();
-    const data = res.data;
+    const response = await api.get('/employees', config);
+    // the api response is funny :) need to fix it in backend :(
+    const data = response.data.data;
     setEmployeesData(data?.employees);
-  } catch {
+  } catch (error) {
     alert('error happened when get employees data');
   } finally {
     setIsLoaded(true);
