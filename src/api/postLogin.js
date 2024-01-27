@@ -1,24 +1,21 @@
+import api from './api';
+
 export default async function loginRequest(body, setUserLogin, setIsLoading) {
   try {
     setIsLoading(true);
-    const response = await fetch(`${import.meta.env.VITE_API}/users/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
-    const res = await response.json();
+    console.log(body);
+    const response = await api.post(`/users/login`, body);
+    // const res = await response.json();
 
-    if (res.status === 'fail') {
-      localStorage.removeItem('token');
-      return alert(res.message);
+    localStorage.setItem('token', response.token); // save token to local storage
+    setUserLogin(true);
+  } catch (error) {
+    localStorage.removeItem('token');
+
+    if (error.response.status === 401) {
+      return alert('Your email or password is wrong try again');
     }
 
-    localStorage.setItem('token', res.token); // save token to local storage
-    setUserLogin(true);
-  } catch {
-    localStorage.removeItem('token');
     alert('There is an error happened');
   } finally {
     setIsLoading(false);
