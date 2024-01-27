@@ -11,12 +11,14 @@ export default async function loginRequest(body, setUserLogin, setIsLoading) {
     const res = await response.json();
 
     if (res.status === 'fail') {
+      localStorage.removeItem('token');
       return alert(res.message);
     }
 
     localStorage.setItem('token', res.token); // save token to local storage
     setUserLogin(true);
   } catch {
+    localStorage.removeItem('token');
     alert('There is an error happened');
   } finally {
     setIsLoading(false);

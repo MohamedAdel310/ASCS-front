@@ -1,3 +1,6 @@
+const token = localStorage.getItem('token');
+const api = import.meta.env.VITE_API;
+
 const today = () => {
   const today = new Date();
   const date = today.toLocaleDateString('en-GB', {
@@ -12,21 +15,13 @@ const today = () => {
 
 export default async function fetchData(date) {
   console.log('fetch done');
-  const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4';
   const headers = {
     'Authorization': `Bearer ${token}`,
   };
-  console.log('date: ', date);
-  console.log('today(): ', today());
 
-  const response = await fetch(
-    import.meta.env.VITE_API + `/events/${date || today()}`,
-    {
-      headers,
-    }
-  );
-  // const json = await response.json();
+  const response = await fetch(`${api}/events/${date || today()}`, {
+    headers,
+  });
 
   return await response.json();
 }
