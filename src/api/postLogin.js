@@ -1,7 +1,7 @@
 export default async function loginRequest(body, setUserLogin, setIsLoading) {
   try {
     setIsLoading(true);
-    const response = await fetch('https://myaz.cyclic.app/api/users/login', {
+    const response = await fetch(`${import.meta.env.VITE_API}/users/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

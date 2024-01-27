@@ -1,11 +1,11 @@
-import todayDate from "../Functions/todayDate";
+import todayDate from '../Functions/todayDate';
 
 export default async function fetchData(date, setData) {
+  const dateVal = date ? date : todayDate();
   const response = await fetch(
-    `https://myaz.cyclic.app/api/attendance/${date ? date : todayDate()}`
+    `${import.meta.env.VITE_API}/attendance/${dateVal}`
   );
   const res = await response.json();
-  // setData(json.data);
-  console.log("res.data: ", res.data);
+  console.log('res.data: ', res.data);
   setData(res.data);
 }

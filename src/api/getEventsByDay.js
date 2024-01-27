@@ -1,12 +1,5 @@
 import today from '../Functions/today';
 
-const apiURL = 'https://myaz.cyclic.app/api/';
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjc3ZjUzYzZmYzhmN2IxYzUzYzc3MSIsImlhdCI6MTY4MTM5ODAyOCwiZXhwIjoxNjg5MTc0MDI4fQ.IgULvpKaicCHhdS6TL3kfSoeAulggd1iPa7M-Yzfsr4';
-const headers = {
-  'Authorization': `Bearer ${token}`,
-};
-
 export default async function fetchData(
   setData,
   setEvents,
@@ -17,9 +10,9 @@ export default async function fetchData(
 
   try {
     setIsLoading(true);
-    const response = await fetch(apiURL + `events/${dateRes}`, {
-      headers,
-    });
+    const response = await fetch(
+      import.meta.env.VITE_API + `/events/${dateRes}`
+    );
     const res = await response.json();
 
     setData(res?.types);
