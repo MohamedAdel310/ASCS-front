@@ -1,41 +1,17 @@
-/** @format */
-
-* {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: Cairo, sans-serif;
-}
-
-:root {
-  --main-color: #0d1b3b;
-  --socondary-color: #ffaa01;
-}
-
-html {
-  scroll-behavior: smooth;
-}
 .landing {
   position: relative;
-  height: 100%;
-  width: 100%;
   overflow: hidden;
-  min-height: 100vh;
   background-color: rgb(13 27 59 / 0.8);
   z-index: 1;
-  min-width: 100%;
+  min-height: 100vh;
 }
 
-.landing-image {
-  z-index: -5;
+.background-image {
   background-image: url(./wallpaperflare.com_wallpaper\ 3\ .jpg);
-  height: 100vh;
-  width: 100%;
+  z-index: -5;
 }
 
-.box1 {
+.hand-animation {
   position: absolute;
   width: 568px;
   height: 622px;
@@ -44,7 +20,7 @@ html {
   left: 30%;
   animation: show0 2s forwards, show1 3s forwards 3s;
 }
-.box1::after {
+.hand-animation::after {
   content: '';
   position: absolute;
   width: 568px;
@@ -71,44 +47,31 @@ html {
     width: 0;
   }
 }
-.box2 {
-  height: auto;
-  width: auto;
-  font-family: 'Bahnschrift Condensed';
+
+.header {
   color: white;
   font-size: 5em;
-  font-weight: 500;
-  line-height: 130px;
+  font-weight: 900;
+  letter-spacing: 10px;
+  line-height: 2;
+  text-transform: uppercase;
   position: absolute;
   top: 40vh;
-  left: 100px;
-  overflow: hidden;
-  letter-spacing: 10px;
-}
-.box2 .text1 {
-  position: relative;
   left: -100%;
-  animation: show2 2s forwards 3s;
-  color: var(--socondary-color);
-  font-weight: 900;
   font-size: 60px;
-  color: white;
-  text-transform: uppercase;
-  line-height: 2;
+  animation: show2 2s forwards 3s;
 }
+
 @keyframes show2 {
   form {
     left: -100%;
   }
   to {
-    left: 0;
+    left: 5%;
   }
 }
-.landing .box3 {
-  overflow: hidden;
-}
 
-.landing .box3 .logo--image {
+.logo {
   position: absolute;
   left: -100%;
   animation: logo 2s forwards 3s;
@@ -117,25 +80,37 @@ html {
   gap: 20px;
 }
 
-.landing .box3 .logo--image span {
+.logo span {
   font-size: 25px;
   font-weight: 1000;
   color: white;
   letter-spacing: 2px;
   margin-top: 20px;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
 }
 
-.landing .box3 .logo--image img {
+.logo img {
   max-width: 80px;
   margin-left: 25px;
   margin-top: 20px;
 }
+@keyframes logo {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
 
-.box3 .container {
-  width: 100%;
+.login {
   position: absolute;
   top: -100%;
+  right: 5%;
   animation: show3 2s forwards 2.5s;
+  margin-top: 40px;
+  margin-right: 20px;
 }
 @keyframes show3 {
   from {
@@ -146,127 +121,40 @@ html {
   }
 }
 
-@keyframes logo {
-  from {
-    left: -100%;
-  }
-  to {
-    left: 0;
-  }
-}
-
-.menu {
-  font-family: 'Behnschrift Condensed';
-  font-size: 14px;
-  color: white;
-  margin-top: 40px;
-  margin-right: 20px;
-  float: right;
-  width: fit-content;
-}
-
-.menu ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-.menu ul li {
-  cursor: pointer;
-  width: 180px;
-  text-align: center;
-  transition: 0.4s;
-  border-radius: 10px;
-}
-.menu ul li a {
+.login a {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
-  transition: 0.2s;
-  position: relative;
-  overflow: hidden;
+  width: 180px;
+  border-radius: 10px;
   text-decoration: none;
-  color: var(--socondary-color);
-  font-weight: 900;
-  letter-spacing: 3px;
-  font-size: 20px;
-}
-.menu .login {
-  margin-left: 125px;
+  background-color: var(--secondary-color);
+  color: white;
 }
 
-.menu .login a {
-  color: white;
-  background-color: var(--socondary-color);
-  border-radius: 10px;
-}
-
-.menu ul li:hover {
-  background-color: var(--socondary-color);
-  border-radius: 10px;
-  transition-delay: 0.1s;
-}
-.menu ul li a:hover {
-  color: white;
-  margin: auto;
-  flex: 1;
-}
 .landing .go-down {
+  transform: translateX(-50%);
+  font-size: 30px;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  transition: 0.3s;
-  color: var(--socondary-color);
   bottom: -100%;
-  animation: show6 2s forwards 2.5s;
-  font-size: 30px;
+  color: var(--secondary-color);
+  animation: show6 2s infinite;
 }
 @keyframes show6 {
   from {
-    bottom: -100%;
-  }
-  to {
     bottom: 25px;
   }
-}
-.landing .go-down:hover {
-  bottom: 30px;
-}
-.landing .go-down i {
-  animation: bouncing 1.5s infinite;
-  padding-bottom: 20px;
-}
-@keyframes bouncing {
-  0%,
-  10%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
+  to {
+    bottom: 0%;
   }
+}
 
-  40%,
-  60% {
-    transform: translateY(-20%);
-  }
-}
-/** @format */
 /* about us style  */
-* {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  font-family: 'poppins', sans-serif;
-  padding: 0;
-  margin: 0;
-}
-
-:root {
-  --main-color: #243762;
-  --socondary-color: #ffaa01;
-}
-
 .about-image {
   z-index: -5;
   background-image: url(./wallpaperflare.com_wallpaper\ 2.jpg);
@@ -315,7 +203,7 @@ html {
 .about .about-content .title {
   text-transform: uppercase;
   font-size: 28px;
-  color: var(--socondary-color);
+  color: var(--secondary-color);
 }
 
 .about .about-content .content h3 {
@@ -337,7 +225,7 @@ html {
   background: linear-gradient(
     to right,
     rgb(255 255 255) 50%,
-    var(--socondary-color) 50%
+    var(--secondary-color) 50%
   );
   background-position: right bottom;
   cursor: pointer;
@@ -353,7 +241,7 @@ html {
 }
 .about .about-content .content .button a:hover {
   background-position: left bottom;
-  color: var(--socondary-color);
+  color: var(--secondary-color);
 }
 
 .about-content .social {
@@ -372,6 +260,6 @@ html {
 }
 
 .about-content .social a:hover {
-  color: var(--socondary-color);
+  color: var(--secondary-color);
   transition: 0.3s;
 }
