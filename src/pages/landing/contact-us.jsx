@@ -8,25 +8,6 @@ import {
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons';
 
-let inputs = document.querySelectorAll('.input');
-
-function focusFunc() {
-  let parent = this.parentNode;
-  parent.classList.add('focus');
-}
-
-function blurFunc() {
-  let parent = this.parentNode;
-  if (this.value == '') {
-    parent.classList.remove('focus');
-  }
-}
-
-inputs.forEach((input) => {
-  input.addEventListener('focus', focusFunc);
-  input.addEventListener('blur', blurFunc);
-});
-
 const contactStyle = {
   display: 'flex',
   gap: '3px',
@@ -51,15 +32,15 @@ export default function Contact() {
             <div class="info">
               <div class="information" style={contactStyle}>
                 <img src="/image/location.png" class="icon" alt="" />
-                <p>Ismailia-Fayed</p>
+                <p>Cairo</p>
               </div>
               <div class="information" style={contactStyle}>
                 <img src="/image/email.png" class="icon" alt="" />
-                <p>mohammed.sa3dalla@gmail.com</p>
+                <p>MohamedAdelElbeak@gmail.com</p>
               </div>
               <div class="information" style={contactStyle}>
                 <img src="/image/phone.png" class="icon" alt="" />
-                <p>01224247574</p>
+                <p>01553014091</p>
               </div>
             </div>
 
