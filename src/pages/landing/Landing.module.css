@@ -6,12 +6,12 @@
   min-height: 100vh;
 }
 
-.background-image {
+.backgroundImage {
   background-image: url(./wallpaperflare.com_wallpaper\ 3\ .jpg);
   z-index: -5;
 }
 
-.hand-animation {
+.handAnimation {
   position: absolute;
   width: 568px;
   height: 622px;
@@ -20,7 +20,7 @@
   left: 30%;
   animation: show0 2s forwards, show1 3s forwards 3s;
 }
-.hand-animation::after {
+.handAnimation::after {
   content: '';
   position: absolute;
   width: 568px;
@@ -136,7 +136,7 @@
   color: white;
 }
 
-.landing .go-down {
+.landing .goDown {
   transform: translateX(-50%);
   font-size: 30px;
   position: absolute;
