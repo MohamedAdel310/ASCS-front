@@ -155,15 +155,6 @@ textarea.input {
     right: 70px;
   }
 
-  .square {
-    transform: translate(140%, 43%);
-    height: 350px;
-  }
-
-  .text {
-    margin: 1rem 0 1.5rem 0;
-  }
-
   .social-media {
     padding: 1.5rem 0 0 0;
   }
@@ -183,14 +174,8 @@ textarea.input {
     padding: 1.7rem 1.6rem;
   }
 
-  .text,
-  .information,
   .social-media p {
     font-size: 0.8rem;
-  }
-
-  .title {
-    font-size: 1.15rem;
   }
 
   .social-icons a {
