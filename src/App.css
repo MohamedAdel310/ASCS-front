@@ -9,7 +9,12 @@
 
 :root {
   --main-color: #0d1b3b;
+  --secondary-color: #ffaa01; /* there is miss spelling but all code wrote in that wrong spelling so I leet two spelling (correct and wrong) until I fix that in all files*/
   --socondary-color: #ffaa01;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 table {
