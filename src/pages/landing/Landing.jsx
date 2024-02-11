@@ -1,5 +1,6 @@
 import React from 'react';
 import './landing.css';
+import './about.css';
 import Contact from './contact-us';
 import About from './about-us';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
