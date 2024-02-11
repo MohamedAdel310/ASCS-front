@@ -1,4 +1,4 @@
-.container {
+.contact {
   min-height: 100vh;
   padding: 2rem;
   display: flex;
@@ -15,16 +15,16 @@
   overflow: hidden;
 }
 
-.contact-info p {
+.contactInfo p {
   letter-spacing: 1px;
 }
 
-.contact-info {
+.contactInfo {
   padding: 2.3rem 2.2rem;
   position: relative;
 }
 
-.contact-info:before {
+.contactInfo:before {
   content: '';
   position: absolute;
   width: 110px;
@@ -65,16 +65,16 @@ form {
   position: relative;
 }
 
-.social-media {
+.socialMedia {
   padding-top: 2rem;
 }
 
-.social-icons {
+.socialIcons {
   display: flex;
   margin-top: 0.5rem;
 }
 
-.social-icons a {
+.socialIcons a {
   width: 35px;
   height: 35px;
   border-radius: 5px;
@@ -86,11 +86,11 @@ form {
   transition: 0.3s;
 }
 
-.social-icons a:hover {
+.socialIcons a:hover {
   transform: scale(1.05);
 }
 
-.contact-form {
+.contactForm {
   background-color: var(--main-color);
 }
 
@@ -142,43 +142,43 @@ textarea.input {
     grid-template-columns: 1fr;
   }
 
-  .contact-info:before {
+  .contactInfo:before {
     bottom: initial;
     top: -75px;
     right: 65px;
     transform: scale(0.95);
   }
 
-  .contact-form:before {
+  .contactForm:before {
     top: -13px;
     left: initial;
     right: 70px;
   }
 
-  .social-media {
+  .socialMedia {
     padding: 1.5rem 0 0 0;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
+  .contact {
     padding: 1.5rem;
   }
 
-  .contact-info:before {
+  .contactInfo:before {
     display: none;
   }
 
   form,
-  .contact-info {
+  .contactInfo {
     padding: 1.7rem 1.6rem;
   }
 
-  .social-media p {
+  .socialMedia p {
     font-size: 0.8rem;
   }
 
-  .social-icons a {
+  .socialIcons a {
     width: 30px;
     height: 30px;
     line-height: 30px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import './contact.css';
+import style from './ContactUs.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
@@ -16,18 +16,18 @@ const contactStyle = {
 
 export default function Contact() {
   return (
-    <div class="container">
-      <div class="form">
-        <div class="contact-info">
-          <h3 class="title">Let's get in touch</h3>
-          <p class="text">
+    <div className={style.contact}>
+      <div className={style.form}>
+        <div className={style.contactInfo}>
+          <h3 className={style.title}>Let's get in touch</h3>
+          <p className={style.text}>
             We would love to hear from you! If you have any questions, feedback,
             or inquiries, please don't hesitate to get in touch with us. Our
             dedicated team is here to assist you and provide the information you
             need.
           </p>
 
-          <div class="info">
+          <div className={style.info}>
             <div style={contactStyle}>
               <img src="/image/location.png" alt="location" />
               <p>Cairo</p>
@@ -42,9 +42,9 @@ export default function Contact() {
             </div>
           </div>
 
-          <div class="social-media">
+          <div className={style.socialMedia}>
             <p>Connect with us :</p>
-            <div class="social-icons">
+            <div className={style.socialIcons}>
               <a href="#">
                 <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
               </a>
@@ -61,35 +61,35 @@ export default function Contact() {
           </div>
         </div>
 
-        <div class="contact-form">
+        <div className={style.contactForm}>
           <form onSubmit={(e) => e.preventDefault()}>
-            <h3 class="title">Contact us</h3>
-            <div className="formInputs">
+            <h3 className={style.title}>Contact us</h3>
+            <div className={style.formInputs}>
               <input
                 type="text"
                 name="name"
-                className="input"
+                className={style.input}
                 placeholder="Username"
               />
               <input
                 type="email"
                 name="email"
-                className="input"
+                className={style.input}
                 placeholder="Email"
               />
               <input
                 type="tel"
                 name="phone"
-                className="input"
+                className={style.input}
                 placeholder="Phone"
               />
               <textarea
                 name="message"
-                className="input"
+                className={style.input}
                 placeholder="Message"
               ></textarea>
             </div>
-            <input type="submit" value="Send" className="btn" />
+            <input type="submit" value="Send" className={style.btn} />
           </form>
         </div>
       </div>
