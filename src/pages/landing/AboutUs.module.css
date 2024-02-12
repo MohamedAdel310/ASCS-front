@@ -80,3 +80,35 @@
   color: var(--secondary-color);
   transition: 0.3s;
 }
+
+@media (max-width: 850px) {
+  .title {
+    font-size: 32px;
+  }
+  .contentTitle {
+    font-size: 22px;
+  }
+  .contentText {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+  }
+  .contentTitle {
+    font-size: 20px;
+  }
+  .contentText {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .button {
+    margin-top: 10px;
+    padding: 10px 18px;
+    font-size: 16px;
+  }
+}

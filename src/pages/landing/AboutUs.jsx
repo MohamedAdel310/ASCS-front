@@ -31,10 +31,7 @@ export default function About() {
               any intrusions or unauthorized access, promptly alerting relevant
               authorities to prevent potential threats. Lastly, we emphasize the
               detection of unwanted activities, enabling timely intervention to
-              address any prevented behaviors. By addressing these crucial
-              aspects through video surveillance systems, we strive to create a
-              safer environment for everyone in public places, fostering a sense
-              of security and peace of mind.
+              address any prevented behaviors.
             </p>
             <button className={style.button}>Read More</button>
           </div>
