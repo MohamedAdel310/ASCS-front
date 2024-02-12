@@ -1,4 +1,4 @@
-import React from 'react';
+import style from './AboutUs.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
@@ -8,13 +8,15 @@ import {
 
 export default function About() {
   return (
-    <div className="about-image">
-      <div className="about">
-        <div className="about-content">
-          <h1 className="title">About Us</h1>
-          <div className="content">
-            <h2 className="contentTitle">AI surveillance camera system.</h2>
-            <p className="contentText">
+    <div className={style.aboutImage}>
+      <div className={style.about}>
+        <div className={style.aboutContent}>
+          <h1 className={style.title}>About Us</h1>
+          <div className={style.content}>
+            <h2 className={style.contentTitle}>
+              AI surveillance camera system.
+            </h2>
+            <p className={style.contentText}>
               surveillance cameras have become ubiquitous, capturing a multitude
               of events throughout the day. Their widespread presence has
               significantly contributed to ensuring the safety of various public
@@ -34,9 +36,9 @@ export default function About() {
               safer environment for everyone in public places, fostering a sense
               of security and peace of mind.
             </p>
-            <button className="button">Read More</button>
+            <button className={style.button}>Read More</button>
           </div>
-          <div className="socialList">
+          <div className={style.socialList}>
             <a href="/facebook">
               <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
             </a>

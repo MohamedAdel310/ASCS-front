@@ -1,7 +1,6 @@
-import './about.css';
 import style from './Landing.module.css';
 import Contact from './ContactUs';
-import About from './about-us';
+import About from './AboutUs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';

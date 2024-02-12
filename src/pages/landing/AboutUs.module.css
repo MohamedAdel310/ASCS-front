@@ -1,4 +1,4 @@
-.about-image {
+.aboutImage {
   z-index: -5;
   background-image: url(./wallpaperflare.com_wallpaper\ 2.jpg);
 }
@@ -8,7 +8,7 @@
   background-color: rgb(13 27 59 / 0.9);
 }
 
-.about-content {
+.aboutContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
