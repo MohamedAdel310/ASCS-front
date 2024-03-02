@@ -28,6 +28,18 @@ export default function Login() {
         className={`${styles.container} ${isBoxRight ? '' : styles.rightPanel}`}
         id="login-page"
       >
+        <div className={`${styles.form} ${styles.signUp} signUp`}>
+          <form onSubmit={(e) => e.preventDefault()}>
+            <h1>Create an account</h1>
+            <Social />
+            <span>use your email for register</span>
+            <input type="text" placeholder="Name" required />
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <br />
+            <button>Sign Up</button>
+          </form>
+        </div>
         <div className={`${styles.form} ${styles.signIn} signIn`}>
           <form onSubmit={handleSubmit}>
             <h1>Sign in</h1>
