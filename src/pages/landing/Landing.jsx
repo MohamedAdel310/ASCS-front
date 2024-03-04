@@ -28,7 +28,7 @@ function Main() {
 
         <nav className={style.nav}>
           <div className={style.logo}>
-            <img src="/public/myaz.png" alt="myaz" logo />
+            <img src="/myaz.png" alt="myaz" logo />
             <span>MYAZ</span>
           </div>
 
