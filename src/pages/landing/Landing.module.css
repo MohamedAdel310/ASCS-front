@@ -7,7 +7,7 @@
 }
 
 .backgroundImage {
-  background-image: url(./wallpaperflare.com_wallpaper\ 3\ .jpg);
+  background-image: url(/wallpaperflare.com_wallpaper\ 3\ .jpg);
   z-index: -5;
 }
 
@@ -15,7 +15,7 @@
   position: absolute;
   width: 568px;
   height: 622px;
-  background-image: url(./image/logo1.png);
+  background-image: url(/image/logo1.png);
   bottom: -100%;
   left: 30%;
   animation: show0 2s forwards, show1 3s forwards 3s;
